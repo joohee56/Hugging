@@ -74,6 +74,12 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
+
+# Paid Assets
+/[Aa]ssets/Low-poly characters pack
+/[Aa]ssets/Low-poly characters pack.meta
+
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
