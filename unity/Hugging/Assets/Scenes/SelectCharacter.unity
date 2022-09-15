@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -211,7 +211,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 60682184}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1883372599}
+        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
+        m_MethodName: clickCharacterBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &60682184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,7 +345,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 138153944}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1883372599}
+        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
+        m_MethodName: clickCharacterBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 11
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &138153944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,6 +403,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1142925480}
     m_Modifications:
+    - target: {fileID: 2602080607814402298, guid: f465b74d2b475664c9ba607f296db327, type: 3}
+      propertyPath: sceneViewId
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7475511529022404596, guid: f465b74d2b475664c9ba607f296db327, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -439,7 +467,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ch_16
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 369645106845899018, guid: f465b74d2b475664c9ba607f296db327, type: 3}
+    - {fileID: -446707628299465655, guid: f465b74d2b475664c9ba607f296db327, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f465b74d2b475664c9ba607f296db327, type: 3}
 --- !u!4 &180732416 stripped
 Transform:
@@ -529,7 +559,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 202630293}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1883372599}
+        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
+        m_MethodName: clickCharacterBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &202630293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -770,7 +812,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 329093324}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1883372599}
+        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
+        m_MethodName: clickCharacterBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 18
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &329093324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -897,7 +951,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 364274869}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1883372599}
+        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
+        m_MethodName: clickCharacterBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &364274869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -948,6 +1014,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1189464671}
     m_Modifications:
+    - target: {fileID: -3251979191750091613, guid: b6efc674efa077140b79484316957ef3, type: 3}
+      propertyPath: sceneViewId
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 6597103927671660345, guid: b6efc674efa077140b79484316957ef3, type: 3}
       propertyPath: m_Name
       value: Ch_15
@@ -1008,7 +1078,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9176359565902871674, guid: b6efc674efa077140b79484316957ef3, type: 3}
+    - {fileID: 4022349026548942590, guid: b6efc674efa077140b79484316957ef3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b6efc674efa077140b79484316957ef3, type: 3}
 --- !u!1001 &456203232
 PrefabInstance:
@@ -1017,6 +1089,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 819860840}
     m_Modifications:
+    - target: {fileID: -4248768011105355925, guid: f14acdb7fefdc4e4e97117e08e96051f, type: 3}
+      propertyPath: sceneViewId
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8211409163910658732, guid: f14acdb7fefdc4e4e97117e08e96051f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1077,7 +1153,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ch_12
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7921433371795126233, guid: f14acdb7fefdc4e4e97117e08e96051f, type: 3}
+    - {fileID: -5521018444192199203, guid: f14acdb7fefdc4e4e97117e08e96051f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f14acdb7fefdc4e4e97117e08e96051f, type: 3}
 --- !u!1 &549535960
 GameObject:
@@ -1162,7 +1240,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 549535963}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1883372599}
+        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
+        m_MethodName: clickCharacterBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 9
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &549535963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1284,7 +1374,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 579346917}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1883372599}
+        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
+        m_MethodName: clickCharacterBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 13
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &579346917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1330,6 +1432,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 202630291}
     m_Modifications:
+    - target: {fileID: 2769216657139662030, guid: 0638195c4f0f7974aa05342fa2ac227f, type: 3}
+      propertyPath: sceneViewId
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3046905764117060404, guid: 0638195c4f0f7974aa05342fa2ac227f, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0
@@ -1414,7 +1520,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2897727421325078993, guid: 0638195c4f0f7974aa05342fa2ac227f, type: 3}
+    - {fileID: 5518021872871070977, guid: 0638195c4f0f7974aa05342fa2ac227f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0638195c4f0f7974aa05342fa2ac227f, type: 3}
 --- !u!1001 &767979740
 PrefabInstance:
@@ -1423,6 +1531,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2113500337}
     m_Modifications:
+    - target: {fileID: 1220870832337610770, guid: 4511b61008e1db64285fa4c84f81f540, type: 3}
+      propertyPath: sceneViewId
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5922184155180251545, guid: 4511b61008e1db64285fa4c84f81f540, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1483,7 +1595,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ch_03
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 729151395787845068, guid: 4511b61008e1db64285fa4c84f81f540, type: 3}
+    - {fileID: 1508508384591979180, guid: 4511b61008e1db64285fa4c84f81f540, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4511b61008e1db64285fa4c84f81f540, type: 3}
 --- !u!1 &780813162
 GameObject:
@@ -1568,7 +1682,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 780813165}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1883372599}
+        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
+        m_MethodName: clickCharacterBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &780813165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1690,7 +1816,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 819860842}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1883372599}
+        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
+        m_MethodName: clickCharacterBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 12
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &819860842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1817,7 +1955,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 865137470}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1883372599}
+        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
+        m_MethodName: clickCharacterBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &865137470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1868,6 +2018,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 780813163}
     m_Modifications:
+    - target: {fileID: -2695629612782729064, guid: 88ca510dafa3a8842b62a1c17662146c, type: 3}
+      propertyPath: sceneViewId
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3028663495564269953, guid: 88ca510dafa3a8842b62a1c17662146c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1928,7 +2082,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ch_07
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3139179529944755209, guid: 88ca510dafa3a8842b62a1c17662146c, type: 3}
+    - {fileID: -911018594077890513, guid: 88ca510dafa3a8842b62a1c17662146c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 88ca510dafa3a8842b62a1c17662146c, type: 3}
 --- !u!4 &966838186 stripped
 Transform:
@@ -1942,6 +2098,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2074932811}
     m_Modifications:
+    - target: {fileID: 6723718376303702353, guid: debf17d9a4aacdf4d94e609c1c9b28e1, type: 3}
+      propertyPath: sceneViewId
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8054105317727217432, guid: debf17d9a4aacdf4d94e609c1c9b28e1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2002,7 +2162,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ch_08
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -1424983024560605888, guid: debf17d9a4aacdf4d94e609c1c9b28e1, type: 3}
+    - {fileID: -8626030741990180815, guid: debf17d9a4aacdf4d94e609c1c9b28e1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: debf17d9a4aacdf4d94e609c1c9b28e1, type: 3}
 --- !u!4 &1095032885 stripped
 Transform:
@@ -2172,7 +2334,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1142925482}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1883372599}
+        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
+        m_MethodName: clickCharacterBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 16
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1142925482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2218,6 +2392,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 329093322}
     m_Modifications:
+    - target: {fileID: -2194469984249943927, guid: cddda814fd3ddd4478648154079ece69, type: 3}
+      propertyPath: sceneViewId
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 7873025694438814300, guid: cddda814fd3ddd4478648154079ece69, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2278,7 +2456,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ch_18
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -8735394663698235152, guid: cddda814fd3ddd4478648154079ece69, type: 3}
+    - {fileID: -2904289081291790092, guid: cddda814fd3ddd4478648154079ece69, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cddda814fd3ddd4478648154079ece69, type: 3}
 --- !u!1 &1189464670
 GameObject:
@@ -2363,7 +2543,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1189464673}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1883372599}
+        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
+        m_MethodName: clickCharacterBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 15
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1189464673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2409,6 +2601,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 138153942}
     m_Modifications:
+    - target: {fileID: -7629128581080840728, guid: ea736b60b8673d94c9834849655e4fdd, type: 3}
+      propertyPath: sceneViewId
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2814420683335011921, guid: ea736b60b8673d94c9834849655e4fdd, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2469,7 +2665,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ch_11
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8404865247287704033, guid: ea736b60b8673d94c9834849655e4fdd, type: 3}
+    - {fileID: 728905908670836823, guid: ea736b60b8673d94c9834849655e4fdd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ea736b60b8673d94c9834849655e4fdd, type: 3}
 --- !u!1 &1240764370
 GameObject:
@@ -2546,6 +2744,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 364274867}
     m_Modifications:
+    - target: {fileID: 6104932427449178282, guid: 2d7f310e3e054c64692327f588bb3c08, type: 3}
+      propertyPath: sceneViewId
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 7126483378491798440, guid: 2d7f310e3e054c64692327f588bb3c08, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2606,7 +2808,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ch_06
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6925335124614994312, guid: 2d7f310e3e054c64692327f588bb3c08, type: 3}
+    - {fileID: 1261773360897415179, guid: 2d7f310e3e054c64692327f588bb3c08, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2d7f310e3e054c64692327f588bb3c08, type: 3}
 --- !u!4 &1310395040 stripped
 Transform:
@@ -2714,6 +2918,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 865137468}
     m_Modifications:
+    - target: {fileID: 352210787841924892, guid: 951e0d3877ac32647957018fa093c189, type: 3}
+      propertyPath: sceneViewId
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1635673811250116422, guid: 951e0d3877ac32647957018fa093c189, type: 3}
       propertyPath: m_Name
       value: Ch_10
@@ -2774,7 +2982,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7111062038161323649, guid: 951e0d3877ac32647957018fa093c189, type: 3}
+    - {fileID: 5983084515087665885, guid: 951e0d3877ac32647957018fa093c189, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 951e0d3877ac32647957018fa093c189, type: 3}
 --- !u!1 &1531714633
 GameObject:
@@ -2859,7 +3069,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1531714636}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1883372599}
+        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
+        m_MethodName: clickCharacterBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1531714636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2910,6 +3132,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 549535961}
     m_Modifications:
+    - target: {fileID: -5209229014877501948, guid: a12ec8e5d3bc16c4881cdb5daf1038af, type: 3}
+      propertyPath: sceneViewId
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 874070575788199436, guid: a12ec8e5d3bc16c4881cdb5daf1038af, type: 3}
       propertyPath: m_Name
       value: Ch_09
@@ -2970,7 +3196,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7169592165509863126, guid: a12ec8e5d3bc16c4881cdb5daf1038af, type: 3}
+    - {fileID: 2431438307937546570, guid: a12ec8e5d3bc16c4881cdb5daf1038af, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a12ec8e5d3bc16c4881cdb5daf1038af, type: 3}
 --- !u!1001 &1653294477
 PrefabInstance:
@@ -2979,6 +3207,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 579346915}
     m_Modifications:
+    - target: {fileID: -3685277381703432177, guid: a0311fe144f21c94f815684e5890dadf, type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1442965963440963491, guid: a0311fe144f21c94f815684e5890dadf, type: 3}
       propertyPath: m_Name
       value: Ch_13
@@ -3039,7 +3271,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -101139980474807540, guid: a0311fe144f21c94f815684e5890dadf, type: 3}
+    - {fileID: -2356100343393562227, guid: a0311fe144f21c94f815684e5890dadf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a0311fe144f21c94f815684e5890dadf, type: 3}
 --- !u!4 &1656212842 stripped
 Transform:
@@ -3134,7 +3368,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1701650544}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1883372599}
+        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
+        m_MethodName: clickCharacterBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 17
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1701650544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3261,7 +3507,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1748067352}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1883372599}
+        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
+        m_MethodName: clickCharacterBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 14
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1748067352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3372,7 +3630,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8529518813347105539, guid: 6012fd3ff17e5f74cb268cce5eee9bcd, type: 3}
+      propertyPath: sceneViewId
+      value: 14
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6269314607365112535, guid: 6012fd3ff17e5f74cb268cce5eee9bcd, type: 3}
+    - {fileID: -6891532692982287512, guid: 6012fd3ff17e5f74cb268cce5eee9bcd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6012fd3ff17e5f74cb268cce5eee9bcd, type: 3}
 --- !u!4 &1786753730 stripped
 Transform:
@@ -3386,6 +3650,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1531714634}
     m_Modifications:
+    - target: {fileID: -5575836265028911829, guid: 0b568f39c4eadbc47b023ace1066cd13, type: 3}
+      propertyPath: sceneViewId
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1481911021682527130, guid: 0b568f39c4eadbc47b023ace1066cd13, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3446,7 +3714,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ch_02
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -556800053793683761, guid: 0b568f39c4eadbc47b023ace1066cd13, type: 3}
+    - {fileID: -7943235849956152228, guid: 0b568f39c4eadbc47b023ace1066cd13, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0b568f39c4eadbc47b023ace1066cd13, type: 3}
 --- !u!1 &1805222005
 GameObject:
@@ -3609,7 +3879,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6843660888288739013, guid: e06a546890cc40145b4a6c617103749d, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4186284849391226670, guid: e06a546890cc40145b4a6c617103749d, type: 3}
+    - {fileID: -3324975650761866564, guid: e06a546890cc40145b4a6c617103749d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e06a546890cc40145b4a6c617103749d, type: 3}
 --- !u!1 &1883372598
 GameObject:
@@ -3637,9 +3913,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1883372598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 078cad82b9cab12449cc5b6585bff2ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 617aefc2e19fb486fa440ec8b08cea8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedNum: 0
+  subject: "\uC6B0\uC6B8"
 --- !u!4 &1883372600
 Transform:
   m_ObjectHideFlags: 0
@@ -3662,6 +3940,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1938975463}
     m_Modifications:
+    - target: {fileID: -9076661426455747323, guid: e31f627b23ddb0941a2a6781bcfa6f41, type: 3}
+      propertyPath: sceneViewId
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 4625956039010664150, guid: e31f627b23ddb0941a2a6781bcfa6f41, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3722,7 +4004,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ch_04
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -18160266096345630, guid: e31f627b23ddb0941a2a6781bcfa6f41, type: 3}
+    - {fileID: 156432334939084212, guid: e31f627b23ddb0941a2a6781bcfa6f41, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e31f627b23ddb0941a2a6781bcfa6f41, type: 3}
 --- !u!1 &1938975462
 GameObject:
@@ -3807,7 +4091,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1938975465}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1883372599}
+        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
+        m_MethodName: clickCharacterBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1938975465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3853,6 +4149,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1701650542}
     m_Modifications:
+    - target: {fileID: -5524602526524342374, guid: c142ecb4d5e982a4fba53d16a1ecb76b, type: 3}
+      propertyPath: sceneViewId
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 922327969082744216, guid: c142ecb4d5e982a4fba53d16a1ecb76b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3913,7 +4213,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ch_17
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2139814832812509584, guid: c142ecb4d5e982a4fba53d16a1ecb76b, type: 3}
+    - {fileID: -8882532741830277200, guid: c142ecb4d5e982a4fba53d16a1ecb76b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c142ecb4d5e982a4fba53d16a1ecb76b, type: 3}
 --- !u!1 &2074932810
 GameObject:
@@ -3998,7 +4300,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2074932813}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1883372599}
+        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
+        m_MethodName: clickCharacterBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2074932813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4120,7 +4434,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2113500339}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1883372599}
+        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
+        m_MethodName: clickCharacterBtn
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2113500339
 MonoBehaviour:
   m_ObjectHideFlags: 0
