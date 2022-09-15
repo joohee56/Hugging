@@ -1,3 +1,9 @@
+buildscript{
+	ext {
+		queryDslVersion = '4.4.0'
+	}
+}
+
 plugins {
 	id 'org.springframework.boot' version '2.7.3'
 	id 'io.spring.dependency-management' version '1.0.13.RELEASE'
@@ -25,6 +31,13 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// QueryDSL
+	implementation("com.querydsl:querydsl-jpa:${queryDslVersion}")
+	implementation("com.querydsl:querydsl-apt:${queryDslVersion}")
+
+	//IntelliJ에서는 하기 annotationProcessor를 쓰면 별도의 querydsl 플러그인 및 플러그인 설정이 불필요.
+	annotationProcessor("com.querydsl:querydsl-apt:${queryDslVersion}:jpa")
 }
 
 tasks.named('test') {
