@@ -43,9 +43,14 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
     {       
         string characterName = "Ch_" + GameManager.instance.selectedCharacterNum.ToString();
         GameObject player = PhotonNetwork.Instantiate(characterName, Camera.main.transform.position, Quaternion.identity);
+        
+        Camera.main.gameObject.SetActive(false);
+        GameObject characterCamera = PhotonNetwork.Instantiate("characterCamera", player.transform.position, Quaternion.identity);
+        characterCamera.GetComponent<CharacterCamera>().player = player;
     }
 
     public void leaveRoom() {
         PhotonNetwork.LeaveRoom();
+        Application.Quit();
     }
 }

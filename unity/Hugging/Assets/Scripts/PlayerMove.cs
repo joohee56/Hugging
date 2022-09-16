@@ -16,11 +16,7 @@ public class PlayerMove : MonoBehaviourPunCallbacks
     {
         rigid = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
-        if(photonView.IsMine) {
-            Camera.main.gameObject.SetActive(false);
-            characterCamera.gameObject.SetActive(true);
-            joystick = GameObject.FindGameObjectWithTag("joystick").GetComponent<VariableJoystick>();
-        }
+        joystick = GameObject.FindGameObjectWithTag("joystick").GetComponent<VariableJoystick>();
     }
 
     private void FixedUpdate()
@@ -36,7 +32,7 @@ public class PlayerMove : MonoBehaviourPunCallbacks
 
             Quaternion dirQuat = Quaternion.LookRotation(moveVec);
             Quaternion moveQuat = Quaternion.Slerp(rigid.rotation, dirQuat, 0.2f);
-            //rigid.MoveRotation(dirQuat);
+            rigid.MoveRotation(dirQuat);
         }
     }
 
