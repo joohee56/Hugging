@@ -20,15 +20,14 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
         connect();
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-        if(PhotonNetwork.InRoom) {
-            connectionStatus.text = PhotonNetwork.CurrentRoom.Name;
-        } else {
-            connectionStatus.text = PhotonNetwork.NetworkClientState.ToString();
-        }
-    }
+    // private void Update()
+    // {
+    //     if(PhotonNetwork.InRoom) {
+    //         connectionStatus.text = PhotonNetwork.CurrentRoom.Name;
+    //     } else {
+    //         connectionStatus.text = PhotonNetwork.NetworkClientState.ToString();
+    //     }
+    // }
 
     private void connect() { 
         //PhotonNetwork.NickName = nicknameField.text;
