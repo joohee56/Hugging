@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class MainCamera : MonoBehaviour
+public class MainCamera : MonoBehaviourPun
 {
     [SerializeField]
     public List<GameObject> placePos; 
@@ -12,6 +13,8 @@ public class MainCamera : MonoBehaviour
         startPos = new Dictionary<string, Vector3>();
         startPos.Add("우울", placePos[0].transform.position);
 
-        transform.position = startPos.GetValueOrDefault(GameManager.instance.subject);
+        if(photonView.IsMine) {
+            transform.position = startPos.GetValueOrDefault(GameManager.instance.subject);
+        }
     }
 }

@@ -18,6 +18,7 @@ public class PlayerMove : MonoBehaviourPunCallbacks
         anim = GetComponent<Animator>();
         if(photonView.IsMine) {
             Camera.main.gameObject.SetActive(false);
+            characterCamera.gameObject.SetActive(true);
             joystick = GameObject.FindGameObjectWithTag("joystick").GetComponent<VariableJoystick>();
         }
     }
