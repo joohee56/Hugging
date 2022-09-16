@@ -11,7 +11,7 @@ public class MainCamera : MonoBehaviourPun
 
     private void Awake() {
         startPos = new Dictionary<string, Vector3>();
-        startPos.Add("우울", placePos[0].transform.position);
+        startPos.Add("우울", placePos[4].transform.position);
 
         if(photonView.IsMine) {
             transform.position = startPos.GetValueOrDefault(GameManager.instance.subject);

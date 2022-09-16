@@ -36,7 +36,7 @@ public class PlayerMove : MonoBehaviourPunCallbacks
 
             Quaternion dirQuat = Quaternion.LookRotation(moveVec);
             Quaternion moveQuat = Quaternion.Slerp(rigid.rotation, dirQuat, 0.2f);
-            rigid.MoveRotation(moveQuat);
+            //rigid.MoveRotation(dirQuat);
         }
     }
 
