@@ -12,18 +12,6 @@ public class MainCamera : MonoBehaviour
         startPos = new Dictionary<string, Vector3>();
         startPos.Add("우울", placePos[0].transform.position);
 
-        gameObject.transform.position = startPos.GetValueOrDefault(SelectCharacter.instance.subject);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        transform.position = startPos.GetValueOrDefault(GameManager.instance.subject);
     }
 }

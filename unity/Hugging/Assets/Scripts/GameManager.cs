@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SelectCharacter : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static SelectCharacter instance; 
-    public int selectedNum;
+    public static GameManager instance; 
+    public int selectedCharacterNum;
     public string subject = "우울";
 
     //Singleton Pattern
@@ -22,13 +22,12 @@ public class SelectCharacter : MonoBehaviour
     }
 
     public void clickCharacterBtn(int characterNum) {
-        selectedNum = characterNum;
+        selectedCharacterNum = characterNum;
         enter();
     }
 
     public void enter() {
         DontDestroyOnLoad(this.gameObject);
-        SceneManager.LoadScene(1);
-        
+        SceneManager.LoadScene(1);  
     }
 }

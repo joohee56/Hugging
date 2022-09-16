@@ -30,7 +30,7 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
         }
     }
 
-    public void connect() { 
+    private void connect() { 
         //PhotonNetwork.NickName = nicknameField.text;
         PhotonNetwork.GameVersion = gameVersion;
         PhotonNetwork.ConnectUsingSettings();
@@ -42,8 +42,8 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {       
-        string characterName = "Ch_" + SelectCharacter.instance.selectedNum.ToString();
-        PhotonNetwork.Instantiate(characterName, Camera.main.transform.position, Quaternion.identity);
+        string characterName = "Ch_" + GameManager.instance.selectedCharacterNum.ToString();
+        GameObject player = PhotonNetwork.Instantiate(characterName, Camera.main.transform.position, Quaternion.identity);
     }
 
     public void leaveRoom() {
