@@ -19,5 +19,5 @@ from counselor.views import CounselorListAPI
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-	path('api/counselor/', CounselorListAPI.as_view())
+	path('recom/counselor/', CounselorListAPI.as_view())
 ]
