@@ -6,7 +6,6 @@ using Photon.Pun;
 public class PlayerMove : MonoBehaviourPunCallbacks
 {
     public static VariableJoystick joystick;
-    public Camera characterCamera;
     private Rigidbody rigid;
     public Animator anim;
     private Vector3 moveVec;
