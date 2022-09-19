@@ -1,4 +1,4 @@
-package com.ssafy.hugging.common;
+package com.ssafy.hugging.global.common;
 
 import java.util.Collections;
 import java.util.LinkedHashMap;

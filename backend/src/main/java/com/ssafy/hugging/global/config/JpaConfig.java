@@ -1,4 +1,4 @@
-package com.ssafy.hugging.config;
+package com.ssafy.hugging.global.config;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
