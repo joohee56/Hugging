@@ -1,4 +1,4 @@
-package com.ssafy.hugging.model;
+package com.ssafy.hugging.domain.model;
 
 /*
 	모델 간 공통 사항 정의

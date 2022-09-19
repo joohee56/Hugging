@@ -1,4 +1,4 @@
-package com.ssafy.hugging.counsel.domain;
+package com.ssafy.hugging.domain.counsel.domain;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -10,8 +10,8 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.OneToMany;
 
-import com.ssafy.hugging.model.BaseEntity;
-import com.ssafy.hugging.model.Gender;
+import com.ssafy.hugging.domain.model.BaseEntity;
+import com.ssafy.hugging.domain.model.Gender;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

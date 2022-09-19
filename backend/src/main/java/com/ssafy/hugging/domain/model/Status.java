@@ -1,4 +1,4 @@
-package com.ssafy.hugging.model;
+package com.ssafy.hugging.domain.model;
 
 public enum Status {
 	INCOMPLETE, COMPLETE
