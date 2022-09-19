@@ -7,6 +7,9 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import com.ssafy.hugging.member.service.MemberService;
@@ -54,10 +57,10 @@ public class JwtTokenProvider {
 	 * @return 인증 정보
 	 */
 
-	// public Authentication getAuthentication(String token) {
-	// 	UserDetails userDetails = memberService.loadUserByUsername(getMemberId(token));
-	// 	return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
-	// }
+	public Authentication getAuthentication(String token) {
+		UserDetails userDetails = memberService.loadUserByUsername(getMemberId(token));
+		return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
+	}
 
 	/**
 	 * 토큰에서 회원 정보 추출

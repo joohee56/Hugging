@@ -1,5 +1,7 @@
 package com.ssafy.hugging.member.service;
 
+import static com.ssafy.hugging.member.MemberConstant.*;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -7,11 +9,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,7 +29,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class MemberService {
+public class MemberService implements UserDetailsService {
 
 	@Value("${oauth2.kakao.restApiKey}")
 	private String kakao_restApiKey;
@@ -143,5 +145,11 @@ public class MemberService {
 	public void join(MemberJoinRequest memberJoinRequest) {
 		Member member = Member.from(memberJoinRequest);
 		memberRepository.save(member);
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
+		return memberRepository.findById(Long.parseLong(id))
+			.orElseThrow(() -> new UsernameNotFoundException(NOT_FOUND_MEMBER_ERROR_MESSAGE));
 	}
 }
