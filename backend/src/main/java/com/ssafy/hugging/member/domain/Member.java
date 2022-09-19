@@ -58,4 +58,14 @@ public class Member {
 
 	@OneToMany(mappedBy = "member")
 	private List<CounselorReview> counselorReviewList = new ArrayList<>();
+
+	public static Member from(MemberJoinRequest memberJoinRequest) {
+		return Member.builder()
+			.email(memberJoinRequest.getEmail())
+			.age(memberJoinRequest.getAge())
+			.nickname(memberJoinRequest.getNickname())
+			.gender(memberJoinRequest.getGender())
+			.profileImage(memberJoinRequest.getProfileImage())
+			.build();
+	}
 }
