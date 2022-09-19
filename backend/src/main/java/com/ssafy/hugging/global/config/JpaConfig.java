@@ -21,7 +21,7 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
-import com.querydsl.jpa.impl.JPAQueryFactory;
+//import com.querydsl.jpa.impl.JPAQueryFactory;
 
 /*
 	Spring Data JPA 관련 추가 설정 정의
@@ -32,10 +32,10 @@ public class JpaConfig {
 	@PersistenceContext
 	EntityManager entityManager;
 
-	@Bean
-	public JPAQueryFactory jpaQueryFactory() {
-		return new JPAQueryFactory(entityManager);
-	}
+	// @Bean
+	// public JPAQueryFactory jpaQueryFactory() {
+	// 	return new JPAQueryFactory(entityManager);
+	// }
 
 	@Bean
 	@Primary
