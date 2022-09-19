@@ -21,7 +21,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Builder @Getter
+@Builder
+@Getter
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 public class Counsel extends BaseEntity {
@@ -39,12 +40,12 @@ public class Counsel extends BaseEntity {
 	@JoinColumn(name = "memberId")
 	private Member member;
 
-	public void setCounselor(Counselor counselor){
+	public void setCounselor(Counselor counselor) {
 		this.counselor = counselor;
 		counselor.getCounselList().add(this);
 	}
 
-	public void setMember(Member member){
+	public void setMember(Member member) {
 		this.member = member;
 		counselor.getCounselList().add(this);
 	}

@@ -33,7 +33,7 @@ public class JpaConfig {
 	EntityManager entityManager;
 
 	@Bean
-	public JPAQueryFactory jpaQueryFactory(){
+	public JPAQueryFactory jpaQueryFactory() {
 		return new JPAQueryFactory(entityManager);
 	}
 
@@ -48,14 +48,12 @@ public class JpaConfig {
 		timeModule.addDeserializer(LocalDateTime.class,
 			new LocalDateTimeDeserializer(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSS")));
 
-		timeModule.addSerializer(LocalDate.class,
-			new LocalDateSerializer(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+		timeModule.addSerializer(LocalDate.class, new LocalDateSerializer(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 
 		timeModule.addSerializer(LocalDateTime.class,
 			new LocalDateTimeSerializer(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSSSSS")));
 
-		return new ObjectMapper()
-			.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
+		return new ObjectMapper().configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
 			.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
 			.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
 			.configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, false)
