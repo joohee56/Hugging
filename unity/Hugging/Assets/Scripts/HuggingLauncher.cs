@@ -9,6 +9,7 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
 {
     public Text connectionStatus;
     private string gameVersion = "1";
+    public VoiceManager voiceManager;
 
     private void Awake() {
         PhotonNetwork.AutomaticallySyncScene = true;
@@ -47,6 +48,8 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
         Camera.main.gameObject.SetActive(false);
         GameObject characterCamera = PhotonNetwork.Instantiate("characterCamera", player.transform.position, Quaternion.identity);
         characterCamera.GetComponent<CharacterCamera>().player = player;
+
+        voiceManager.joinChannel(PhotonNetwork.CurrentRoom.Name);
     }
 
     public void leaveRoom() {
