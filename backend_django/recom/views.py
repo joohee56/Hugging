@@ -1,5 +1,3 @@
-import imp
-from re import I
 from django_pandas.io import read_frame
 
 from rest_framework.response import Response
