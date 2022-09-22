@@ -40,8 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'counselor.apps.CounselorConfig',
-    'counselorReview.apps.CounselorreviewConfig'
+    'recom'
 ]
 
 MIDDLEWARE = [

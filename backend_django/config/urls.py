@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from counselor.views import CounselorListAPI
+from recom.views import CounselorRecomAPI
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-	path('recom/counselor/', CounselorListAPI.as_view())
+	path('recom/counselor/<int:member_id>/', CounselorRecomAPI.get)
 ]
