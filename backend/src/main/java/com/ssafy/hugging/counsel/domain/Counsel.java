@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.ssafy.hugging.counselor.domain.Counselor;
 import com.ssafy.hugging.member.domain.Member;
 import com.ssafy.hugging.model.BaseEntity;
 import com.ssafy.hugging.model.Status;
