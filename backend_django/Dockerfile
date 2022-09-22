@@ -2,7 +2,7 @@ FROM python:3.10
 ENV PYTHONUNBUFFERED = 1
 
 RUN apt-get -y update
-RUN apt-get install -y libmysqlclient-dev
+RUN apt-get install -y default-libmysqlclient-dev
 
 RUN mkdir /app
 WORKDIR /app
