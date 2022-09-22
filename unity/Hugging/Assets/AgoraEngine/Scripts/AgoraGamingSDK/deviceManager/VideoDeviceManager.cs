@@ -24,7 +24,7 @@ namespace agora_gaming_rtc
         public abstract int GetCurrentVideoDevice(ref string deviceId);
     }
 
-    /** The definition of the VideoDeviceManager. The APIs of this class are only available on Windows and macOS. */
+    /** The definition of the VideoDeviceManager. */
     public sealed class VideoDeviceManager : IVideoDeviceManager
     {
         private IRtcEngine _mEngine = null;
@@ -134,10 +134,16 @@ namespace agora_gaming_rtc
         */
         public override int GetVideoDeviceCount()
         {
-            if (_mEngine == null)
-				return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
 
+            if (_mEngine == null)
+                return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
+
+#if !UNITY_EDITOR && UNITY_WEBGL
+            return AgoraWebGLEventHandler.GetCameraDeviceCount();
+#else
+     
             return IRtcEngineNative.getVideoDeviceCollectionCount();
+#endif
         }
 
         /** Retrieves the video capturing device associated with the index.
@@ -159,6 +165,18 @@ namespace agora_gaming_rtc
             if (_mEngine == null)
 				return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
 
+#if !UNITY_EDITOR && UNITY_WEBGL
+
+            if (index >= 0 && index < GetVideoDeviceCount())
+            {
+                AgoraWebGLEventHandler.GetVideoDevice(index, ref deviceName, ref deviceId);
+                return 0;
+            }
+            else
+            {
+                return (int)ERROR_CODE.ERROR_INVALID_ARGUMENT;
+            }
+#else
             if (index >= 0 && index < GetVideoDeviceCount())
             {
                 System.IntPtr videoDeviceName = Marshal.AllocHGlobal(512);
@@ -174,6 +192,7 @@ namespace agora_gaming_rtc
             {
                 return (int)ERROR_CODE.ERROR_INVALID_ARGUMENT;
             }
+#endif
         }
         
         /** Retrieves the device ID of the current video capturing device.
@@ -187,7 +206,21 @@ namespace agora_gaming_rtc
         public override int GetCurrentVideoDevice(ref string deviceId)
         {
             if (_mEngine == null)
-				return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
+                return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
+
+#if !UNITY_EDITOR && UNITY_WEBGL
+            if (GetVideoDeviceCount() > 0)
+            {
+                string vd = AgoraWebGLEventHandler.GetCurrentVideoDevice();
+                deviceId = vd;
+                return 0;
+            }
+            else
+            {
+                return (int)ERROR_CODE.ERROR_NO_DEVICE_PLUGIN;
+            }
+#else
+
 
             if (GetVideoDeviceCount() > 0)
             {
@@ -201,6 +234,8 @@ namespace agora_gaming_rtc
             {
                 return (int)ERROR_CODE.ERROR_NO_DEVICE_PLUGIN;
             }
+#endif
+
         }
 
         /** Sets the video capturing device using the device ID.
@@ -220,7 +255,14 @@ namespace agora_gaming_rtc
             if (_mEngine == null)
 				return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
 
+#if !UNITY_EDITOR && UNITY_WEBGL
+            IRtcEngineNative.setVideoDeviceCollectionDeviceWGL(deviceId);
+            return 0;
+#else
+
             return IRtcEngineNative.setVideoDeviceCollectionDevice(deviceId);
+#endif
+
         }
     }
 }

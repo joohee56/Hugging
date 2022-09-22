@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance; 
     public int selectedCharacterNum;
     public string subject = "우울";
+    public InputField roomName;
 
     //Singleton Pattern
     private void Awake()
@@ -21,13 +23,14 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void clickCharacterBtn(int characterNum) {
+    public void ClickCharacterBtn(int characterNum) {
         selectedCharacterNum = characterNum;
-        enter();
+        Enter();
     }
 
-    public void enter() {
-        DontDestroyOnLoad(this.gameObject);
+    public void Enter() {
+        if (roomName.text.Length == 0) return;
+        DontDestroyOnLoad(gameObject);
         SceneManager.LoadScene(1);  
     }
 }

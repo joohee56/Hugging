@@ -21,15 +21,6 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
         connect();
     }
 
-    // private void Update()
-    // {
-    //     if(PhotonNetwork.InRoom) {
-    //         connectionStatus.text = PhotonNetwork.CurrentRoom.Name;
-    //     } else {
-    //         connectionStatus.text = PhotonNetwork.NetworkClientState.ToString();
-    //     }
-    // }
-
     private void connect() { 
         //PhotonNetwork.NickName = nicknameField.text;
         PhotonNetwork.GameVersion = gameVersion;
@@ -37,7 +28,7 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
     }
 
     public override void OnConnectedToMaster() {
-        PhotonNetwork.JoinOrCreateRoom("001", new RoomOptions { MaxPlayers = 2 }, TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom(GameManager.instance.roomName.text, new RoomOptions { MaxPlayers = 2 }, TypedLobby.Default);
     }
 
     public override void OnJoinedRoom()
@@ -49,7 +40,8 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
         GameObject characterCamera = PhotonNetwork.Instantiate("characterCamera", player.transform.position, Quaternion.identity);
         characterCamera.GetComponent<CharacterCamera>().player = player;
 
-        voiceManager.joinChannel(PhotonNetwork.CurrentRoom.Name);
+        voiceManager.channelName = PhotonNetwork.CurrentRoom.Name;
+        voiceManager.JoinChannel();
     }
 
     public void leaveRoom() {

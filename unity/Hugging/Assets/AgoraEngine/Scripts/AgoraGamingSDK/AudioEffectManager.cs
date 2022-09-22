@@ -16,14 +16,14 @@ namespace agora_gaming_rtc
 			bool publish = false
 		);
 
-        public abstract int PlayEffect(int soundId, string filePath, int loopCount, double pitch, double pan, int gain, bool publish, int startPos);
-        
-        public abstract int GetEffectDuration(string filePath);
+/*        public abstract int PlayEffect(int soundId, string filePath, int loopCount, double pitch, double pan, int gain, bool publish, int startPos);
+*/        
+/*        public abstract int GetEffectDuration(string filePath);
         
         public abstract int SetEffectPosition(int soundId, int pos);
         
         public abstract int GetEffectCurrentPosition(int soundId);
-
+*/
 		public abstract int StopEffect (int soundId);
 
 		public abstract int StopAllEffects ();
@@ -158,15 +158,15 @@ namespace agora_gaming_rtc
 			return IRtcEngineNative.playEffect(soundId, filePath, loopCount, pitch, pan, gain, publish);
 		}
 
-        public override int PlayEffect(int soundId, string filePath, int loopCount, double pitch, double pan, int gain, bool publish, int startPos)
+        /*public override int PlayEffect(int soundId, string filePath, int loopCount, double pitch, double pan, int gain, bool publish, int startPos)
         {
             if (_mEngine  == null)
                 return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
 
             return IRtcEngineNative.playEffect2(soundId, filePath, loopCount, pitch, pan, gain, publish, startPos);
-        }
+        }*/
         
-        public override int GetEffectDuration(string filePath)
+        /*public override int GetEffectDuration(string filePath)
         {
             if (_mEngine == null)
                 return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
@@ -188,7 +188,7 @@ namespace agora_gaming_rtc
                 return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
 
             return IRtcEngineNative.getEffectCurrentPosition(soundId);
-        }
+        }*/
 
         /** Stops playing a specified audio effect.
          *
@@ -343,7 +343,7 @@ namespace agora_gaming_rtc
          * 
          * @note
          * - For this method to work, enable stereo panning for remote users by calling the {@link agora_gaming_rtc.IRtcEngine.EnableSoundPositionIndication EnableSoundPositionIndication} method before joining a channel.
-         * - This method requires hardware support. For the best sound positioning, we recommend using a wired headset.
+         * - This method requires hardware support. For the best sound positioning, we recommend using a stereo speaker.
          * - Ensure that you call this method after joining a channel.
          * 
          * @param uid The ID of the remote user.

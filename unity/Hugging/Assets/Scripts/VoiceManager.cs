@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Agora.Rtc;
-using Agora.Util;
+using agora_gaming_rtc;
+using agora_utilities;
 
 public class VoiceManager : MonoBehaviour
 {
-    string appId = "d";
-    string token = "";
+    [SerializeField]
+    private string appId;
+    public string channelName = "";
 
     public static VoiceManager instance;
 
     internal IRtcEngine RtcEngine = null;
+
+    public GameObject micOn, micOff;
+    public bool micMute = true;
 
     private void Awake()
     {
@@ -28,14 +32,24 @@ public class VoiceManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RtcEngine = Agora.Rtc.RtcEngine.CreateAgoraRtcEngine();
-        RtcEngineContext context = new RtcEngineContext(appId, 0,
-                                        CHANNEL_PROFILE_TYPE.CHANNEL_PROFILE_LIVE_BROADCASTING,
-                                        AUDIO_SCENARIO_TYPE.AUDIO_SCENARIO_DEFAULT);
-        RtcEngine.Initialize(context);
+        RtcEngine = IRtcEngine.getEngine(appId);
+        RtcEngine.SetLogFilter(LOG_FILTER.DEBUG | LOG_FILTER.INFO | LOG_FILTER.WARNING | LOG_FILTER.ERROR | LOG_FILTER.CRITICAL);
 
-        UserEventHandler handler = new UserEventHandler(this);
-        RtcEngine.InitEventHandler(handler);
+        RtcEngine.SetChannelProfile(CHANNEL_PROFILE.CHANNEL_PROFILE_LIVE_BROADCASTING);
+        RtcEngine.OnJoinChannelSuccess = OnJoinChannelSuccessHandler;
+        RtcEngine.OnUserJoined = OnUserJoined;
+        //RtcEngine.OnUserOffline = onUserOffline;
+        RtcEngine.OnLeaveChannel += OnLeaveChannelHandler;
+
+        RtcEngine.OnWarning = (int warn, string msg) => {
+            Debug.LogWarningFormat("Warning code:{0} msg:{1}", warn, IRtcEngine.GetErrorDescription(warn));
+        };
+        RtcEngine.OnError = HandleError;
+
+        // assign user id here, or use 0 for local user
+        TokenClient.Instance.RtcEngine = RtcEngine;
+        //TokenClient.Instance.RtmClient = RtmClient;
+        
     }
 
     private void Update()
@@ -43,125 +57,70 @@ public class VoiceManager : MonoBehaviour
         PermissionHelper.RequestMicrophontPermission();
     }
 
-    public void joinChannel(string channelName)
+    public void JoinChannel()
     {
         RtcEngine.EnableAudio();
+        RtcEngine.SetDefaultMuteAllRemoteAudioStreams(true);
+        RtcEngine.DisableVideo();
+        RtcEngine.DisableVideoObserver();
         RtcEngine.SetClientRole(CLIENT_ROLE_TYPE.CLIENT_ROLE_BROADCASTER);
-        RtcEngine.JoinChannel(token, channelName);
+
+        TokenClient.Instance.GetTokens(channelName, 0,
+            (rtcToken, rtmToken) =>
+            {
+                // join channel with token
+                RtcEngine.JoinChannelByKey(rtcToken, channelName, null, 0);
+                //mRtmClient.Login(rtmToken, UserName);
+            }
+        );
     }
 
-    public void leaveChannel()
+    public void ToggleMicState()
     {
-        RtcEngine.InitEventHandler(null);
+        micMute = !micMute;
+        micOn.SetActive(!micMute);
+        micOff.SetActive(micMute);
+
+        if(micMute)
+        {
+            RtcEngine.AdjustRecordingSignalVolume(0);
+        } else
+        {
+            RtcEngine.AdjustRecordingSignalVolume(100);
+        }
+    }
+
+    private void OnJoinChannelSuccessHandler(string channelName, uint uid, int elapsed)
+    {
+        Debug.Log("JoinChannelSuccessHandler: uid = " + uid);
+    }
+
+    private void OnUserJoined(uint uid, int elapsed)
+    {
+        Debug.Log("Agora: onUserJoined: uid = " + uid + " elapsed = " + elapsed);
+        // this is called in main thread
+
+        // find a game object to render video stream from 'uid'
+        Debug.Log(uid.ToString());
+    }
+
+    void OnLeaveChannelHandler(RtcStats stats)
+    {
+        Debug.Log("OnLeaveChannelSuccess ---- TEST");
+        if(RtcEngine == null)
+            return;
         RtcEngine.LeaveChannel();
+    }
+
+    private void HandleError(int error, string msg)
+    {
+        Debug.Log(string.Format("OnError err: {0}, msg: {1}", error, msg));
     }
 
     private void OnDestroy()
     {
         Debug.Log("OnDestroy");
         if (RtcEngine == null) return;
-        RtcEngine.InitEventHandler(null);
         RtcEngine.LeaveChannel();
-        RtcEngine.Dispose();
     }
-
-
-    #region -- Agora Event ---
-
-    internal class UserEventHandler : IRtcEngineEventHandler
-    {
-        private readonly VoiceManager _audioSample;
-
-        internal UserEventHandler(VoiceManager audioSample)
-        {
-            _audioSample = audioSample;
-        }
-
-
-        public override void OnError(int err, string msg)
-        {
-            Debug.Log(string.Format("OnError err: {0}, msg: {1}", err, msg));
-        }
-
-        public override void OnJoinChannelSuccess(RtcConnection connection, int elapsed)
-        {
-            int build = 0;
-            Debug.Log(string.Format("sdk version: ${0}",
-                _audioSample.RtcEngine.GetVersion(ref build)));
-            Debug.Log(
-                string.Format("OnJoinChannelSuccess channelName: {0}, uid: {1}, elapsed: {2}",
-                                connection.channelId, connection.localUid, elapsed));
-        }
-
-        public override void OnRejoinChannelSuccess(RtcConnection connection, int elapsed)
-        {
-            Debug.Log("OnRejoinChannelSuccess");
-        }
-
-        public override void OnLeaveChannel(RtcConnection connection, RtcStats stats)
-        {
-            Debug.Log("OnLeaveChannel");
-        }
-
-        public override void OnClientRoleChanged(RtcConnection connection, CLIENT_ROLE_TYPE oldRole, CLIENT_ROLE_TYPE newRole)
-        {
-            Debug.Log("OnClientRoleChanged");
-        }
-
-        public override void OnUserJoined(RtcConnection connection, uint uid, int elapsed)
-        {
-            Debug.Log(string.Format("OnUserJoined uid: ${0} elapsed: ${1}", uid, elapsed));
-        }
-
-        public override void OnUserOffline(RtcConnection connection, uint uid, USER_OFFLINE_REASON_TYPE reason)
-        {
-            Debug.Log(string.Format("OnUserOffLine uid: ${0}, reason: ${1}", uid,
-                (int)reason));
-        }
-    }
-
-    #endregion
-
-    //void OnJoinChannelSuccessHandler(string channelName, uint uid, int elapsed) {
-    //    Debug.Log(channelName);
-    //    if(!photonView.IsMine) {
-    //        return;
-    //    }
-
-    //    photonView.RPC("UpdateNetworedPlayer", RpcTarget.All, uid.ToString());
-
-    //}
-
-    //void OnUserJoinedHandler(uint uid, int elapsed)
-    //{
-    //    if (!photonView.IsMine)
-    //    {
-    //        return;
-    //    }
-    //    photonView.RPC("UpdateNetworedPlayer", RpcTarget.All, uid.ToString());
-
-    //}
-
-    //void OnLeaveChannelHandler(RtcStats stats) {
-    //    Debug.Log("left");
-    //}
-
-    //void OnErrorHandler(int error, string msg) {
-    //    Debug.Log("error msg:" + error + ": " + msg);
-    //}
-
-    //public void JoinVoiceChat(string roomName) {
-    //    Debug.Log("joined " + roomName);
-    //    rtcEngine.EnableAudio();
-    //    rtcEngine.EnableLocalAudio(true);
-    //    rtcEngine.JoinChannel(token, roomName);
-    //}
-
-    //public void leftVoiceChat() {
-    //    rtcEngine.LeaveChannel();
-    //}
-
-    //private void OnDestroy() {
-    //    IRtcEngine.Destroy();
-    //}
 }
