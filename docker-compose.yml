@@ -25,7 +25,21 @@ services:
             - nginx
         image: hugging_front/prod:latest
         restart: always
-
+    recom:
+        depends_on:
+            - nginx
+        image: recom/test
+        ports:
+            - "8000:8000"
+        restart: always
+    agora:
+        depends_on:
+            - nginx
+        image: agora-token-service:latest
+        ports:
+            - "8090:8080"
+        restart: always
+        
     certbot:
         image: certbot/certbot
         restart: unless-stopped
