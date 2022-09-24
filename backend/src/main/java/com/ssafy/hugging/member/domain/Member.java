@@ -65,6 +65,12 @@ public class Member implements UserDetails {
 	@OneToMany(mappedBy = "member")
 	private List<CounselorReview> counselorReviewList = new ArrayList<>();
 
+	@OneToMany(mappedBy = "member")
+	private List<FavoriteMusic> favoriteMusicList = new ArrayList<>();
+
+	@OneToMany(mappedBy = "member")
+	private List<MusicReview> musicReviewList = new ArrayList<>();
+
 	public static Member from(MemberJoinRequest memberJoinRequest) {
 		return Member.builder()
 			.email(memberJoinRequest.getEmail())
