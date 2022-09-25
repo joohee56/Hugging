@@ -1,5 +1,10 @@
+import React from 'react';
+import classes from './FooterNavigation.module.css';
+
 const FooterNavigation = () => {
-    return <p>This is FooterNavigation</p>
+    return <footer className={classes.footer}>
+        <p>Navigation</p>
+    </footer>;
 }
 
 export default FooterNavigation;

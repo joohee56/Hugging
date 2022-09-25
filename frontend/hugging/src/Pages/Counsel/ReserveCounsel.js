@@ -1,9 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const ReserveCounsel = () => {
-    return <div>
-        <p> Reserve Counsel Page</p>
-    </div>
-}
+  return <div>This is Reserve Counsel</div>
+};
 
 export default ReserveCounsel;
