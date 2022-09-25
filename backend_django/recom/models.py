@@ -21,7 +21,7 @@ class Counsel(models.Model):
 
 
 class Counselor(models.Model):
-    avaliable_time = models.DateTimeField(blank=True, null=True)
+    available_time = models.CharField(max_length=255, blank=True, null=True)
     career = models.CharField(max_length=255, blank=True, null=True)
     certificate = models.CharField(max_length=255, blank=True, null=True)
     email = models.CharField(unique=True, max_length=255)
@@ -50,7 +50,6 @@ class CounselorReview(models.Model):
         db_table = 'counselor_review'
 
 
-
 class FavoriteCounselor(models.Model):
     counselor = models.ForeignKey(Counselor, models.DO_NOTHING, blank=True, null=True)
     member = models.ForeignKey('Member', models.DO_NOTHING, blank=True, null=True)
@@ -58,6 +57,15 @@ class FavoriteCounselor(models.Model):
     class Meta:
         managed = False
         db_table = 'favorite_counselor'
+
+
+class FavoriteMusic(models.Model):
+    member = models.ForeignKey('Member', models.DO_NOTHING, blank=True, null=True)
+    music = models.ForeignKey('Music', models.DO_NOTHING, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'favorite_music'
 
 
 class Member(models.Model):
@@ -74,3 +82,41 @@ class Member(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+class Music(models.Model):
+    music_url = models.CharField(max_length=255, blank=True, null=True)
+    name = models.CharField(max_length=255, blank=True, null=True)
+    tag = models.CharField(max_length=255, blank=True, null=True)
+    thumbnail_url = models.CharField(max_length=255, blank=True, null=True)
+    type = models.IntegerField(blank=True, null=True)
+    category = models.ForeignKey('MusicCategory', models.DO_NOTHING, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'music'
+
+
+class MusicCategory(models.Model):
+    name = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'music_category'
+
+
+class MusicHits(models.Model):
+    musid = models.ForeignKey(Music, models.DO_NOTHING, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'music_hits'
+
+
+class MusicReview(models.Model):
+    score = models.IntegerField(blank=True, null=True)
+    member = models.ForeignKey(Member, models.DO_NOTHING, blank=True, null=True)
+    music = models.ForeignKey(Music, models.DO_NOTHING, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'music_review'
