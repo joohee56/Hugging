@@ -103,7 +103,7 @@ namespace agora_gaming_rtc
         public const string MyLibName = "agoraSdkCWrapper";
 #else
 #if UNITY_IOS || UNITY_WEBGL
-	        public const string MyLibName = "__Internal";
+        public const string MyLibName = "__Internal";
 #else
                 public const string MyLibName = "agoraSdkCWrapper";
 #endif
@@ -231,9 +231,9 @@ namespace agora_gaming_rtc
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int startAudioMixing(string filePath, bool loopback, bool replace, int cycle);
 
-       /* [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int startAudioMixing2(string filePath, bool loopback, bool replace, int cycle, int startPos);
-*/
+        /* [DllImport(MyLibName, CharSet = CharSet.Ansi)]
+         protected static extern int startAudioMixing2(string filePath, bool loopback, bool replace, int cycle, int startPos);
+ */
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int stopAudioMixing();
 
@@ -1253,23 +1253,23 @@ namespace agora_gaming_rtc
         /*[DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int enableDeepLearningDenoise(bool enable);*/
 
-        /*[DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int joinChannelWithMediaOption(string token, string channelId, string info, uint uid, bool autoSubscribeAudio, bool autoSubscribeVideo, bool publishLocalAudio, bool publishLocalVideo);
-*/
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int joinChannelWithMediaOption(string token, string channelId, string info, uint uid, bool autoSubscribeAudio, bool autoSubscribeVideo, bool publishLocalAudio, bool publishLocalVideo);
+
         /*[DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int switchChannel2(string token, string channelId, bool autoSubscribeAudio, bool autoSubscribeVideo, bool publishLocalAudio, bool publishLocalVideo);
 */
         /*[DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern IntPtr uploadLogFile();*/
 
-       /* [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int setCloudProxy(int proxyType);*/
+        /* [DllImport(MyLibName, CharSet = CharSet.Ansi)]
+         protected static extern int setCloudProxy(int proxyType);*/
 
         /*[DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int setVoiceConversionPreset(int preset);*/
 
-/*        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int adjustLoopbackRecordingSignalVolume(int volume);*/
+        /*        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
+                protected static extern int adjustLoopbackRecordingSignalVolume(int volume);*/
 
         /*[DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int startAudioRecordingWithConfig(string filePath, int recordingQuality, int recordingPosition, int recordingSampleRate);

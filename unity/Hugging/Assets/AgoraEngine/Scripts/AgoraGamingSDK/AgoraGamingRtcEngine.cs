@@ -196,10 +196,7 @@ namespace agora_gaming_rtc
         private readonly AudioEffectManagerImpl mAudioEffectM;
         private readonly AudioRecordingDeviceManager audioRecordingDeviceManager;
         private readonly AudioPlaybackDeviceManager audioPlaybackDeviceManager;
-        private readonly VideoDeviceManager videoDeviceManager;
         private readonly AudioRawDataManager audioRawDataManager;
-        private readonly VideoRawDataManager videoRawDataManager;
-        //private readonly VideoRender videoRender;
         private readonly bool initStatus = false;
         private const string agoraGameObjectName = "agora_engine_CallBackGamObject";
         // private static GameObject agoraGameObject = null;
@@ -224,19 +221,14 @@ namespace agora_gaming_rtc
 #if !UNITY_EDITOR && UNITY_WEBGL
 
             audioRecordingDeviceManager = AudioRecordingDeviceManager.GetInstance(this);
-            videoDeviceManager = VideoDeviceManager.GetInstance(this);
             mAudioEffectM = AudioEffectManagerImpl.GetInstance(this);
             audioPlaybackDeviceManager = AudioPlaybackDeviceManager.GetInstance(this);
-            videoDeviceManager = VideoDeviceManager.GetInstance(this);
             audioRawDataManager = AudioRawDataManager.GetInstance(this);
-            videoRawDataManager = VideoRawDataManager.GetInstance(this);
 #else
             mAudioEffectM = AudioEffectManagerImpl.GetInstance(this);
             audioRecordingDeviceManager = AudioRecordingDeviceManager.GetInstance(this);
             audioPlaybackDeviceManager = AudioPlaybackDeviceManager.GetInstance(this);
-            videoDeviceManager = VideoDeviceManager.GetInstance(this);
             audioRawDataManager = AudioRawDataManager.GetInstance(this);
-            videoRawDataManager = VideoRawDataManager.GetInstance(this);
 #endif
         }
 
@@ -251,10 +243,7 @@ namespace agora_gaming_rtc
             return audioPlaybackDeviceManager;
         }
 
-        public VideoDeviceManager TestGetVideoDeviceManager()
-        {
-            return videoDeviceManager;
-        }
+        
 
         private IRtcEngine(RtcEngineConfig engineConfig)
         {
@@ -268,9 +257,7 @@ namespace agora_gaming_rtc
             mAudioEffectM = AudioEffectManagerImpl.GetInstance(this);
             audioRecordingDeviceManager = AudioRecordingDeviceManager.GetInstance(this);
             audioPlaybackDeviceManager = AudioPlaybackDeviceManager.GetInstance(this);
-            videoDeviceManager = VideoDeviceManager.GetInstance(this);
             audioRawDataManager = AudioRawDataManager.GetInstance(this);
-            videoRawDataManager = VideoRawDataManager.GetInstance(this);
         }
 
         private void InitGameObject()
@@ -1086,10 +1073,10 @@ namespace agora_gaming_rtc
          * - &ge; 0: The ID of the data stream, if this method call succeeds.
          * - < 0: Fails to create the data stream.
          */
-        /*public int CreateDataStream(DataStreamConfig config)
-        {
-            return IRtcEngineNative.createDataStream_engine(config.syncWithAudio, config.ordered);
-        }*/
+        //public int CreateDataStream(DataStreamConfig config)
+        //{
+        //    return IRtcEngineNative.createDataStream_engine(config.syncWithAudio, config.ordered);
+        //}
 
         /** Sends data stream messages to all users in a channel.
          * 
@@ -1469,10 +1456,10 @@ namespace agora_gaming_rtc
             return IRtcEngineNative.startAudioMixing(filePath, loopback, replace, cycle);
         }
 
-       /* public int StartAudioMixing(string filePath, bool loopback, bool replace, int cycle, int startPos)
-        {
-            return IRtcEngineNative.startAudioMixing2(filePath, loopback, replace, cycle, startPos);
-        }*/
+        //public int StartAudioMixing(string filePath, bool loopback, bool replace, int cycle, int startPos)
+        //{
+        //    return IRtcEngineNative.startAudioMixing2(filePath, loopback, replace, cycle, startPos);
+        //}
 
         /** Stops playing and mixing the music file.
          *
@@ -1548,11 +1535,11 @@ namespace agora_gaming_rtc
             return IRtcEngineNative.getAudioMixingDuration();
         }
 
-        /*public int GetAudioMixingDuration(string filePath)
-        {
-            return IRtcEngineNative.getAudioMixingDuration2(filePath);
-        }
-*/
+        //public int GetAudioMixingDuration(string filePath)
+        //{
+        //    return IRtcEngineNative.getAudioMixingDuration2(filePath);
+        //}
+
         /** Retrieves the playback position (ms) of the music file.
          * 
          * Call this method when you are in a channel.
@@ -1663,15 +1650,6 @@ namespace agora_gaming_rtc
             return audioPlaybackDeviceManager;
         }
 
-        /** Retrieves the VideoDeviceManager object.
-         * 
-         * @return The VideoDeviceManager object.
-         */
-        public IVideoDeviceManager GetVideoDeviceManager()
-        {
-            return videoDeviceManager;
-        }
-
         /** Retrieves the AudioRawDataManager object.
          * 
          * @return The AudioRawDataManager object.
@@ -1680,24 +1658,6 @@ namespace agora_gaming_rtc
         {
             return audioRawDataManager;
         }
-
-        /** Retrieves the VideoRawDataManager object.
-         * 
-         * @return The VideoRawDataManager object.
-         */
-        public IVideoRawDataManager GetVideoRawDataManager()
-        {
-            return videoRawDataManager;
-        }
-
-        /** Retrieves the VideoRender object.
-         * 
-         * @return The VideoRender object.
-         */
-        //internal IVideoRender GetVideoRender()
-        //{
-        //    return videoRender;
-        //}
 
         /** Enables the video module.
          * 
@@ -2766,10 +2726,10 @@ namespace agora_gaming_rtc
          *    - ERR_NOT_READY (-3)
          *    - ERR_REFUSED (-5)
          */
-        /*public int JoinChannelWithUserAccount(string token, string channelId, string userAccount, ChannelMediaOptions options)
-        {
-            return IRtcEngineNative.joinChannelWithUserAccount_engine(token, channelId, userAccount, options.autoSubscribeAudio, options.autoSubscribeVideo, options.publishLocalAudio, options.publishLocalVideo);
-        }*/
+        //public int JoinChannelWithUserAccount(string token, string channelId, string userAccount, ChannelMediaOptions options)
+        //{
+        //    return IRtcEngineNative.joinChannelWithUserAccount_engine(token, channelId, userAccount, options.autoSubscribeAudio, options.autoSubscribeVideo, options.publishLocalAudio, options.publishLocalVideo);
+        //}
 
         /** Gets the user information by passing in the user account.
          * 
@@ -3840,10 +3800,10 @@ namespace agora_gaming_rtc
          * - 0: Success.
          * - < 0: Failure.
          */
-        /*public int SetVoiceBeautifierParameters(VOICE_BEAUTIFIER_PRESET preset, int param1, int param2)
-        {
-            return IRtcEngineNative.setVoiceBeautifierParameters((int)preset, param1, param2);
-        }*/
+        //public int SetVoiceBeautifierParameters(VOICE_BEAUTIFIER_PRESET preset, int param1, int param2)
+        //{
+        //    return IRtcEngineNative.setVoiceBeautifierParameters((int)preset, param1, param2);
+        //}
 
         /** Enables or disables deep-learning noise reduction.
          *
@@ -3891,10 +3851,10 @@ namespace agora_gaming_rtc
          * - < 0: Failure.
          *  - `-157` (`ERR_MODULE_NOT_FOUND`): The dynamical library for enabling deep-learning noise reduction is not integrated.
          */
-        /*public int EnableDeepLearningDenoise(bool enable) 
-        {
-            return IRtcEngineNative.enableDeepLearningDenoise(enable);
-        }*/
+        //public int EnableDeepLearningDenoise(bool enable) 
+        //{
+        //    return IRtcEngineNative.enableDeepLearningDenoise(enable);
+        //}
 
         /** Joins a channel with the user ID, and configures whether to automatically subscribe to the audio or video streams.
          *
@@ -3949,10 +3909,10 @@ namespace agora_gaming_rtc
          *        - You have joined and published a stream in a channel created by the `AgoraChannel` object. When you join a channel created by the `IRtcEngine` object, the SDK publishes the local audio and video streams to that channel by default. Because the SDK does not support publishing a local stream to more than one channel simultaneously, an error occurs in this occasion.
          *    - -7(ERR_NOT_INITIALIZED): The SDK is not initialized before calling this method.
          */
-/*        public int JoinChannel(string token, string channelId, string info, uint uid, ChannelMediaOptions options)
-        {
-            return IRtcEngineNative.joinChannelWithMediaOption(token, channelId, info, uid, options.autoSubscribeAudio, options.autoSubscribeVideo, options.publishLocalAudio, options.publishLocalVideo);
-        }*/
+        //public int JoinChannel(string token, string channelId, string info, uint uid, ChannelMediaOptions options)
+        //{
+        //    //return IRtcEngineNative.joinChannelWithMediaOption(token, channelId, info, uid, options.autoSubscribeAudio, options.autoSubscribeVideo, options.publishLocalAudio, options.publishLocalVideo);
+        //}
 
         /** Switches to a different channel, and configures whether to automatically subscribe to audio or video 
          * streams in the target channel.
@@ -3997,10 +3957,10 @@ namespace agora_gaming_rtc
          *  - -102(ERR_INVALID_CHANNEL_NAME): The channel name is invalid.
          *  - -113(ERR_NOT_IN_CHANNEL): The user is not in the channel.
          */
-/*        public int SwitchChannel(string token, string channelId, ChannelMediaOptions options)
-        {
-            return IRtcEngineNative.switchChannel2(token, channelId, options.autoSubscribeAudio, options.autoSubscribeVideo, options.publishLocalAudio, options.publishLocalVideo);
-        }*/
+        //public int SwitchChannel(string token, string channelId, ChannelMediaOptions options)
+        //{
+        //    return IRtcEngineNative.switchChannel2(token, channelId, options.autoSubscribeAudio, options.autoSubscribeVideo, options.publishLocalAudio, options.publishLocalVideo);
+        //}
 
         /** Sets an SDK preset voice conversion effect.
          *
@@ -4046,10 +4006,10 @@ namespace agora_gaming_rtc
          * - 0: Success.
          * - < 0: Failure.
          */
-       /* public int SetVoiceConversionPreset(VOICE_CONVERSION_PRESET preset)
-        {
-            return IRtcEngineNative.setVoiceConversionPreset((int)preset);
-        }*/
+        //public int SetVoiceConversionPreset(VOICE_CONVERSION_PRESET preset)
+        //{
+        //    return IRtcEngineNative.setVoiceConversionPreset((int)preset);
+        //}
 
         /// @cond
         /** Uploads all SDK log files.
@@ -4072,17 +4032,17 @@ namespace agora_gaming_rtc
          * - < 0: Failure.
          *   - -12(ERR_TOO_OFTEN): The call frequency exceeds the limit.
          */
-        /*public string UploadLogFile()
-        {
-            string requestId = null;
-            IntPtr res = IRtcEngineNative.uploadLogFile();
-            if (res != IntPtr.Zero)
-            {
-                requestId = Marshal.PtrToStringAnsi(res);
-                IRtcEngineNative.freeObject(res);
-            }
-            return requestId;
-        }*/
+        //public string UploadLogFile()
+        //{
+        //    string requestId = null;
+        //    IntPtr res = IRtcEngineNative.uploadLogFile();
+        //    if (res != IntPtr.Zero)
+        //    {
+        //        requestId = Marshal.PtrToStringAnsi(res);
+        //        IRtcEngineNative.freeObject(res);
+        //    }
+        //    return requestId;
+        //}
         /// @endcond
 
 
@@ -4115,39 +4075,39 @@ namespace agora_gaming_rtc
          *  - `-2（ERR_INVALID_ARGUMENT)`: The parameter is invalid.
          *  - `-7(ERR_NOT_INITIALIZED)`: The SDK is not initialized.
          */
-        /*public int SetCloudProxy(CLOUD_PROXY_TYPE proxyType) {
-            return IRtcEngineNative.setCloudProxy((int)proxyType);
-        }
-*/
-        /*public int AdjustLoopbackRecordingSignalVolume(int volume) {
-            return IRtcEngineNative.adjustLoopbackRecordingSignalVolume(volume);
-        }
-*/
-        /*public int StartAudioRecording(AudioRecordingConfiguration config) {
-            return IRtcEngineNative.startAudioRecordingWithConfig(config.filePath, (int)config.recordingQuality, (int)config.recordingPosition, config.recordingSampleRate);
-        }
-*//*
-        public int SetLocalAccessPoint(string[] ips, string domain) {
+        //public int SetCloudProxy(CLOUD_PROXY_TYPE proxyType) {
+        //    return IRtcEngineNative.setCloudProxy((int)proxyType);
+        //}
 
-            StringBuilder ipsStr = new StringBuilder();
-            for (int i = 0; i < ips.Length; i ++) {
-                ipsStr.Append(ips[i]);
-                ipsStr.Append("\t");
-            }
-            return IRtcEngineNative.setLocalAccessPoint(ipsStr.ToString(), ips.Length, domain);
-        }
-*/
-       /* public int EnableVirtualBackground(bool enabled, VirtualBackgroundSource source) {
-            return IRtcEngineNative.enableVirtualBackground(enabled, (int)source.background_source_type, source.color, source.source);
-        }
+        //public int AdjustLoopbackRecordingSignalVolume(int volume) {
+        //    return IRtcEngineNative.adjustLoopbackRecordingSignalVolume(volume);
+        //}
 
-        public int SetCameraTorchOn(bool on) {
-            return IRtcEngineNative.setCameraTorchOn(on);
-        }
+        //public int StartAudioRecording(AudioRecordingConfiguration config) {
+        //    return IRtcEngineNative.startAudioRecordingWithConfig(config.filePath, (int)config.recordingQuality, (int)config.recordingPosition, config.recordingSampleRate);
+        //}
 
-        public bool IsCameraTorchSupported() {
-            return IRtcEngineNative.isCameraTorchSupported();
-        }*/
+        //public int SetLocalAccessPoint(string[] ips, string domain) {
+
+        //    StringBuilder ipsStr = new StringBuilder();
+        //    for (int i = 0; i < ips.Length; i ++) {
+        //        ipsStr.Append(ips[i]);
+        //        ipsStr.Append("\t");
+        //    }
+        //    return IRtcEngineNative.setLocalAccessPoint(ipsStr.ToString(), ips.Length, domain);
+        //}
+
+        //public int EnableVirtualBackground(bool enabled, VirtualBackgroundSource source) {
+        //    return IRtcEngineNative.enableVirtualBackground(enabled, (int)source.background_source_type, source.color, source.source);
+        //}
+
+        //public int SetCameraTorchOn(bool on) {
+        //    return IRtcEngineNative.setCameraTorchOn(on);
+        //}
+
+        //public bool IsCameraTorchSupported() {
+        //    return IRtcEngineNative.isCameraTorchSupported();
+        //}
 
         /** Initializes an IRtcEngine instance.
          * 
@@ -4252,13 +4212,6 @@ namespace agora_gaming_rtc
                     AudioPlaybackDeviceManager.ReleaseInstance();
                 }
 
-                VideoDeviceManager vdm = (VideoDeviceManager)instance.GetVideoDeviceManager();
-                if (vdm != null)
-                {
-                    vdm.SetEngine(null);
-                    VideoDeviceManager.ReleaseInstance();
-                }
-
                 AudioRawDataManager ardm = (AudioRawDataManager)instance.GetAudioRawDataManager();
                 if (ardm != null)
                 {
@@ -4266,12 +4219,7 @@ namespace agora_gaming_rtc
                     AudioRawDataManager.ReleaseInstance();
                 }
 
-                VideoRawDataManager vrdm = (VideoRawDataManager)instance.GetVideoRawDataManager();
-                if (vrdm != null)
-                {
-                    vrdm.SetEngine(null);
-                    VideoRawDataManager.ReleaseInstance();
-                }
+             
             }
             
             IRtcEngineNative.deleteEngine();

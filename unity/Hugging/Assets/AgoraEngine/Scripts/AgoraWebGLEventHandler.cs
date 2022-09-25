@@ -331,52 +331,6 @@ namespace agora_gaming_rtc
 
         }
 
-        private VideoRawDataManager _rawD;
-
-        public static void SetOnRenderVideoFrameCallback(VideoRawDataManager rawD)
-        {
-            if (rawD == null)
-            {
-                GetInstance()._rawD = null;
-            }
-            else
-            {
-                if (GetInstance().nativeTexture == null)
-                {
-                    GetInstance().nativeTexture = new Texture2D(200, 200, TextureFormat.ARGB32, false);
-                    GetInstance().nativeTexture.wrapMode = TextureWrapMode.Clamp;
-                    GetInstance().nativeTexture.Apply(false, false);
-                }
-
-                GetInstance()._rawD = rawD;
-
-            }
-        }
-
-        private VideoRawDataManager _rawDOnCapture;
-
-        public static void SetOnCaptureVideoFrameCallback(VideoRawDataManager rawD)
-        {
-            if (rawD == null)
-            {
-                GetInstance()._rawDOnCapture = null;
-            }
-            else
-            {
-                if (GetInstance().nativeTexture == null)
-                {
-                    GetInstance().nativeTexture = new Texture2D(200, 200, TextureFormat.ARGB32, false);
-                    GetInstance().nativeTexture.wrapMode = TextureWrapMode.Clamp;
-                    GetInstance().nativeTexture.Apply(false, false);
-                }
-
-                GetInstance()._rawDOnCapture = rawD;
-
-            }
-        }
-
-
-
         // MULTI CLIENT MANAGEMENT
         public static void AddClient(string channelId, AgoraChannel channel)
         {
@@ -738,36 +692,9 @@ namespace agora_gaming_rtc
 
         // used for fetching raw data
         private RawDataFetcher _rawDataFetcher = new RawDataFetcher();
-        private Texture2D nativeTexture = null; // for raw data
+        //private Texture2D nativeTexture = null; // for raw data
 
-        void Update()
-        {
-            /*foreach (PopupGUI gi in _msgs)
-            {
-                if (gi.isExpired == false)
-                {
-                    gi.Update();
-                }
-            }*/
-            // if video raw data manager is assigned
-            if (_rawD != null)
-            {
-                foreach (var key in _remoteUserListing.Keys)
-                {
-                    _rawDataFetcher.UpdateRemoteTexture(key, nativeTexture);
-                    var data = nativeTexture.GetRawTextureData();
-                    _rawD.RaiseEvent_OnRender(key, data);
-                }
-            }
-
-            if (_rawDOnCapture != null)
-            {
-                _rawDataFetcher.UpdateTexture(nativeTexture);
-                var data = nativeTexture.GetRawTextureData();
-                _rawDOnCapture.RaiseEvent_OnCapture(data);
-            }
-
-        }
+    
 
 
         #endregion

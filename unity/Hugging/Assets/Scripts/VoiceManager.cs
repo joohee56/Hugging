@@ -29,15 +29,15 @@ public class VoiceManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
+
     // Start is called before the first frame update
     void Start()
     {
         RtcEngine = IRtcEngine.getEngine(appId);
         RtcEngine.SetLogFilter(LOG_FILTER.DEBUG | LOG_FILTER.INFO | LOG_FILTER.WARNING | LOG_FILTER.ERROR | LOG_FILTER.CRITICAL);
 
-        RtcEngine.SetChannelProfile(CHANNEL_PROFILE.CHANNEL_PROFILE_LIVE_BROADCASTING);
-        RtcEngine.OnJoinChannelSuccess = OnJoinChannelSuccessHandler;
-        RtcEngine.OnUserJoined = OnUserJoined;
+        //RtcEngine.OnJoinChannelSuccess = OnJoinChannelSuccessHandler;
+        //RtcEngine.OnUserJoined = OnUserJoined;
         //RtcEngine.OnUserOffline = onUserOffline;
         RtcEngine.OnLeaveChannel += OnLeaveChannelHandler;
 
@@ -46,10 +46,7 @@ public class VoiceManager : MonoBehaviour
         };
         RtcEngine.OnError = HandleError;
 
-        // assign user id here, or use 0 for local user
-        TokenClient.Instance.RtcEngine = RtcEngine;
-        //TokenClient.Instance.RtmClient = RtmClient;
-        
+        TokenClient.Instance.RtcEngine = RtcEngine;        
     }
 
     private void Update()
@@ -59,20 +56,29 @@ public class VoiceManager : MonoBehaviour
 
     public void JoinChannel()
     {
-        RtcEngine.EnableAudio();
-        RtcEngine.SetDefaultMuteAllRemoteAudioStreams(true);
-        RtcEngine.DisableVideo();
-        RtcEngine.DisableVideoObserver();
-        RtcEngine.SetClientRole(CLIENT_ROLE_TYPE.CLIENT_ROLE_BROADCASTER);
+
+        //RtcEngine.SetDefaultMuteAllRemoteAudioStreams(true);
+      
 
         TokenClient.Instance.GetTokens(channelName, 0,
             (rtcToken, rtmToken) =>
             {
                 // join channel with token
+                ChannelMediaOptions options = new()
+                {
+                    publishLocalAudio = false,
+                    autoSubscribeAudio = true,
+                    publishLocalVideo = false,
+                    autoSubscribeVideo = false
+                };               
                 RtcEngine.JoinChannelByKey(rtcToken, channelName, null, 0);
-                //mRtmClient.Login(rtmToken, UserName);
             }
         );
+        RtcEngine.EnableAudio();
+
+        //RtcEngine.SetChannelProfile(CHANNEL_PROFILE.CHANNEL_PROFILE_LIVE_BROADCASTING);
+        RtcEngine.SetClientRole(CLIENT_ROLE_TYPE.CLIENT_ROLE_BROADCASTER);
+
     }
 
     public void ToggleMicState()
@@ -83,30 +89,37 @@ public class VoiceManager : MonoBehaviour
 
         if(micMute)
         {
-            RtcEngine.AdjustRecordingSignalVolume(0);
-        } else
+            RtcEngine.MuteLocalAudioStream(true);
+
+            //RtcEngine.AdjustAudioMixingPublishVolume(0);
+        }
+        else
         {
-            RtcEngine.AdjustRecordingSignalVolume(100);
+            //Configurat
+            RtcEngine.MuteLocalAudioStream(false);
+
+            //RtcEngine.AdjustAudioMixingPublishVolume(100);
         }
     }
 
-    private void OnJoinChannelSuccessHandler(string channelName, uint uid, int elapsed)
-    {
-        Debug.Log("JoinChannelSuccessHandler: uid = " + uid);
-    }
+    //public void StopPublishAudio()
+    //{
+    //    ChannelMediaOptions options = new ChannelMediaOptions();
+    //    options.publishLocalAudio = false;
+    //    var nRet = RtcEngine
+    //}
 
-    private void OnUserJoined(uint uid, int elapsed)
-    {
-        Debug.Log("Agora: onUserJoined: uid = " + uid + " elapsed = " + elapsed);
-        // this is called in main thread
+    //public void StartPublishAudio()
+    //{
+    //    var options = new ChannelMediaOptions();
+    //    options.publishMicrophoneTrack.SetValue(true);
+    //    var nRet = RtcEngine.UpdateChannelMediaOptions(options);
+    //    this.Log.UpdateLog("UpdateChannelMediaOptions: " + nRet);
+    //}
 
-        // find a game object to render video stream from 'uid'
-        Debug.Log(uid.ToString());
-    }
 
     void OnLeaveChannelHandler(RtcStats stats)
     {
-        Debug.Log("OnLeaveChannelSuccess ---- TEST");
         if(RtcEngine == null)
             return;
         RtcEngine.LeaveChannel();

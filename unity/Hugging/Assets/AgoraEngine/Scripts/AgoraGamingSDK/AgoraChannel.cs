@@ -242,9 +242,9 @@ namespace agora_gaming_rtc
 #if !UNITY_EDITOR && UNITY_WEBGL
             IRtcEngineNative.setCurrentChannel_WGL(_channelId);
             // For WebGL audio and video are auto subscribed
-            return IRtcEngineNative.joinChannel2(_channelId, token, info, uid, channelMediaOptions.publishLocalAudio, false);
+            return IRtcEngineNative.joinChannel2(_channelId, token, info, uid, channelMediaOptions.publishLocalAudio, channelMediaOptions.publishLocalVideo);
 #else
-            return IRtcEngineNative.joinChannel2(_channelHandler, token, info, uid, channelMediaOptions.autoSubscribeAudio, false, channelMediaOptions.publishLocalAudio, false);
+            return IRtcEngineNative.joinChannel2(_channelHandler, token, info, uid, channelMediaOptions.autoSubscribeAudio, channelMediaOptions.autoSubscribeVideo, channelMediaOptions.publishLocalAudio, channelMediaOptions.publishLocalVideo);
 #endif
         }
 
@@ -295,7 +295,7 @@ namespace agora_gaming_rtc
             // For WebGL audio and video are auto subscribed
             return IRtcEngineNative.joinChannelWithUserAccount2(_channelId, token, userAccount, channelMediaOptions.publishLocalAudio, channelMediaOptions.publishLocalVideo);
 #else
-            return IRtcEngineNative.joinChannelWithUserAccount2(_channelHandler, token, userAccount, channelMediaOptions.autoSubscribeAudio, false, channelMediaOptions.publishLocalAudio, false);
+            return IRtcEngineNative.joinChannelWithUserAccount2(_channelHandler, token, userAccount, channelMediaOptions.autoSubscribeAudio, channelMediaOptions.autoSubscribeVideo, channelMediaOptions.publishLocalAudio, channelMediaOptions.publishLocalVideo);
 #endif
         }
 
@@ -929,14 +929,14 @@ namespace agora_gaming_rtc
          * - &ge; 0: The ID of the data stream, if this method call succeeds.
          * - < 0: Fails to create the data stream.
          */
-        /*public int CreateDataStream(DataStreamConfig config)
-        {
-            if (_rtcEngine == null)
-                return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
+        //public int CreateDataStream(DataStreamConfig config)
+        //{
+        //    if (_rtcEngine == null)
+        //        return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
 
-            return IRtcEngineNative.createDataStream_channel(_channelHandler, config.syncWithAudio, config.ordered);
-        }
-*/
+        //    return IRtcEngineNative.createDataStream_channel(_channelHandler, config.syncWithAudio, config.ordered);
+        //}
+
         /** Sends data stream messages to all users in a channel.
          * 
          * The SDK has the following restrictions on this method:
