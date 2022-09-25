@@ -562,45 +562,45 @@ namespace agora_gaming_rtc
             }
         }
 
-        public void onChannelOnUserPublished_MC(string eventData)
-        {
-            string[] events = eventData.Split('|');
+        //public void onChannelOnUserPublished_MC(string eventData)
+        //{
+        //    string[] events = eventData.Split('|');
 
-            string channel = events[0];
-            string userId = events[1];
+        //    string channel = events[0];
+        //    string userId = events[1];
 
-            if (GetInstance()._clientsList.ContainsKey(channel))
-            {
-                AgoraChannel ch = GetInstance()._clientsList[channel];
-                RemoteVideoStats remoteStats = new RemoteVideoStats();
-                remoteStats.receivedBitrate = 1024; // to make it visible, put more than 0
-                remoteStats.uid = uint.Parse(userId);
-                if (ch.ChannelOnRemoteVideoStats != null)
-                {
-                    ch.ChannelOnRemoteVideoStats(channel, remoteStats);
-                }
-            }
-        }
+        //    if (GetInstance()._clientsList.ContainsKey(channel))
+        //    {
+        //        AgoraChannel ch = GetInstance()._clientsList[channel];
+        //        RemoteVideoStats remoteStats = new RemoteVideoStats();
+        //        remoteStats.receivedBitrate = 1024; // to make it visible, put more than 0
+        //        remoteStats.uid = uint.Parse(userId);
+        //        if (ch.ChannelOnRemoteVideoStats != null)
+        //        {
+        //            ch.ChannelOnRemoteVideoStats(channel, remoteStats);
+        //        }
+        //    }
+        //}
 
 
-        public void onChannelOnUserUnPublished_MC(string eventData)
-        {
-            string[] events = eventData.Split('|');
+        //public void onChannelOnUserUnPublished_MC(string eventData)
+        //{
+        //    string[] events = eventData.Split('|');
 
-            string channel = events[0];
-            string userId = events[1];
+        //    string channel = events[0];
+        //    string userId = events[1];
 
-            if (GetInstance()._clientsList.ContainsKey(channel))
-            {
-                AgoraChannel ch = GetInstance()._clientsList[channel];
-                RemoteVideoStats remoteStats = new RemoteVideoStats();
-                remoteStats.receivedBitrate = 0; // to make it visible, put more than 0
-                remoteStats.uid = uint.Parse(userId);
-                if (ch.ChannelOnRemoteVideoStats != null) {
-                    ch.ChannelOnRemoteVideoStats(channel, remoteStats);
-                }
-            }
-        }
+        //    if (GetInstance()._clientsList.ContainsKey(channel))
+        //    {
+        //        AgoraChannel ch = GetInstance()._clientsList[channel];
+        //        RemoteVideoStats remoteStats = new RemoteVideoStats();
+        //        remoteStats.receivedBitrate = 0; // to make it visible, put more than 0
+        //        remoteStats.uid = uint.Parse(userId);
+        //        if (ch.ChannelOnRemoteVideoStats != null) {
+        //            ch.ChannelOnRemoteVideoStats(channel, remoteStats);
+        //        }
+        //    }
+        //}
 
         public void OnLeaveChannel_MC(string channel)
         {
@@ -691,7 +691,7 @@ namespace agora_gaming_rtc
         }
 
         // used for fetching raw data
-        private RawDataFetcher _rawDataFetcher = new RawDataFetcher();
+        //private RawDataFetcher _rawDataFetcher = new RawDataFetcher();
         //private Texture2D nativeTexture = null; // for raw data
 
     
@@ -1116,31 +1116,31 @@ namespace agora_gaming_rtc
 
     // same as InSurfaceRenderer for videosurface
     // used for observing video renderers in webgl
-    public sealed class RawDataFetcher : IRtcEngineNative
-    {
+    //public sealed class RawDataFetcher : IRtcEngineNative
+    //{
 
-        public RawDataFetcher()
-        {
+    //    public RawDataFetcher()
+    //    {
 
-        }
+    //    }
 
-        public void UpdateTexture(Texture tex)
-        {
-            if (!isLocalVideoReady())
-                return;
-            if (tex != null)
-            {
-                updateLocalTexture(tex.GetNativeTexturePtr());
-            }
-        }
+    //    public void UpdateTexture(Texture tex)
+    //    {
+    //        if (!isLocalVideoReady())
+    //            return;
+    //        if (tex != null)
+    //        {
+    //            updateLocalTexture(tex.GetNativeTexturePtr());
+    //        }
+    //    }
 
-        public void UpdateRemoteTexture(uint uid, Texture tex)
-        {
-            if (!isRemoteVideoReady("" + uid))
-                return;
-            updateRemoteTexture("" + uid, tex.GetNativeTexturePtr());
-        }
+    //    public void UpdateRemoteTexture(uint uid, Texture tex)
+    //    {
+    //        if (!isRemoteVideoReady("" + uid))
+    //            return;
+    //        updateRemoteTexture("" + uid, tex.GetNativeTexturePtr());
+    //    }
 
-    }
+    //}
 #endif
 }

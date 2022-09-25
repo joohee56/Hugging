@@ -9,9 +9,9 @@ namespace agora_gaming_rtc
         /**
         EngineEvent is only for engine, not for user,Please do not call this function.
         */
-        protected delegate void EngineEventOnCaptureVideoFrame(int videoFrameType, int width, int height, int yStride, IntPtr yBuffer, int rotation, long renderTimeMs);
+        //protected delegate void EngineEventOnCaptureVideoFrame(int videoFrameType, int width, int height, int yStride, IntPtr yBuffer, int rotation, long renderTimeMs);
 
-        protected delegate void EngineEventOnRenderVideoFrame(uint uid, int videoFrameType, int width, int height, int yStride, IntPtr yBuffer, int rotation, long renderTimeMs);
+        //protected delegate void EngineEventOnRenderVideoFrame(uint uid, int videoFrameType, int width, int height, int yStride, IntPtr yBuffer, int rotation, long renderTimeMs);
 
         protected delegate void EngineEventOnRecordAudioFrame(int type, int samples, int bytesPerSample, int channels, int samplesPerSec, IntPtr buffer, long renderTimeMs, int avsync_type);
 
@@ -33,9 +33,9 @@ namespace agora_gaming_rtc
 
         protected delegate void EngineEventOnAudioRouteChangedHandler(int route);
 
-        protected delegate void EngineEventOnLocalVideoStatsHandler(int sentBitrate, int sentFrameRate, int encoderOutputFrameRate, int rendererOutputFrameRate, int targetBitrate, int targetFrameRate, int qualityAdaptIndication, int encodedBitrate, int encodedFrameWidth, int encodedFrameHeight, int encodedFrameCount, int codecType, ushort txPacketLossRate, int captureFrameRate, int captureBrightnessLevel);
+        //protected delegate void EngineEventOnLocalVideoStatsHandler(int sentBitrate, int sentFrameRate, int encoderOutputFrameRate, int rendererOutputFrameRate, int targetBitrate, int targetFrameRate, int qualityAdaptIndication, int encodedBitrate, int encodedFrameWidth, int encodedFrameHeight, int encodedFrameCount, int codecType, ushort txPacketLossRate, int captureFrameRate, int captureBrightnessLevel);
 
-        protected delegate void EngineEventOnRemoteVideoStatsHandler(uint uid, int delay, int width, int height, int receivedBitrate, int decoderOutputFrameRate, int rendererOutputFrameRate, int packetLossRate, int rxStreamType, int totalFrozenTime, int frozenRate, int totalActiveTime, int publishDuration);
+        //protected delegate void EngineEventOnRemoteVideoStatsHandler(uint uid, int delay, int width, int height, int receivedBitrate, int decoderOutputFrameRate, int rendererOutputFrameRate, int packetLossRate, int rxStreamType, int totalFrozenTime, int frozenRate, int totalActiveTime, int publishDuration);
 
         protected delegate void EngineEventOnRemoteAudioStatsHandler(uint uid, int quality, int networkTransportDelay, int jitterBufferDelay, int audioLossRate, int numChannels, int receivedSampleRate, int receivedBitrate, int totalFrozenTime, int frozenRate, int totalActiveTime, int publishDuration, int qoeQuality, int qualityChangedReason, int mosValue);
 
@@ -79,10 +79,10 @@ namespace agora_gaming_rtc
 
         protected delegate void EngineEventOnClientRoleChanged(int oldRole, int newRole);
 
-        protected delegate void EngineEventOnRemoteVideoStateChanged(uint uid, int state, int reason, int elapsed);
+        //protected delegate void EngineEventOnRemoteVideoStateChanged(uint uid, int state, int reason, int elapsed);
         // audio and video raw data
 
-        protected delegate void EngineEventOnLocalVideoStateChanged(int localVideoState, int error);
+        //protected delegate void EngineEventOnLocalVideoStateChanged(int localVideoState, int error);
 
         protected delegate void EngineEventOnFacePositionChanged(int imageWidth, int imageHeight, int x, int y, int width, int height, int vecDistance, int numFaces);
 
@@ -90,7 +90,7 @@ namespace agora_gaming_rtc
 
         protected delegate void ChannelEngineEventOnRtcStatsHandler(string channelId, uint duration, uint txBytes, uint rxBytes, uint txAudioBytes, uint txVideoBytes, uint rxAudioBytes, uint rxVideoBytes, ushort txKBitRate, ushort rxKBitRate, ushort rxAudioKBitRate, ushort txAudioKBitRate, ushort rxVideoKBitRate, ushort txVideoKBitRate, ushort lastmileDelay, ushort txPacketLossRate, ushort rxPacketLossRate, uint userCount, double cpuAppUsage, double cpuTotalUsage, int gatewayRtt, double memoryAppUsageRatio, double memoryTotalUsageRatio, int memoryAppUsageInKbytes);
 
-        protected delegate void ChannelEngineEventOnRemoteVideoStatsHandler(string channelId, uint uid, int delay, int width, int height, int receivedBitrate, int decoderOutputFrameRate, int rendererOutputFrameRate, int packetLossRate, int rxStreamType, int totalFrozenTime, int frozenRate, int totalActiveTime, int publishDuration);
+        //protected delegate void ChannelEngineEventOnRemoteVideoStatsHandler(string channelId, uint uid, int delay, int width, int height, int receivedBitrate, int decoderOutputFrameRate, int rendererOutputFrameRate, int packetLossRate, int rxStreamType, int totalFrozenTime, int frozenRate, int totalActiveTime, int publishDuration);
 
         protected delegate void ChannelEngineEventOnRemoteAudioStatsHandler(string channelId, uint uid, int quality, int networkTransportDelay, int jitterBufferDelay, int audioLossRate, int numChannels, int receivedSampleRate, int receivedBitrate, int totalFrozenTime, int frozenRate, int totalActiveTime, int publishDuration, int qoeQuality, int qualityChangedReason, int mosValue);
 
@@ -154,11 +154,11 @@ namespace agora_gaming_rtc
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int enableLocalAudio(bool enabled);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int setupLocalVideo(int hwnd, int renderMode, uint uid, IntPtr priv);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int setupLocalVideo(int hwnd, int renderMode, uint uid, IntPtr priv);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int setupRemoteVideo(int hwnd, int renderMode, uint uid, IntPtr priv);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int setupRemoteVideo(int hwnd, int renderMode, uint uid, IntPtr priv);
 
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int setLocalRenderMode(int renderMode);
@@ -166,8 +166,8 @@ namespace agora_gaming_rtc
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int setRemoteRenderMode(uint userId, int renderMode);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int setLocalVideoMirrorMode(int mirrorMode);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int setLocalVideoMirrorMode(int mirrorMode);
 
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int startPreview();
@@ -269,20 +269,20 @@ namespace agora_gaming_rtc
         protected static extern int muteRemoteAudioStream_WGLM(string uid, bool mute);
 #endif
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int switchCamera();
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int switchCamera();
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int setVideoProfile(int profile, bool swapWidthAndHeight);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int setVideoProfile(int profile, bool swapWidthAndHeight);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int muteLocalVideoStream(bool mute);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int muteLocalVideoStream(bool mute);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int muteAllRemoteVideoStreams(bool mute);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int muteAllRemoteVideoStreams(bool mute);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int muteRemoteVideoStream(uint uid, bool mute);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int muteRemoteVideoStream(uint uid, bool mute);
 
 #if UNITY_WEBGL || UNITY_EDITOR
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
@@ -353,8 +353,8 @@ namespace agora_gaming_rtc
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int enableWebSdkInteroperability(bool enabled);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int setVideoQualityParameters(bool preferFrameRateOverImageQuality);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int setVideoQualityParameters(bool preferFrameRateOverImageQuality);
 
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int startEchoTest();
@@ -365,8 +365,8 @@ namespace agora_gaming_rtc
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int stopEchoTest();
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int setRemoteVideoStreamType(uint uid, int streamType);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int setRemoteVideoStreamType(uint uid, int streamType);
 
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int setMixedAudioFrameParameters(int sampleRate, int samplesPerCall);
@@ -392,14 +392,14 @@ namespace agora_gaming_rtc
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int deleteTexture(int tex);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int updateVideoRawData(IntPtr data, uint uid);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int updateVideoRawData(IntPtr data, uint uid);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern void addUserVideoInfo(uint userId, uint textureId);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern void addUserVideoInfo(uint userId, uint textureId);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern void removeUserVideoInfo(uint userId);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern void removeUserVideoInfo(uint userId);
 
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int setPlaybackDeviceVolume(int volume);
@@ -452,8 +452,8 @@ namespace agora_gaming_rtc
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int setDefaultMuteAllRemoteAudioStreams(bool mute);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int setDefaultMuteAllRemoteVideoStreams(bool mute);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int setDefaultMuteAllRemoteVideoStreams(bool mute);
 
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern void freeObject(IntPtr obj);
@@ -464,8 +464,8 @@ namespace agora_gaming_rtc
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int setAudioProfile(int audioProfile, int scenario);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int setVideoEncoderConfiguration(int width, int height, int frameRate, int minFrameRate, int bitrate, int minBitrate, int orientationMode, int degradationPreference, int videoMirrorMode);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int setVideoEncoderConfiguration(int width, int height, int frameRate, int minFrameRate, int bitrate, int minBitrate, int orientationMode, int degradationPreference, int videoMirrorMode);
 
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int adjustAudioMixingPlayoutVolume(int volume);
@@ -502,29 +502,29 @@ namespace agora_gaming_rtc
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int setLiveTranscoding(int width, int height, int videoBitrate, int videoFramerate, bool lowLatency, int videoGroup, int video_codec_profile, uint backgroundColor, uint userCount, string transcodingUserInfo, string transcodingExtraInfo, string metaData, string watermarkRtcImageUrl, int watermarkRtcImageX, int watermarkRtcImageY, int watermarkRtcImageWidth, int watermarkRtcImageHeight, string backgroundImageRtcImageUrl, int backgroundImageRtcImageX, int backgroundImageRtcImageY, int backgroundImageRtcImageWidth, int backgroundImageRtcImageHeight, int audioSampleRate, int audioBitrate, int audioChannels, int audioCodecProfile, string advancedFeatures, uint advancedFeatureCount);
         // video manager
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern bool createAVideoDeviceManager();
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern bool createAVideoDeviceManager();
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int releaseAVideoDeviceManager();
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int releaseAVideoDeviceManager();
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int startVideoDeviceTest(IntPtr hwnd);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int startVideoDeviceTest(IntPtr hwnd);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int stopVideoDeviceTest();
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int stopVideoDeviceTest();
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int getVideoDeviceCollectionCount();
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int getVideoDeviceCollectionCount();
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int getVideoDeviceCollectionDevice(int index, IntPtr deviceName, IntPtr deviceId);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int getVideoDeviceCollectionDevice(int index, IntPtr deviceName, IntPtr deviceId);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int setVideoDeviceCollectionDevice(string deviceId);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int setVideoDeviceCollectionDevice(string deviceId);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int getCurrentVideoDevice(IntPtr deviceId);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int getCurrentVideoDevice(IntPtr deviceId);
         // audio recording device manager
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern bool creatAAudioRecordingDeviceManager();
@@ -605,11 +605,11 @@ namespace agora_gaming_rtc
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int getCurrentPlaybackDevice(IntPtr deviceId);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int pushVideoFrame(int type, int format, byte[] videoBuffer, int stride, int height, int cropLeft, int cropTop, int cropRight, int cropBottom, int rotation, long timestamp);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int pushVideoFrame(int type, int format, byte[] videoBuffer, int stride, int height, int cropLeft, int cropTop, int cropRight, int cropBottom, int rotation, long timestamp);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int setExternalVideoSource(bool enable, bool useTexture);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int setExternalVideoSource(bool enable, bool useTexture);
 
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int setExternalAudioSource(bool enabled, int sampleRate, int channels);
@@ -620,11 +620,11 @@ namespace agora_gaming_rtc
         // [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         // protected static extern int pushAudioFrame2_(int mediaSourceType, int audioFrameType, int samples, int bytesPerSample, int channels, int samplesPerSec, byte[] buffer, long renderTimeMs, int avsync_type, bool wrap);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int registerVideoRawDataObserver();
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int registerVideoRawDataObserver();
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int unRegisterVideoRawDataObserver();
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int unRegisterVideoRawDataObserver();
 
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int registerAudioRawDataObserver();
@@ -685,14 +685,14 @@ namespace agora_gaming_rtc
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int configPublisher(int width, int height, int framerate, int bitrate, int defaultLayout, int lifecycle, bool owner, int injectStreamWidth, int injectStreamHeight, string injectStreamUrl, string publishUrl, string rawStreamUrl, string extraInfo);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int addVideoWatermark(string url, int x, int y, int width, int height);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int addVideoWatermark(string url, int x, int y, int width, int height);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int addVideoWatermark2(string watermarkUrl, bool visibleInPreview, int positionInLandscapeX, int positionInLandscapeY, int positionInLandscapeWidth, int positionInLandscapeHeight, int positionInPortraitX, int positionInPortraitY, int positionInPortraitWidth, int positionInPortraitHeight);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int addVideoWatermark2(string watermarkUrl, bool visibleInPreview, int positionInLandscapeX, int positionInLandscapeY, int positionInLandscapeWidth, int positionInLandscapeHeight, int positionInPortraitX, int positionInPortraitY, int positionInPortraitWidth, int positionInPortraitHeight);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int clearVideoWatermarks();
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int clearVideoWatermarks();
 
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int registerLocalUserAccount(string appId, string userAccount);
@@ -731,11 +731,11 @@ namespace agora_gaming_rtc
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int startScreenCaptureByScreenRect(int screenRectX, int screenRectY, int screenRectWidth, int screenRectHeight, int regionRectX, int regionRectY, int regionRectWidth, int regionRectHeight, int screenCaptureVideoDimenWidth, int screenCaptureVideoDimenHeight, int screenCaptureFrameRate, int screenCaptureBitrate, bool screenCaptureCaptureMouseCursor);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int setScreenCaptureContentHint(int videoContentHint);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int setScreenCaptureContentHint(int videoContentHint);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int updateScreenCaptureParameters(int screenCaptureVideoDimenWidth, int screenCaptureVideoDimenHeight, int screenCaptureFrameRate, int screenCaptureBitrate, bool screenCaptureCaptureMouseCursor);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int updateScreenCaptureParameters(int screenCaptureVideoDimenWidth, int screenCaptureVideoDimenHeight, int screenCaptureFrameRate, int screenCaptureBitrate, bool screenCaptureCaptureMouseCursor);
 
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int updateScreenCaptureRegion(int x, int y, int width, int height);
@@ -842,10 +842,10 @@ namespace agora_gaming_rtc
                                       EngineEventOnRtcStatsHandler OnRtcStats,
                                       OnAudioMixingFinishedHandler OnAudioMixingFinished,
                                       EngineEventOnAudioRouteChangedHandler OnAudioRouteChanged,
-                                      OnFirstRemoteVideoDecodedHandler OnFirstRemoteVideoDecoded,
-                                      OnVideoSizeChangedHandler OnVideoSizeChanged,
+                                      //OnFirstRemoteVideoDecodedHandler OnFirstRemoteVideoDecoded,
+                                      //OnVideoSizeChangedHandler OnVideoSizeChanged,
                                       EngineEventOnClientRoleChanged onClientRolteChanged,
-                                      OnUserMuteVideoHandler OnUserMuteVideo,
+                                      //OnUserMuteVideoHandler OnUserMuteVideo,
                                       OnMicrophoneEnabledHandler OnMicrophoneEnabled,
                                       OnApiExecutedHandler OnApiExecuted,
                                       OnFirstLocalAudioFrameHandler OnFirstLocalAudioFrame,
@@ -858,15 +858,15 @@ namespace agora_gaming_rtc
                                       OnStreamMessageErrorHandler onStreamMessageError,
                                       EngineEventOnStreamMessageHandler onStreamMessage,
                                       OnConnectionBannedHandler onConnectionBanned,
-                                      OnVideoStoppedHandler OnVideoStopped,
+                                      //OnVideoStoppedHandler OnVideoStopped,
                                       OnTokenPrivilegeWillExpireHandler onTokenPrivilegeWillExpire,
                                       OnNetworkQualityHandler onNetworkQuality,
-                                      EngineEventOnLocalVideoStatsHandler onLocalVideoStats,
-                                      EngineEventOnRemoteVideoStatsHandler onRemoteVideoStats,
+                                      //EngineEventOnLocalVideoStatsHandler onLocalVideoStats,
+                                      //EngineEventOnRemoteVideoStatsHandler onRemoteVideoStats,
                                       EngineEventOnRemoteAudioStatsHandler onRemoteAudioStats,
-                                      OnFirstLocalVideoFrameHandler OnFirstLocalVideoFrame,
-                                      OnFirstRemoteVideoFrameHandler OnFirstRemoteVideoFrame,
-                                      OnUserEnableVideoHandler OnUserEnableVideo,
+                                      //OnFirstLocalVideoFrameHandler OnFirstLocalVideoFrame,
+                                      //OnFirstRemoteVideoFrameHandler OnFirstRemoteVideoFrame,
+                                      //OnUserEnableVideoHandler OnUserEnableVideo,
                                       OnAudioDeviceStateChangedHandler onAudioDeviceStateChanged,
                                       OnCameraReadyHandler onCameraReady,
                                       OnCameraFocusAreaChangedHandler onCameraFocusAreaChanged,
@@ -874,13 +874,13 @@ namespace agora_gaming_rtc
                                       OnRemoteAudioMixingBeginHandler onRemoteAudioMixingBegin,
                                       OnRemoteAudioMixingEndHandler onRemoteAudioMixingEnd,
                                       OnAudioEffectFinishedHandler onAudioEffectFinished,
-                                      OnVideoDeviceStateChangedHandler onVideoDeviceStateChanged,
-                                      EngineEventOnRemoteVideoStateChanged OnRemoteVideoStateChanged,
-                                      OnUserEnableLocalVideoHandler OnUserEnableLocalVideo,
+                                      //OnVideoDeviceStateChangedHandler onVideoDeviceStateChanged,
+                                      //EngineEventOnRemoteVideoStateChanged OnRemoteVideoStateChanged,
+                                      //OnUserEnableLocalVideoHandler OnUserEnableLocalVideo,
                                       OnLocalPublishFallbackToAudioOnlyHandler OnLocalPublishFallbackToAudioOnly,
                                       OnRemoteSubscribeFallbackToAudioOnlyHandler onRemoteSubscribeFallbackToAudioOnly,
                                       EngineEventOnConnectionStateChanged onConnectionStateChanged,
-                                      OnRemoteVideoTransportStatsHandler onRemoteVideoTransportStats,
+                                      //OnRemoteVideoTransportStatsHandler onRemoteVideoTransportStats,
                                       OnRemoteAudioTransportStatsHandler onRemoteAudioTransportStats,
                                       OnTranscodingUpdatedHandler onTranscodingUpdated,
                                       EngineEventOnAudioDeviceVolumeChangedHandler onAudioDeviceVolumeChanged,
@@ -889,7 +889,7 @@ namespace agora_gaming_rtc
                                       OnMediaEngineLoadSuccessHandler onMediaEngineLoadSuccess,
                                       EngineEventOnAudioMixingStateChangedHandler onAudioMixingStateChanged,
                                       OnFirstRemoteAudioDecodedHandler onFirstRemoteAudioDecoded,
-                                      EngineEventOnLocalVideoStateChanged onLocalVideoStateChanged,
+                                      //EngineEventOnLocalVideoStateChanged onLocalVideoStateChanged,
                                       EngineEventOnRtmpStreamingStateChangedHandler onRtmpStreamingStateChanged,
                                       EngineEventOnNetworkTypeChangedHandler onNetworkTypeChanged,
                                       EngineEventOnLastmileProbeResultHandler onLastmileProbeResult,
@@ -900,14 +900,14 @@ namespace agora_gaming_rtc
                                       EngineEventOnLocalAudioStatsHandler onLocalAudioStats,
                                       EngineEventOnChannelMediaRelayStateChangedHandler onChannelMediaRelayStateChanged,
                                       EngineEventOnChannelMediaRelayEventHandler onChannelMediaRelayEvent,
-                                      EngineEventOnFacePositionChanged onFacePositionChanged,
+                                      //EngineEventOnFacePositionChanged onFacePositionChanged,
                                       OnRtmpStreamingEventHandler onRtmpStreamingEvent,
                                       OnAudioPublishStateChangedHandler onAudioPublishStateChange,
-                                      OnVideoPublishStateChangedHandler onVideoPublishStateChanged,
+                                      //OnVideoPublishStateChangedHandler onVideoPublishStateChanged,
                                       OnAudioSubscribeStateChangedHandler onAudioSubscribeStateChanged,
-                                      OnVideoSubscribeStateChangedHandler onVideoSubscribeStateChanged,
+                                      //OnVideoSubscribeStateChangedHandler onVideoSubscribeStateChanged,
                                       OnFirstLocalAudioFramePublishedHandler onFirstLocalAudioFramePublished,
-                                      OnFirstLocalVideoFramePublishedHandler onFirstLocalVideoFramePublished,
+                                      //OnFirstLocalVideoFramePublishedHandler onFirstLocalVideoFramePublished,
                                       OnUserSuperResolutionEnabledHandler onUserSuperResolutionEnabled,
                                       OnUploadLogResultHandler onUploadLogResult,
                                       OnVirtualBackgroundSourceEnabledHandler onVirtualBackgroundSourceEnabled);
@@ -926,35 +926,35 @@ namespace agora_gaming_rtc
                                         ChannelOnTokenPrivilegeWillExpireHandler onTokenPrivilegeWillExpire,
                                         ChannelEngineEventOnRtcStatsHandler onRtcStats,
                                         ChannelOnNetworkQualityHandler onNetworkQuality,
-                                        ChannelEngineEventOnRemoteVideoStatsHandler onRemoteVideoStats,
+                                        //ChannelEngineEventOnRemoteVideoStatsHandler onRemoteVideoStats,
                                         ChannelEngineEventOnRemoteAudioStatsHandler onRemoteAudioStats,
                                         ChannelOnRemoteAudioStateChangedHandler onRemoteAudioStateChanged,
                                         ChannelOnActiveSpeakerHandler onActiveSpeaker,
-                                        ChannelOnVideoSizeChangedHandler onVideoSizeChanged,
-                                        ChannelOnRemoteVideoStateChangedHandler onRemoteVideoStateChanged,
-                                        ChannelOnStreamMessageHandler onStreamMessage,
-                                        ChannelOnStreamMessageErrorHandler onStreamMessageError,
-                                        ChannelOnMediaRelayStateChangedHandler onMediaRelayStateChanged,
-                                        ChannelOnMediaRelayEventHandler onMediaRelayEvent,
-                                        ChannelOnRtmpStreamingStateChangedHandler onRtmpStreamingStateChanged,
-                                        ChannelOnTranscodingUpdatedHandler onTranscodingUpdated,
-                                        ChannelOnStreamInjectedStatusHandler onStreamInjectedStatus,
-                                        ChannelOnRemoteSubscribeFallbackToAudioOnlyHandler onRemoteSubscribeFallbackToAudioOnly,
-                                        ChannelOnConnectionStateChangedHandler onConnectionStateChanged,
-                                        ChannelOnLocalPublishFallbackToAudioOnlyHandler onLocalPublishFallbackToAudioOnly,
-                                        ChannelOnRtmpStreamingEventHandler onRtmpStreamingEvent,
+                                        //ChannelOnVideoSizeChangedHandler onVideoSizeChanged,
+                                        //ChannelOnRemoteVideoStateChangedHandler onRemoteVideoStateChanged,
+                                        //ChannelOnStreamMessageHandler onStreamMessage,
+                                        //ChannelOnStreamMessageErrorHandler onStreamMessageError,
+                                        //ChannelOnMediaRelayStateChangedHandler onMediaRelayStateChanged,
+                                        //ChannelOnMediaRelayEventHandler onMediaRelayEvent,
+                                        //ChannelOnRtmpStreamingStateChangedHandler onRtmpStreamingStateChanged,
+                                        //ChannelOnTranscodingUpdatedHandler onTranscodingUpdated,
+                                        //ChannelOnStreamInjectedStatusHandler onStreamInjectedStatus,
+                                        //ChannelOnRemoteSubscribeFallbackToAudioOnlyHandler onRemoteSubscribeFallbackToAudioOnly,
+                                        //ChannelOnConnectionStateChangedHandler onConnectionStateChanged,
+                                        //ChannelOnLocalPublishFallbackToAudioOnlyHandler onLocalPublishFallbackToAudioOnly,
+                                        //ChannelOnRtmpStreamingEventHandler onRtmpStreamingEvent,
                                         ChannelOnAudioPublishStateChangedHandler onAudioPublishStateChange,
-                                        ChannelOnVideoPublishStateChangedHandler onVideoPublishStateChange,
+                                        //ChannelOnVideoPublishStateChangedHandler onVideoPublishStateChange,
                                         ChannelOnAudioSubscribeStateChangedHandler onAudioSubscribeStateChange,
-                                        ChannelOnVideoSubscribeStateChangedHandler onVideoSubscribeStateChange,
+                                        //ChannelOnVideoSubscribeStateChangedHandler onVideoSubscribeStateChange,
                                         ChannelOnUserSuperResolutionEnabledHandler onUserSuperResolutionEnabled);
 
         // audio and video raw data
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern void initEventOnCaptureVideoFrame(EngineEventOnCaptureVideoFrame onCaptureVideoFrame);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern void initEventOnCaptureVideoFrame(EngineEventOnCaptureVideoFrame onCaptureVideoFrame);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern void initEventOnRenderVideoFrame(EngineEventOnRenderVideoFrame onRenderVideoFrame);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern void initEventOnRenderVideoFrame(EngineEventOnRenderVideoFrame onRenderVideoFrame);
 
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern void initEventOnRecordAudioFrame(EngineEventOnRecordAudioFrame onRecordAudioFrame);
@@ -978,39 +978,39 @@ namespace agora_gaming_rtc
         protected static extern void initEventOnMetaDataCallback(EngineEventOnMediaMetaDataReceived onMetadataReceived, EngineEventOnReadyToSendMetadata onReadyToSendMetadata, EngineEventOnGetMaxMetadataSize onGetMaxMetadataSize);
 
 #if UNITY_EDITOR || UNITY_WEBGL
-        //WebGL Video Renderer APIs from ASH
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern void setVideoDeviceCollectionDeviceWGL(string deviceID);
+        ////WebGL Video Renderer APIs from ASH
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern void setVideoDeviceCollectionDeviceWGL(string deviceID);
 
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern void setAudioRecordingCollectionDeviceWGL(string deviceID);
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern void setPlaybackCollectionDeviceWGL(string deviceID);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int pushVideoFrameWGL(byte[] videoBuffer, int size, int stride, int height, int rotation, int cropLeft, int cropTop, int cropRight, int cropBottom);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int pushVideoFrameWGL(byte[] videoBuffer, int size, int stride, int height, int rotation, int cropLeft, int cropTop, int cropRight, int cropBottom);
 
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern void createLocalTexture();
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern bool isLocalVideoReady();
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern bool isLocalVideoReady();
 
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern void updateLocalTexture(IntPtr texture);
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int createRemoteTexture(string userId);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern bool isRemoteVideoReady(string videoID);
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern bool isRemoteVideoReady_MC(string channelId, string videoID);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern bool isRemoteVideoReady(string videoID);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern bool isRemoteVideoReady_MC(string channelId, string videoID);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        public static extern void updateRemoteTexture(string videoID, IntPtr texture);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //public static extern void updateRemoteTexture(string videoID, IntPtr texture);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        public static extern void updateRemoteTexture_MC(string channel, string videoID, IntPtr texture);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //public static extern void updateRemoteTexture_MC(string channel, string videoID, IntPtr texture);
 
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         public static extern void setCurrentChannel_WGL(string channelId);
@@ -1110,8 +1110,8 @@ namespace agora_gaming_rtc
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int setDefaultMuteAllRemoteAudioStreams2(IntPtr channel, bool mute);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int setDefaultMuteAllRemoteVideoStreams2(IntPtr channel, bool mute);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int setDefaultMuteAllRemoteVideoStreams2(IntPtr channel, bool mute);
 
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int muteAllRemoteAudioStreams2(IntPtr channel, bool mute);
@@ -1132,27 +1132,27 @@ namespace agora_gaming_rtc
         protected static extern int muteRemoteAudioStream2_WGLM(IntPtr channel, string userId, bool mute);
 #endif
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int muteAllRemoteVideoStreams2(IntPtr channel, bool mute);
+        //        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //        protected static extern int muteAllRemoteVideoStreams2(IntPtr channel, bool mute);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int muteRemoteVideoStream2(IntPtr channel, uint userId, bool mute);
-
-#if UNITY_WEBGL || UNITY_EDITOR
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int muteRemoteVideoStream2_WGLM(IntPtr channel, string userId, bool mute);
-#endif
-
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int setRemoteVideoStreamType2(IntPtr channel, uint userId, int streamType);
+        //        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //        protected static extern int muteRemoteVideoStream2(IntPtr channel, uint userId, bool mute);
 
 #if UNITY_WEBGL || UNITY_EDITOR
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int setRemoteVideoStreamType2_WGLM(IntPtr channel, string userId, int streamType);
+        //        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //        protected static extern int muteRemoteVideoStream2_WGLM(IntPtr channel, string userId, bool mute);
+        //#endif
+
+        //        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //        protected static extern int setRemoteVideoStreamType2(IntPtr channel, uint userId, int streamType);
+
+        //#if UNITY_WEBGL || UNITY_EDITOR
+        //        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //        protected static extern int setRemoteVideoStreamType2_WGLM(IntPtr channel, string userId, int streamType);
 #endif
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int setRemoteDefaultVideoStreamType2(IntPtr channel, int streamType);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int setRemoteDefaultVideoStreamType2(IntPtr channel, int streamType);
 
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int createDataStream2(IntPtr channel, bool reliable, bool ordered);
@@ -1200,14 +1200,14 @@ namespace agora_gaming_rtc
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int getConnectionState2(IntPtr channel);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern void addUserVideoInfo2(string channelId, uint _userId, uint _textureId);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern void addUserVideoInfo2(string channelId, uint _userId, uint _textureId);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern void removeUserVideoInfo2(string channelId, uint _userId);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern void removeUserVideoInfo2(string channelId, uint _userId);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int updateVideoRawData2(IntPtr data, string channelId, uint uid);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int updateVideoRawData2(IntPtr data, string channelId, uint uid);
 
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int enableFaceDetection(bool enable);
@@ -1280,14 +1280,14 @@ namespace agora_gaming_rtc
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int muteLocalAudioStream_channel(string channel, bool mute);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int muteLocalVideoStream_channel(string channel, bool mute);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int muteLocalVideoStream_channel(string channel, bool mute);
 #else
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern int muteLocalAudioStream_channel(IntPtr channel, bool mute);
 
-        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        protected static extern int muteLocalVideoStream_channel(IntPtr channel, bool mute);
+        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        //protected static extern int muteLocalVideoStream_channel(IntPtr channel, bool mute);
 #endif
 
         /*[DllImport(MyLibName, CharSet = CharSet.Ansi)]

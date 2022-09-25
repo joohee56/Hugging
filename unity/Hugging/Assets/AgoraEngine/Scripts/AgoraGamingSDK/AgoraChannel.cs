@@ -29,12 +29,12 @@ namespace agora_gaming_rtc
         public ChannelOnTokenPrivilegeWillExpireHandler ChannelOnTokenPrivilegeWillExpire;
         public ChannelOnRtcStatsHandler ChannelOnRtcStats;
         public ChannelOnNetworkQualityHandler ChannelOnNetworkQuality;
-        public ChannelOnRemoteVideoStatsHandler ChannelOnRemoteVideoStats;
+        //public ChannelOnRemoteVideoStatsHandler ChannelOnRemoteVideoStats;
         public ChannelOnRemoteAudioStatsHandler ChannelOnRemoteAudioStats;
         public ChannelOnRemoteAudioStateChangedHandler ChannelOnRemoteAudioStateChanged;
         public ChannelOnActiveSpeakerHandler ChannelOnActiveSpeaker;
-        public ChannelOnVideoSizeChangedHandler ChannelOnVideoSizeChanged;
-        public ChannelOnRemoteVideoStateChangedHandler ChannelOnRemoteVideoStateChanged;
+        //public ChannelOnVideoSizeChangedHandler ChannelOnVideoSizeChanged;
+        //public ChannelOnRemoteVideoStateChangedHandler ChannelOnRemoteVideoStateChanged;
         public ChannelOnStreamMessageHandler ChannelOnStreamMessage;
         public ChannelOnStreamMessageErrorHandler ChannelOnStreamMessageError;
         public ChannelOnMediaRelayStateChangedHandler ChannelOnMediaRelayStateChanged;
@@ -47,9 +47,9 @@ namespace agora_gaming_rtc
         public ChannelOnLocalPublishFallbackToAudioOnlyHandler ChannelOnLocalPublishFallbackToAudioOnly;
         public ChannelOnRtmpStreamingEventHandler ChannelOnRtmpStreamingEvent;
         public ChannelOnAudioPublishStateChangedHandler ChannelOnAudioPublishStateChanged;
-        public ChannelOnVideoPublishStateChangedHandler ChannelOnVideoPublishStateChanged;
+        //public ChannelOnVideoPublishStateChangedHandler ChannelOnVideoPublishStateChanged;
         public ChannelOnAudioSubscribeStateChangedHandler ChannelOnAudioSubscribeStateChanged;
-        public ChannelOnVideoSubscribeStateChangedHandler ChannelOnVideoSubscribeStateChanged;
+        //public ChannelOnVideoSubscribeStateChangedHandler ChannelOnVideoSubscribeStateChanged;
         public ChannelOnUserSuperResolutionEnabledHandler ChannelOnUserSuperResolutionEnabled;
 
         /** Creates and gets an `AgoraChannel` object.
@@ -170,12 +170,12 @@ namespace agora_gaming_rtc
             ChannelOnTokenPrivilegeWillExpire = null;
             ChannelOnRtcStats = null;
             ChannelOnNetworkQuality = null;
-            ChannelOnRemoteVideoStats = null;
+            //ChannelOnRemoteVideoStats = null;
             ChannelOnRemoteAudioStats = null;
             ChannelOnRemoteAudioStateChanged = null;
             ChannelOnActiveSpeaker = null;
-            ChannelOnVideoSizeChanged = null;
-            ChannelOnRemoteVideoStateChanged = null;
+            //ChannelOnVideoSizeChanged = null;
+            //ChannelOnRemoteVideoStateChanged = null;
             ChannelOnStreamMessage = null;
             ChannelOnStreamMessageError = null;
             ChannelOnMediaRelayStateChanged = null;
@@ -188,9 +188,9 @@ namespace agora_gaming_rtc
             ChannelOnLocalPublishFallbackToAudioOnly = null;
             ChannelOnRtmpStreamingEvent = null;
             ChannelOnAudioPublishStateChanged = null;
-            ChannelOnVideoPublishStateChanged = null;
+            //ChannelOnVideoPublishStateChanged = null;
             ChannelOnAudioSubscribeStateChanged = null;
-            ChannelOnVideoSubscribeStateChanged = null;
+            //ChannelOnVideoSubscribeStateChanged = null;
             ChannelOnUserSuperResolutionEnabled = null;
         }
 
@@ -670,13 +670,13 @@ namespace agora_gaming_rtc
          * - 0: Success.
          * - < 0: Failure.
          */
-        public int SetDefaultMuteAllRemoteVideoStreams(bool mute)
-        {
-            if (_rtcEngine == null)
-                return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
+        //public int SetDefaultMuteAllRemoteVideoStreams(bool mute)
+        //{
+        //    if (_rtcEngine == null)
+        //        return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
 
-            return IRtcEngineNative.setDefaultMuteAllRemoteVideoStreams2(_channelHandler, mute);
-        }
+        //    return IRtcEngineNative.setDefaultMuteAllRemoteVideoStreams2(_channelHandler, mute);
+        //}
 
         /** Stops or resumes subscribing to the audio streams of all remote users.
          * 
@@ -783,15 +783,15 @@ namespace agora_gaming_rtc
          * - 0: Success.
          * - < 0: Failure.
          */
-        public int MuteAllRemoteVideoStreams(bool mute)
-        {
-            if (_rtcEngine == null)
-                return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
-#if !UNITY_EDITOR && UNITY_WEBGL
-            IRtcEngineNative.setCurrentChannel_WGL(_channelId);
-#endif
-            return IRtcEngineNative.muteAllRemoteVideoStreams2(_channelHandler, mute);
-        }
+//        public int MuteAllRemoteVideoStreams(bool mute)
+//        {
+//            if (_rtcEngine == null)
+//                return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
+//#if !UNITY_EDITOR && UNITY_WEBGL
+//            IRtcEngineNative.setCurrentChannel_WGL(_channelId);
+//#endif
+//            return IRtcEngineNative.muteAllRemoteVideoStreams2(_channelHandler, mute);
+//        }
 
         /** Stops or resumes subscribing to the video stream of a specified user.
          * 
@@ -808,18 +808,18 @@ namespace agora_gaming_rtc
          * - 0: Success.
          * - < 0: Failure.
          */
-        public int MuteRemoteVideoStream(uint userId, bool mute)
-        {
-            if (_rtcEngine == null)
-                return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
-#if !UNITY_EDITOR && UNITY_WEBGL
-            IRtcEngineNative.setCurrentChannel_WGL(_channelId);
-           IRtcEngineNative.muteRemoteVideoStream2_WGLM(_channelHandler, ""+userId, mute);
-             return 0;
-#else
-            return IRtcEngineNative.muteRemoteVideoStream2(_channelHandler, userId, mute);
-#endif
-        }
+//        public int MuteRemoteVideoStream(uint userId, bool mute)
+//        {
+//            if (_rtcEngine == null)
+//                return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
+//#if !UNITY_EDITOR && UNITY_WEBGL
+//            IRtcEngineNative.setCurrentChannel_WGL(_channelId);
+//           IRtcEngineNative.muteRemoteVideoStream2_WGLM(_channelHandler, ""+userId, mute);
+//             return 0;
+//#else
+//            return IRtcEngineNative.muteRemoteVideoStream2(_channelHandler, userId, mute);
+//#endif
+//        }
 
         /** Sets the stream type of the remote video.
          * 
@@ -842,18 +842,18 @@ namespace agora_gaming_rtc
          * - 0: Success.
          * - < 0: Failure.
          */
-        public int SetRemoteVideoStreamType(uint userId, REMOTE_VIDEO_STREAM_TYPE streamType)
-        {
-            if (_rtcEngine == null)
-                return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
-#if !UNITY_EDITOR && UNITY_WEBGL
-            IRtcEngineNative.setCurrentChannel_WGL(_channelId);
-             IRtcEngineNative.setRemoteVideoStreamType2_WGLM(_channelHandler, ""+userId, (int)streamType);
-             return 0;
-#else
-            return IRtcEngineNative.setRemoteVideoStreamType2(_channelHandler, userId, (int)streamType);
-#endif
-        }
+//        public int SetRemoteVideoStreamType(uint userId, REMOTE_VIDEO_STREAM_TYPE streamType)
+//        {
+//            if (_rtcEngine == null)
+//                return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
+//#if !UNITY_EDITOR && UNITY_WEBGL
+//            IRtcEngineNative.setCurrentChannel_WGL(_channelId);
+//             IRtcEngineNative.setRemoteVideoStreamType2_WGLM(_channelHandler, ""+userId, (int)streamType);
+//             return 0;
+//#else
+//            return IRtcEngineNative.setRemoteVideoStreamType2(_channelHandler, userId, (int)streamType);
+//#endif
+//        }
 
         /** Sets the default video-stream type for the video received by the local user when the remote user sends dual streams.
          * 
@@ -872,15 +872,15 @@ namespace agora_gaming_rtc
          * - 0: Success.
          * - < 0: Failure.
          */
-        public int SetRemoteDefaultVideoStreamType(REMOTE_VIDEO_STREAM_TYPE streamType)
-        {
-            if (_rtcEngine == null)
-                return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
-#if !UNITY_EDITOR && UNITY_WEBGL
-            IRtcEngineNative.setCurrentChannel_WGL(_channelId);
-#endif
-            return IRtcEngineNative.setRemoteDefaultVideoStreamType2(_channelHandler, (int)streamType);
-        }
+//        public int SetRemoteDefaultVideoStreamType(REMOTE_VIDEO_STREAM_TYPE streamType)
+//        {
+//            if (_rtcEngine == null)
+//                return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
+//#if !UNITY_EDITOR && UNITY_WEBGL
+//            IRtcEngineNative.setCurrentChannel_WGL(_channelId);
+//#endif
+//            return IRtcEngineNative.setRemoteDefaultVideoStreamType2(_channelHandler, (int)streamType);
+//        }
 
         /** Creates a data stream.
          * 
@@ -1044,52 +1044,52 @@ namespace agora_gaming_rtc
          * - 0: Success.
          * - < 0: Failure.
          */
-        public int SetLiveTranscoding(LiveTranscoding liveTranscoding)
-        {
-            if (_rtcEngine == null)
-                return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
+//        public int SetLiveTranscoding(LiveTranscoding liveTranscoding)
+//        {
+//            if (_rtcEngine == null)
+//                return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
 
-#if !UNITY_EDITOR && UNITY_WEBGL
-            IRtcEngineNative.setCurrentChannel_WGL(_channelId);
-#endif
+//#if !UNITY_EDITOR && UNITY_WEBGL
+//            IRtcEngineNative.setCurrentChannel_WGL(_channelId);
+//#endif
 
-            String transcodingUserInfo = "";
-            if (liveTranscoding.userCount != 0 && liveTranscoding.transcodingUsers != null)
-            {
-                for (int i = 0; i < liveTranscoding.userCount; i++)
-                {
-                    transcodingUserInfo += liveTranscoding.transcodingUsers[i].uid;
-                    transcodingUserInfo += "\t";
-                    transcodingUserInfo += liveTranscoding.transcodingUsers[i].x;
-                    transcodingUserInfo += "\t";
-                    transcodingUserInfo += liveTranscoding.transcodingUsers[i].y;
-                    transcodingUserInfo += "\t";
-                    transcodingUserInfo += liveTranscoding.transcodingUsers[i].width;
-                    transcodingUserInfo += "\t";
-                    transcodingUserInfo += liveTranscoding.transcodingUsers[i].height;
-                    transcodingUserInfo += "\t";
-                    transcodingUserInfo += liveTranscoding.transcodingUsers[i].zOrder;
-                    transcodingUserInfo += "\t";
-                    transcodingUserInfo += liveTranscoding.transcodingUsers[i].alpha;
-                    transcodingUserInfo += "\t";
-                    transcodingUserInfo += liveTranscoding.transcodingUsers[i].audioChannel;
-                    transcodingUserInfo += "\t";
-                }
-            }
+//            String transcodingUserInfo = "";
+//            if (liveTranscoding.userCount != 0 && liveTranscoding.transcodingUsers != null)
+//            {
+//                for (int i = 0; i < liveTranscoding.userCount; i++)
+//                {
+//                    transcodingUserInfo += liveTranscoding.transcodingUsers[i].uid;
+//                    transcodingUserInfo += "\t";
+//                    transcodingUserInfo += liveTranscoding.transcodingUsers[i].x;
+//                    transcodingUserInfo += "\t";
+//                    transcodingUserInfo += liveTranscoding.transcodingUsers[i].y;
+//                    transcodingUserInfo += "\t";
+//                    transcodingUserInfo += liveTranscoding.transcodingUsers[i].width;
+//                    transcodingUserInfo += "\t";
+//                    transcodingUserInfo += liveTranscoding.transcodingUsers[i].height;
+//                    transcodingUserInfo += "\t";
+//                    transcodingUserInfo += liveTranscoding.transcodingUsers[i].zOrder;
+//                    transcodingUserInfo += "\t";
+//                    transcodingUserInfo += liveTranscoding.transcodingUsers[i].alpha;
+//                    transcodingUserInfo += "\t";
+//                    transcodingUserInfo += liveTranscoding.transcodingUsers[i].audioChannel;
+//                    transcodingUserInfo += "\t";
+//                }
+//            }
 
-            String liveStreamAdvancedFeaturesStr = "";
-            if (liveTranscoding.liveStreamAdvancedFeatures.Length > 0)
-            {
-                for (int i = 0; i < liveTranscoding.liveStreamAdvancedFeatures.Length; i++)
-                {
-                    liveStreamAdvancedFeaturesStr += liveTranscoding.liveStreamAdvancedFeatures[i].featureName;
-                    liveStreamAdvancedFeaturesStr += "\t";
-                    liveStreamAdvancedFeaturesStr += liveTranscoding.liveStreamAdvancedFeatures[i].opened;
-                    liveStreamAdvancedFeaturesStr += "\t";
-                }
-            }
-            return IRtcEngineNative.setLiveTranscoding2(_channelHandler, liveTranscoding.width, liveTranscoding.height, liveTranscoding.videoBitrate, liveTranscoding.videoFramerate, liveTranscoding.lowLatency, liveTranscoding.videoGop, (int)liveTranscoding.videoCodecProfile, liveTranscoding.backgroundColor, liveTranscoding.userCount, transcodingUserInfo.ToString(), liveTranscoding.transcodingExtraInfo, liveTranscoding.metadata, liveTranscoding.watermark.url, liveTranscoding.watermark.x, liveTranscoding.watermark.y, liveTranscoding.watermark.width, liveTranscoding.watermark.height, liveTranscoding.backgroundImage.url, liveTranscoding.backgroundImage.x, liveTranscoding.backgroundImage.y, liveTranscoding.backgroundImage.width, liveTranscoding.backgroundImage.height, (int)liveTranscoding.audioSampleRate, liveTranscoding.audioBitrate, liveTranscoding.audioChannels, (int)liveTranscoding.audioCodecProfile, liveStreamAdvancedFeaturesStr, (uint)liveTranscoding.liveStreamAdvancedFeatures.Length);
-        }
+//            String liveStreamAdvancedFeaturesStr = "";
+//            if (liveTranscoding.liveStreamAdvancedFeatures.Length > 0)
+//            {
+//                for (int i = 0; i < liveTranscoding.liveStreamAdvancedFeatures.Length; i++)
+//                {
+//                    liveStreamAdvancedFeaturesStr += liveTranscoding.liveStreamAdvancedFeatures[i].featureName;
+//                    liveStreamAdvancedFeaturesStr += "\t";
+//                    liveStreamAdvancedFeaturesStr += liveTranscoding.liveStreamAdvancedFeatures[i].opened;
+//                    liveStreamAdvancedFeaturesStr += "\t";
+//                }
+//            }
+//            return IRtcEngineNative.setLiveTranscoding2(_channelHandler, liveTranscoding.width, liveTranscoding.height, liveTranscoding.videoBitrate, liveTranscoding.videoFramerate, liveTranscoding.lowLatency, liveTranscoding.videoGop, (int)liveTranscoding.videoCodecProfile, liveTranscoding.backgroundColor, liveTranscoding.userCount, transcodingUserInfo.ToString(), liveTranscoding.transcodingExtraInfo, liveTranscoding.metadata, liveTranscoding.watermark.url, liveTranscoding.watermark.x, liveTranscoding.watermark.y, liveTranscoding.watermark.width, liveTranscoding.watermark.height, liveTranscoding.backgroundImage.url, liveTranscoding.backgroundImage.x, liveTranscoding.backgroundImage.y, liveTranscoding.backgroundImage.width, liveTranscoding.backgroundImage.height, (int)liveTranscoding.audioSampleRate, liveTranscoding.audioBitrate, liveTranscoding.audioChannels, (int)liveTranscoding.audioCodecProfile, liveStreamAdvancedFeaturesStr, (uint)liveTranscoding.liveStreamAdvancedFeatures.Length);
+//        }
 
         /** Adds a voice or video stream URL address to the interactive live streaming.
          * 
@@ -1324,18 +1324,18 @@ namespace agora_gaming_rtc
 #endif
         }
 
-        public int MuteLocalVideoStream(bool mute)
-        {
-            if (_rtcEngine == null)
-                return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
+//        public int MuteLocalVideoStream(bool mute)
+//        {
+//            if (_rtcEngine == null)
+//                return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
 
-#if !UNITY_EDITOR && UNITY_WEBGL
-            return IRtcEngineNative.muteLocalVideoStream_channel(_channelId, mute);
-#else
-            return IRtcEngineNative.muteLocalVideoStream_channel(_channelHandler, mute);
-#endif
+//#if !UNITY_EDITOR && UNITY_WEBGL
+//            return IRtcEngineNative.muteLocalVideoStream_channel(_channelId, mute);
+//#else
+//            return IRtcEngineNative.muteLocalVideoStream_channel(_channelHandler, mute);
+//#endif
 
-        }
+//        }
 
         public int MuteLocalAudioStream(bool mute)
         {
@@ -1828,47 +1828,47 @@ namespace agora_gaming_rtc
             }
         }
 
-        [MonoPInvokeCallback(typeof(ChannelEngineEventOnRemoteVideoStatsHandler))]
-        private static void OnRemoteVideoStatsCallback(string channelId, uint uid, int delay, int width, int height, int receivedBitrate, int decoderOutputFrameRate, int rendererOutputFrameRate, int packetLossRate, int rxStreamType, int totalFrozenTime, int frozenRate, int totalActiveTime, int publishDuration)
-        {
-            AgoraChannel channel = null;
-            if (_channelDictionary.ContainsKey(channelId))
-            {
-                channel = _channelDictionary[channelId];
-                if (channel != null && channel.ChannelOnRemoteVideoStats != null && _AgoraCallbackObjectDictionary[channelId] != null)
-                {
-                    AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
-                    if (queue != null)
-                    {
-                        queue.EnQueue(() =>
-                        {
-                            if (_channelDictionary.ContainsKey(channelId))
-                            {
-                                AgoraChannel ch = _channelDictionary[channelId];
-                                if (ch != null && channel.ChannelOnRemoteVideoStats != null)
-                                {
-                                    RemoteVideoStats remoteVideoStats = new RemoteVideoStats();
-                                    remoteVideoStats.uid = uid;
-                                    remoteVideoStats.delay = delay;
-                                    remoteVideoStats.width = width;
-                                    remoteVideoStats.height = height;
-                                    remoteVideoStats.receivedBitrate = receivedBitrate;
-                                    remoteVideoStats.decoderOutputFrameRate = decoderOutputFrameRate;
-                                    remoteVideoStats.rendererOutputFrameRate = rendererOutputFrameRate;
-                                    remoteVideoStats.packetLossRate = packetLossRate;
-                                    remoteVideoStats.rxStreamType = (REMOTE_VIDEO_STREAM_TYPE)rxStreamType;
-                                    remoteVideoStats.totalFrozenTime = totalFrozenTime;
-                                    remoteVideoStats.frozenRate = frozenRate;
-                                    remoteVideoStats.totalActiveTime = totalActiveTime;
-                                    remoteVideoStats.publishDuration = publishDuration;
-                                    ch.ChannelOnRemoteVideoStats(channelId, remoteVideoStats);
-                                }
-                            }
-                        });
-                    }
-                }
-            }
-        }
+        //[MonoPInvokeCallback(typeof(ChannelEngineEventOnRemoteVideoStatsHandler))]
+        //private static void OnRemoteVideoStatsCallback(string channelId, uint uid, int delay, int width, int height, int receivedBitrate, int decoderOutputFrameRate, int rendererOutputFrameRate, int packetLossRate, int rxStreamType, int totalFrozenTime, int frozenRate, int totalActiveTime, int publishDuration)
+        //{
+        //    AgoraChannel channel = null;
+        //    if (_channelDictionary.ContainsKey(channelId))
+        //    {
+        //        channel = _channelDictionary[channelId];
+        //        if (channel != null && channel.ChannelOnRemoteVideoStats != null && _AgoraCallbackObjectDictionary[channelId] != null)
+        //        {
+        //            AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
+        //            if (queue != null)
+        //            {
+        //                queue.EnQueue(() =>
+        //                {
+        //                    if (_channelDictionary.ContainsKey(channelId))
+        //                    {
+        //                        AgoraChannel ch = _channelDictionary[channelId];
+        //                        if (ch != null && channel.ChannelOnRemoteVideoStats != null)
+        //                        {
+        //                            RemoteVideoStats remoteVideoStats = new RemoteVideoStats();
+        //                            remoteVideoStats.uid = uid;
+        //                            remoteVideoStats.delay = delay;
+        //                            remoteVideoStats.width = width;
+        //                            remoteVideoStats.height = height;
+        //                            remoteVideoStats.receivedBitrate = receivedBitrate;
+        //                            remoteVideoStats.decoderOutputFrameRate = decoderOutputFrameRate;
+        //                            remoteVideoStats.rendererOutputFrameRate = rendererOutputFrameRate;
+        //                            remoteVideoStats.packetLossRate = packetLossRate;
+        //                            remoteVideoStats.rxStreamType = (REMOTE_VIDEO_STREAM_TYPE)rxStreamType;
+        //                            remoteVideoStats.totalFrozenTime = totalFrozenTime;
+        //                            remoteVideoStats.frozenRate = frozenRate;
+        //                            remoteVideoStats.totalActiveTime = totalActiveTime;
+        //                            remoteVideoStats.publishDuration = publishDuration;
+        //                            ch.ChannelOnRemoteVideoStats(channelId, remoteVideoStats);
+        //                        }
+        //                    }
+        //                });
+        //            }
+        //        }
+        //    }
+        //}
 
         [MonoPInvokeCallback(typeof(ChannelEngineEventOnRemoteAudioStatsHandler))]
         private static void OnRemoteAudioStatsCallback(string channelId, uint uid, int quality, int networkTransportDelay, int jitterBufferDelay, int audioLossRate, int numChannels, int receivedSampleRate, int receivedBitrate, int totalFrozenTime, int frozenRate, int totalActiveTime, int publishDuration, int qoeQuality, int qualityChangedReason, int mosValue)
@@ -1971,369 +1971,369 @@ namespace agora_gaming_rtc
             }
         }
 
-        [MonoPInvokeCallback(typeof(ChannelOnVideoSizeChangedHandler))]
-        private static void OnVideoSizeChangedCallback(string channelId, uint uid, int width, int height, int rotation)
-        {
-            AgoraChannel channel = null;
-            if (_channelDictionary.ContainsKey(channelId))
-            {
-                channel = _channelDictionary[channelId];
-                if (channel != null && channel.ChannelOnVideoSizeChanged != null && _AgoraCallbackObjectDictionary[channelId] != null)
-                {
-                    AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
-                    if (queue != null)
-                    {
-                        queue.EnQueue(() =>
-                        {
-                            if (_channelDictionary.ContainsKey(channelId))
-                            {
-                                AgoraChannel ch = _channelDictionary[channelId];
-                                if (ch != null && channel.ChannelOnVideoSizeChanged != null)
-                                {
-                                    ch.ChannelOnVideoSizeChanged(channelId, uid, width, height, rotation);
-                                }
-                            }
-                        });
-                    }
-                }
-            }
-        }
+        //[MonoPInvokeCallback(typeof(ChannelOnVideoSizeChangedHandler))]
+        //private static void OnVideoSizeChangedCallback(string channelId, uint uid, int width, int height, int rotation)
+        //{
+        //    AgoraChannel channel = null;
+        //    if (_channelDictionary.ContainsKey(channelId))
+        //    {
+        //        channel = _channelDictionary[channelId];
+        //        if (channel != null && channel.ChannelOnVideoSizeChanged != null && _AgoraCallbackObjectDictionary[channelId] != null)
+        //        {
+        //            AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
+        //            if (queue != null)
+        //            {
+        //                queue.EnQueue(() =>
+        //                {
+        //                    if (_channelDictionary.ContainsKey(channelId))
+        //                    {
+        //                        AgoraChannel ch = _channelDictionary[channelId];
+        //                        if (ch != null && channel.ChannelOnVideoSizeChanged != null)
+        //                        {
+        //                            ch.ChannelOnVideoSizeChanged(channelId, uid, width, height, rotation);
+        //                        }
+        //                    }
+        //                });
+        //            }
+        //        }
+        //    }
+        //}
 
-        [MonoPInvokeCallback(typeof(ChannelOnRemoteVideoStateChangedHandler))]
-        private static void OnRemoteVideoStateChangedCallback(string channelId, uint uid, REMOTE_VIDEO_STATE state, REMOTE_VIDEO_STATE_REASON reason, int elapsed)
-        {
-            AgoraChannel channel = null;
-            if (_channelDictionary.ContainsKey(channelId))
-            {
-                channel = _channelDictionary[channelId];
-                if (channel != null && channel.ChannelOnRemoteVideoStateChanged != null && _AgoraCallbackObjectDictionary[channelId] != null)
-                {
-                    AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
-                    if (queue != null)
-                    {
-                        queue.EnQueue(() =>
-                        {
-                            if (_channelDictionary.ContainsKey(channelId))
-                            {
-                                AgoraChannel ch = _channelDictionary[channelId];
-                                if (ch != null && channel.ChannelOnRemoteVideoStateChanged != null)
-                                {
-                                    ch.ChannelOnRemoteVideoStateChanged(channelId, uid, state, reason, elapsed);
-                                }
-                            }
-                        });
-                    }
-                }
-            }
-        }
+        //[MonoPInvokeCallback(typeof(ChannelOnRemoteVideoStateChangedHandler))]
+        //private static void OnRemoteVideoStateChangedCallback(string channelId, uint uid, REMOTE_VIDEO_STATE state, REMOTE_VIDEO_STATE_REASON reason, int elapsed)
+        //{
+        //    AgoraChannel channel = null;
+        //    if (_channelDictionary.ContainsKey(channelId))
+        //    {
+        //        channel = _channelDictionary[channelId];
+        //        if (channel != null && channel.ChannelOnRemoteVideoStateChanged != null && _AgoraCallbackObjectDictionary[channelId] != null)
+        //        {
+        //            AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
+        //            if (queue != null)
+        //            {
+        //                queue.EnQueue(() =>
+        //                {
+        //                    if (_channelDictionary.ContainsKey(channelId))
+        //                    {
+        //                        AgoraChannel ch = _channelDictionary[channelId];
+        //                        if (ch != null && channel.ChannelOnRemoteVideoStateChanged != null)
+        //                        {
+        //                            ch.ChannelOnRemoteVideoStateChanged(channelId, uid, state, reason, elapsed);
+        //                        }
+        //                    }
+        //                });
+        //            }
+        //        }
+        //    }
+        //}
 
-        [MonoPInvokeCallback(typeof(ChannelOnStreamMessageHandler))]
-        private static void OnStreamMessageCallback(string channelId, uint uid, int streamId, string data, int length)
-        {
-            AgoraChannel channel = null;
-            if (_channelDictionary.ContainsKey(channelId))
-            {
-                channel = _channelDictionary[channelId];
-                if (channel != null && channel.ChannelOnStreamMessage != null && _AgoraCallbackObjectDictionary[channelId] != null)
-                {
-                    AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
-                    if (queue != null)
-                    {
-                        queue.EnQueue(() =>
-                        {
-                            if (_channelDictionary.ContainsKey(channelId))
-                            {
-                                AgoraChannel ch = _channelDictionary[channelId];
-                                if (ch != null && channel.ChannelOnStreamMessage != null)
-                                {
-                                    ch.ChannelOnStreamMessage(channelId, uid, streamId, data, length);
-                                }
-                            }
-                        });
-                    }
-                }
-            }
-        }
+        //[MonoPInvokeCallback(typeof(ChannelOnStreamMessageHandler))]
+        //private static void OnStreamMessageCallback(string channelId, uint uid, int streamId, string data, int length)
+        //{
+        //    AgoraChannel channel = null;
+        //    if (_channelDictionary.ContainsKey(channelId))
+        //    {
+        //        channel = _channelDictionary[channelId];
+        //        if (channel != null && channel.ChannelOnStreamMessage != null && _AgoraCallbackObjectDictionary[channelId] != null)
+        //        {
+        //            AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
+        //            if (queue != null)
+        //            {
+        //                queue.EnQueue(() =>
+        //                {
+        //                    if (_channelDictionary.ContainsKey(channelId))
+        //                    {
+        //                        AgoraChannel ch = _channelDictionary[channelId];
+        //                        if (ch != null && channel.ChannelOnStreamMessage != null)
+        //                        {
+        //                            ch.ChannelOnStreamMessage(channelId, uid, streamId, data, length);
+        //                        }
+        //                    }
+        //                });
+        //            }
+        //        }
+        //    }
+        //}
 
-        [MonoPInvokeCallback(typeof(ChannelOnStreamMessageErrorHandler))]
-        private static void OnStreamMessageErrorCallback(string channelId, uint uid, int streamId, int code, int missed, int cached)
-        {
-            AgoraChannel channel = null;
-            if (_channelDictionary.ContainsKey(channelId))
-            {
-                channel = _channelDictionary[channelId];
-                if (channel != null && channel.ChannelOnStreamMessageError != null && _AgoraCallbackObjectDictionary[channelId] != null)
-                {
-                    AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
-                    if (queue != null)
-                    {
-                        queue.EnQueue(() =>
-                        {
-                            if (_channelDictionary.ContainsKey(channelId))
-                            {
-                                AgoraChannel ch = _channelDictionary[channelId];
-                                if (ch != null && channel.ChannelOnStreamMessageError != null)
-                                {
-                                    ch.ChannelOnStreamMessageError(channelId, uid, streamId, code, missed, cached);
-                                }
-                            }
-                        });
-                    }
-                }
-            }
-        }
+        //[MonoPInvokeCallback(typeof(ChannelOnStreamMessageErrorHandler))]
+        //private static void OnStreamMessageErrorCallback(string channelId, uint uid, int streamId, int code, int missed, int cached)
+        //{
+        //    AgoraChannel channel = null;
+        //    if (_channelDictionary.ContainsKey(channelId))
+        //    {
+        //        channel = _channelDictionary[channelId];
+        //        if (channel != null && channel.ChannelOnStreamMessageError != null && _AgoraCallbackObjectDictionary[channelId] != null)
+        //        {
+        //            AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
+        //            if (queue != null)
+        //            {
+        //                queue.EnQueue(() =>
+        //                {
+        //                    if (_channelDictionary.ContainsKey(channelId))
+        //                    {
+        //                        AgoraChannel ch = _channelDictionary[channelId];
+        //                        if (ch != null && channel.ChannelOnStreamMessageError != null)
+        //                        {
+        //                            ch.ChannelOnStreamMessageError(channelId, uid, streamId, code, missed, cached);
+        //                        }
+        //                    }
+        //                });
+        //            }
+        //        }
+        //    }
+        //}
 
-        [MonoPInvokeCallback(typeof(ChannelOnMediaRelayStateChangedHandler))]
-        private static void OnMediaRelayStateChangedCallback(string channelId, CHANNEL_MEDIA_RELAY_STATE state, CHANNEL_MEDIA_RELAY_ERROR code)
-        {
-            AgoraChannel channel = null;
-            if (_channelDictionary.ContainsKey(channelId))
-            {
-                channel = _channelDictionary[channelId];
-                if (channel != null && channel.ChannelOnMediaRelayStateChanged != null && _AgoraCallbackObjectDictionary[channelId] != null)
-                {
-                    AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
-                    if (queue != null)
-                    {
-                        queue.EnQueue(() =>
-                        {
-                            if (_channelDictionary.ContainsKey(channelId))
-                            {
-                                AgoraChannel ch = _channelDictionary[channelId];
-                                if (ch != null && channel.ChannelOnMediaRelayStateChanged != null)
-                                {
-                                    ch.ChannelOnMediaRelayStateChanged(channelId, state, code);
-                                }
-                            }
-                        });
-                    }
-                }
-            }
-        }
+        //[MonoPInvokeCallback(typeof(ChannelOnMediaRelayStateChangedHandler))]
+        //private static void OnMediaRelayStateChangedCallback(string channelId, CHANNEL_MEDIA_RELAY_STATE state, CHANNEL_MEDIA_RELAY_ERROR code)
+        //{
+        //    AgoraChannel channel = null;
+        //    if (_channelDictionary.ContainsKey(channelId))
+        //    {
+        //        channel = _channelDictionary[channelId];
+        //        if (channel != null && channel.ChannelOnMediaRelayStateChanged != null && _AgoraCallbackObjectDictionary[channelId] != null)
+        //        {
+        //            AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
+        //            if (queue != null)
+        //            {
+        //                queue.EnQueue(() =>
+        //                {
+        //                    if (_channelDictionary.ContainsKey(channelId))
+        //                    {
+        //                        AgoraChannel ch = _channelDictionary[channelId];
+        //                        if (ch != null && channel.ChannelOnMediaRelayStateChanged != null)
+        //                        {
+        //                            ch.ChannelOnMediaRelayStateChanged(channelId, state, code);
+        //                        }
+        //                    }
+        //                });
+        //            }
+        //        }
+        //    }
+        //}
 
-        [MonoPInvokeCallback(typeof(ChannelOnMediaRelayEventHandler))]
-        private static void OnMediaRelayEventCallback(string channelId, CHANNEL_MEDIA_RELAY_EVENT code)
-        {
-            AgoraChannel channel = null;
-            if (_channelDictionary.ContainsKey(channelId))
-            {
-                channel = _channelDictionary[channelId];
-                if (channel != null && channel.ChannelOnMediaRelayEvent != null && _AgoraCallbackObjectDictionary[channelId] != null)
-                {
-                    AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
-                    if (queue != null)
-                    {
-                        queue.EnQueue(() =>
-                        {
-                            if (_channelDictionary.ContainsKey(channelId))
-                            {
-                                AgoraChannel ch = _channelDictionary[channelId];
-                                if (ch != null && channel.ChannelOnMediaRelayEvent != null)
-                                {
-                                    ch.ChannelOnMediaRelayEvent(channelId, code);
-                                }
-                            }
-                        });
-                    }
-                }
-            }
-        }
+        //[MonoPInvokeCallback(typeof(ChannelOnMediaRelayEventHandler))]
+        //private static void OnMediaRelayEventCallback(string channelId, CHANNEL_MEDIA_RELAY_EVENT code)
+        //{
+        //    AgoraChannel channel = null;
+        //    if (_channelDictionary.ContainsKey(channelId))
+        //    {
+        //        channel = _channelDictionary[channelId];
+        //        if (channel != null && channel.ChannelOnMediaRelayEvent != null && _AgoraCallbackObjectDictionary[channelId] != null)
+        //        {
+        //            AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
+        //            if (queue != null)
+        //            {
+        //                queue.EnQueue(() =>
+        //                {
+        //                    if (_channelDictionary.ContainsKey(channelId))
+        //                    {
+        //                        AgoraChannel ch = _channelDictionary[channelId];
+        //                        if (ch != null && channel.ChannelOnMediaRelayEvent != null)
+        //                        {
+        //                            ch.ChannelOnMediaRelayEvent(channelId, code);
+        //                        }
+        //                    }
+        //                });
+        //            }
+        //        }
+        //    }
+        //}
 
-        [MonoPInvokeCallback(typeof(ChannelOnRtmpStreamingStateChangedHandler))]
-        private static void OnRtmpStreamingStateChangedCallback(string channelId, string url, RTMP_STREAM_PUBLISH_STATE state, RTMP_STREAM_PUBLISH_ERROR errCode)
-        {
-            AgoraChannel channel = null;
-            if (_channelDictionary.ContainsKey(channelId))
-            {
-                channel = _channelDictionary[channelId];
-                if (channel != null && channel.ChannelOnRtmpStreamingStateChanged != null && _AgoraCallbackObjectDictionary[channelId] != null)
-                {
-                    AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
-                    if (queue != null)
-                    {
-                        queue.EnQueue(() =>
-                        {
-                            if (_channelDictionary.ContainsKey(channelId))
-                            {
-                                AgoraChannel ch = _channelDictionary[channelId];
-                                if (ch != null && channel.ChannelOnRtmpStreamingStateChanged != null)
-                                {
-                                    ch.ChannelOnRtmpStreamingStateChanged(channelId, url, state, errCode);
-                                }
-                            }
-                        });
-                    }
-                }
-            }
-        }
+        //[MonoPInvokeCallback(typeof(ChannelOnRtmpStreamingStateChangedHandler))]
+        //private static void OnRtmpStreamingStateChangedCallback(string channelId, string url, RTMP_STREAM_PUBLISH_STATE state, RTMP_STREAM_PUBLISH_ERROR errCode)
+        //{
+        //    AgoraChannel channel = null;
+        //    if (_channelDictionary.ContainsKey(channelId))
+        //    {
+        //        channel = _channelDictionary[channelId];
+        //        if (channel != null && channel.ChannelOnRtmpStreamingStateChanged != null && _AgoraCallbackObjectDictionary[channelId] != null)
+        //        {
+        //            AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
+        //            if (queue != null)
+        //            {
+        //                queue.EnQueue(() =>
+        //                {
+        //                    if (_channelDictionary.ContainsKey(channelId))
+        //                    {
+        //                        AgoraChannel ch = _channelDictionary[channelId];
+        //                        if (ch != null && channel.ChannelOnRtmpStreamingStateChanged != null)
+        //                        {
+        //                            ch.ChannelOnRtmpStreamingStateChanged(channelId, url, state, errCode);
+        //                        }
+        //                    }
+        //                });
+        //            }
+        //        }
+        //    }
+        //}
 
-        [MonoPInvokeCallback(typeof(ChannelOnTranscodingUpdatedHandler))]
-        private static void OnTranscodingUpdatedCallback(string channelId)
-        {
-            AgoraChannel channel = null;
-            if (_channelDictionary.ContainsKey(channelId))
-            {
-                channel = _channelDictionary[channelId];
-                if (channel != null && channel.ChannelOnTranscodingUpdated != null && _AgoraCallbackObjectDictionary[channelId] != null)
-                {
-                    AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
-                    if (queue != null)
-                    {
-                        queue.EnQueue(() =>
-                        {
-                            if (_channelDictionary.ContainsKey(channelId))
-                            {
-                                AgoraChannel ch = _channelDictionary[channelId];
-                                if (ch != null && channel.ChannelOnTranscodingUpdated != null)
-                                {
-                                    ch.ChannelOnTranscodingUpdated(channelId);
-                                }
-                            }
-                        });
-                    }
-                }
-            }
-        }
+        //[MonoPInvokeCallback(typeof(ChannelOnTranscodingUpdatedHandler))]
+        //private static void OnTranscodingUpdatedCallback(string channelId)
+        //{
+        //    AgoraChannel channel = null;
+        //    if (_channelDictionary.ContainsKey(channelId))
+        //    {
+        //        channel = _channelDictionary[channelId];
+        //        if (channel != null && channel.ChannelOnTranscodingUpdated != null && _AgoraCallbackObjectDictionary[channelId] != null)
+        //        {
+        //            AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
+        //            if (queue != null)
+        //            {
+        //                queue.EnQueue(() =>
+        //                {
+        //                    if (_channelDictionary.ContainsKey(channelId))
+        //                    {
+        //                        AgoraChannel ch = _channelDictionary[channelId];
+        //                        if (ch != null && channel.ChannelOnTranscodingUpdated != null)
+        //                        {
+        //                            ch.ChannelOnTranscodingUpdated(channelId);
+        //                        }
+        //                    }
+        //                });
+        //            }
+        //        }
+        //    }
+        //}
 
-        [MonoPInvokeCallback(typeof(ChannelOnStreamInjectedStatusHandler))]
-        private static void OnStreamInjectedStatusCallback(string channelId, string url, uint uid, int status)
-        {
-            AgoraChannel channel = null;
-            if (_channelDictionary.ContainsKey(channelId))
-            {
-                channel = _channelDictionary[channelId];
-                if (channel != null && channel.ChannelOnStreamInjectedStatus != null && _AgoraCallbackObjectDictionary[channelId] != null)
-                {
-                    AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
-                    if (queue != null)
-                    {
-                        queue.EnQueue(() =>
-                        {
-                            if (_channelDictionary.ContainsKey(channelId))
-                            {
-                                AgoraChannel ch = _channelDictionary[channelId];
-                                if (ch != null && channel.ChannelOnStreamInjectedStatus != null)
-                                {
-                                    ch.ChannelOnStreamInjectedStatus(channelId, url, uid, status);
-                                }
-                            }
-                        });
-                    }
-                }
-            }
-        }
+        //[MonoPInvokeCallback(typeof(ChannelOnStreamInjectedStatusHandler))]
+        //private static void OnStreamInjectedStatusCallback(string channelId, string url, uint uid, int status)
+        //{
+        //    AgoraChannel channel = null;
+        //    if (_channelDictionary.ContainsKey(channelId))
+        //    {
+        //        channel = _channelDictionary[channelId];
+        //        if (channel != null && channel.ChannelOnStreamInjectedStatus != null && _AgoraCallbackObjectDictionary[channelId] != null)
+        //        {
+        //            AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
+        //            if (queue != null)
+        //            {
+        //                queue.EnQueue(() =>
+        //                {
+        //                    if (_channelDictionary.ContainsKey(channelId))
+        //                    {
+        //                        AgoraChannel ch = _channelDictionary[channelId];
+        //                        if (ch != null && channel.ChannelOnStreamInjectedStatus != null)
+        //                        {
+        //                            ch.ChannelOnStreamInjectedStatus(channelId, url, uid, status);
+        //                        }
+        //                    }
+        //                });
+        //            }
+        //        }
+        //    }
+        //}
 
-        [MonoPInvokeCallback(typeof(ChannelOnRemoteSubscribeFallbackToAudioOnlyHandler))]
-        private static void OnRemoteSubscribeFallbackToAudioOnlyCallback(string channelId, uint uid, bool isFallbackOrRecover)
-        {
-            AgoraChannel channel = null;
-            if (_channelDictionary.ContainsKey(channelId))
-            {
-                channel = _channelDictionary[channelId];
-                if (channel != null && channel.ChannelOnRemoteSubscribeFallbackToAudioOnly != null && _AgoraCallbackObjectDictionary[channelId] != null)
-                {
-                    AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
-                    if (queue != null)
-                    {
-                        queue.EnQueue(() =>
-                        {
-                            if (_channelDictionary.ContainsKey(channelId))
-                            {
-                                AgoraChannel ch = _channelDictionary[channelId];
-                                if (ch != null && channel.ChannelOnRemoteSubscribeFallbackToAudioOnly != null)
-                                {
-                                    ch.ChannelOnRemoteSubscribeFallbackToAudioOnly(channelId, uid, isFallbackOrRecover);
-                                }
-                            }
-                        });
-                    }
-                }
-            }
-        }
+        //[MonoPInvokeCallback(typeof(ChannelOnRemoteSubscribeFallbackToAudioOnlyHandler))]
+        //private static void OnRemoteSubscribeFallbackToAudioOnlyCallback(string channelId, uint uid, bool isFallbackOrRecover)
+        //{
+        //    AgoraChannel channel = null;
+        //    if (_channelDictionary.ContainsKey(channelId))
+        //    {
+        //        channel = _channelDictionary[channelId];
+        //        if (channel != null && channel.ChannelOnRemoteSubscribeFallbackToAudioOnly != null && _AgoraCallbackObjectDictionary[channelId] != null)
+        //        {
+        //            AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
+        //            if (queue != null)
+        //            {
+        //                queue.EnQueue(() =>
+        //                {
+        //                    if (_channelDictionary.ContainsKey(channelId))
+        //                    {
+        //                        AgoraChannel ch = _channelDictionary[channelId];
+        //                        if (ch != null && channel.ChannelOnRemoteSubscribeFallbackToAudioOnly != null)
+        //                        {
+        //                            ch.ChannelOnRemoteSubscribeFallbackToAudioOnly(channelId, uid, isFallbackOrRecover);
+        //                        }
+        //                    }
+        //                });
+        //            }
+        //        }
+        //    }
+        //}
 
-        [MonoPInvokeCallback(typeof(ChannelOnConnectionStateChangedHandler))]
-        private static void OnConnectionStateChangedCallback(string channelId, CONNECTION_STATE_TYPE state, CONNECTION_CHANGED_REASON_TYPE reason)
-        {
-            AgoraChannel channel = null;
-            if (_channelDictionary.ContainsKey(channelId))
-            {
-                channel = _channelDictionary[channelId];
-                if (channel != null && channel.ChannelOnConnectionStateChanged != null && _AgoraCallbackObjectDictionary[channelId] != null)
-                {
-                    AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
-                    if (queue != null)
-                    {
-                        queue.EnQueue(() =>
-                        {
-                            if (_channelDictionary.ContainsKey(channelId))
-                            {
-                                AgoraChannel ch = _channelDictionary[channelId];
-                                if (ch != null && channel.ChannelOnConnectionStateChanged != null)
-                                {
-                                    ch.ChannelOnConnectionStateChanged(channelId, state, reason);
-                                }
-                            }
-                        });
-                    }
-                }
-            }
-        }
+        //[MonoPInvokeCallback(typeof(ChannelOnConnectionStateChangedHandler))]
+        //private static void OnConnectionStateChangedCallback(string channelId, CONNECTION_STATE_TYPE state, CONNECTION_CHANGED_REASON_TYPE reason)
+        //{
+        //    AgoraChannel channel = null;
+        //    if (_channelDictionary.ContainsKey(channelId))
+        //    {
+        //        channel = _channelDictionary[channelId];
+        //        if (channel != null && channel.ChannelOnConnectionStateChanged != null && _AgoraCallbackObjectDictionary[channelId] != null)
+        //        {
+        //            AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
+        //            if (queue != null)
+        //            {
+        //                queue.EnQueue(() =>
+        //                {
+        //                    if (_channelDictionary.ContainsKey(channelId))
+        //                    {
+        //                        AgoraChannel ch = _channelDictionary[channelId];
+        //                        if (ch != null && channel.ChannelOnConnectionStateChanged != null)
+        //                        {
+        //                            ch.ChannelOnConnectionStateChanged(channelId, state, reason);
+        //                        }
+        //                    }
+        //                });
+        //            }
+        //        }
+        //    }
+        //}
 
-        [MonoPInvokeCallback(typeof(ChannelOnLocalPublishFallbackToAudioOnlyHandler))]
-        private static void OnLocalPublishFallbackToAudioOnlyCallback(string channelId, bool isFallbackOrRecover)
-        {
-            AgoraChannel channel = null;
-            if (_channelDictionary.ContainsKey(channelId))
-            {
-                channel = _channelDictionary[channelId];
-                if (channel != null && channel.ChannelOnLocalPublishFallbackToAudioOnly != null && _AgoraCallbackObjectDictionary[channelId] != null)
-                {
-                    AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
-                    if (queue != null)
-                    {
-                        queue.EnQueue(() =>
-                        {
-                            if (_channelDictionary.ContainsKey(channelId))
-                            {
-                                AgoraChannel ch = _channelDictionary[channelId];
-                                if (ch != null && channel.ChannelOnLocalPublishFallbackToAudioOnly != null)
-                                {
-                                    ch.ChannelOnLocalPublishFallbackToAudioOnly(channelId, isFallbackOrRecover);
-                                }
-                            }
-                        });
-                    }
-                }
-            }
-        }
+        //[MonoPInvokeCallback(typeof(ChannelOnLocalPublishFallbackToAudioOnlyHandler))]
+        //private static void OnLocalPublishFallbackToAudioOnlyCallback(string channelId, bool isFallbackOrRecover)
+        //{
+        //    AgoraChannel channel = null;
+        //    if (_channelDictionary.ContainsKey(channelId))
+        //    {
+        //        channel = _channelDictionary[channelId];
+        //        if (channel != null && channel.ChannelOnLocalPublishFallbackToAudioOnly != null && _AgoraCallbackObjectDictionary[channelId] != null)
+        //        {
+        //            AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
+        //            if (queue != null)
+        //            {
+        //                queue.EnQueue(() =>
+        //                {
+        //                    if (_channelDictionary.ContainsKey(channelId))
+        //                    {
+        //                        AgoraChannel ch = _channelDictionary[channelId];
+        //                        if (ch != null && channel.ChannelOnLocalPublishFallbackToAudioOnly != null)
+        //                        {
+        //                            ch.ChannelOnLocalPublishFallbackToAudioOnly(channelId, isFallbackOrRecover);
+        //                        }
+        //                    }
+        //                });
+        //            }
+        //        }
+        //    }
+        //}
 
-        [MonoPInvokeCallback(typeof(ChannelOnRtmpStreamingEventHandler))]
-        private static void OnRtmpStreamingEventCallback(string channelId, string url, RTMP_STREAMING_EVENT eventCode)
-        {
-            AgoraChannel channel = null;
-            if (_channelDictionary.ContainsKey(channelId))
-            {
-                channel = _channelDictionary[channelId];
-                if (channel != null && channel.ChannelOnRtmpStreamingEvent != null && _AgoraCallbackObjectDictionary[channelId] != null)
-                {
-                    AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
-                    if (queue != null)
-                    {
-                        queue.EnQueue(() =>
-                        {
-                            if (_channelDictionary.ContainsKey(channelId))
-                            {
-                                AgoraChannel ch = _channelDictionary[channelId];
-                                if (ch != null && channel.ChannelOnRtmpStreamingEvent != null)
-                                {
-                                    ch.ChannelOnRtmpStreamingEvent(channelId, url, eventCode);
-                                }
-                            }
-                        });
-                    }
-                }
-            }
-        }
+        //[MonoPInvokeCallback(typeof(ChannelOnRtmpStreamingEventHandler))]
+        //private static void OnRtmpStreamingEventCallback(string channelId, string url, RTMP_STREAMING_EVENT eventCode)
+        //{
+        //    AgoraChannel channel = null;
+        //    if (_channelDictionary.ContainsKey(channelId))
+        //    {
+        //        channel = _channelDictionary[channelId];
+        //        if (channel != null && channel.ChannelOnRtmpStreamingEvent != null && _AgoraCallbackObjectDictionary[channelId] != null)
+        //        {
+        //            AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
+        //            if (queue != null)
+        //            {
+        //                queue.EnQueue(() =>
+        //                {
+        //                    if (_channelDictionary.ContainsKey(channelId))
+        //                    {
+        //                        AgoraChannel ch = _channelDictionary[channelId];
+        //                        if (ch != null && channel.ChannelOnRtmpStreamingEvent != null)
+        //                        {
+        //                            ch.ChannelOnRtmpStreamingEvent(channelId, url, eventCode);
+        //                        }
+        //                    }
+        //                });
+        //            }
+        //        }
+        //    }
+        //}
 
         [MonoPInvokeCallback(typeof(ChannelOnAudioPublishStateChangedHandler))]
         private static void OnAudioPublishStateChangedCallback(string channelId, STREAM_PUBLISH_STATE oldState, STREAM_PUBLISH_STATE newState, int elapseSinceLastState)
@@ -2363,33 +2363,33 @@ namespace agora_gaming_rtc
             }
         }
 
-        [MonoPInvokeCallback(typeof(ChannelOnVideoPublishStateChangedHandler))]
-        private static void OnVideoPublishStateChangedCallback(string channelId, STREAM_PUBLISH_STATE oldState, STREAM_PUBLISH_STATE newState, int elapseSinceLastState)
-        {
-            AgoraChannel channel = null;
-            if (_channelDictionary.ContainsKey(channelId))
-            {
-                channel = _channelDictionary[channelId];
-                if (channel != null && channel.ChannelOnVideoPublishStateChanged != null && _AgoraCallbackObjectDictionary[channelId] != null)
-                {
-                    AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
-                    if (queue != null)
-                    {
-                        queue.EnQueue(() =>
-                        {
-                            if (_channelDictionary.ContainsKey(channelId))
-                            {
-                                AgoraChannel ch = _channelDictionary[channelId];
-                                if (ch != null && channel.ChannelOnVideoPublishStateChanged != null)
-                                {
-                                    ch.ChannelOnVideoPublishStateChanged(channelId, oldState, newState, elapseSinceLastState);
-                                }
-                            }
-                        });
-                    }
-                }
-            }
-        }
+        //[MonoPInvokeCallback(typeof(ChannelOnVideoPublishStateChangedHandler))]
+        //private static void OnVideoPublishStateChangedCallback(string channelId, STREAM_PUBLISH_STATE oldState, STREAM_PUBLISH_STATE newState, int elapseSinceLastState)
+        //{
+        //    AgoraChannel channel = null;
+        //    if (_channelDictionary.ContainsKey(channelId))
+        //    {
+        //        channel = _channelDictionary[channelId];
+        //        if (channel != null && channel.ChannelOnVideoPublishStateChanged != null && _AgoraCallbackObjectDictionary[channelId] != null)
+        //        {
+        //            AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
+        //            if (queue != null)
+        //            {
+        //                queue.EnQueue(() =>
+        //                {
+        //                    if (_channelDictionary.ContainsKey(channelId))
+        //                    {
+        //                        AgoraChannel ch = _channelDictionary[channelId];
+        //                        if (ch != null && channel.ChannelOnVideoPublishStateChanged != null)
+        //                        {
+        //                            ch.ChannelOnVideoPublishStateChanged(channelId, oldState, newState, elapseSinceLastState);
+        //                        }
+        //                    }
+        //                });
+        //            }
+        //        }
+        //    }
+        //}
 
         [MonoPInvokeCallback(typeof(ChannelOnAudioSubscribeStateChangedHandler))]
         private static void OnAudioSubscribeStateChangedCallback(string channelId, uint uid, STREAM_SUBSCRIBE_STATE oldState, STREAM_SUBSCRIBE_STATE newState, int elapseSinceLastState)
@@ -2419,33 +2419,33 @@ namespace agora_gaming_rtc
             }
         }
 
-        [MonoPInvokeCallback(typeof(ChannelOnVideoSubscribeStateChangedHandler))]
-        private static void OnVideoSubscribeStateChangedCallback(string channelId, uint uid, STREAM_SUBSCRIBE_STATE oldState, STREAM_SUBSCRIBE_STATE newState, int elapseSinceLastState)
-        {
-            AgoraChannel channel = null;
-            if (_channelDictionary.ContainsKey(channelId))
-            {
-                channel = _channelDictionary[channelId];
-                if (channel != null && channel.ChannelOnVideoSubscribeStateChanged != null && _AgoraCallbackObjectDictionary[channelId] != null)
-                {
-                    AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
-                    if (queue != null)
-                    {
-                        queue.EnQueue(() =>
-                        {
-                            if (_channelDictionary.ContainsKey(channelId))
-                            {
-                                AgoraChannel ch = _channelDictionary[channelId];
-                                if (ch != null && channel.ChannelOnVideoSubscribeStateChanged != null)
-                                {
-                                    ch.ChannelOnVideoSubscribeStateChanged(channelId, uid, oldState, newState, elapseSinceLastState);
-                                }
-                            }
-                        });
-                    }
-                }
-            }
-        }
+        //[MonoPInvokeCallback(typeof(ChannelOnVideoSubscribeStateChangedHandler))]
+        //private static void OnVideoSubscribeStateChangedCallback(string channelId, uint uid, STREAM_SUBSCRIBE_STATE oldState, STREAM_SUBSCRIBE_STATE newState, int elapseSinceLastState)
+        //{
+        //    AgoraChannel channel = null;
+        //    if (_channelDictionary.ContainsKey(channelId))
+        //    {
+        //        channel = _channelDictionary[channelId];
+        //        if (channel != null && channel.ChannelOnVideoSubscribeStateChanged != null && _AgoraCallbackObjectDictionary[channelId] != null)
+        //        {
+        //            AgoraCallbackQueue queue = _AgoraCallbackObjectDictionary[channelId]._CallbackQueue;
+        //            if (queue != null)
+        //            {
+        //                queue.EnQueue(() =>
+        //                {
+        //                    if (_channelDictionary.ContainsKey(channelId))
+        //                    {
+        //                        AgoraChannel ch = _channelDictionary[channelId];
+        //                        if (ch != null && channel.ChannelOnVideoSubscribeStateChanged != null)
+        //                        {
+        //                            ch.ChannelOnVideoSubscribeStateChanged(channelId, uid, oldState, newState, elapseSinceLastState);
+        //                        }
+        //                    }
+        //                });
+        //            }
+        //        }
+        //    }
+        //}
 
         [MonoPInvokeCallback(typeof(ChannelOnUserSuperResolutionEnabledHandler))]
         private static void OnUserSuperResolutionEnabledCallback(string channelId, uint uid, bool enabled, SUPER_RESOLUTION_STATE_REASON reason)
@@ -2490,27 +2490,27 @@ namespace agora_gaming_rtc
                                                     OnTokenPrivilegeWillExpireCallback,
                                                     OnRtcStatsCallback,
                                                     OnNetworkQualityCallback,
-                                                    OnRemoteVideoStatsCallback,
+                                                    //OnRemoteVideoStatsCallback,
                                                     OnRemoteAudioStatsCallback,
                                                     OnRemoteAudioStatChangedCallback,
                                                     OnActiveSpeakerCallback,
-                                                    OnVideoSizeChangedCallback,
-                                                    OnRemoteVideoStateChangedCallback,
-                                                    OnStreamMessageCallback,
-                                                    OnStreamMessageErrorCallback,
-                                                    OnMediaRelayStateChangedCallback,
-                                                    OnMediaRelayEventCallback,
-                                                    OnRtmpStreamingStateChangedCallback,
-                                                    OnTranscodingUpdatedCallback,
-                                                    OnStreamInjectedStatusCallback,
-                                                    OnRemoteSubscribeFallbackToAudioOnlyCallback,
-                                                    OnConnectionStateChangedCallback,
-                                                    OnLocalPublishFallbackToAudioOnlyCallback,
-                                                    OnRtmpStreamingEventCallback,
+                                                    //OnVideoSizeChangedCallback,
+                                                    //OnRemoteVideoStateChangedCallback,
+                                                    //OnStreamMessageCallback,
+                                                    //OnStreamMessageErrorCallback,
+                                                    //OnMediaRelayStateChangedCallback,
+                                                    //OnMediaRelayEventCallback,
+                                                    //OnRtmpStreamingStateChangedCallback,
+                                                    //OnTranscodingUpdatedCallback,
+                                                    //OnStreamInjectedStatusCallback,
+                                                    //OnRemoteSubscribeFallbackToAudioOnlyCallback,
+                                                    //OnConnectionStateChangedCallback,
+                                                    //OnLocalPublishFallbackToAudioOnlyCallback,
+                                                    //OnRtmpStreamingEventCallback,
                                                     OnAudioPublishStateChangedCallback,
-                                                    OnVideoPublishStateChangedCallback,
+                                                    //OnVideoPublishStateChangedCallback,
                                                     OnAudioSubscribeStateChangedCallback,
-                                                    OnVideoSubscribeStateChangedCallback,
+                                                    //OnVideoSubscribeStateChangedCallback,
                                                     OnUserSuperResolutionEnabledCallback);
         }
     }

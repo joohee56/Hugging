@@ -6,15 +6,15 @@ namespace agora_gaming_rtc
     #region some enum and struct types
 
     /** Video rendering mode. */
-    public enum VIDEO_RENDER_MODE
-    {
-        /** 100: (Default) RawData.*/
-        RENDER_RAWDATA = 100,
-        /** 101: OpenGLES 2. */
-        REDNER_OPENGL_ES2 = 101,
-        /** 102: Unity low level interface. */
-        RENDER_UNITY_LOW_LEVEL_INTERFACE = 102,
-    };
+    //public enum VIDEO_RENDER_MODE
+    //{
+    //    /** 100: (Default) RawData.*/
+    //    RENDER_RAWDATA = 100,
+    //    /** 101: OpenGLES 2. */
+    //    REDNER_OPENGL_ES2 = 101,
+    //    /** 102: Unity low level interface. */
+    //    RENDER_UNITY_LOW_LEVEL_INTERFACE = 102,
+    //};
 
     /** Error code, see more in [Error Code](./index.html#error).
     */
@@ -31,37 +31,37 @@ namespace agora_gaming_rtc
     };
 
     /** Remote video stream types. */
-    public enum REMOTE_VIDEO_STREAM_TYPE
-    {
-        /** 0: High-stream video. */
-        REMOTE_VIDEO_STREAM_HIGH = 0,
-        /** 1: Low-stream video. */
-        REMOTE_VIDEO_STREAM_LOW = 1,
-    };
+    //public enum REMOTE_VIDEO_STREAM_TYPE
+    //{
+    //    /** 0: High-stream video. */
+    //    REMOTE_VIDEO_STREAM_HIGH = 0,
+    //    /** 1: Low-stream video. */
+    //    REMOTE_VIDEO_STREAM_LOW = 1,
+    //};
 
     /** The state of the remote video. */
-    public enum REMOTE_VIDEO_STATE 
-    {
-        /** 0: The remote video is in the default state, probably due to `REMOTE_VIDEO_STATE_REASON_LOCAL_MUTED(3)`, `REMOTE_VIDEO_STATE_REASON_REMOTE_MUTED(5)`, or `REMOTE_VIDEO_STATE_REASON_REMOTE_OFFLINE(7)`.
-        */
-        REMOTE_VIDEO_STATE_STOPPED = 0,
+    //public enum REMOTE_VIDEO_STATE 
+    //{
+    //    /** 0: The remote video is in the default state, probably due to `REMOTE_VIDEO_STATE_REASON_LOCAL_MUTED(3)`, `REMOTE_VIDEO_STATE_REASON_REMOTE_MUTED(5)`, or `REMOTE_VIDEO_STATE_REASON_REMOTE_OFFLINE(7)`.
+    //    */
+    //    REMOTE_VIDEO_STATE_STOPPED = 0,
 
-        /** 1: The first remote video packet is received.
-        */
-        REMOTE_VIDEO_STATE_STARTING = 1,
+    //    /** 1: The first remote video packet is received.
+    //    */
+    //    REMOTE_VIDEO_STATE_STARTING = 1,
 
-        /** 2: The remote video stream is decoded and plays normally, probably due to `REMOTE_VIDEO_STATE_REASON_NETWORK_RECOVERY(2)`, `REMOTE_VIDEO_STATE_REASON_LOCAL_UNMUTED(4)`, `REMOTE_VIDEO_STATE_REASON_REMOTE_UNMUTED(6)`, or `REMOTE_VIDEO_STATE_REASON_AUDIO_FALLBACK_RECOVERY(9)`.
-        */
-        REMOTE_VIDEO_STATE_DECODING = 2,
+    //    /** 2: The remote video stream is decoded and plays normally, probably due to `REMOTE_VIDEO_STATE_REASON_NETWORK_RECOVERY(2)`, `REMOTE_VIDEO_STATE_REASON_LOCAL_UNMUTED(4)`, `REMOTE_VIDEO_STATE_REASON_REMOTE_UNMUTED(6)`, or `REMOTE_VIDEO_STATE_REASON_AUDIO_FALLBACK_RECOVERY(9)`.
+    //    */
+    //    REMOTE_VIDEO_STATE_DECODING = 2,
 
-        /** 3: The remote video is frozen, probably due to `REMOTE_VIDEO_STATE_REASON_NETWORK_CONGESTION(1)` or `REMOTE_VIDEO_STATE_REASON_AUDIO_FALLBACK(8)`.
-        */
-        REMOTE_VIDEO_STATE_FROZEN = 3,
+    //    /** 3: The remote video is frozen, probably due to `REMOTE_VIDEO_STATE_REASON_NETWORK_CONGESTION(1)` or `REMOTE_VIDEO_STATE_REASON_AUDIO_FALLBACK(8)`.
+    //    */
+    //    REMOTE_VIDEO_STATE_FROZEN = 3,
 
-        /** 4: The remote video fails to start, probably due to `REMOTE_VIDEO_STATE_REASON_INTERNAL(0)`.
-        */
-        REMOTE_VIDEO_STATE_FAILED = 4
-    };
+    //    /** 4: The remote video fails to start, probably due to `REMOTE_VIDEO_STATE_REASON_INTERNAL(0)`.
+    //    */
+    //    REMOTE_VIDEO_STATE_FAILED = 4
+    //};
 
     /** The reason of audio mixing state change.
     */
@@ -296,128 +296,128 @@ namespace agora_gaming_rtc
 
     /** Content hints for screen sharing.
     */
-    public enum VideoContentHint
-    {
-        /** (Default) No content hint.
-        */
-        CONTENT_HINT_NONE = 0,
-        /** Motion-intensive content. Choose this option if you prefer smoothness or when you are sharing a video clip, movie, or video game.
-        */
-        CONTENT_HINT_MOTION = 1,
-        /** Motionless content. Choose this option if you prefer sharpness or when you are sharing a picture, PowerPoint slide, or text.
-        */
-        CONTENT_HINT_DETAILS = 2,
-    };
+    //public enum VideoContentHint
+    //{
+    //    /** (Default) No content hint.
+    //    */
+    //    CONTENT_HINT_NONE = 0,
+    //    /** Motion-intensive content. Choose this option if you prefer smoothness or when you are sharing a video clip, movie, or video game.
+    //    */
+    //    CONTENT_HINT_MOTION = 1,
+    //    /** Motionless content. Choose this option if you prefer sharpness or when you are sharing a picture, PowerPoint slide, or text.
+    //    */
+    //    CONTENT_HINT_DETAILS = 2,
+    //};
 
 
     /** The reason of the remote video state change. */
-    public enum REMOTE_VIDEO_STATE_REASON 
-    {
-        /** 0: The SDK reports this reason when the video state changes.
-        */
-        REMOTE_VIDEO_STATE_REASON_INTERNAL = 0,
+    //public enum REMOTE_VIDEO_STATE_REASON 
+    //{
+    //    /** 0: The SDK reports this reason when the video state changes.
+    //    */
+    //    REMOTE_VIDEO_STATE_REASON_INTERNAL = 0,
 
-        /** 1: Network congestion.
-        */
-        REMOTE_VIDEO_STATE_REASON_NETWORK_CONGESTION = 1,
+    //    /** 1: Network congestion.
+    //    */
+    //    REMOTE_VIDEO_STATE_REASON_NETWORK_CONGESTION = 1,
 
-        /** 2: Network recovery.
-        */
-        REMOTE_VIDEO_STATE_REASON_NETWORK_RECOVERY = 2,
+    //    /** 2: Network recovery.
+    //    */
+    //    REMOTE_VIDEO_STATE_REASON_NETWORK_RECOVERY = 2,
 
-        /** 3: The local user stops receiving the remote video stream or disables the video module.
-        */
-        REMOTE_VIDEO_STATE_REASON_LOCAL_MUTED = 3,
+    //    /** 3: The local user stops receiving the remote video stream or disables the video module.
+    //    */
+    //    REMOTE_VIDEO_STATE_REASON_LOCAL_MUTED = 3,
 
-        /** 4: The local user resumes receiving the remote video stream or enables the video module.
-        */
-        REMOTE_VIDEO_STATE_REASON_LOCAL_UNMUTED = 4,
+    //    /** 4: The local user resumes receiving the remote video stream or enables the video module.
+    //    */
+    //    REMOTE_VIDEO_STATE_REASON_LOCAL_UNMUTED = 4,
 
-        /** 5: The remote user stops sending the video stream or disables the video module.
-        */
-        REMOTE_VIDEO_STATE_REASON_REMOTE_MUTED = 5,
+    //    /** 5: The remote user stops sending the video stream or disables the video module.
+    //    */
+    //    REMOTE_VIDEO_STATE_REASON_REMOTE_MUTED = 5,
 
-        /** 6: The remote user resumes sending the video stream or enables the video module.
-        */
-        REMOTE_VIDEO_STATE_REASON_REMOTE_UNMUTED = 6,
+    //    /** 6: The remote user resumes sending the video stream or enables the video module.
+    //    */
+    //    REMOTE_VIDEO_STATE_REASON_REMOTE_UNMUTED = 6,
 
-        /** 7: The remote user leaves the channel.
-        */
-        REMOTE_VIDEO_STATE_REASON_REMOTE_OFFLINE = 7,
+    //    /** 7: The remote user leaves the channel.
+    //    */
+    //    REMOTE_VIDEO_STATE_REASON_REMOTE_OFFLINE = 7,
 
-        /** 8: The remote audio-and-video stream falls back to the audio-only stream due to poor network conditions.
-        */
-        REMOTE_VIDEO_STATE_REASON_AUDIO_FALLBACK = 8,
+    //    /** 8: The remote audio-and-video stream falls back to the audio-only stream due to poor network conditions.
+    //    */
+    //    REMOTE_VIDEO_STATE_REASON_AUDIO_FALLBACK = 8,
 
-        /** 9: The remote audio-only stream switches back to the video stream after the network conditions improve.
-        */
-        REMOTE_VIDEO_STATE_REASON_AUDIO_FALLBACK_RECOVERY = 9
+    //    /** 9: The remote audio-only stream switches back to the video stream after the network conditions improve.
+    //    */
+    //    REMOTE_VIDEO_STATE_REASON_AUDIO_FALLBACK_RECOVERY = 9
 
-    };
+    //};
 
-    /** Local video state types.
-    */
-    public enum LOCAL_VIDEO_STREAM_STATE
-    {
-        /** 0: Initial state. */
-        LOCAL_VIDEO_STREAM_STATE_STOPPED = 0,
-        /** 1: The local video capturing device starts successfully.
-         * The SDK also reports this state when you share a maximized window by calling {@link agora_gaming_rtc.IRtcEngine.StartScreenCaptureByWindowId StartScreenCaptureByWindowId}.
-         */
-        LOCAL_VIDEO_STREAM_STATE_CAPTURING = 1,
-        /** 2: The first video frame is successfully encoded. */
-        LOCAL_VIDEO_STREAM_STATE_ENCODING = 2,
-        /** 3: The local video fails to start. */
-        LOCAL_VIDEO_STREAM_STATE_FAILED = 3
-    };
+    ///** Local video state types.
+    //*/
+    //public enum LOCAL_VIDEO_STREAM_STATE
+    //{
+    //    /** 0: Initial state. */
+    //    LOCAL_VIDEO_STREAM_STATE_STOPPED = 0,
+    //    /** 1: The local video capturing device starts successfully.
+    //     * The SDK also reports this state when you share a maximized window by calling {@link agora_gaming_rtc.IRtcEngine.StartScreenCaptureByWindowId StartScreenCaptureByWindowId}.
+    //     */
+    //    LOCAL_VIDEO_STREAM_STATE_CAPTURING = 1,
+    //    /** 2: The first video frame is successfully encoded. */
+    //    LOCAL_VIDEO_STREAM_STATE_ENCODING = 2,
+    //    /** 3: The local video fails to start. */
+    //    LOCAL_VIDEO_STREAM_STATE_FAILED = 3
+    //};
 
-    /** Local video state error codes
-    */
-    /** Local video state error codes
-    */
-    public enum LOCAL_VIDEO_STREAM_ERROR {
-        /** 0: The local video is normal. */
-        LOCAL_VIDEO_STREAM_ERROR_OK = 0,
-        /** 1: No specified reason for the local video failure. */
-        LOCAL_VIDEO_STREAM_ERROR_FAILURE = 1,
-        /** 2: No permission to use the local video capturing device. */
-        LOCAL_VIDEO_STREAM_ERROR_DEVICE_NO_PERMISSION = 2,
-        /** 3: The local video capturing device is in use. */
-        LOCAL_VIDEO_STREAM_ERROR_DEVICE_BUSY = 3,
-        /** 4: The local video capture fails. Check whether the capturing device is working properly. */
-        LOCAL_VIDEO_STREAM_ERROR_CAPTURE_FAILURE = 4,
-        /** 5: The local video encoding fails. */
-        LOCAL_VIDEO_STREAM_ERROR_ENCODE_FAILURE = 5,
-        /** 6: (iOS only) The application is in the background.
-        *
-        * @since v3.3.0
-        */
-        LOCAL_VIDEO_STREAM_ERROR_CAPTURE_INBACKGROUND = 6,
-        /** 7: (iOS only) The application is running in Slide Over, Split View, or Picture in Picture mode.
-        *
-        * @since v3.3.0
-        */
-        LOCAL_VIDEO_STREAM_ERROR_CAPTURE_MULTIPLE_FOREGROUND_APPS = 7,
-        /** 8:capture not found*/
-        LOCAL_VIDEO_STREAM_ERROR_DEVICE_NOT_FOUND = 8,
+    ///** Local video state error codes
+    //*/
+    ///** Local video state error codes
+    //*/
+    //public enum LOCAL_VIDEO_STREAM_ERROR {
+    //    /** 0: The local video is normal. */
+    //    LOCAL_VIDEO_STREAM_ERROR_OK = 0,
+    //    /** 1: No specified reason for the local video failure. */
+    //    LOCAL_VIDEO_STREAM_ERROR_FAILURE = 1,
+    //    /** 2: No permission to use the local video capturing device. */
+    //    LOCAL_VIDEO_STREAM_ERROR_DEVICE_NO_PERMISSION = 2,
+    //    /** 3: The local video capturing device is in use. */
+    //    LOCAL_VIDEO_STREAM_ERROR_DEVICE_BUSY = 3,
+    //    /** 4: The local video capture fails. Check whether the capturing device is working properly. */
+    //    LOCAL_VIDEO_STREAM_ERROR_CAPTURE_FAILURE = 4,
+    //    /** 5: The local video encoding fails. */
+    //    LOCAL_VIDEO_STREAM_ERROR_ENCODE_FAILURE = 5,
+    //    /** 6: (iOS only) The application is in the background.
+    //    *
+    //    * @since v3.3.0
+    //    */
+    //    LOCAL_VIDEO_STREAM_ERROR_CAPTURE_INBACKGROUND = 6,
+    //    /** 7: (iOS only) The application is running in Slide Over, Split View, or Picture in Picture mode.
+    //    *
+    //    * @since v3.3.0
+    //    */
+    //    LOCAL_VIDEO_STREAM_ERROR_CAPTURE_MULTIPLE_FOREGROUND_APPS = 7,
+    //    /** 8:capture not found*/
+    //    LOCAL_VIDEO_STREAM_ERROR_DEVICE_NOT_FOUND = 8,
 
-        LOCAL_VIDEO_STREAM_ERROR_SCREEN_CAPTURE_WINDOW_MINIMIZED = 11,
-        /** 12: The error code indicates that a window shared by the window ID has been closed, or a full-screen window
-        * shared by the window ID has exited full-screen mode.
-        * After exiting full-screen mode, remote users cannot see the shared window. To prevent remote users from seeing a
-        * black screen, Agora recommends that you immediately stop screen sharing.
-        *
-        * Common scenarios for reporting this error code:
-        * - When the local user closes the shared window, the SDK reports this error code.
-        * - The local user shows some slides in full-screen mode first, and then shares the windows of the slides. After
-        * the user exits full-screen mode, the SDK reports this error code.
-        * - The local user watches web video or reads web document in full-screen mode first, and then shares the window of
-        * the web video or document. After the user exits full-screen mode, the SDK reports this error code.
-        */
-        LOCAL_VIDEO_STREAM_ERROR_SCREEN_CAPTURE_WINDOW_CLOSED = 12,
+    //    LOCAL_VIDEO_STREAM_ERROR_SCREEN_CAPTURE_WINDOW_MINIMIZED = 11,
+    //    /** 12: The error code indicates that a window shared by the window ID has been closed, or a full-screen window
+    //    * shared by the window ID has exited full-screen mode.
+    //    * After exiting full-screen mode, remote users cannot see the shared window. To prevent remote users from seeing a
+    //    * black screen, Agora recommends that you immediately stop screen sharing.
+    //    *
+    //    * Common scenarios for reporting this error code:
+    //    * - When the local user closes the shared window, the SDK reports this error code.
+    //    * - The local user shows some slides in full-screen mode first, and then shares the windows of the slides. After
+    //    * the user exits full-screen mode, the SDK reports this error code.
+    //    * - The local user watches web video or reads web document in full-screen mode first, and then shares the window of
+    //    * the web video or document. After the user exits full-screen mode, the SDK reports this error code.
+    //    */
+    //    LOCAL_VIDEO_STREAM_ERROR_SCREEN_CAPTURE_WINDOW_CLOSED = 12,
 
-        LOCAL_VIDEO_STREAM_ERROR_SCREEN_CAPTURE_WINDOW_NOT_SUPPORTED = 20,
-    };
+    //    LOCAL_VIDEO_STREAM_ERROR_SCREEN_CAPTURE_WINDOW_NOT_SUPPORTED = 20,
+    //};
 
     /** Audio recording position. */
     public enum AUDIO_RECORDING_POSITION {
@@ -513,16 +513,16 @@ namespace agora_gaming_rtc
         AUDIO_SCENARIO_NUM = 10,
     };
 
-    /** Video codec profile types. */
-    public enum VIDEO_CODEC_PROFILE_TYPE
-    {  
-        /** 66: Baseline video codec profile. Generally used in video calls on mobile phones. */
-        VIDEO_CODEC_PROFILE_BASELINE = 66,
-        /** 77: Main video codec profile. Generally used in mainstream electronics such as MP4 players, portable video players, PSP, and iPads. */
-        VIDEO_CODEC_PROFILE_MAIN = 77,
-        /**  100: (Default) High video codec profile. Generally used in high-resolution broadcasts or television. */
-        VIDEO_CODEC_PROFILE_HIGH = 100,
-    };
+    ///** Video codec profile types. */
+    //public enum VIDEO_CODEC_PROFILE_TYPE
+    //{  
+    //    /** 66: Baseline video codec profile. Generally used in video calls on mobile phones. */
+    //    VIDEO_CODEC_PROFILE_BASELINE = 66,
+    //    /** 77: Main video codec profile. Generally used in mainstream electronics such as MP4 players, portable video players, PSP, and iPads. */
+    //    VIDEO_CODEC_PROFILE_MAIN = 77,
+    //    /**  100: (Default) High video codec profile. Generally used in high-resolution broadcasts or television. */
+    //    VIDEO_CODEC_PROFILE_HIGH = 100,
+    //};
 
     /** Audio-sample rates. */
     public enum AUDIO_SAMPLE_RATE_TYPE
@@ -871,17 +871,17 @@ namespace agora_gaming_rtc
     };
 
     /** Video codec types */
-    public enum VIDEO_CODEC_TYPE 
-    {
-        /** 1: Standard VP8. */
-        VIDEO_CODEC_VP8 = 1,
-        /** 2: Standard H264. */
-        VIDEO_CODEC_H264 = 2,
-        /** 3: Enhanced VP8. */
-        VIDEO_CODEC_EVP = 3,
-        /** 4: Enhanced H264. */
-        VIDEO_CODEC_E264 = 4,
-    };
+    //public enum VIDEO_CODEC_TYPE 
+    //{
+    //    /** 1: Standard VP8. */
+    //    VIDEO_CODEC_VP8 = 1,
+    //    /** 2: Standard H264. */
+    //    VIDEO_CODEC_H264 = 2,
+    //    /** 3: Enhanced VP8. */
+    //    VIDEO_CODEC_EVP = 3,
+    //    /** 4: Enhanced H264. */
+    //    VIDEO_CODEC_E264 = 4,
+    //};
 
     /** Regions for connetion. */
     public enum AREA_CODE : uint {
@@ -1168,107 +1168,107 @@ namespace agora_gaming_rtc
     }
 
     /** Statistics of the local video stream. */
-    public struct LocalVideoStats
-    {
-        /** Bitrate (Kbps) sent in the reported interval, which does not include
-        * the bitrate of the retransmission video after packet loss.
-        */
-        public int sentBitrate;
-        /** Frame rate (fps) sent in the reported interval, which does not include
-        * the frame rate of the retransmission video after packet loss.
-        */
-        public int sentFrameRate;
-        /** The encoder output frame rate (fps) of the local video.
-        */
-        public int encoderOutputFrameRate;
-        /** The render output frame rate (fps) of the local video.
-        */
-        public int rendererOutputFrameRate;
-        /** The target bitrate (Kbps) of the current encoder. This value is estimated by the SDK based on the current network conditions.
-        */
-        public int targetBitrate;
-        /** The target frame rate (fps) of the current encoder.
-        */
-        public int targetFrameRate;
-        /** Quality change of the local video in terms of target frame rate and
-        * target bit rate in this reported interval. See #QUALITY_ADAPT_INDICATION.
-        */
-        public QUALITY_ADAPT_INDICATION qualityAdaptIndication;
-        /** The encoding bitrate (Kbps), which does not include the bitrate of the
-        * re-transmission video after packet loss.
-        */
-        public int encodedBitrate;
-        /** The width of the encoding frame (px).
-        */
-        public int encodedFrameWidth;
-        /** The height of the encoding frame (px).
-        */
-        public int encodedFrameHeight;
-        /** The value of the sent frames, represented by an aggregate value.
-        */
-        public int encodedFrameCount;
-        /** The codec type of the local video:
-        * - VIDEO_CODEC_VP8 = 1: VP8.
-        * - VIDEO_CODEC_H264 = 2: (Default) H.264.
-        */
-        public VIDEO_CODEC_TYPE codecType;
-        /** The video packet loss rate (%) from the local client to the Agora edge server before applying the anti-packet loss strategies.
-         *
-         * @since v3.2.0
-         */
-        public ushort txPacketLossRate;
-        /** The capture frame rate (fps) of the local video.
-         *
-         * @since v3.2.0
-         */
-        public int captureFrameRate;
+    //public struct LocalVideoStats
+    //{
+    //    /** Bitrate (Kbps) sent in the reported interval, which does not include
+    //    * the bitrate of the retransmission video after packet loss.
+    //    */
+    //    public int sentBitrate;
+    //    /** Frame rate (fps) sent in the reported interval, which does not include
+    //    * the frame rate of the retransmission video after packet loss.
+    //    */
+    //    public int sentFrameRate;
+    //    /** The encoder output frame rate (fps) of the local video.
+    //    */
+    //    public int encoderOutputFrameRate;
+    //    /** The render output frame rate (fps) of the local video.
+    //    */
+    //    public int rendererOutputFrameRate;
+    //    /** The target bitrate (Kbps) of the current encoder. This value is estimated by the SDK based on the current network conditions.
+    //    */
+    //    public int targetBitrate;
+    //    /** The target frame rate (fps) of the current encoder.
+    //    */
+    //    public int targetFrameRate;
+    //    /** Quality change of the local video in terms of target frame rate and
+    //    * target bit rate in this reported interval. See #QUALITY_ADAPT_INDICATION.
+    //    */
+    //    public QUALITY_ADAPT_INDICATION qualityAdaptIndication;
+    //    /** The encoding bitrate (Kbps), which does not include the bitrate of the
+    //    * re-transmission video after packet loss.
+    //    */
+    //    public int encodedBitrate;
+    //    /** The width of the encoding frame (px).
+    //    */
+    //    public int encodedFrameWidth;
+    //    /** The height of the encoding frame (px).
+    //    */
+    //    public int encodedFrameHeight;
+    //    /** The value of the sent frames, represented by an aggregate value.
+    //    */
+    //    public int encodedFrameCount;
+    //    /** The codec type of the local video:
+    //    * - VIDEO_CODEC_VP8 = 1: VP8.
+    //    * - VIDEO_CODEC_H264 = 2: (Default) H.264.
+    //    */
+    //    public VIDEO_CODEC_TYPE codecType;
+    //    /** The video packet loss rate (%) from the local client to the Agora edge server before applying the anti-packet loss strategies.
+    //     *
+    //     * @since v3.2.0
+    //     */
+    //    public ushort txPacketLossRate;
+    //    /** The capture frame rate (fps) of the local video.
+    //     *
+    //     * @since v3.2.0
+    //     */
+    //    public int captureFrameRate;
 
-        /** The brightness level of the video image captured by the local camera. 
-         * See {@link agora_gaming_rtc.CAPTURE_BRIGHTNESS_LEVEL_TYPE CAPTURE_BRIGHTNESS_LEVEL_TYPE}.
-         *
-         * @since v3.3.1
-         */
-        public CAPTURE_BRIGHTNESS_LEVEL_TYPE captureBrightnessLevel;
-    }; 
+    //    /** The brightness level of the video image captured by the local camera. 
+    //     * See {@link agora_gaming_rtc.CAPTURE_BRIGHTNESS_LEVEL_TYPE CAPTURE_BRIGHTNESS_LEVEL_TYPE}.
+    //     *
+    //     * @since v3.3.1
+    //     */
+    //    public CAPTURE_BRIGHTNESS_LEVEL_TYPE captureBrightnessLevel;
+    //}; 
 
-    /** Statistics of the remote video stream. */
-    public struct RemoteVideoStats
-    {
-        /** User ID of the remote user sending the video streams. */
-        public uint uid;
-        /** @deprecated Time delay (ms).<p>In scenarios where audio and video is synchronized, you can use the value of `networkTransportDelay` and `jitterBufferDelay` in `RemoteAudioStats` to know the delay statistics of the remote video.</p> */
-        public int delay;
-        /** Width (pixels) of the video stream. */
-        public int width;
-        /** Height (pixels) of the video stream. */
-        public int height;
-        /** Bitrate (Kbps) received since the last count. */
-        public int receivedBitrate;
-        /** The decoder output frame rate (fps) of the remote video. */
-        public int decoderOutputFrameRate;
-        /** The render output frame rate (fps) of the remote video. */
-        public int rendererOutputFrameRate;
-        /** Packet loss rate (%) of the remote video stream after using the anti-packet-loss method. */
-        public int packetLossRate;
-        /** The type of the remote video stream: #REMOTE_VIDEO_STREAM_TYPE*/
-        public REMOTE_VIDEO_STREAM_TYPE rxStreamType;
-        /** The total freeze time (ms) of the remote video stream after the remote user joins the channel.
-         * In a video session where the frame rate is set to no less than 5 fps, video freeze occurs when the time interval between two adjacent renderable video frames is more than 500 ms.
-         */
-        public int totalFrozenTime;
-        /** The total video freeze time as a percentage (%) of the total time when the video is available. */
-        public int frozenRate;
-        /** The total time (ms) when the remote user in the Communication profile or the remote host in the Live-broadcast profile neither stops sending the video stream nor disables the video module after joining the channel.
-         * 
-         * @since v3.0.1
-         */
-        public int totalActiveTime;
-        /** The total publish duration (ms) of the remote video stream.
-         *
-         * @since v3.2.0
-         */
-        public int publishDuration;
-    };
+    ///** Statistics of the remote video stream. */
+    //public struct RemoteVideoStats
+    //{
+    //    /** User ID of the remote user sending the video streams. */
+    //    public uint uid;
+    //    /** @deprecated Time delay (ms).<p>In scenarios where audio and video is synchronized, you can use the value of `networkTransportDelay` and `jitterBufferDelay` in `RemoteAudioStats` to know the delay statistics of the remote video.</p> */
+    //    public int delay;
+    //    /** Width (pixels) of the video stream. */
+    //    public int width;
+    //    /** Height (pixels) of the video stream. */
+    //    public int height;
+    //    /** Bitrate (Kbps) received since the last count. */
+    //    public int receivedBitrate;
+    //    /** The decoder output frame rate (fps) of the remote video. */
+    //    public int decoderOutputFrameRate;
+    //    /** The render output frame rate (fps) of the remote video. */
+    //    public int rendererOutputFrameRate;
+    //    /** Packet loss rate (%) of the remote video stream after using the anti-packet-loss method. */
+    //    public int packetLossRate;
+    //    /** The type of the remote video stream: #REMOTE_VIDEO_STREAM_TYPE*/
+    //    public REMOTE_VIDEO_STREAM_TYPE rxStreamType;
+    //    /** The total freeze time (ms) of the remote video stream after the remote user joins the channel.
+    //     * In a video session where the frame rate is set to no less than 5 fps, video freeze occurs when the time interval between two adjacent renderable video frames is more than 500 ms.
+    //     */
+    //    public int totalFrozenTime;
+    //    /** The total video freeze time as a percentage (%) of the total time when the video is available. */
+    //    public int frozenRate;
+    //    /** The total time (ms) when the remote user in the Communication profile or the remote host in the Live-broadcast profile neither stops sending the video stream nor disables the video module after joining the channel.
+    //     * 
+    //     * @since v3.0.1
+    //     */
+    //    public int totalActiveTime;
+    //    /** The total publish duration (ms) of the remote video stream.
+    //     *
+    //     * @since v3.2.0
+    //     */
+    //    public int publishDuration;
+    //};
 
     /** The UserInfo class.*/
     public struct UserInfo 
@@ -1390,114 +1390,114 @@ namespace agora_gaming_rtc
     };
 
     /** Video encoder configurations. */
-    public struct VideoEncoderConfiguration 
-    {
-        /** The video frame dimension used to specify the video quality and measured by the total number of pixels along a frame's width and height: VideoDimensions.
-         */
-        public VideoDimensions dimensions;
-        /** The frame rate of the video: #FRAME_RATE. The default value is 15.
-         * Note that we do not recommend setting this to a value greater than 30.
-         */
-        public FRAME_RATE frameRate;
-        /** The minimum frame rate of the video. The default value is -1.
-         */
-        public int minFrameRate;
-        /** The video encoding bitrate (Kbps).
-         */
-        public int bitrate;
-        /** The minimum encoding bitrate (Kbps).
-         * 
-         * The SDK automatically adjusts the encoding bitrate to adapt to the network conditions. Using a value greater than the default value forces the video encoder to output high-quality images but may cause more packet loss and hence sacrifice the smoothness of the video transmission. That said, unless you have special requirements for image quality, Agora does not recommend changing this value.
-         * 
-         * @note This parameter applies only to the Live-broadcast profile.
-         */
-        public int minBitrate;
-        /** The video orientation mode of the video: #ORIENTATION_MODE.
-         */
-        public ORIENTATION_MODE orientationMode;
-        /** The video encoding degradation preference under limited bandwidth: #DEGRADATION_PREFERENCE.
-         */
-        public DEGRADATION_PREFERENCE degradationPreference;
-        /** Sets the mirror mode of the published local video stream. It only affects the video that the remote user sees. See #VIDEO_MIRROR_MODE_TYPE
-         * @since v3.0.0
-         * @note The SDK disables the mirror mode by default.
-         */
-        public VIDEO_MIRROR_MODE_TYPE mirrorMode;
-    };
+//    public struct VideoEncoderConfiguration 
+//    {
+//        /** The video frame dimension used to specify the video quality and measured by the total number of pixels along a frame's width and height: VideoDimensions.
+//         */
+//        public VideoDimensions dimensions;
+//        /** The frame rate of the video: #FRAME_RATE. The default value is 15.
+//         * Note that we do not recommend setting this to a value greater than 30.
+//         */
+//        public FRAME_RATE frameRate;
+//        /** The minimum frame rate of the video. The default value is -1.
+//         */
+//        public int minFrameRate;
+//        /** The video encoding bitrate (Kbps).
+//         */
+//        public int bitrate;
+//        /** The minimum encoding bitrate (Kbps).
+//         * 
+//         * The SDK automatically adjusts the encoding bitrate to adapt to the network conditions. Using a value greater than the default value forces the video encoder to output high-quality images but may cause more packet loss and hence sacrifice the smoothness of the video transmission. That said, unless you have special requirements for image quality, Agora does not recommend changing this value.
+//         * 
+//         * @note This parameter applies only to the Live-broadcast profile.
+//         */
+//        public int minBitrate;
+//        /** The video orientation mode of the video: #ORIENTATION_MODE.
+//         */
+//        public ORIENTATION_MODE orientationMode;
+//        /** The video encoding degradation preference under limited bandwidth: #DEGRADATION_PREFERENCE.
+//         */
+//        public DEGRADATION_PREFERENCE degradationPreference;
+//        /** Sets the mirror mode of the published local video stream. It only affects the video that the remote user sees. See #VIDEO_MIRROR_MODE_TYPE
+//         * @since v3.0.0
+//         * @note The SDK disables the mirror mode by default.
+//         */
+//        public VIDEO_MIRROR_MODE_TYPE mirrorMode;
+//    };
 
-    /** Video dimensions. */
-    public struct VideoDimensions 
-    {
-        /** Width (pixels) of the video. */
-        public int width;
-        /** Height (pixels) of the video. */
-        public int height;
-    };
+//    /** Video dimensions. */
+//    public struct VideoDimensions 
+//    {
+//        /** Width (pixels) of the video. */
+//        public int width;
+//        /** Height (pixels) of the video. */
+//        public int height;
+//    };
 
-    /** The video properties of the user displaying the video in the CDN live. Agora supports a maximum of 17 transcoding users in a CDN streaming channel. */
-    public struct TranscodingUser
-    {
-        /** User ID of the user displaying the video in the CDN live.
-        */
-        public uint uid;
+//    /** The video properties of the user displaying the video in the CDN live. Agora supports a maximum of 17 transcoding users in a CDN streaming channel. */
+//    public struct TranscodingUser
+//    {
+//        /** User ID of the user displaying the video in the CDN live.
+//        */
+//        public uint uid;
 
-        /** Horizontal position from the top left corner of the video frame.
-*/
-        public int x;
-        /** Vertical position from the top left corner of the video frame.
-        */
-        public int y;
-        /** Width of the video frame. The default value is 360.
-        */
-        public int width;
-        /** Height of the video frame. The default value is 640.
-        */
-        public int height;
+//        /** Horizontal position from the top left corner of the video frame.
+//*/
+//        public int x;
+//        /** Vertical position from the top left corner of the video frame.
+//        */
+//        public int y;
+//        /** Width of the video frame. The default value is 360.
+//        */
+//        public int width;
+//        /** Height of the video frame. The default value is 640.
+//        */
+//        public int height;
 
-        /** Layer position of the video frame. The value ranges between 0 and 100.
-         * - 0: (Default) Lowest
-         * - 100: Highest
-         * 
-         * @note
-         * - If zOrder is beyond this range, the SDK reports `ERR_INVALID_ARGUMENT(2)`.
-         * - As of v2.3, the SDK supports zOrder = 0.
-         */
-        public int zOrder;
-        /**  Transparency of the video frame in CDN live. The value ranges between 0 and 1.0:
-         * - 0: Completely transparent
-         * - 1.0: (Default) Opaque
-         */
-        public double alpha;
-        /** The audio channel of the sound. The default value is 0:
-         * - 0: (Default) Supports dual channels at most, depending on the upstream of the host.
-         * - 1: The audio stream of the host uses the FL audio channel. If the upstream of the host uses multiple audio channels, these channels will be mixed into mono first.
-         * - 2: The audio stream of the host uses the FC audio channel. If the upstream of the host uses multiple audio channels, these channels will be mixed into mono first.
-         * - 3: The audio stream of the host uses the FR audio channel. If the upstream of the host uses multiple audio channels, these channels will be mixed into mono first.
-         * - 4: The audio stream of the host uses the BL audio channel. If the upstream of the host uses multiple audio channels, these channels will be mixed into mono first.
-         * - 5: The audio stream of the host uses the BR audio channel. If the upstream of the host uses multiple audio channels, these channels will be mixed into mono first.
-         * 
-         * @note If your setting is not 0, you may need a specialized player.
-         */
-        public int audioChannel;
-    };
+//        /** Layer position of the video frame. The value ranges between 0 and 100.
+//         * - 0: (Default) Lowest
+//         * - 100: Highest
+//         * 
+//         * @note
+//         * - If zOrder is beyond this range, the SDK reports `ERR_INVALID_ARGUMENT(2)`.
+//         * - As of v2.3, the SDK supports zOrder = 0.
+//         */
+//        public int zOrder;
+//        /**  Transparency of the video frame in CDN live. The value ranges between 0 and 1.0:
+//         * - 0: Completely transparent
+//         * - 1.0: (Default) Opaque
+//         */
+//        public double alpha;
+//        /** The audio channel of the sound. The default value is 0:
+//         * - 0: (Default) Supports dual channels at most, depending on the upstream of the host.
+//         * - 1: The audio stream of the host uses the FL audio channel. If the upstream of the host uses multiple audio channels, these channels will be mixed into mono first.
+//         * - 2: The audio stream of the host uses the FC audio channel. If the upstream of the host uses multiple audio channels, these channels will be mixed into mono first.
+//         * - 3: The audio stream of the host uses the FR audio channel. If the upstream of the host uses multiple audio channels, these channels will be mixed into mono first.
+//         * - 4: The audio stream of the host uses the BL audio channel. If the upstream of the host uses multiple audio channels, these channels will be mixed into mono first.
+//         * - 5: The audio stream of the host uses the BR audio channel. If the upstream of the host uses multiple audio channels, these channels will be mixed into mono first.
+//         * 
+//         * @note If your setting is not 0, you may need a specialized player.
+//         */
+//        public int audioChannel;
+//    };
 
     /** Image properties.
      * 
      * The properties of the watermark and background images.
      */
-    public struct RtcImage
-    {
-        /** HTTP/HTTPS URL address of the image on the broadcasting video. The maximum length of this parameter is 1024 bytes. */
-        public string url;
-        /** Horizontal position of the image from the upper left of the broadcasting video. */
-        public int x;
-        /** Vertical position of the image from the upper left of the broadcasting video. */
-        public int y;
-        /** Width of the image on the broadcasting video. */
-        public int width;
-        /** Height of the image on the broadcasting video. */
-        public int height;
-    }
+    //public struct RtcImage
+    //{
+    //    /** HTTP/HTTPS URL address of the image on the broadcasting video. The maximum length of this parameter is 1024 bytes. */
+    //    public string url;
+    //    /** Horizontal position of the image from the upper left of the broadcasting video. */
+    //    public int x;
+    //    /** Vertical position of the image from the upper left of the broadcasting video. */
+    //    public int y;
+    //    /** Width of the image on the broadcasting video. */
+    //    public int width;
+    //    /** Height of the image on the broadcasting video. */
+    //    public int height;
+    //}
 
     /// @cond
     /** The configuration for advanced features of the RTMP or RTMPS streaming with transcoding.
@@ -1559,7 +1559,7 @@ namespace agora_gaming_rtc
          * 
          * @note If you set this parameter to other values, Agora adjusts it to the default value of 100.
          */
-        public VIDEO_CODEC_PROFILE_TYPE videoCodecProfile;
+        //public VIDEO_CODEC_PROFILE_TYPE videoCodecProfile;
         /** The background color in RGB hex value. Value only, do not include a #. For example, 0xFFB6C1 (light pink). The default value is 0x000000 (black).
          */
         public uint backgroundColor;
@@ -1568,7 +1568,7 @@ namespace agora_gaming_rtc
         public uint userCount;
         /** TranscodingUser.
         */
-        public TranscodingUser[] transcodingUsers;
+        //public TranscodingUser[] transcodingUsers;
         /** Reserved property. Extra user-defined information to send SEI for the H.264/H.265 video stream to the CDN live client. Maximum length: 4096 Bytes.
          *
          * For more information on SEI frame, see [SEI-related questions](https://docs.agora.io/en/faq/sei).
@@ -1582,12 +1582,12 @@ namespace agora_gaming_rtc
          *
          * Ensure that the format of the image is PNG. Once a watermark image is added, the audience of the CDN live publishing stream can see the watermark image. See RtcImage.
          */
-        public RtcImage watermark;
+        //public RtcImage watermark;
         /** The background image added to the CDN live publishing stream.
          * 
          * Once a background image is added, the audience of the CDN live publishing stream can see the background image. See RtcImage.
          */
-        public RtcImage backgroundImage;
+        //public RtcImage backgroundImage;
         /** Self-defined audio-sample rate: #AUDIO_SAMPLE_RATE_TYPE.
         */
         public AUDIO_SAMPLE_RATE_TYPE audioSampleRate;
@@ -1616,23 +1616,23 @@ namespace agora_gaming_rtc
     };
 
     /** Video frame rates. */
-    public enum FRAME_RATE
-    {
-        /** 1: 1 fps */
-        FRAME_RATE_FPS_1 = 1,
-        /** 7: 7 fps */
-        FRAME_RATE_FPS_7 = 7,
-        /** 10: 10 fps */
-        FRAME_RATE_FPS_10 = 10,
-        /** 15: 15 fps */
-        FRAME_RATE_FPS_15 = 15,
-        /** 24: 24 fps */
-        FRAME_RATE_FPS_24 = 24,
-        /** 30: 30 fps */
-        FRAME_RATE_FPS_30 = 30,
-        /** 60: 60 fps (Windows and macOS only) */
-        FRAME_RATE_FPS_60 = 60,
-    };
+    //public enum FRAME_RATE
+    //{
+    //    /** 1: 1 fps */
+    //    FRAME_RATE_FPS_1 = 1,
+    //    /** 7: 7 fps */
+    //    FRAME_RATE_FPS_7 = 7,
+    //    /** 10: 10 fps */
+    //    FRAME_RATE_FPS_10 = 10,
+    //    /** 15: 15 fps */
+    //    FRAME_RATE_FPS_15 = 15,
+    //    /** 24: 24 fps */
+    //    FRAME_RATE_FPS_24 = 24,
+    //    /** 30: 30 fps */
+    //    FRAME_RATE_FPS_30 = 30,
+    //    /** 60: 60 fps (Windows and macOS only) */
+    //    FRAME_RATE_FPS_60 = 60,
+    //};
 
     /** Video output orientation modes.
     */
@@ -1654,144 +1654,144 @@ namespace agora_gaming_rtc
         ORIENTATION_MODE_FIXED_PORTRAIT = 2,
     };
 
-    /** Video degradation preferences when the bandwidth is a constraint. */
-    public enum DEGRADATION_PREFERENCE 
-    {
-        /** 0: (Default) Degrade the frame rate in order to maintain the video quality. */
-        MAINTAIN_QUALITY = 0,
-        /** 1: Degrade the video quality in order to maintain the frame rate. */
-        MAINTAIN_FRAMERATE = 1,
-        /** 2: (For future use) Maintain a balance between the frame rate and video quality. */
-        MAINTAIN_BALANCED = 2,
-    };
+    ///** Video degradation preferences when the bandwidth is a constraint. */
+    //public enum DEGRADATION_PREFERENCE 
+    //{
+    //    /** 0: (Default) Degrade the frame rate in order to maintain the video quality. */
+    //    MAINTAIN_QUALITY = 0,
+    //    /** 1: Degrade the video quality in order to maintain the frame rate. */
+    //    MAINTAIN_FRAMERATE = 1,
+    //    /** 2: (For future use) Maintain a balance between the frame rate and video quality. */
+    //    MAINTAIN_BALANCED = 2,
+    //};
 
-    /** The external video frame. */
-    public struct ExternalVideoFrame
-    {
-        /** The video buffer type.
-         */
-        public enum VIDEO_BUFFER_TYPE
-        {
-            /** 1: The video buffer in the format of raw data.
-             */
-            VIDEO_BUFFER_RAW_DATA = 1,
-        };
+    ///** The external video frame. */
+    //public struct ExternalVideoFrame
+    //{
+    //    /** The video buffer type.
+    //     */
+    //    public enum VIDEO_BUFFER_TYPE
+    //    {
+    //        /** 1: The video buffer in the format of raw data.
+    //         */
+    //        VIDEO_BUFFER_RAW_DATA = 1,
+    //    };
 
-        /** The video pixel format.
-         * @note The SDK does not support the alpha channel, and discards any alpha value passed to the SDK.
-         */
-        public enum VIDEO_PIXEL_FORMAT
-        {
-            /** 0: The video pixel format is unknown.
-             */
-            VIDEO_PIXEL_UNKNOWN = 0,
-            /** 1: The video pixel format is I420.
-             */
-            VIDEO_PIXEL_I420 = 1,
-            /** 2: The video pixel format is BGRA.
-             */
-            VIDEO_PIXEL_BGRA = 2,
-            /** 3: The video pixel format is NV21.
-            */
-            VIDEO_PIXEL_NV21 = 3,
-            /** 4: The video pixel format is RGBA.
-            */
-            VIDEO_PIXEL_RGBA = 4,
-            /** 5: The video pixel format is IMC2.
-            */
-            VIDEO_PIXEL_IMC2 = 5,
-            /** 7: The video pixel format is ARGB.
-            */
-            VIDEO_PIXEL_ARGB = 7,
-            /** 8: The video pixel format is NV12.
-             */
-            VIDEO_PIXEL_NV12 = 8,
-            /** 16: The video pixel format is I422.
-             */
-            VIDEO_PIXEL_I422 = 16,
-        };
+    //    /** The video pixel format.
+    //     * @note The SDK does not support the alpha channel, and discards any alpha value passed to the SDK.
+    //     */
+    //    public enum VIDEO_PIXEL_FORMAT
+    //    {
+    //        /** 0: The video pixel format is unknown.
+    //         */
+    //        VIDEO_PIXEL_UNKNOWN = 0,
+    //        /** 1: The video pixel format is I420.
+    //         */
+    //        VIDEO_PIXEL_I420 = 1,
+    //        /** 2: The video pixel format is BGRA.
+    //         */
+    //        VIDEO_PIXEL_BGRA = 2,
+    //        /** 3: The video pixel format is NV21.
+    //        */
+    //        VIDEO_PIXEL_NV21 = 3,
+    //        /** 4: The video pixel format is RGBA.
+    //        */
+    //        VIDEO_PIXEL_RGBA = 4,
+    //        /** 5: The video pixel format is IMC2.
+    //        */
+    //        VIDEO_PIXEL_IMC2 = 5,
+    //        /** 7: The video pixel format is ARGB.
+    //        */
+    //        VIDEO_PIXEL_ARGB = 7,
+    //        /** 8: The video pixel format is NV12.
+    //         */
+    //        VIDEO_PIXEL_NV12 = 8,
+    //        /** 16: The video pixel format is I422.
+    //         */
+    //        VIDEO_PIXEL_I422 = 16,
+    //    };
 
-        /** The buffer type. See #VIDEO_BUFFER_TYPE.
-         */
-        public VIDEO_BUFFER_TYPE type;
-        /** The pixel format. See #VIDEO_PIXEL_FORMAT.
-         */
-        public VIDEO_PIXEL_FORMAT format;
-        /** The video buffer.
-         */
-        public byte[] buffer;
-        /** Line spacing of the incoming video frame, which must be in pixels instead of bytes. For textures, it is the width of the texture.
-         */
-        public int stride;
-        /** Height of the incoming video frame.
-         */
-        public int height;
-        /** [Raw data related parameter] The number of pixels trimmed from the left. The default value is 0.
-         */
-        public int cropLeft;
-        /** [Raw data related parameter] The number of pixels trimmed from the top. The default value is 0.
-         */
-        public int cropTop;
-        /** [Raw data related parameter] The number of pixels trimmed from the right. The default value is 0.
-         */
-        public int cropRight;
-        /** [Raw data related parameter] The number of pixels trimmed from the bottom. The default value is 0.
-         */
-        public int cropBottom;
-        /** [Raw data related parameter] The clockwise rotation of the video frame. You can set the rotation angle as 0, 90, 180, or 270. The default value is 0.
-         */
-        public int rotation;
-        /** Timestamp of the incoming video frame (ms). An incorrect timestamp results in frame loss or unsynchronized audio and video.
-         */
-        public long timestamp;
-    };
+    //    /** The buffer type. See #VIDEO_BUFFER_TYPE.
+    //     */
+    //    public VIDEO_BUFFER_TYPE type;
+    //    /** The pixel format. See #VIDEO_PIXEL_FORMAT.
+    //     */
+    //    public VIDEO_PIXEL_FORMAT format;
+    //    /** The video buffer.
+    //     */
+    //    public byte[] buffer;
+    //    /** Line spacing of the incoming video frame, which must be in pixels instead of bytes. For textures, it is the width of the texture.
+    //     */
+    //    public int stride;
+    //    /** Height of the incoming video frame.
+    //     */
+    //    public int height;
+    //    /** [Raw data related parameter] The number of pixels trimmed from the left. The default value is 0.
+    //     */
+    //    public int cropLeft;
+    //    /** [Raw data related parameter] The number of pixels trimmed from the top. The default value is 0.
+    //     */
+    //    public int cropTop;
+    //    /** [Raw data related parameter] The number of pixels trimmed from the right. The default value is 0.
+    //     */
+    //    public int cropRight;
+    //    /** [Raw data related parameter] The number of pixels trimmed from the bottom. The default value is 0.
+    //     */
+    //    public int cropBottom;
+    //    /** [Raw data related parameter] The clockwise rotation of the video frame. You can set the rotation angle as 0, 90, 180, or 270. The default value is 0.
+    //     */
+    //    public int rotation;
+    //    /** Timestamp of the incoming video frame (ms). An incorrect timestamp results in frame loss or unsynchronized audio and video.
+    //     */
+    //    public long timestamp;
+    //};
 
-    /** The video frame type. */
-    public enum VIDEO_FRAME_TYPE 
-    {
-        /** 0: YUV420. */
-        FRAME_TYPE_YUV420 = 0,  //YUV 420 format
-        /** 1: RGBA. */
-        FRAME_TYPE_RGBA = 1, //RGBA
-    };
+    ///** The video frame type. */
+    //public enum VIDEO_FRAME_TYPE 
+    //{
+    //    /** 0: YUV420. */
+    //    FRAME_TYPE_YUV420 = 0,  //YUV 420 format
+    //    /** 1: RGBA. */
+    //    FRAME_TYPE_RGBA = 1, //RGBA
+    //};
 
-    /** Video mirror modes. */
-    public enum VIDEO_MIRROR_MODE_TYPE
-    {
-        /** 0: The default mirror mode is determined by the SDK. */
-        VIDEO_MIRROR_MODE_AUTO = 0,//determined by SDK
-            /** 1: Enable mirror mode. */
-        VIDEO_MIRROR_MODE_ENABLED = 1,//enabled mirror
-            /** 2: Disable mirror mode. */
-        VIDEO_MIRROR_MODE_DISABLED = 2,//disable mirror
-    };
+    ///** Video mirror modes. */
+    //public enum VIDEO_MIRROR_MODE_TYPE
+    //{
+    //    /** 0: The default mirror mode is determined by the SDK. */
+    //    VIDEO_MIRROR_MODE_AUTO = 0,//determined by SDK
+    //        /** 1: Enable mirror mode. */
+    //    VIDEO_MIRROR_MODE_ENABLED = 1,//enabled mirror
+    //        /** 2: Disable mirror mode. */
+    //    VIDEO_MIRROR_MODE_DISABLED = 2,//disable mirror
+    //};
 
     
-    /** Video frame containing the Agora RTC SDK's encoded video data. */
-    public struct VideoFrame 
-    {
-        /** The video frame type: #VIDEO_FRAME_TYPE. */
-        public VIDEO_FRAME_TYPE type;
-        /** Width (pixel) of the video frame.*/
-        public int width;  
-        /** Height (pixel) of the video frame. */
-        public int height;  
-        /** Line span of the Y buffer within the video data. */
-        public int yStride;  //stride of  data buffer
-        /** The buffer of the RGBA data. */
-        public byte[] buffer;  //rgba data buffer
-        /** Set the rotation of this frame before rendering the video. Supports 0, 90, 180, 270 degrees clockwise.
-         */
-        public int rotation; // rotation of this frame (0, 90, 180, 270)
-        /** The timestamp of the external audio frame. It is mandatory. You can use this parameter for the following purposes:
-         * - Restore the order of the captured audio frame.
-         * - Synchronize audio and video frames in video-related scenarios, including scenarios where external video sources are used.
-         * @note This timestamp is for rendering the video stream, and not for capturing the video stream.
-         */
-        public long renderTimeMs;
-        /** Reserved for future use. */
-        public int avsync_type;
-    };
+    ///** Video frame containing the Agora RTC SDK's encoded video data. */
+    //public struct VideoFrame 
+    //{
+    //    /** The video frame type: #VIDEO_FRAME_TYPE. */
+    //    public VIDEO_FRAME_TYPE type;
+    //    /** Width (pixel) of the video frame.*/
+    //    public int width;  
+    //    /** Height (pixel) of the video frame. */
+    //    public int height;  
+    //    /** Line span of the Y buffer within the video data. */
+    //    public int yStride;  //stride of  data buffer
+    //    /** The buffer of the RGBA data. */
+    //    public byte[] buffer;  //rgba data buffer
+    //    /** Set the rotation of this frame before rendering the video. Supports 0, 90, 180, 270 degrees clockwise.
+    //     */
+    //    public int rotation; // rotation of this frame (0, 90, 180, 270)
+    //    /** The timestamp of the external audio frame. It is mandatory. You can use this parameter for the following purposes:
+    //     * - Restore the order of the captured audio frame.
+    //     * - Synchronize audio and video frames in video-related scenarios, including scenarios where external video sources are used.
+    //     * @note This timestamp is for rendering the video stream, and not for capturing the video stream.
+    //     */
+    //    public long renderTimeMs;
+    //    /** Reserved for future use. */
+    //    public int avsync_type;
+    //};
 
     /** The audio frame type. */
     public enum AUDIO_FRAME_TYPE 
@@ -1898,47 +1898,47 @@ namespace agora_gaming_rtc
 
      /** Camera capturer configuration.
      */
-    public struct CameraCapturerConfiguration
-    {
-        /** Camera capturer preference settings.See: #CAPTURER_OUTPUT_PREFERENCE. */
-        public CAPTURER_OUTPUT_PREFERENCE preference;
-        /** Camera direction settings (for Android/iOS only). See: #CAMERA_DIRECTION. */
-        public CAMERA_DIRECTION cameraDirection;
-        /** The width (px) of the video image captured by the local camera.
-         * To customize the width of the video image, set `preference` as `CAPTURER_OUTPUT_PREFERENCE_MANUAL(3)` first,
-         * and then use `captureWidth`.
-         *
-         * @since v3.3.1
-         */
-        public int captureWidth; 
-        /** The height (px) of the video image captured by the local camera.
-         * To customize the height of the video image, set `preference` as `CAPTURER_OUTPUT_PREFERENCE_MANUAL(3)` first,
-         * and then use `captureHeight`.
-         *
-         * @since v3.3.1
-         */
-        public int captureHeight;
-    };
+ //   public struct CameraCapturerConfiguration
+ //   {
+ //       /** Camera capturer preference settings.See: #CAPTURER_OUTPUT_PREFERENCE. */
+ //       public CAPTURER_OUTPUT_PREFERENCE preference;
+ //       /** Camera direction settings (for Android/iOS only). See: #CAMERA_DIRECTION. */
+ //       public CAMERA_DIRECTION cameraDirection;
+ //       /** The width (px) of the video image captured by the local camera.
+ //        * To customize the width of the video image, set `preference` as `CAPTURER_OUTPUT_PREFERENCE_MANUAL(3)` first,
+ //        * and then use `captureWidth`.
+ //        *
+ //        * @since v3.3.1
+ //        */
+ //       public int captureWidth; 
+ //       /** The height (px) of the video image captured by the local camera.
+ //        * To customize the height of the video image, set `preference` as `CAPTURER_OUTPUT_PREFERENCE_MANUAL(3)` first,
+ //        * and then use `captureHeight`.
+ //        *
+ //        * @since v3.3.1
+ //        */
+ //       public int captureHeight;
+ //   };
 
-     /** Camera capturer configuration.
- */ 
-    public enum CAPTURER_OUTPUT_PREFERENCE
-    {
-        /** 0: (Default) self-adapts the camera output parameters to the system performance and network conditions to balance CPU consumption and video preview quality.
-        */
-        CAPTURER_OUTPUT_PREFERENCE_AUTO = 0,
-        /** 1: Prioritizes the system performance. The SDK chooses the dimension and frame rate of the local camera capture closest to those set by {@link agora_gaming_rtc.IRtcEngine.SetVideoEncoderConfiguration SetVideoEncoderConfiguration}.
-        */
-        CAPTURER_OUTPUT_PREFERENCE_PERFORMANCE = 1,
-        /** 2: Prioritizes the local preview quality. The SDK chooses higher camera output parameters to improve the local video preview quality. This option requires extra CPU and RAM usage for video pre-processing.
-        */
-        CAPTURER_OUTPUT_PREFERENCE_PREVIEW = 2,
-        /** 3: Allows you to customize the width and height of the video image captured by the local camera.
-         *
-         * @since v3.3.1
-         */
-        CAPTURER_OUTPUT_PREFERENCE_MANUAL = 3,
-    };
+ //    /** Camera capturer configuration.
+ //*/ 
+ //   public enum CAPTURER_OUTPUT_PREFERENCE
+ //   {
+ //       /** 0: (Default) self-adapts the camera output parameters to the system performance and network conditions to balance CPU consumption and video preview quality.
+ //       */
+ //       CAPTURER_OUTPUT_PREFERENCE_AUTO = 0,
+ //       /** 1: Prioritizes the system performance. The SDK chooses the dimension and frame rate of the local camera capture closest to those set by {@link agora_gaming_rtc.IRtcEngine.SetVideoEncoderConfiguration SetVideoEncoderConfiguration}.
+ //       */
+ //       CAPTURER_OUTPUT_PREFERENCE_PERFORMANCE = 1,
+ //       /** 2: Prioritizes the local preview quality. The SDK chooses higher camera output parameters to improve the local video preview quality. This option requires extra CPU and RAM usage for video pre-processing.
+ //       */
+ //       CAPTURER_OUTPUT_PREFERENCE_PREVIEW = 2,
+ //       /** 3: Allows you to customize the width and height of the video image captured by the local camera.
+ //        *
+ //        * @since v3.3.1
+ //        */
+ //       CAPTURER_OUTPUT_PREFERENCE_MANUAL = 3,
+ //   };
     
 
     /** Network quality types. */
@@ -2219,33 +2219,33 @@ namespace agora_gaming_rtc
 
     /** Screen sharing encoding parameters.
     */
-    public struct ScreenCaptureParameters
-    {
-        /** The maximum encoding dimensions of the shared region in terms of width &times; height.
-         * 
-         * The default value is 1920 &times; 1080 pixels, that is, 2073600 pixels. Agora uses the value of this parameter to calculate the charges.
-         * 
-         * If the aspect ratio is different between the encoding dimensions and screen dimensions, Agora applies the following algorithms for encoding. Suppose the encoding dimensions are 1920 x 1080:
-         * - If the value of the screen dimensions is lower than that of the encoding dimensions, for example, 1000 &times; 1000, the SDK uses 1000 &times; 1000 for encoding.
-         * - If the value of the screen dimensions is higher than that of the encoding dimensions, for example, 2000 &times; 1500, the SDK uses the maximum value under 1920 &times; 1080 with the aspect ratio of the screen dimension (4:3) for encoding, that is, 1440 &times; 1080.
-         */
-        public VideoDimensions dimensions;
-        /** The frame rate (fps) of the shared region.
-         * 
-         * The default value is 5. We do not recommend setting this to a value greater than 15.
-         */
-        public int frameRate;
-        /** The bitrate (Kbps) of the shared region.
-         * 
-         * The default value is 0 (the SDK works out a bitrate according to the dimensions of the current screen).
-         */
-        public int bitrate;
-        /** Sets whether or not to capture the mouse for screen sharing:
-         * - true: (Default) Capture the mouse.
-         * - false: Do not capture the mouse.
-         */
-        public bool captureMouseCursor;
-    };
+    //public struct ScreenCaptureParameters
+    //{
+    //    /** The maximum encoding dimensions of the shared region in terms of width &times; height.
+    //     * 
+    //     * The default value is 1920 &times; 1080 pixels, that is, 2073600 pixels. Agora uses the value of this parameter to calculate the charges.
+    //     * 
+    //     * If the aspect ratio is different between the encoding dimensions and screen dimensions, Agora applies the following algorithms for encoding. Suppose the encoding dimensions are 1920 x 1080:
+    //     * - If the value of the screen dimensions is lower than that of the encoding dimensions, for example, 1000 &times; 1000, the SDK uses 1000 &times; 1000 for encoding.
+    //     * - If the value of the screen dimensions is higher than that of the encoding dimensions, for example, 2000 &times; 1500, the SDK uses the maximum value under 1920 &times; 1080 with the aspect ratio of the screen dimension (4:3) for encoding, that is, 1440 &times; 1080.
+    //     */
+    //    public VideoDimensions dimensions;
+    //    /** The frame rate (fps) of the shared region.
+    //     * 
+    //     * The default value is 5. We do not recommend setting this to a value greater than 15.
+    //     */
+    //    public int frameRate;
+    //    /** The bitrate (Kbps) of the shared region.
+    //     * 
+    //     * The default value is 0 (the SDK works out a bitrate according to the dimensions of the current screen).
+    //     */
+    //    public int bitrate;
+    //    /** Sets whether or not to capture the mouse for screen sharing:
+    //     * - true: (Default) Capture the mouse.
+    //     * - false: Do not capture the mouse.
+    //     */
+    //    public bool captureMouseCursor;
+    //};
 
     /** Configuration of the injected media stream.
     */
@@ -2411,163 +2411,163 @@ namespace agora_gaming_rtc
 
 
     /** @deprecated Video profiles. */
-    public enum VIDEO_PROFILE_TYPE
-    {
-        /** 0: 160 &times; 120, frame rate 15 fps, bitrate 65 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_120P = 0,
-        /** 2: 120 &times; 120, frame rate 15 fps, bitrate 50 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_120P_3 = 2,
-        /** 10: 320&times;180, frame rate 15 fps, bitrate 140 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_180P = 10,
-        /** 12: 180 &times; 180, frame rate 15 fps, bitrate 100 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_180P_3 = 12,
-        /** 13: 240 &times; 180, frame rate 15 fps, bitrate 120 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_180P_4 = 13,
-        /** 20: 320 &times; 240, frame rate 15 fps, bitrate 200 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_240P = 20,
-        /** 22: 240 &times; 240, frame rate 15 fps, bitrate 140 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_240P_3 = 22,
-        /** 23: 424 &times; 240, frame rate 15 fps, bitrate 220 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_240P_4 = 23,
-        /** 30: 640 &times; 360, frame rate 15 fps, bitrate 400 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_360P = 30,
-        /** 32: 360 &times; 360, frame rate 15 fps, bitrate 260 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_360P_3 = 32,
-        /** 33: 640 &times; 360, frame rate 30 fps, bitrate 600 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_360P_4 = 33,
-        /** 35: 360 &times; 360, frame rate 30 fps, bitrate 400 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_360P_6 = 35,
-        /** 36: 480 &times; 360, frame rate 15 fps, bitrate 320 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_360P_7 = 36,
-        /** 37: 480 &times; 360, frame rate 30 fps, bitrate 490 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_360P_8 = 37,
-        /** 38: 640 &times; 360, frame rate 15 fps, bitrate 800 Kbps.
-         * @note Interactive live streaming profile only.
-         */
-        VIDEO_PROFILE_LANDSCAPE_360P_9 = 38,
-        /** 39: 640 &times; 360, frame rate 24 fps, bitrate 800 Kbps.
-         * @note Interactive live streaming profile only.
-         */
-        VIDEO_PROFILE_LANDSCAPE_360P_10 = 39,
-        /** 100: 640 &times; 360, frame rate 24 fps, bitrate 1000 Kbps.
-         * @note Interactive live streaming profile only.
-         */
-        VIDEO_PROFILE_LANDSCAPE_360P_11 = 100,
-        /** 40: 640 &times; 480, frame rate 15 fps, bitrate 500 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_480P = 40,
-        /** 42: 480 &times; 480, frame rate 15 fps, bitrate 400 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_480P_3 = 42,
-        /** 43: 640 &times; 480, frame rate 30 fps, bitrate 750 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_480P_4 = 43,
-        /** 45: 480 &times; 480, frame rate 30 fps, bitrate 600 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_480P_6 = 45,
-        /** 47: 848 &times; 480, frame rate 15 fps, bitrate 610 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_480P_8 = 47,
-        /** 48: 848 &times; 480, frame rate 30 fps, bitrate 930 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_480P_9 = 48,
-        /** 49: 640 &times; 480, frame rate 10 fps, bitrate 400 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_480P_10 = 49,
-        /** 50: 1280 &times; 720, frame rate 15 fps, bitrate 1130 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_720P = 50,
-        /** 52: 1280 &times; 720, frame rate 30 fps, bitrate 1710 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_720P_3 = 52,
-        /** 54: 960 &times; 720, frame rate 15 fps, bitrate 910 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_720P_5 = 54,
-        /** 55: 960 &times; 720, frame rate 30 fps, bitrate 1380 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_720P_6 = 55,
-        /** 60: 1920 &times; 1080, frame rate 15 fps, bitrate 2080 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_1080P = 60,
-        /** 62: 1920 &times; 1080, frame rate 30 fps, bitrate 3150 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_1080P_3 = 62,
-        /** 64: 1920 &times; 1080, frame rate 60 fps, bitrate 4780 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_1080P_5 = 64,
-        /** 66: 2560 &times; 1440, frame rate 30 fps, bitrate 4850 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_1440P = 66,
-        /** 67: 2560 &times; 1440, frame rate 60 fps, bitrate 6500 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_1440P_2 = 67,
-        /** 70: 3840 &times; 2160, frame rate 30 fps, bitrate 6500 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_4K = 70,
-        /** 72: 3840 &times; 2160, frame rate 60 fps, bitrate 6500 Kbps. */
-        VIDEO_PROFILE_LANDSCAPE_4K_3 = 72,
-        /** 1000: 120 &times; 160, frame rate 15 fps, bitrate 65 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_120P = 1000,
-        /** 1002: 120 &times; 120, frame rate 15 fps, bitrate 50 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_120P_3 = 1002,
-        /** 1010: 180 &times; 320, frame rate 15 fps, bitrate 140 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_180P = 1010,
-        /** 1012: 180 &times; 180, frame rate 15 fps, bitrate 100 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_180P_3 = 1012,
-        /** 1013: 180 &times; 240, frame rate 15 fps, bitrate 120 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_180P_4 = 1013,
-        /** 1020: 240 &times; 320, frame rate 15 fps, bitrate 200 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_240P = 1020,
-        /** 1022: 240 &times; 240, frame rate 15 fps, bitrate 140 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_240P_3 = 1022,
-        /** 1023: 240 &times; 424, frame rate 15 fps, bitrate 220 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_240P_4 = 1023,
-        /** 1030: 360 &times; 640, frame rate 15 fps, bitrate 400 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_360P = 1030,
-        /** 1032: 360 &times; 360, frame rate 15 fps, bitrate 260 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_360P_3 = 1032,
-        /** 1033: 360 &times; 640, frame rate 30 fps, bitrate 600 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_360P_4 = 1033,
-        /** 1035: 360 &times; 360, frame rate 30 fps, bitrate 400 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_360P_6 = 1035,
-        /** 1036: 360 &times; 480, frame rate 15 fps, bitrate 320 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_360P_7 = 1036,
-        /** 1037: 360 &times; 480, frame rate 30 fps, bitrate 490 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_360P_8 = 1037,
-        /** 1038: 360 &times; 640, frame rate 15 fps, bitrate 800 Kbps.
-         * @note Interactive live streaming profile only.
-         */
-        VIDEO_PROFILE_PORTRAIT_360P_9 = 1038,
-        /** 1039: 360 &times; 640, frame rate 24 fps, bitrate 800 Kbps.
-         * @note Interactive live streaming profile only.
-         */
-        VIDEO_PROFILE_PORTRAIT_360P_10 = 1039,
-        /** 1100: 360 &times; 640, frame rate 24 fps, bitrate 1000 Kbps.
-         * @note Interactive live streaming profile only.
-         */
-        VIDEO_PROFILE_PORTRAIT_360P_11 = 1100,
-        /** 1040: 480 &times; 640, frame rate 15 fps, bitrate 500 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_480P = 1040,
-        /** 1042: 480 &times; 480, frame rate 15 fps, bitrate 400 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_480P_3 = 1042,
-        /** 1043: 480 &times; 640, frame rate 30 fps, bitrate 750 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_480P_4 = 1043,
-        /** 1045: 480 &times; 480, frame rate 30 fps, bitrate 600 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_480P_6 = 1045,
-        /** 1047: 480 &times; 848, frame rate 15 fps, bitrate 610 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_480P_8 = 1047,
-        /** 1048: 480 &times; 848, frame rate 30 fps, bitrate 930 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_480P_9 = 1048,
-        /** 1049: 480 &times; 640, frame rate 10 fps, bitrate 400 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_480P_10 = 1049,
-        /** 1050: 720 &times; 1280, frame rate 15 fps, bitrate 1130 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_720P = 1050,
-        /** 1052: 720 &times; 1280, frame rate 30 fps, bitrate 1710 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_720P_3 = 1052,
-        /** 1054: 720 &times; 960, frame rate 15 fps, bitrate 910 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_720P_5 = 1054,
-        /** 1055: 720 &times; 960, frame rate 30 fps, bitrate 1380 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_720P_6 = 1055,
-        /** 1060: 1080 &times; 1920, frame rate 15 fps, bitrate 2080 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_1080P = 1060,
-        /** 1062: 1080 &times; 1920, frame rate 30 fps, bitrate 3150 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_1080P_3 = 1062,
-        /** 1064: 1080 &times; 1920, frame rate 60 fps, bitrate 4780 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_1080P_5 = 1064,
-        /** 1066: 1440 &times; 2560, frame rate 30 fps, bitrate 4850 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_1440P = 1066,
-        /** 1067: 1440 &times; 2560, frame rate 60 fps, bitrate 6500 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_1440P_2 = 1067,
-        /** 1070: 2160 &times; 3840, frame rate 30 fps, bitrate 6500 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_4K = 1070,
-        /** 1072: 2160 &times; 3840, frame rate 60 fps, bitrate 6500 Kbps. */
-        VIDEO_PROFILE_PORTRAIT_4K_3 = 1072,
-        /** Default 640 &times; 360, frame rate 15 fps, bitrate 400 Kbps. */
-        VIDEO_PROFILE_DEFAULT = VIDEO_PROFILE_LANDSCAPE_360P,
-    };
+    //public enum VIDEO_PROFILE_TYPE
+    //{
+    //    /** 0: 160 &times; 120, frame rate 15 fps, bitrate 65 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_120P = 0,
+    //    /** 2: 120 &times; 120, frame rate 15 fps, bitrate 50 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_120P_3 = 2,
+    //    /** 10: 320&times;180, frame rate 15 fps, bitrate 140 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_180P = 10,
+    //    /** 12: 180 &times; 180, frame rate 15 fps, bitrate 100 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_180P_3 = 12,
+    //    /** 13: 240 &times; 180, frame rate 15 fps, bitrate 120 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_180P_4 = 13,
+    //    /** 20: 320 &times; 240, frame rate 15 fps, bitrate 200 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_240P = 20,
+    //    /** 22: 240 &times; 240, frame rate 15 fps, bitrate 140 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_240P_3 = 22,
+    //    /** 23: 424 &times; 240, frame rate 15 fps, bitrate 220 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_240P_4 = 23,
+    //    /** 30: 640 &times; 360, frame rate 15 fps, bitrate 400 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_360P = 30,
+    //    /** 32: 360 &times; 360, frame rate 15 fps, bitrate 260 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_360P_3 = 32,
+    //    /** 33: 640 &times; 360, frame rate 30 fps, bitrate 600 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_360P_4 = 33,
+    //    /** 35: 360 &times; 360, frame rate 30 fps, bitrate 400 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_360P_6 = 35,
+    //    /** 36: 480 &times; 360, frame rate 15 fps, bitrate 320 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_360P_7 = 36,
+    //    /** 37: 480 &times; 360, frame rate 30 fps, bitrate 490 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_360P_8 = 37,
+    //    /** 38: 640 &times; 360, frame rate 15 fps, bitrate 800 Kbps.
+    //     * @note Interactive live streaming profile only.
+    //     */
+    //    VIDEO_PROFILE_LANDSCAPE_360P_9 = 38,
+    //    /** 39: 640 &times; 360, frame rate 24 fps, bitrate 800 Kbps.
+    //     * @note Interactive live streaming profile only.
+    //     */
+    //    VIDEO_PROFILE_LANDSCAPE_360P_10 = 39,
+    //    /** 100: 640 &times; 360, frame rate 24 fps, bitrate 1000 Kbps.
+    //     * @note Interactive live streaming profile only.
+    //     */
+    //    VIDEO_PROFILE_LANDSCAPE_360P_11 = 100,
+    //    /** 40: 640 &times; 480, frame rate 15 fps, bitrate 500 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_480P = 40,
+    //    /** 42: 480 &times; 480, frame rate 15 fps, bitrate 400 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_480P_3 = 42,
+    //    /** 43: 640 &times; 480, frame rate 30 fps, bitrate 750 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_480P_4 = 43,
+    //    /** 45: 480 &times; 480, frame rate 30 fps, bitrate 600 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_480P_6 = 45,
+    //    /** 47: 848 &times; 480, frame rate 15 fps, bitrate 610 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_480P_8 = 47,
+    //    /** 48: 848 &times; 480, frame rate 30 fps, bitrate 930 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_480P_9 = 48,
+    //    /** 49: 640 &times; 480, frame rate 10 fps, bitrate 400 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_480P_10 = 49,
+    //    /** 50: 1280 &times; 720, frame rate 15 fps, bitrate 1130 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_720P = 50,
+    //    /** 52: 1280 &times; 720, frame rate 30 fps, bitrate 1710 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_720P_3 = 52,
+    //    /** 54: 960 &times; 720, frame rate 15 fps, bitrate 910 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_720P_5 = 54,
+    //    /** 55: 960 &times; 720, frame rate 30 fps, bitrate 1380 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_720P_6 = 55,
+    //    /** 60: 1920 &times; 1080, frame rate 15 fps, bitrate 2080 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_1080P = 60,
+    //    /** 62: 1920 &times; 1080, frame rate 30 fps, bitrate 3150 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_1080P_3 = 62,
+    //    /** 64: 1920 &times; 1080, frame rate 60 fps, bitrate 4780 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_1080P_5 = 64,
+    //    /** 66: 2560 &times; 1440, frame rate 30 fps, bitrate 4850 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_1440P = 66,
+    //    /** 67: 2560 &times; 1440, frame rate 60 fps, bitrate 6500 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_1440P_2 = 67,
+    //    /** 70: 3840 &times; 2160, frame rate 30 fps, bitrate 6500 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_4K = 70,
+    //    /** 72: 3840 &times; 2160, frame rate 60 fps, bitrate 6500 Kbps. */
+    //    VIDEO_PROFILE_LANDSCAPE_4K_3 = 72,
+    //    /** 1000: 120 &times; 160, frame rate 15 fps, bitrate 65 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_120P = 1000,
+    //    /** 1002: 120 &times; 120, frame rate 15 fps, bitrate 50 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_120P_3 = 1002,
+    //    /** 1010: 180 &times; 320, frame rate 15 fps, bitrate 140 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_180P = 1010,
+    //    /** 1012: 180 &times; 180, frame rate 15 fps, bitrate 100 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_180P_3 = 1012,
+    //    /** 1013: 180 &times; 240, frame rate 15 fps, bitrate 120 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_180P_4 = 1013,
+    //    /** 1020: 240 &times; 320, frame rate 15 fps, bitrate 200 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_240P = 1020,
+    //    /** 1022: 240 &times; 240, frame rate 15 fps, bitrate 140 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_240P_3 = 1022,
+    //    /** 1023: 240 &times; 424, frame rate 15 fps, bitrate 220 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_240P_4 = 1023,
+    //    /** 1030: 360 &times; 640, frame rate 15 fps, bitrate 400 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_360P = 1030,
+    //    /** 1032: 360 &times; 360, frame rate 15 fps, bitrate 260 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_360P_3 = 1032,
+    //    /** 1033: 360 &times; 640, frame rate 30 fps, bitrate 600 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_360P_4 = 1033,
+    //    /** 1035: 360 &times; 360, frame rate 30 fps, bitrate 400 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_360P_6 = 1035,
+    //    /** 1036: 360 &times; 480, frame rate 15 fps, bitrate 320 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_360P_7 = 1036,
+    //    /** 1037: 360 &times; 480, frame rate 30 fps, bitrate 490 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_360P_8 = 1037,
+    //    /** 1038: 360 &times; 640, frame rate 15 fps, bitrate 800 Kbps.
+    //     * @note Interactive live streaming profile only.
+    //     */
+    //    VIDEO_PROFILE_PORTRAIT_360P_9 = 1038,
+    //    /** 1039: 360 &times; 640, frame rate 24 fps, bitrate 800 Kbps.
+    //     * @note Interactive live streaming profile only.
+    //     */
+    //    VIDEO_PROFILE_PORTRAIT_360P_10 = 1039,
+    //    /** 1100: 360 &times; 640, frame rate 24 fps, bitrate 1000 Kbps.
+    //     * @note Interactive live streaming profile only.
+    //     */
+    //    VIDEO_PROFILE_PORTRAIT_360P_11 = 1100,
+    //    /** 1040: 480 &times; 640, frame rate 15 fps, bitrate 500 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_480P = 1040,
+    //    /** 1042: 480 &times; 480, frame rate 15 fps, bitrate 400 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_480P_3 = 1042,
+    //    /** 1043: 480 &times; 640, frame rate 30 fps, bitrate 750 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_480P_4 = 1043,
+    //    /** 1045: 480 &times; 480, frame rate 30 fps, bitrate 600 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_480P_6 = 1045,
+    //    /** 1047: 480 &times; 848, frame rate 15 fps, bitrate 610 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_480P_8 = 1047,
+    //    /** 1048: 480 &times; 848, frame rate 30 fps, bitrate 930 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_480P_9 = 1048,
+    //    /** 1049: 480 &times; 640, frame rate 10 fps, bitrate 400 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_480P_10 = 1049,
+    //    /** 1050: 720 &times; 1280, frame rate 15 fps, bitrate 1130 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_720P = 1050,
+    //    /** 1052: 720 &times; 1280, frame rate 30 fps, bitrate 1710 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_720P_3 = 1052,
+    //    /** 1054: 720 &times; 960, frame rate 15 fps, bitrate 910 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_720P_5 = 1054,
+    //    /** 1055: 720 &times; 960, frame rate 30 fps, bitrate 1380 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_720P_6 = 1055,
+    //    /** 1060: 1080 &times; 1920, frame rate 15 fps, bitrate 2080 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_1080P = 1060,
+    //    /** 1062: 1080 &times; 1920, frame rate 30 fps, bitrate 3150 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_1080P_3 = 1062,
+    //    /** 1064: 1080 &times; 1920, frame rate 60 fps, bitrate 4780 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_1080P_5 = 1064,
+    //    /** 1066: 1440 &times; 2560, frame rate 30 fps, bitrate 4850 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_1440P = 1066,
+    //    /** 1067: 1440 &times; 2560, frame rate 60 fps, bitrate 6500 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_1440P_2 = 1067,
+    //    /** 1070: 2160 &times; 3840, frame rate 30 fps, bitrate 6500 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_4K = 1070,
+    //    /** 1072: 2160 &times; 3840, frame rate 60 fps, bitrate 6500 Kbps. */
+    //    VIDEO_PROFILE_PORTRAIT_4K_3 = 1072,
+    //    /** Default 640 &times; 360, frame rate 15 fps, bitrate 400 Kbps. */
+    //    VIDEO_PROFILE_DEFAULT = VIDEO_PROFILE_LANDSCAPE_360P,
+    //};
 
     /** The definition of #CHANNEL_MEDIA_RELAY_ERROR. */
     public enum CHANNEL_MEDIA_RELAY_ERROR 
@@ -2652,32 +2652,32 @@ namespace agora_gaming_rtc
 
     /** Video display settings of the VideoCanvas class.
     */
-    public struct VideoCanvas
-    {
-        /** Video display window (view).
-        */
-        public int hwnd;
-        /** The rendering mode of the video view. See RENDER_MODE_TYPE.
-        */
-        public RENDER_MODE_TYPE renderMode;
-        /** The user ID. */
-        public uint uid;
-        public IntPtr priv; // private data (underlying video engine denotes it)
-    };
+    //public struct VideoCanvas
+    //{
+    //    /** Video display window (view).
+    //    */
+    //    public int hwnd;
+    //    /** The rendering mode of the video view. See RENDER_MODE_TYPE.
+    //    */
+    //    public RENDER_MODE_TYPE renderMode;
+    //    /** The user ID. */
+    //    public uint uid;
+    //    public IntPtr priv; // private data (underlying video engine denotes it)
+    //};
 
     /** Video display modes. */
-    public enum RENDER_MODE_TYPE
-    {
-        /** 1: Uniformly scale the video until it fills the visible boundaries (cropped). One dimension of the video may have clipped contents.
-        */
-        RENDER_MODE_HIDDEN = 1,
-        /** 2: Uniformly scale the video until one of its dimension fits the boundary (zoomed to fit). Areas that are not filled due to disparity in the aspect ratio are filled with black.
-        */
-        RENDER_MODE_FIT = 2,
-        /** @deprecated 3: This mode is deprecated.
-        */
-        RENDER_MODE_ADAPTIVE = 3,
-    };
+    //public enum RENDER_MODE_TYPE
+    //{
+    //    /** 1: Uniformly scale the video until it fills the visible boundaries (cropped). One dimension of the video may have clipped contents.
+    //    */
+    //    RENDER_MODE_HIDDEN = 1,
+    //    /** 2: Uniformly scale the video until one of its dimension fits the boundary (zoomed to fit). Areas that are not filled due to disparity in the aspect ratio are filled with black.
+    //    */
+    //    RENDER_MODE_FIT = 2,
+    //    /** @deprecated 3: This mode is deprecated.
+    //    */
+    //    RENDER_MODE_ADAPTIVE = 3,
+    //};
 
     /** Encryption mode.
      */
@@ -3079,21 +3079,21 @@ namespace agora_gaming_rtc
      *
      * @since v3.3.1
      */
-    public enum CAPTURE_BRIGHTNESS_LEVEL_TYPE {
-        /** -1: The SDK does not detect the brightness level of the video image.
-         * Wait a few seconds to get the brightness level from `CAPTURE_BRIGHTNESS_LEVEL_TYPE` in the next callback.
-         */
-        CAPTURE_BRIGHTNESS_LEVEL_INVALID = -1,
-        /** 0: The brightness level of the video image is normal.
-         */
-        CAPTURE_BRIGHTNESS_LEVEL_NORMAL = 0,
-        /** 1: The brightness level of the video image is too bright.
-         */
-        CAPTURE_BRIGHTNESS_LEVEL_BRIGHT = 1,
-        /** 2: The brightness level of the video image is too dark.
-         */
-        CAPTURE_BRIGHTNESS_LEVEL_DARK = 2,
-    };
+    //public enum CAPTURE_BRIGHTNESS_LEVEL_TYPE {
+    //    /** -1: The SDK does not detect the brightness level of the video image.
+    //     * Wait a few seconds to get the brightness level from `CAPTURE_BRIGHTNESS_LEVEL_TYPE` in the next callback.
+    //     */
+    //    CAPTURE_BRIGHTNESS_LEVEL_INVALID = -1,
+    //    /** 0: The brightness level of the video image is normal.
+    //     */
+    //    CAPTURE_BRIGHTNESS_LEVEL_NORMAL = 0,
+    //    /** 1: The brightness level of the video image is too bright.
+    //     */
+    //    CAPTURE_BRIGHTNESS_LEVEL_BRIGHT = 1,
+    //    /** 2: The brightness level of the video image is too dark.
+    //     */
+    //    CAPTURE_BRIGHTNESS_LEVEL_DARK = 2,
+    //};
 
     /** The cloud proxy type.
      *

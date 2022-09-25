@@ -152,8 +152,8 @@ namespace agora_gaming_rtc
                 System.IntPtr audioRecordingDeviceNamePtr = Marshal.AllocHGlobal(512);
                 System.IntPtr audioRecordingDeviceIdPtr = Marshal.AllocHGlobal(512);
                 int ret = IRtcEngineNative.getAudioRecordingDevice(index, audioRecordingDeviceNamePtr, audioRecordingDeviceIdPtr);
-                audioRecordingDeviceName = Marshal.PtrToStringAnsi(audioRecordingDeviceNamePtr);
-                audioRecordingDeviceId = Marshal.PtrToStringAnsi(audioRecordingDeviceIdPtr);
+                audioRecordingDeviceName = Marshal.PtrToStringUTF8(audioRecordingDeviceNamePtr);
+                audioRecordingDeviceId = Marshal.PtrToStringUTF8(audioRecordingDeviceIdPtr);
                 Marshal.FreeHGlobal(audioRecordingDeviceNamePtr);
                 Marshal.FreeHGlobal(audioRecordingDeviceIdPtr);
                 return ret;
@@ -190,7 +190,7 @@ namespace agora_gaming_rtc
             {
                 System.IntPtr recordingDeviceId = Marshal.AllocHGlobal(512);
                 int ret = getCurrentRecordingDevice(recordingDeviceId);
-                deviceId = Marshal.PtrToStringAnsi(recordingDeviceId);
+                deviceId = Marshal.PtrToStringUTF8(recordingDeviceId);
                 Marshal.FreeHGlobal(recordingDeviceId);
                 return ret;
             }
@@ -399,8 +399,8 @@ namespace agora_gaming_rtc
                 System.IntPtr audioRecordingDeviceNamePtr = Marshal.AllocHGlobal(512);
                 System.IntPtr audioRecordingDeviceIdPtr = Marshal.AllocHGlobal(512);
                 int ret = IRtcEngineNative.getCurrentRecordingDeviceInfo(audioRecordingDeviceNamePtr, audioRecordingDeviceIdPtr);
-                deviceName = Marshal.PtrToStringAnsi(audioRecordingDeviceNamePtr);
-                deviceId = Marshal.PtrToStringAnsi(audioRecordingDeviceIdPtr);
+                deviceName = Marshal.PtrToStringUTF8(audioRecordingDeviceNamePtr);
+                deviceId = Marshal.PtrToStringUTF8(audioRecordingDeviceIdPtr);
                 Marshal.FreeHGlobal(audioRecordingDeviceNamePtr);
                 Marshal.FreeHGlobal(audioRecordingDeviceIdPtr);
                 return ret;

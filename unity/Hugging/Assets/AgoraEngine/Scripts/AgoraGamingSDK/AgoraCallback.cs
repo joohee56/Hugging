@@ -219,7 +219,7 @@ namespace agora_gaming_rtc
         * @param height The height (px) of the video stream.
         * @param elapsed Time elapsed (ms) from the local user calling the {@link agora_gaming_rtc.IRtcEngine.JoinChannelByKey JoinChannelByKey} method until the SDK triggers this callback.
         */
-        public delegate void OnFirstRemoteVideoDecodedHandler(uint uid, int width, int height, int elapsed);
+        //public delegate void OnFirstRemoteVideoDecodedHandler(uint uid, int width, int height, int elapsed);
 
         /** Occurs when the video size or rotation of a specified user changes.
         *
@@ -228,7 +228,7 @@ namespace agora_gaming_rtc
         * @param height The new height (pixels) of the video.
         * @param rotation The new rotation of the video [0 to 360).
         */
-        public delegate void OnVideoSizeChangedHandler(uint uid, int width, int height, int rotation);
+        //public delegate void OnVideoSizeChangedHandler(uint uid, int width, int height, int rotation);
 
         /** Occurs when the user role switches in the interactive live streaming. For example, from a host to an audience or vice versa.
         * 
@@ -256,7 +256,7 @@ namespace agora_gaming_rtc
         * - true: Paused.
         * - false: Resumed.
         */
-        public delegate void OnUserMuteVideoHandler(uint uid, bool muted);
+        //public delegate void OnUserMuteVideoHandler(uint uid, bool muted);
     
         /** Occurs when the microphone is enabled/disabled.
         * 
@@ -421,7 +421,7 @@ namespace agora_gaming_rtc
          * 
          * The application can use this callback to change the configuration of the view (for example, displaying other pictures in the view) after the video stops playing.
          */
-        public delegate void OnVideoStoppedHandler();
+        //public delegate void OnVideoStoppedHandler();
 
         /** Occurs when the first local video frame is displayed/rendered on the local video view.
          * 
@@ -429,7 +429,7 @@ namespace agora_gaming_rtc
          * @param height Height (px) of the first local video frame.
          * @param elapsed Time elapsed (ms) from the local user calling the {@link agora_gaming_rtc.IRtcEngine.JoinChannelByKey JoinChannelByKey} method until the SDK triggers this callback. If you call the {@link agora_gaming_rtc.IRtcEngine.StartPreview StartPreview} method before calling the `JoinChannelByKey` method, then `elapsed` is the time elapsed from calling the `StartPreview` method until the SDK triggers this callback.
          */
-        public delegate void OnFirstLocalVideoFrameHandler(int width, int height, int elapsed);
+        //public delegate void OnFirstLocalVideoFrameHandler(int width, int height, int elapsed);
 
         /** Occurs when the first remote video frame is received and decoded.
          * 
@@ -440,7 +440,7 @@ namespace agora_gaming_rtc
          * @param height Height (px) of the video stream.
          * @param elapsed Time elapsed (ms) from the local user calling the {@link agora_gaming_rtc.IRtcEngine.JoinChannelByKey JoinChannelByKey} method until the SDK triggers this callback.
          */    
-        public delegate void OnFirstRemoteVideoFrameHandler(uint uid, int width, int height, int elapsed);
+        //public delegate void OnFirstRemoteVideoFrameHandler(uint uid, int width, int height, int elapsed);
 
         /** Occurs when a specific remote user enables/disables the video module.
          * 
@@ -459,7 +459,7 @@ namespace agora_gaming_rtc
          * - true: Enable. The remote user can enter a video session.
          * - false: Disable. The remote user can only enter a voice session, and cannot send or receive any video stream.
          */
-        public delegate void OnUserEnableVideoHandler(uint uid, bool enabled);
+        //public delegate void OnUserEnableVideoHandler(uint uid, bool enabled);
 
         /** Occurs when a specified remote user enables/disables the local video capturing function.
          * 
@@ -476,7 +476,7 @@ namespace agora_gaming_rtc
          * - true: Enable. Other users in the channel can see the video of this remote user.
          * - false: Disable. Other users in the channel can no longer receive the video stream from this remote user, while this remote user can still receive the video streams from other users.
          */
-        public delegate void OnUserEnableLocalVideoHandler(uint uid, bool enabled);
+        //public delegate void OnUserEnableLocalVideoHandler(uint uid, bool enabled);
 
         /** Occurs when the remote video state changes.
          * 
@@ -487,7 +487,7 @@ namespace agora_gaming_rtc
          * @param reason The reason of the remote video state change. See #REMOTE_VIDEO_STATE_REASON.
          * @param elapsed The time elapsed (ms) from the local user calling the {@link agora_gaming_rtc.IRtcEngine.JoinChannelByKey JoinChannelByKey} method until the SDK triggers this callback.
          */
-        public delegate void OnRemoteVideoStateChangedHandler(uint uid, REMOTE_VIDEO_STATE state, REMOTE_VIDEO_STATE_REASON reason, int elapsed); 
+        //public delegate void OnRemoteVideoStateChangedHandler(uint uid, REMOTE_VIDEO_STATE state, REMOTE_VIDEO_STATE_REASON reason, int elapsed); 
 
         /** Occurs when the locally published media stream falls back to an audio-only stream due to poor network conditions or switches back to the video after the network conditions improve.
          * 
@@ -531,7 +531,7 @@ namespace agora_gaming_rtc
          * 
          * @param localVideoStats The statistics of the local video stream. See LocalVideoStats.
          */  
-        public delegate void OnLocalVideoStatsHandler(LocalVideoStats localVideoStats);
+        //public delegate void OnLocalVideoStatsHandler(LocalVideoStats localVideoStats);
 
         /** Reports the statistics of the video stream from each remote user/host.
          * 
@@ -539,7 +539,7 @@ namespace agora_gaming_rtc
          * 
          * @param remoteVideoStats The statistics of the remote video stream. See RemoteVideoStats.
          */
-        public delegate void OnRemoteVideoStatsHandler(RemoteVideoStats remoteVideoStats);
+        //public delegate void OnRemoteVideoStatsHandler(RemoteVideoStats remoteVideoStats);
 
         /** Reports the statistics of the audio stream from each remote user/host.
          * 
@@ -623,7 +623,7 @@ namespace agora_gaming_rtc
          * @param deviceType The device type: #MEDIA_DEVICE_TYPE.
          * @param deviceState The device state: #MEDIA_DEVICE_STATE_TYPE.
          */
-        public delegate void OnVideoDeviceStateChangedHandler(string deviceId, int deviceType, int deviceState);
+        //public delegate void OnVideoDeviceStateChangedHandler(string deviceId, int deviceType, int deviceState);
 
         /** Reports the transport-layer statistics of each remote video stream.
          * 
@@ -636,7 +636,7 @@ namespace agora_gaming_rtc
          * @param lost Packet loss rate (%) of the video packet sent from the remote user.
          * @param rxKBitRate Received bitrate (Kbps) of the video packet sent from the remote user.
          */
-        public delegate void OnRemoteVideoTransportStatsHandler(uint uid, ushort delay, ushort lost, ushort rxKBitRate);
+        //public delegate void OnRemoteVideoTransportStatsHandler(uint uid, ushort delay, ushort lost, ushort rxKBitRate);
    
         /** Reports the transport-layer statistics of each remote audio stream.
          * 
@@ -714,7 +714,7 @@ namespace agora_gaming_rtc
          * @param localVideoState State type #LOCAL_VIDEO_STREAM_STATE. When the state is {@link agora_gaming_rtc.LOCAL_VIDEO_STREAM_STATE#LOCAL_VIDEO_STREAM_STATE_FAILED LOCAL_VIDEO_STREAM_STATE_FAILED(3)}, see the error parameter for details.
          * @param error The detailed error information. code #LOCAL_VIDEO_STREAM_ERROR.
          */
-        public delegate void OnLocalVideoStateChangedHandler(LOCAL_VIDEO_STREAM_STATE localVideoState, LOCAL_VIDEO_STREAM_ERROR error);
+        //public delegate void OnLocalVideoStateChangedHandler(LOCAL_VIDEO_STREAM_STATE localVideoState, LOCAL_VIDEO_STREAM_ERROR error);
 
         /** Occurs when the state of the RTMP or RTMPS streaming changes.
          * 
@@ -833,7 +833,7 @@ namespace agora_gaming_rtc
          * @param vecDistance The distance (cm) between the human face and the screen.
          * @param numFaces The number of faces detected. If the value is 0, it means that no human face is detected.
          */
-        public delegate void OnFacePositionChangedHandler(int imageWidth, int imageHeight, Rectangle vecRectangle, int vecDistance, int numFaces);
+        //public delegate void OnFacePositionChangedHandler(int imageWidth, int imageHeight, Rectangle vecRectangle, int vecDistance, int numFaces);
 
         /** Reports events during the RTMP or RTMPS streaming.
          *
@@ -868,7 +868,7 @@ namespace agora_gaming_rtc
          * @param newState The current publishing state. For details, see #STREAM_PUBLISH_STATE.
          * @param elapseSinceLastState The time elapsed (ms) from the previous state to the current state.
          */
-        public delegate void OnVideoPublishStateChangedHandler(string channel, STREAM_PUBLISH_STATE oldState, STREAM_PUBLISH_STATE newState, int elapseSinceLastState);
+        //public delegate void OnVideoPublishStateChangedHandler(string channel, STREAM_PUBLISH_STATE oldState, STREAM_PUBLISH_STATE newState, int elapseSinceLastState);
 
         /** Occurs when the audio subscribing state changes.
          *
@@ -896,7 +896,7 @@ namespace agora_gaming_rtc
          * @param newState The current subscribing state. For details, see #STREAM_SUBSCRIBE_STATE.
          * @param elapseSinceLastState The time elapsed (ms) from the previous state to the current state.
          */
-        public delegate void OnVideoSubscribeStateChangedHandler(string channel, uint uid, STREAM_SUBSCRIBE_STATE oldState, STREAM_SUBSCRIBE_STATE newState, int elapseSinceLastState);
+        //public delegate void OnVideoSubscribeStateChangedHandler(string channel, uint uid, STREAM_SUBSCRIBE_STATE oldState, STREAM_SUBSCRIBE_STATE newState, int elapseSinceLastState);
         
         /** Occurs when the first audio frame is published.
          *
@@ -922,7 +922,7 @@ namespace agora_gaming_rtc
          *
          * @param elapsed The time elapsed (ms) from the local client calling `JoinChannelByKey` until the SDK triggers this callback.
          */
-        public delegate void OnFirstLocalVideoFramePublishedHandler(int elapsed);
+        //public delegate void OnFirstLocalVideoFramePublishedHandler(int elapsed);
 
         /// @cond
         /** Reports whether the super-resolution algorithm is enabled.

@@ -153,8 +153,8 @@ namespace agora_gaming_rtc
                 System.IntPtr playbackDeviceName = Marshal.AllocHGlobal(512);
                 System.IntPtr playbackDeviceId = Marshal.AllocHGlobal(512);
                 int ret = IRtcEngineNative.getAudioPlaybackDevice(index, playbackDeviceName, playbackDeviceId);
-                deviceName = Marshal.PtrToStringAnsi(playbackDeviceName);
-                deviceId = Marshal.PtrToStringAnsi(playbackDeviceId);
+                deviceName = Marshal.PtrToStringUTF8(playbackDeviceName);
+                deviceId = Marshal.PtrToStringUTF8(playbackDeviceId);
                 Marshal.FreeHGlobal(playbackDeviceName);
                 Marshal.FreeHGlobal(playbackDeviceId);
                 return ret;
@@ -191,7 +191,7 @@ namespace agora_gaming_rtc
             {
                 System.IntPtr playbackDeviceId = Marshal.AllocHGlobal(512);
                 int ret = getCurrentPlaybackDevice(playbackDeviceId);
-                deviceId = Marshal.PtrToStringAnsi(playbackDeviceId);
+                deviceId = Marshal.PtrToStringUTF8(playbackDeviceId);
                 Marshal.FreeHGlobal(playbackDeviceId);
                 return ret;
             }
@@ -409,8 +409,8 @@ namespace agora_gaming_rtc
                 System.IntPtr playbackDeviceName = Marshal.AllocHGlobal(512);
                 System.IntPtr playbackDeviceId = Marshal.AllocHGlobal(512);
                 int ret = IRtcEngineNative.getCurrentPlaybackDeviceInfo(playbackDeviceName, playbackDeviceId);
-                deviceName = Marshal.PtrToStringAnsi(playbackDeviceName);
-                deviceId = Marshal.PtrToStringAnsi(playbackDeviceId);
+                deviceName = Marshal.PtrToStringUTF8(playbackDeviceName);
+                deviceId = Marshal.PtrToStringUTF8(playbackDeviceId);
                 Marshal.FreeHGlobal(playbackDeviceName);
                 Marshal.FreeHGlobal(playbackDeviceId);
                 return ret;
