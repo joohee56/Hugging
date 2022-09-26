@@ -14,7 +14,7 @@ import Location from "./components/main/Location";
 import RedirectUri from "./pages/user/RedirectUri";
 import MediaView from "./pages/media/MediaView";
 import MusicPlayingPage from "./pages/media/MusicPlayingPage";
-import ReserveCounsel from './pages/counsel/ReserveCounsel';
+import ReserveCounsel from "./pages/counsel/ReserveCounsel";
 
 // import scrollbar from 'smooth-scrollbar';
 
@@ -29,9 +29,9 @@ function App() {
       {/* <Location></Location> */}
       <Routes>
         {/* <MyCalendar></MyCalendar> */}
-        <Route path="/redirecturi" element={<RedirectUri />}></Route>
-        <Route path="/location" element={<Location />}></Route>
-        <Route path="/calendar" element={<MyCalendar />}></Route>
+        <Route path="/redirecturi" element={<RedirectUri />} />
+        <Route path="/location" element={<Location />} />
+        <Route path="/calendar" element={<MyCalendar />} />
         <Route path="/login" element={<UserLogin />} />
         <Route path="/counselor/login" element={<CounselorLogin />} />
         <Route path="/category" element={<RegisterCategory />} />
