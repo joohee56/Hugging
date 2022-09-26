@@ -1,10 +1,10 @@
-package com.ssafy.hugging.domain.counsel.service;
+package com.ssafy.hugging.counsel.service;
 
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.ssafy.hugging.domain.counsel.repository.CounselRepository;
+import com.ssafy.hugging.counsel.repository.CounselRepository;
 
 import lombok.RequiredArgsConstructor;
 

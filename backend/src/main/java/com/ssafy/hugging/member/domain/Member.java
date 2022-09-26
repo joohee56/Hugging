@@ -1,4 +1,4 @@
-package com.ssafy.hugging.domain.member.domain;
+package com.ssafy.hugging.member.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.ssafy.hugging.domain.counsel.domain.Counsel;
-import com.ssafy.hugging.domain.counsel.domain.CounselorReview;
-import com.ssafy.hugging.domain.counsel.domain.FavoriteCounselor;
-import com.ssafy.hugging.domain.model.Gender;
+import com.ssafy.hugging.counsel.domain.Counsel;
+import com.ssafy.hugging.counsel.domain.CounselorReview;
+import com.ssafy.hugging.counsel.domain.FavoriteCounselor;
+import com.ssafy.hugging.model.Gender;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

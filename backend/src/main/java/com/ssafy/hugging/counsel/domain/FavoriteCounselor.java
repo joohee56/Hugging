@@ -1,12 +1,12 @@
-package com.ssafy.hugging.domain.counsel.domain;
+package com.ssafy.hugging.counsel.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.ssafy.hugging.domain.member.domain.Member;
-import com.ssafy.hugging.domain.model.BaseEntity;
+import com.ssafy.hugging.member.domain.Member;
+import com.ssafy.hugging.model.BaseEntity;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

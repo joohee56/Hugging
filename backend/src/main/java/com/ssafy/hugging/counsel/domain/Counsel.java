@@ -1,4 +1,4 @@
-package com.ssafy.hugging.domain.counsel.domain;
+package com.ssafy.hugging.counsel.domain;
 
 import java.time.LocalDateTime;
 
@@ -9,10 +9,10 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.ssafy.hugging.domain.member.domain.Member;
-import com.ssafy.hugging.domain.model.BaseEntity;
-import com.ssafy.hugging.domain.model.Status;
-import com.ssafy.hugging.domain.model.Subject;
+import com.ssafy.hugging.member.domain.Member;
+import com.ssafy.hugging.model.BaseEntity;
+import com.ssafy.hugging.model.Status;
+import com.ssafy.hugging.model.Subject;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
