@@ -131,3 +131,9 @@
 // }
 
 // export default Location;
+
+const Location = () => {
+
+}
+
+export default Location;
