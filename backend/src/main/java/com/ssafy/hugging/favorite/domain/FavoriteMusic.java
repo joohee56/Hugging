@@ -1,28 +1,33 @@
-package com.ssafy.hugging.counsel.domain;
+package com.ssafy.hugging.favorite.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.ssafy.hugging.member.domain.Member;
-import com.ssafy.hugging.model.BaseEntity;
+import com.ssafy.hugging.music.domain.Music;
 
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Builder
 @Getter
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
-@AllArgsConstructor(access = AccessLevel.PROTECTED)
-public class FavoriteCounselor extends BaseEntity {
+@NoArgsConstructor
+@AllArgsConstructor
+public class FavoriteMusic {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "counselorId")
-	private Counselor counselor;
+	@JoinColumn(name = "musicId")
+	private Music music;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "memberId")

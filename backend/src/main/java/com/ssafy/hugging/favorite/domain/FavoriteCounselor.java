@@ -1,10 +1,6 @@
-package com.ssafy.hugging.counsel.domain;
-
-import java.time.LocalDateTime;
+package com.ssafy.hugging.favorite.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -12,8 +8,6 @@ import javax.persistence.ManyToOne;
 import com.ssafy.hugging.counselor.domain.Counselor;
 import com.ssafy.hugging.member.domain.Member;
 import com.ssafy.hugging.model.BaseEntity;
-import com.ssafy.hugging.model.Status;
-import com.ssafy.hugging.model.Subject;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -26,13 +20,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
-public class Counsel extends BaseEntity {
-	private LocalDateTime reservation_date;
-	@Enumerated(EnumType.STRING)
-	private Subject subject;
-	@Enumerated(EnumType.STRING)
-	private Status status;
-
+public class FavoriteCounselor extends BaseEntity {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "counselorId")
 	private Counselor counselor;
@@ -40,14 +28,4 @@ public class Counsel extends BaseEntity {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "memberId")
 	private Member member;
-
-	public void setCounselor(Counselor counselor) {
-		this.counselor = counselor;
-		counselor.getCounselList().add(this);
-	}
-
-	public void setMember(Member member) {
-		this.member = member;
-		counselor.getCounselList().add(this);
-	}
 }

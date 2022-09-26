@@ -1,6 +1,5 @@
-package com.ssafy.hugging.counsel.domain;
+package com.ssafy.hugging.counselor.domain;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +9,9 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.OneToMany;
 
+import com.ssafy.hugging.counsel.domain.Counsel;
+import com.ssafy.hugging.favorite.domain.FavoriteCounselor;
+import com.ssafy.hugging.review.domain.CounselorReview;
 import com.ssafy.hugging.model.BaseEntity;
 import com.ssafy.hugging.model.Gender;
 
@@ -31,7 +33,7 @@ public class Counselor extends BaseEntity {
 	private String password;
 	@Column(nullable = false)
 	private String name;
-	private LocalDateTime avaliable_time;
+	private String available_time;
 	private String certificate;
 	private String subject;
 	private String career;
