@@ -1,6 +1,6 @@
 import { Redirect, Route, Switch } from "react-router-dom";
-import Layout from "./Layout/Layout";
-import ReserveCounsel from './Pages/Counsel/ReserveCounsel';
+import Layout from "./layout/Layout";
+import ReserveCounsel from './pages/counsel/ReserveCounsel';
 
 function App() {
   return (
