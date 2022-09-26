@@ -6,9 +6,9 @@
   flex-direction: column;
   /* justify-content: space-between; */
   /* align-items: flex-end; */
-  border-radius: 20px;
+  border-radius: 30px;
   background-color: hsl(0, 0%, 95%);
-  border: 1px solid #ccc4c4;
+  border: 1.5px solid #ccc4c4;
 
   margin: 10px;
   box-shadow: 0 2px 8px rgba(217, 217, 217, 0.94);
@@ -18,10 +18,6 @@
   font-weight: bold;
   font-size: 15px;
   margin: 20px 0px 5px 0px;
-}
-
-.time {
-
 }
 
 .counselorName{

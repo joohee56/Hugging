@@ -1,14 +1,14 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { Routes, Route, Link, Switch } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import UserLogin from "./pages/user/UserLogin.js";
 import CounselorLogin from "./pages/counselor/CounselorLogin";
 import RegisterCategory from "./pages/user/RegisterCategory";
 import RegisterProfile from "./pages/user/RegisterProfile";
-import Navbar from "./components/ui/NavBar";
-import Nav from "./components/ui/Nav";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+// import Navbar from "./components/ui/NavBar";
+// import Nav from "./components/ui/Nav";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faBars } from "@fortawesome/free-solid-svg-icons";
 import MyCalendar from "./components/counselor/MyCalendar";
 import Location from "./components/main/Location";
 import RedirectUri from "./pages/user/RedirectUri";
@@ -40,6 +40,7 @@ function App() {
         <Route path="/recommend_media" element={<MediaView />} />
         <Route path="/playing_music" element={<MusicPlayingPage />} />
         <Route path="/counselReserve" element={<ReserveCounsel />} />
+        <Route path="/" element={<ReserveCounsel />} />
       </Routes>
     </div>
   );

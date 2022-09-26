@@ -3,7 +3,8 @@ import MyReservationList from "../../components/counsel/MyReservationList";
 import CounselSubjectList from "../../components/counsel/CounselSubjectList";
 import CounselRecommList from "../../components/counsel/CounselorRecommList";
 import classes from "./ReserveCounsel.module.css";
-
+import FooterNavigation from "../../Layout/FooterNavigation";
+import Header from "../../Layout/Header";
 const DUMMY_RESERVE = [
   {
     id: "r1",
@@ -25,6 +26,7 @@ const DUMMY_RESERVE = [
 const ReserveCounsel = () => {
   return (
     <Fragment>
+      <Header />
       <MyReservationList reservations={DUMMY_RESERVE} />
       <CounselSubjectList />
       <CounselRecommList />
@@ -33,6 +35,7 @@ const ReserveCounsel = () => {
       <div className={classes.btn}>
         <button>예약</button>
       </div>
+      <FooterNavigation />
     </Fragment>
   );
 };
