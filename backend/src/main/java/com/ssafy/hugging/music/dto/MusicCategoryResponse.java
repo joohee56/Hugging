@@ -2,6 +2,7 @@ package com.ssafy.hugging.music.dto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.ssafy.hugging.music.domain.Category;
 import com.ssafy.hugging.music.domain.MusicCategory;
@@ -18,5 +19,7 @@ public class MusicCategoryResponse {
 	public MusicCategoryResponse(MusicCategory musicCategory) {
 		id = musicCategory.getId();
 		category = musicCategory.getName();
+		musicResponseList.addAll(
+			musicCategory.getMusicList().stream().map(MusicResponse::new).collect(Collectors.toList()));
 	}
 }
