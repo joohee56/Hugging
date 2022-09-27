@@ -20,6 +20,8 @@ import lombok.RequiredArgsConstructor;
 public class CounselorService {
 	private final CounselorRepository counselorRepository;
 
+	// public List<Counselor> get
+
 	public Counselor getCounselorById(Integer id) {
 		Optional<Counselor> counselor = counselorRepository.findById(id);
 		if (!counselor.isPresent())

@@ -29,8 +29,15 @@ public class CounselController {
 
 	@GetMapping("/{memberId}")
 	@ApiOperation(value = "상담 예약 내역 조회", notes = "회원 상담 예약 내역 조회")
-	public ResponseEntity<?> getCounsel(@PathVariable Integer memberId) {
+	public ResponseEntity<?> getCounselByMember(@PathVariable Integer memberId) {
 		return response.success(counselService.getCounselByEmail(memberId), "getCounsel success", HttpStatus.OK);
+	}
+
+	@GetMapping("/schedules/{counselorId}/{reservationDate}")
+	@ApiOperation(value = "상담사 스케줄 조회", notes = "상담사 스케줄 조회")
+	public ResponseEntity<?> getCounselByCounselor(@PathVariable Integer counselorId,
+		@PathVariable String reservationDate) {
+		return response.success(counselService.getCounselByCounselorId(counselorId, reservationDate));
 	}
 
 	@PostMapping("")

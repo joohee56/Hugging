@@ -44,7 +44,16 @@ public class CounselService {
 	// 상담 예약 내역
 	public List<CounselReservationResponse> getCounselByEmail(Integer memberId) {
 		List<CounselReservationResponse> counselList = new ArrayList<>();
-		for (Counsel counsel : counselRepository.findCounselById(memberId)) {
+		for (Counsel counsel : counselRepository.findCounselByMemberId(memberId)) {
+			counselList.add(CounselReservationResponse.of(counsel));
+		}
+		return counselList;
+	}
+
+	// 상담 스케줄 조회
+	public List<CounselReservationResponse> getCounselByCounselorId(Integer counselorId, String reservationDate) {
+		List<CounselReservationResponse> counselList = new ArrayList<>();
+		for (Counsel counsel : counselRepository.findCounselByCounselorId(counselorId, reservationDate)) {
 			counselList.add(CounselReservationResponse.of(counsel));
 		}
 		return counselList;
