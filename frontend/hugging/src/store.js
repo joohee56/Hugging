@@ -28,10 +28,18 @@ let user = createSlice({
       "nickname": "",
       "age": "",
       "gender": "",
-      "emotion" : {},
+      "emotion" : [],
       "profileImage": 0
    },
     reducers: {
+
+      deleteEmotion(state, action) {
+        state.emotion.map((a, i) =>{
+          console.log(state.emotion)
+          if (state.emotion[i] === action.payload)
+          {state.emotion.splice(i,1)}
+        })
+      },
 
       changeUser(state, action) {
         state.nickname = action.payload.nickname;
@@ -39,9 +47,9 @@ let user = createSlice({
         state.gender = action.payload.gender
       },
       changeEmotion(state, action) {
-        state.emotion.push(action.payload)
-      },
-      loginUser: (state, action)=> {       
+        state.emotion.push(action.payload)},
+      
+      loginUser(state, action) {       
           state.name = action.payload.name;
           state.email = action.payload.email;
           state.isLoggined = true;
@@ -55,7 +63,7 @@ let user = createSlice({
     }
 })
 
-export let { loginUser, changeEmotion, changeUser } = user.actions
+export let { loginUser, changeEmotion, changeUser, deleteEmotion } = user.actions
 export let { loginCounselor } = counselor.actions
 
 export default configureStore({
