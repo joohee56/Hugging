@@ -13,6 +13,7 @@ function RegisterCategory({history}) {
     let dispatch = useDispatch()
     let user = useSelector((state)=> { return state.user})
     let [btn, setBtn] = useState(false)
+    let [emotion, setEmotion] = useState({})
     
     useEffect(()=>{
                 // let emotion = localStorage.getItem('emotion')               
@@ -33,11 +34,13 @@ function RegisterCategory({history}) {
         <div id={styles.category_card}>
             <button onClick={()=>{ 
                 if ( btn === false ) {
+                    setEmotion()
+                    
                     dispatch(changeEmotion({emotion:"cool"}))
                 }
                 else{
                     dispatch(deleteEmotion({emotion:"cool"}))
-                }
+                          }
                 setBtn(!btn)
                 console.log(user)
                 console.log(btn)

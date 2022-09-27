@@ -34,7 +34,7 @@ let user = createSlice({
     reducers: {
 
       deleteEmotion(state, action) {
-        state.emotion.map((a, i) =>{
+        state.emotion.map((a, i) => {
           console.log(state.emotion)
           if (state.emotion[i] === action.payload)
           {state.emotion.splice(i,1)}
