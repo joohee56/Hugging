@@ -41,10 +41,9 @@ public class MemberService implements UserDetailsService {
 
 	private final MemberRepository memberRepository;
 
-	public MemberResponse getMemberById(Integer id) {
-		Member member = memberRepository.findMemberById(id)
+	public Member getMemberById(Integer id) {
+		return memberRepository.findMemberById(id)
 			.orElseThrow(() -> new IllegalArgumentException(NOT_FOUND_MEMBER_ERROR_MESSAGE));
-		return new MemberResponse(member);
 	}
 
 	public String getKakaoAccessToken(String code) {
@@ -161,10 +160,4 @@ public class MemberService implements UserDetailsService {
 			.orElseThrow(() -> new UsernameNotFoundException(NOT_FOUND_MEMBER_ERROR_MESSAGE));
 	}
 
-	public Member getMemberById(Integer id) {
-		Optional<Member> member = memberRepository.findById(id);
-		if (!member.isPresent())
-			throw new UsernameNotFoundException(NOT_FOUND_MEMBER_ERROR_MESSAGE);
-		return member.get();
-	}
 }
