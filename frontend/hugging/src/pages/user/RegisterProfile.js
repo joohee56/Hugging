@@ -50,14 +50,14 @@ function RegisterProfile() {
           sessionStorage.setItem('isSocialLogin', true)
           let userId = jwt_decode(res.data)
           console.log(userId.sub)
-          axios({
-            url: 'https://i7b204.p.ssafy.io/api/members/'+userId,
-            method: "GET",
-            params: {
-                id: userId,
-              },
-          })
-          })
+          // axios({
+          //   url: 'https://i7b204.p.ssafy.io/api/members/'+userId,
+          //   method: "GET",
+          //   params: {
+          //       id: userId,
+          //     },
+          // })
+          // })
           // .then((res)=> {
           //   console.log('성공')
           //   dispatch(loginUser(res))
@@ -66,11 +66,11 @@ function RegisterProfile() {
           //   console.log('실패')
           //   console.log(err)
           // })
-          .catch((res) => {
-                console.log(body);
-                console.log("error");
-              });
-      }
+          // .catch((res) => {
+          //       console.log(body);
+          //       console.log("error");
+          //     });
+      })
 
 
   return (
@@ -155,5 +155,5 @@ function RegisterProfile() {
     </>
   );
 }
-
+}
 export default RegisterProfile;
