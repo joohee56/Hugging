@@ -80,7 +80,7 @@ public class Member implements UserDetails {
 			.age(memberJoinRequest.getAge())
 			.nickname(memberJoinRequest.getNickname())
 			.gender(memberJoinRequest.getGender())
-			.profile_image(memberJoinRequest.getProfileImage())
+			.profileImage(memberJoinRequest.getProfileImage())
 			.build();
 	}
 
