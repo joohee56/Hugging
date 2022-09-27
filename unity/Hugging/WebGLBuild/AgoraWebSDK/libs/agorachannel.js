@@ -71,12 +71,9 @@ class AgoraChannel {
     // subscribe to a remote user
     await this.client.subscribe(user, mediaType);
     if (mediaType === "video") {
-      user.videoTrack.play(`player-${uid}`);
+      // user.videoTrack.play(`player-${uid}`);
       var strUID = uid.toString();
-      event_manager.raiseChannelOnUserPublished_MC(
-        this.options.channel,
-        strUID
-      );
+      // event_manager.raiseChannelOnUserPublished_MC(this.options.channel, strUID);
     }
     if (mediaType === "audio") {
       user.audioTrack.play();
@@ -87,7 +84,7 @@ class AgoraChannel {
     // parameter is not local track
     if (this.is_publishing == false) {
       if (localTracks.videoTrack != undefined) {
-        await this.client.publish(localTracks.videoTrack);
+        // await this.client.publish(localTracks.videoTrack);
       }
       if (localTracks.audioTrack != undefined) {
         await this.client.publish(localTracks.audioTrack);
@@ -121,19 +118,11 @@ class AgoraChannel {
     delete remoteUsers[id];
     var strUID = id.toString();
 
-    event_manager.raiseChannelOnUserUnPublished_MC(
-      this.options.channel,
-      strUID
-    );
+    event_manager.raiseChannelOnUserUnPublished_MC(this.options.channel, strUID);
     event_manager.raiseCustomMsg("New User Published: " + id);
   }
 
-  async joinChannelWithUserAccount_MC(
-    token_str,
-    userAccount_str,
-    autoSubscribeAudio,
-    autoSubscribeVideo
-  ) {
+  async joinChannelWithUserAccount_MC(token_str, userAccount_str, autoSubscribeAudio, autoSubscribeVideo) {
     this.options.token = token_str;
     this.options.channel = this.channelId;
 
@@ -145,33 +134,21 @@ class AgoraChannel {
 
     if (localTracks.videoTrack == undefined) {
       [localTracks.videoTrack] = await Promise.all([
-        AgoraRTC.createCameraVideoTrack(),
+        // AgoraRTC.createCameraVideoTrack(),
       ]);
     }
 
     if (localTracks.audioTrack == undefined) {
-      [localTracks.audioTrack] = await Promise.all([
-        AgoraRTC.createMicrophoneAudioTrack(),
-      ]);
+      [localTracks.audioTrack] = await Promise.all([AgoraRTC.createMicrophoneAudioTrack()]);
     }
 
-    [this.options.uid] = await Promise.all([
-      this.client.join(
-        this.options.appid,
-        this.options.channel,
-        this.options.token || null,
-        userAccount_str
-      ),
-    ]);
+    [this.options.uid] = await Promise.all([this.client.join(this.options.appid, this.options.channel, this.options.token || null, userAccount_str)]);
 
     if (localTracks.videoTrack != undefined) {
       localTracks.videoTrack.play("local-player");
     }
     multiclient_connections++;
-    event_manager.raiseJoinChannelSuccess_MC(
-      this.options.uid.toString(),
-      this.options.channel
-    );
+    event_manager.raiseJoinChannelSuccess_MC(this.options.uid.toString(), this.options.channel);
     event_manager.raiseCustomMsg("Channel Joined With user Account");
   }
 
@@ -184,32 +161,21 @@ class AgoraChannel {
 
     if (localTracks.videoTrack == undefined) {
       [localTracks.videoTrack] = await Promise.all([
-        AgoraRTC.createCameraVideoTrack(),
+        // AgoraRTC.createCameraVideoTrack(),
       ]);
     }
 
     if (localTracks.audioTrack == undefined) {
-      [localTracks.audioTrack] = await Promise.all([
-        AgoraRTC.createMicrophoneAudioTrack(),
-      ]);
+      [localTracks.audioTrack] = await Promise.all([AgoraRTC.createMicrophoneAudioTrack()]);
     }
 
-    [this.options.uid] = await Promise.all([
-      this.client.join(
-        this.options.appid,
-        this.options.channel,
-        this.options.token || null
-      ),
-    ]);
+    [this.options.uid] = await Promise.all([this.client.join(this.options.appid, this.options.channel, this.options.token || null)]);
 
     if (localTracks.videoTrack != undefined) {
       localTracks.videoTrack.play("local-player");
     }
 
-    event_manager.raiseJoinChannelSuccess_MC(
-      this.options.uid.toString(),
-      this.options.channel
-    );
+    event_manager.raiseJoinChannelSuccess_MC(this.options.uid.toString(), this.options.channel);
     multiclient_connections++;
     event_manager.raiseCustomMsg("Channel Joined");
   }
@@ -239,15 +205,7 @@ class AgoraChannel {
     //event_manager.raiseCustomMsg("Channel Left");
   }
 
-  updateChannelMediaRelay_MC(
-    srcChannelName,
-    srcToken,
-    srcUid,
-    destChannelName,
-    destToken,
-    destUid,
-    destCount
-  ) {
+  updateChannelMediaRelay_MC(srcChannelName, srcToken, srcUid, destChannelName, destToken, destUid, destCount) {
     const configuration = AgoraRTC.createChannelMediaRelayConfiguration();
     configuration.setSrcChannelInfo({
       channelName: srcChannelName,
@@ -282,15 +240,7 @@ class AgoraChannel {
       });
   }
 
-  startChannelMediaRelay_MC(
-    srcChannelName,
-    srcToken,
-    srcUid,
-    destChannelName,
-    destToken,
-    destUid,
-    destCount
-  ) {
+  startChannelMediaRelay_MC(srcChannelName, srcToken, srcUid, destChannelName, destToken, destUid, destCount) {
     if (this.client != undefined) {
       const configuration = AgoraRTC.createChannelMediaRelayConfiguration();
       configuration.setSrcChannelInfo({
@@ -398,14 +348,8 @@ class AgoraChannel {
         url: StrBackgroundImageRtcImageUrl,
         x: BackgroundImageRtcImageX,
         y: BackgroundImageRtcImageY,
-        width:
-          BackgroundImageRtcImageWidth == 0
-            ? 1080
-            : BackgroundImageRtcImageWidth,
-        height:
-          BackgroundImageRtcImageHeight == 0
-            ? 520
-            : BackgroundImageRtcImageHeight,
+        width: BackgroundImageRtcImageWidth == 0 ? 1080 : BackgroundImageRtcImageWidth,
+        height: BackgroundImageRtcImageHeight == 0 ? 520 : BackgroundImageRtcImageHeight,
       },
       transcodingUsers,
     };
@@ -523,7 +467,7 @@ class AgoraChannel {
 
   setRemoteDefaultVideoStreamType(streamType) {
     Object.keys(this.remoteUsers).forEach((uid2) => {
-      this.setRemoteVideoStreamType(uid2, streamType);
+      // this.setRemoteVideoStreamType(uid2, streamType);
     });
   }
 
@@ -536,20 +480,12 @@ class AgoraChannel {
   }
 
   setRemoteUserPriority(uid, userPriority) {
-    if (userPriority == 50 || userPriority == 0)
-      this.client.setRemoteVideoStreamType(uid, 0);
-    else if (userPriority == 100 || userPriority == 1)
-      this.client.setRemoteVideoStreamType(uid, 1);
+    if (userPriority == 50 || userPriority == 0) this.client.setRemoteVideoStreamType(uid, 0);
+    else if (userPriority == 100 || userPriority == 1) this.client.setRemoteVideoStreamType(uid, 1);
   }
 
   setEncryptionMode(mode) {
-    var modes = [
-      "aes-128-xts",
-      "aes-256-xts",
-      "aes-128-ecb",
-      "sm4-128-ecb",
-      "none",
-    ];
+    var modes = ["aes-128-xts", "aes-256-xts", "aes-128-ecb", "sm4-128-ecb", "none"];
     var n = modes.includes(mode);
     if (n) {
       savedEncryptionMode = mode;

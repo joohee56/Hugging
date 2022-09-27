@@ -11,10 +11,10 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
     public Text roomNameText;
     public Text playerCountText;
     public Text playerListText;
-    public InputField roomNameField;
-    public InputField nicknameField;
+    public string roomName;
+    public string nickname;
+    public static string subject;
     public int selectedCharacterNum;
-    public static string subject = "우울";
 
     private string gameVersion = "1";
     public VoiceManager voiceManager;
@@ -28,17 +28,29 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
     private void Awake()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
-        roomNameField.text = "1";
         Connect();
     }
 
-    private void Connect() {
-        
+    public void SetCounselInfos(string nickname, string roomName, string subject)
+    {
+        Debug.Log("nickname : " + nickname);
+        Debug.Log("roomName : " + roomName);
+        Debug.Log("subject : " + subject);
+        this.nickname = nickname;
+        this.roomName = roomName;
+        HuggingLauncher.subject = subject;
+
+    }
+
+    private void Connect()
+    {
+
         PhotonNetwork.GameVersion = gameVersion;
         PhotonNetwork.ConnectUsingSettings();
     }
 
-    public override void OnConnectedToMaster() {
+    public override void OnConnectedToMaster()
+    {
         Debug.Log("connect to master");
         PhotonNetwork.JoinLobby();
     }
@@ -53,8 +65,7 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
     public void Enter(int characterNum)
     {
         selectedCharacterNum = characterNum;
-        if (roomNameField.text.Length == 0) return;
-        PhotonNetwork.JoinOrCreateRoom(roomNameField.text, new RoomOptions { MaxPlayers = 2 }, TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom(roomName, new RoomOptions { MaxPlayers = 2 }, TypedLobby.Default);
     }
 
     public override void OnJoinedRoom()
@@ -68,14 +79,16 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
         photonView.RPC("SetPlayerList", RpcTarget.All);
     }
 
-    private void SetRoomInfos() {
-        PhotonNetwork.NickName = nicknameField.text;
-        PhotonNetwork.LocalPlayer.NickName = nicknameField.text;
-        roomNameText.text = roomNameField.text;
+    private void SetRoomInfos()
+    {
+        PhotonNetwork.NickName = nickname;
+        PhotonNetwork.LocalPlayer.NickName = nickname;
+        roomNameText.text = roomName;
     }
 
     [PunRPC]
-    public void SetPlayerList() {
+    public void SetPlayerList()
+    {
         Debug.Log("set player list");
         playerCountText.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString();
         string playerListStr = "";
@@ -87,7 +100,8 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
         playerListText.text = playerListStr;
     }
 
-    private void SpawnPlayer() {
+    private void SpawnPlayer()
+    {
         string characterName = "Ch_" + selectedCharacterNum.ToString();
         GameObject player = PhotonNetwork.Instantiate(characterName, Camera.main.transform.position, Quaternion.identity);
 
@@ -102,7 +116,8 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
         // nickName.GetComponent<Nickname>().player = player;
     }
 
-    private void SetVoiceChat() {
+    private void SetVoiceChat()
+    {
         voiceManager.channelName = PhotonNetwork.CurrentRoom.Name;
         voiceManager.JoinChannel();
     }
@@ -114,10 +129,11 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
         isFullRoomAlert.SetActive(true);
         Debug.Log(returnCode);
         PhotonNetwork.JoinLobby();
-        
+
     }
 
-    public void leaveRoom() {
+    public void leaveRoom()
+    {
         PhotonNetwork.LeaveRoom();
         Application.Quit();
     }
