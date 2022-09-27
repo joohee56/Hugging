@@ -58,16 +58,18 @@ function RegisterProfile() {
               },
           })
           })
-          .then((res)=> {
-            dispatch(loginUser(res))
-          })
-          .catch((err) =>{
-            console.log(err)
-          })
-      .catch((res) => {
-            console.log(body);
-            console.log("error");
-          });
+          // .then((res)=> {
+          //   console.log('성공')
+          //   dispatch(loginUser(res))
+          // })
+          // .catch((err) =>{
+          //   console.log('실패')
+          //   console.log(err)
+          // })
+          .catch((res) => {
+                console.log(body);
+                console.log("error");
+              });
       }
 
 
