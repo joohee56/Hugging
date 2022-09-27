@@ -33,20 +33,20 @@ function RegisterProfile() {
     setGender(e.target.value);
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const email = localStorage.getItem('email')
-  //   let body = {
-  //     nickname,
-  //     age,
-  //     gender,
-  //     emotion: user.emotion,
-  //     email,
-  //   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const email = localStorage.getItem('email')
+    let body = {
+      nickname,
+      age,
+      gender,
+      emotion: user.emotion,
+      email,
+    };
 
-    // axios.post(API_HOST_URL + "members/join", body)
-    //   .then((res) => {
-    //     console.log(res.data)})
+    axios.post(API_HOST_URL + "members/join", body)
+      .then((res) => {
+        console.log(res.data)})
     //   .catch((res)=>{
     //     console.log(res.data)
     //   })
@@ -105,8 +105,7 @@ function RegisterProfile() {
           </svg>
         </button>
       </div>
-      {/* <form onSubmit={handleSubmit}> */}
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           className={styles.nickname}
           type="text"
@@ -159,6 +158,6 @@ function RegisterProfile() {
       </form>
     </>
   );
-}
+}}
 
 export default RegisterProfile;
