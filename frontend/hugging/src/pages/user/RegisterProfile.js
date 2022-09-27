@@ -46,10 +46,15 @@ function RegisterProfile() {
 
     axios.post(API_HOST_URL + "members/join", body)
       .then((res) => {
+        console.log(res.data)
           sessionStorage.setItem('token', res.data)
           sessionStorage.setItem('isSocialLogin', true)
           let userId = jwt_decode(res.data)
-          console.log(userId.sub)
+          console.log(userId.sub)})
+          .catch((res) => {
+                console.log(body);
+                console.log("error");
+              });
           // axios({
           //   url: 'https://i7b204.p.ssafy.io/api/members/'+userId,
           //   method: "GET",
@@ -65,12 +70,8 @@ function RegisterProfile() {
           // .catch((err) =>{
           //   console.log('실패')
           //   console.log(err)
-          // })
-          // .catch((res) => {
-          //       console.log(body);
-          //       console.log("error");
-          //     });
-      })
+          
+
 
 
   return (
