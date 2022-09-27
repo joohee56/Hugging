@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import MyReservationList from "../../components/counsel/MyReservationList";
 import CounselSubjectList from "../../components/counsel/CounselSubjectList";
-import CounselRecommList from "../../components/counsel/CounselorRecommList";
+import CounselorRecommList from "../../components/counsel/CounselorRecommList";
 import classes from "./ReserveCounsel.module.css";
 import FooterNavigation from "../../Layout/FooterNavigation";
 import Header from "../../Layout/Header";
@@ -23,19 +23,40 @@ const DUMMY_RESERVE = [
   },
 ];
 
+const DUMMY_COUNSELOR = [
+  {
+    id: "c1",
+    name: "이주희",
+    field: "번아웃",
+    score: 3.5,
+  },
+  {
+    id: "c2",
+    name: "김호진",
+    field: "우울",
+    score: 3.5,
+  },
+  {
+    id: "c3",
+    name: "김성규",
+    field: "불안",
+    score: 3.5,
+  },
+];
+
 const ReserveCounsel = () => {
   return (
     <Fragment>
       <Header />
       <MyReservationList reservations={DUMMY_RESERVE} />
       <CounselSubjectList />
-      <CounselRecommList />
+      <CounselorRecommList counselors={DUMMY_COUNSELOR} />
       <div> Calendar</div>
       <div> Time </div>
       <div className={classes.btn}>
         <button>예약</button>
       </div>
-      <FooterNavigation />
+      {/* <FooterNavigation /> */}
     </Fragment>
   );
 };
