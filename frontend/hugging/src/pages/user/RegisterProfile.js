@@ -49,7 +49,7 @@ function RegisterProfile() {
           sessionStorage.setItem('token', res.data)
           sessionStorage.setItem('isSocialLogin', true)
           let userId = jwt_decode(res.data)
-
+          console.log(userId.sub)
           axios({
             url: 'https://i7b204.p.ssafy.io/api/members/'+userId,
             method: "GET",
