@@ -44,13 +44,16 @@ function RegisterProfile() {
       email,
     };
 
-    axios.post(API_HOST_URL + "members/join", body)
-      .then((res) => {
-        console.log(res.data)
-          sessionStorage.setItem('token', res.data)
-          sessionStorage.setItem('isSocialLogin', true)
-          let userId = jwt_decode(res.data)
-          console.log(userId)})
+    // axios.post(API_HOST_URL + "members/join", body)
+    //   .then((res) => {
+    //     console.log(res.data)})
+    //   .catch((res)=>{
+    //     console.log(res.data)
+    //   })
+          // sessionStorage.setItem('token', res.data)
+          // sessionStorage.setItem('isSocialLogin', true)
+          // let userId = jwt_decode(res.data)
+          // console.log(userId)})
         // .catch((res) => {
         //         console.log(body);
         //         console.log("error");
