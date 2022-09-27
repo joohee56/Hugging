@@ -46,36 +46,26 @@ function RegisterProfile() {
 
     axios.post(API_HOST_URL + "members/join", body)
       .then((res) => {
-        console.log(res.data)})
-    //   .catch((res)=>{
-    //     console.log(res.data)
-    //   })
-          // sessionStorage.setItem('token', res.data)
-          // sessionStorage.setItem('isSocialLogin', true)
-          // let userId = jwt_decode(res.data)
-          // console.log(userId)})
-        // .catch((res) => {
-        //         console.log(body);
-        //         console.log("error");
-        //       });
+          sessionStorage.setItem('token', res.data)
+          sessionStorage.setItem('isSocialLogin', true)
+          let userId = jwt_decode(res.data)
+          console.log(userId.sub)})
           // axios({
-          //   url: 'https://i7b204.p.ssafy.io/api/members/'+userId,
+          //   url: 'https://i7b204.p.ssafy.io/api/members/'+userId.sub,
           //   method: "GET",
           //   params: {
           //       id: userId,
           //     },
           // })
-          // })
-          // .then((res)=> {
-          //   console.log('성공')
-          //   dispatch(loginUser(res))
-          // })
-          // .catch((err) =>{
-          //   console.log('실패')
-          //   console.log(err)
-          
-
-
+      //     .then((res)=> {
+      //       console.log('성공')
+      //       dispatch(loginUser(res))
+      //     })
+      //     .catch((err) =>{
+      //       console.log('실패')
+      //       console.log(err)
+      // });
+      }
 
   return (
     <>
@@ -158,6 +148,6 @@ function RegisterProfile() {
       </form>
     </>
   );
-}}
+}
 
 export default RegisterProfile;
