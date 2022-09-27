@@ -10,4 +10,6 @@ import com.ssafy.hugging.member.domain.Member;
 @Repository
 public interface MemberRepository extends JpaRepository<Member, Integer> {
 	Optional<Member> findByEmail(String email);
+
+	Optional<Member> findMemberById(Integer id);
 }
