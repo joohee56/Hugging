@@ -9,10 +9,10 @@ namespace agora_gaming_rtc
         /**
         EngineEvent is only for engine, not for user,Please do not call this function.
         */
-        //protected delegate void EngineEventOnCaptureVideoFrame(int videoFrameType, int width, int height, int yStride, IntPtr yBuffer, int rotation, long renderTimeMs);
+        /*protected delegate void EngineEventOnCaptureVideoFrame(int videoFrameType, int width, int height, int yStride, IntPtr yBuffer, int rotation, long renderTimeMs);
 
-        //protected delegate void EngineEventOnRenderVideoFrame(uint uid, int videoFrameType, int width, int height, int yStride, IntPtr yBuffer, int rotation, long renderTimeMs);
-
+        protected delegate void EngineEventOnRenderVideoFrame(uint uid, int videoFrameType, int width, int height, int yStride, IntPtr yBuffer, int rotation, long renderTimeMs);
+*/
         protected delegate void EngineEventOnRecordAudioFrame(int type, int samples, int bytesPerSample, int channels, int samplesPerSec, IntPtr buffer, long renderTimeMs, int avsync_type);
 
         protected delegate void EngineEventOnPlaybackAudioFrame(int type, int samples, int bytesPerSample, int channels, int samplesPerSec, IntPtr buffer, long renderTimeMs, int avsync_type);
@@ -33,10 +33,10 @@ namespace agora_gaming_rtc
 
         protected delegate void EngineEventOnAudioRouteChangedHandler(int route);
 
-        //protected delegate void EngineEventOnLocalVideoStatsHandler(int sentBitrate, int sentFrameRate, int encoderOutputFrameRate, int rendererOutputFrameRate, int targetBitrate, int targetFrameRate, int qualityAdaptIndication, int encodedBitrate, int encodedFrameWidth, int encodedFrameHeight, int encodedFrameCount, int codecType, ushort txPacketLossRate, int captureFrameRate, int captureBrightnessLevel);
+       /* protected delegate void EngineEventOnLocalVideoStatsHandler(int sentBitrate, int sentFrameRate, int encoderOutputFrameRate, int rendererOutputFrameRate, int targetBitrate, int targetFrameRate, int qualityAdaptIndication, int encodedBitrate, int encodedFrameWidth, int encodedFrameHeight, int encodedFrameCount, int codecType, ushort txPacketLossRate, int captureFrameRate, int captureBrightnessLevel);
 
-        //protected delegate void EngineEventOnRemoteVideoStatsHandler(uint uid, int delay, int width, int height, int receivedBitrate, int decoderOutputFrameRate, int rendererOutputFrameRate, int packetLossRate, int rxStreamType, int totalFrozenTime, int frozenRate, int totalActiveTime, int publishDuration);
-
+        protected delegate void EngineEventOnRemoteVideoStatsHandler(uint uid, int delay, int width, int height, int receivedBitrate, int decoderOutputFrameRate, int rendererOutputFrameRate, int packetLossRate, int rxStreamType, int totalFrozenTime, int frozenRate, int totalActiveTime, int publishDuration);
+*/
         protected delegate void EngineEventOnRemoteAudioStatsHandler(uint uid, int quality, int networkTransportDelay, int jitterBufferDelay, int audioLossRate, int numChannels, int receivedSampleRate, int receivedBitrate, int totalFrozenTime, int frozenRate, int totalActiveTime, int publishDuration, int qoeQuality, int qualityChangedReason, int mosValue);
 
         protected delegate void EngineEventOnAudioDeviceVolumeChangedHandler(int deviceType, int volume, bool muted);
@@ -79,19 +79,19 @@ namespace agora_gaming_rtc
 
         protected delegate void EngineEventOnClientRoleChanged(int oldRole, int newRole);
 
-        //protected delegate void EngineEventOnRemoteVideoStateChanged(uint uid, int state, int reason, int elapsed);
+       /* protected delegate void EngineEventOnRemoteVideoStateChanged(uint uid, int state, int reason, int elapsed);
         // audio and video raw data
 
-        //protected delegate void EngineEventOnLocalVideoStateChanged(int localVideoState, int error);
-
+        protected delegate void EngineEventOnLocalVideoStateChanged(int localVideoState, int error);
+*/
         protected delegate void EngineEventOnFacePositionChanged(int imageWidth, int imageHeight, int x, int y, int width, int height, int vecDistance, int numFaces);
 
         protected delegate void ChannelEngineEventOnLeaveChannelHandler(string channelId, uint duration, uint txBytes, uint rxBytes, uint txAudioBytes, uint txVideoBytes, uint rxAudioBytes, uint rxVideoBytes, ushort txKBitRate, ushort rxKBitRate, ushort rxAudioKBitRate, ushort txAudioKBitRate, ushort rxVideoKBitRate, ushort txVideoKBitRate, ushort lastmileDelay, ushort txPacketLossRate, ushort rxPacketLossRate, uint userCount, double cpuAppUsage, double cpuTotalUsage, int gatewayRtt, double memoryAppUsageRatio, double memoryTotalUsageRatio, int memoryAppUsageInKbytes);
 
         protected delegate void ChannelEngineEventOnRtcStatsHandler(string channelId, uint duration, uint txBytes, uint rxBytes, uint txAudioBytes, uint txVideoBytes, uint rxAudioBytes, uint rxVideoBytes, ushort txKBitRate, ushort rxKBitRate, ushort rxAudioKBitRate, ushort txAudioKBitRate, ushort rxVideoKBitRate, ushort txVideoKBitRate, ushort lastmileDelay, ushort txPacketLossRate, ushort rxPacketLossRate, uint userCount, double cpuAppUsage, double cpuTotalUsage, int gatewayRtt, double memoryAppUsageRatio, double memoryTotalUsageRatio, int memoryAppUsageInKbytes);
 
-        //protected delegate void ChannelEngineEventOnRemoteVideoStatsHandler(string channelId, uint uid, int delay, int width, int height, int receivedBitrate, int decoderOutputFrameRate, int rendererOutputFrameRate, int packetLossRate, int rxStreamType, int totalFrozenTime, int frozenRate, int totalActiveTime, int publishDuration);
-
+       /* protected delegate void ChannelEngineEventOnRemoteVideoStatsHandler(string channelId, uint uid, int delay, int width, int height, int receivedBitrate, int decoderOutputFrameRate, int rendererOutputFrameRate, int packetLossRate, int rxStreamType, int totalFrozenTime, int frozenRate, int totalActiveTime, int publishDuration);
+*/
         protected delegate void ChannelEngineEventOnRemoteAudioStatsHandler(string channelId, uint uid, int quality, int networkTransportDelay, int jitterBufferDelay, int audioLossRate, int numChannels, int receivedSampleRate, int receivedBitrate, int totalFrozenTime, int frozenRate, int totalActiveTime, int publishDuration, int qoeQuality, int qualityChangedReason, int mosValue);
 
         protected delegate void EngineEventOnStreamMessageHandler(uint userId, int streamId, IntPtr data, int length);
@@ -842,11 +842,11 @@ namespace agora_gaming_rtc
                                       EngineEventOnRtcStatsHandler OnRtcStats,
                                       OnAudioMixingFinishedHandler OnAudioMixingFinished,
                                       EngineEventOnAudioRouteChangedHandler OnAudioRouteChanged,
-                                      //OnFirstRemoteVideoDecodedHandler OnFirstRemoteVideoDecoded,
-                                      //OnVideoSizeChangedHandler OnVideoSizeChanged,
+                                 /*     OnFirstRemoteVideoDecodedHandler OnFirstRemoteVideoDecoded,
+                                      OnVideoSizeChangedHandler OnVideoSizeChanged,*/
                                       EngineEventOnClientRoleChanged onClientRolteChanged,
-                                      //OnUserMuteVideoHandler OnUserMuteVideo,
-                                      OnMicrophoneEnabledHandler OnMicrophoneEnabled,
+/*                                      OnUserMuteVideoHandler OnUserMuteVideo,
+*/                                      OnMicrophoneEnabledHandler OnMicrophoneEnabled,
                                       OnApiExecutedHandler OnApiExecuted,
                                       OnFirstLocalAudioFrameHandler OnFirstLocalAudioFrame,
                                       OnFirstRemoteAudioFrameHandler OnFirstRemoteAudioFrame,
@@ -858,30 +858,30 @@ namespace agora_gaming_rtc
                                       OnStreamMessageErrorHandler onStreamMessageError,
                                       EngineEventOnStreamMessageHandler onStreamMessage,
                                       OnConnectionBannedHandler onConnectionBanned,
-                                      //OnVideoStoppedHandler OnVideoStopped,
-                                      OnTokenPrivilegeWillExpireHandler onTokenPrivilegeWillExpire,
+/*                                      OnVideoStoppedHandler OnVideoStopped,
+*/                                      OnTokenPrivilegeWillExpireHandler onTokenPrivilegeWillExpire,
                                       OnNetworkQualityHandler onNetworkQuality,
-                                      //EngineEventOnLocalVideoStatsHandler onLocalVideoStats,
-                                      //EngineEventOnRemoteVideoStatsHandler onRemoteVideoStats,
+                                    /*  EngineEventOnLocalVideoStatsHandler onLocalVideoStats,
+                                      EngineEventOnRemoteVideoStatsHandler onRemoteVideoStats,*/
                                       EngineEventOnRemoteAudioStatsHandler onRemoteAudioStats,
-                                      //OnFirstLocalVideoFrameHandler OnFirstLocalVideoFrame,
-                                      //OnFirstRemoteVideoFrameHandler OnFirstRemoteVideoFrame,
-                                      //OnUserEnableVideoHandler OnUserEnableVideo,
+                                    /*  OnFirstLocalVideoFrameHandler OnFirstLocalVideoFrame,
+                                      OnFirstRemoteVideoFrameHandler OnFirstRemoteVideoFrame,
+                                      OnUserEnableVideoHandler OnUserEnableVideo,*/
                                       OnAudioDeviceStateChangedHandler onAudioDeviceStateChanged,
-                                      OnCameraReadyHandler onCameraReady,
+                           /*           OnCameraReadyHandler onCameraReady,
                                       OnCameraFocusAreaChangedHandler onCameraFocusAreaChanged,
-                                      OnCameraExposureAreaChangedHandler onCameraExposureAreaChanged,
+                                      OnCameraExposureAreaChangedHandler onCameraExposureAreaChanged,*/
                                       OnRemoteAudioMixingBeginHandler onRemoteAudioMixingBegin,
                                       OnRemoteAudioMixingEndHandler onRemoteAudioMixingEnd,
                                       OnAudioEffectFinishedHandler onAudioEffectFinished,
-                                      //OnVideoDeviceStateChangedHandler onVideoDeviceStateChanged,
-                                      //EngineEventOnRemoteVideoStateChanged OnRemoteVideoStateChanged,
-                                      //OnUserEnableLocalVideoHandler OnUserEnableLocalVideo,
-                                      OnLocalPublishFallbackToAudioOnlyHandler OnLocalPublishFallbackToAudioOnly,
+/*                                      OnVideoDeviceStateChangedHandler onVideoDeviceStateChanged,
+*//*                                      EngineEventOnRemoteVideoStateChanged OnRemoteVideoStateChanged,
+*//*                                      OnUserEnableLocalVideoHandler OnUserEnableLocalVideo,
+*/                                      OnLocalPublishFallbackToAudioOnlyHandler OnLocalPublishFallbackToAudioOnly,
                                       OnRemoteSubscribeFallbackToAudioOnlyHandler onRemoteSubscribeFallbackToAudioOnly,
                                       EngineEventOnConnectionStateChanged onConnectionStateChanged,
-                                      //OnRemoteVideoTransportStatsHandler onRemoteVideoTransportStats,
-                                      OnRemoteAudioTransportStatsHandler onRemoteAudioTransportStats,
+/*                                      OnRemoteVideoTransportStatsHandler onRemoteVideoTransportStats,
+*/                                      OnRemoteAudioTransportStatsHandler onRemoteAudioTransportStats,
                                       OnTranscodingUpdatedHandler onTranscodingUpdated,
                                       EngineEventOnAudioDeviceVolumeChangedHandler onAudioDeviceVolumeChanged,
                                       OnActiveSpeakerHandler onActiveSpeaker,
@@ -889,8 +889,8 @@ namespace agora_gaming_rtc
                                       OnMediaEngineLoadSuccessHandler onMediaEngineLoadSuccess,
                                       EngineEventOnAudioMixingStateChangedHandler onAudioMixingStateChanged,
                                       OnFirstRemoteAudioDecodedHandler onFirstRemoteAudioDecoded,
-                                      //EngineEventOnLocalVideoStateChanged onLocalVideoStateChanged,
-                                      EngineEventOnRtmpStreamingStateChangedHandler onRtmpStreamingStateChanged,
+/*                                      EngineEventOnLocalVideoStateChanged onLocalVideoStateChanged,
+*/                                      EngineEventOnRtmpStreamingStateChangedHandler onRtmpStreamingStateChanged,
                                       EngineEventOnNetworkTypeChangedHandler onNetworkTypeChanged,
                                       EngineEventOnLastmileProbeResultHandler onLastmileProbeResult,
                                       OnLocalUserRegisteredHandler onLocalUserRegistered,
@@ -900,15 +900,15 @@ namespace agora_gaming_rtc
                                       EngineEventOnLocalAudioStatsHandler onLocalAudioStats,
                                       EngineEventOnChannelMediaRelayStateChangedHandler onChannelMediaRelayStateChanged,
                                       EngineEventOnChannelMediaRelayEventHandler onChannelMediaRelayEvent,
-                                      //EngineEventOnFacePositionChanged onFacePositionChanged,
-                                      OnRtmpStreamingEventHandler onRtmpStreamingEvent,
+/*                                      EngineEventOnFacePositionChanged onFacePositionChanged,
+*/                                      OnRtmpStreamingEventHandler onRtmpStreamingEvent,
                                       OnAudioPublishStateChangedHandler onAudioPublishStateChange,
-                                      //OnVideoPublishStateChangedHandler onVideoPublishStateChanged,
-                                      OnAudioSubscribeStateChangedHandler onAudioSubscribeStateChanged,
-                                      //OnVideoSubscribeStateChangedHandler onVideoSubscribeStateChanged,
-                                      OnFirstLocalAudioFramePublishedHandler onFirstLocalAudioFramePublished,
-                                      //OnFirstLocalVideoFramePublishedHandler onFirstLocalVideoFramePublished,
-                                      OnUserSuperResolutionEnabledHandler onUserSuperResolutionEnabled,
+/*                                      OnVideoPublishStateChangedHandler onVideoPublishStateChanged,
+*/                                      OnAudioSubscribeStateChangedHandler onAudioSubscribeStateChanged,
+/*                                      OnVideoSubscribeStateChangedHandler onVideoSubscribeStateChanged,
+*/                                      OnFirstLocalAudioFramePublishedHandler onFirstLocalAudioFramePublished,
+/*                                      OnFirstLocalVideoFramePublishedHandler onFirstLocalVideoFramePublished,
+*/                                      OnUserSuperResolutionEnabledHandler onUserSuperResolutionEnabled,
                                       OnUploadLogResultHandler onUploadLogResult,
                                       OnVirtualBackgroundSourceEnabledHandler onVirtualBackgroundSourceEnabled);
 
@@ -926,35 +926,35 @@ namespace agora_gaming_rtc
                                         ChannelOnTokenPrivilegeWillExpireHandler onTokenPrivilegeWillExpire,
                                         ChannelEngineEventOnRtcStatsHandler onRtcStats,
                                         ChannelOnNetworkQualityHandler onNetworkQuality,
-                                        //ChannelEngineEventOnRemoteVideoStatsHandler onRemoteVideoStats,
-                                        ChannelEngineEventOnRemoteAudioStatsHandler onRemoteAudioStats,
+/*                                        ChannelEngineEventOnRemoteVideoStatsHandler onRemoteVideoStats,
+*/                                        ChannelEngineEventOnRemoteAudioStatsHandler onRemoteAudioStats,
                                         ChannelOnRemoteAudioStateChangedHandler onRemoteAudioStateChanged,
                                         ChannelOnActiveSpeakerHandler onActiveSpeaker,
-                                        //ChannelOnVideoSizeChangedHandler onVideoSizeChanged,
-                                        //ChannelOnRemoteVideoStateChangedHandler onRemoteVideoStateChanged,
-                                        //ChannelOnStreamMessageHandler onStreamMessage,
-                                        //ChannelOnStreamMessageErrorHandler onStreamMessageError,
-                                        //ChannelOnMediaRelayStateChangedHandler onMediaRelayStateChanged,
-                                        //ChannelOnMediaRelayEventHandler onMediaRelayEvent,
-                                        //ChannelOnRtmpStreamingStateChangedHandler onRtmpStreamingStateChanged,
-                                        //ChannelOnTranscodingUpdatedHandler onTranscodingUpdated,
-                                        //ChannelOnStreamInjectedStatusHandler onStreamInjectedStatus,
-                                        //ChannelOnRemoteSubscribeFallbackToAudioOnlyHandler onRemoteSubscribeFallbackToAudioOnly,
-                                        //ChannelOnConnectionStateChangedHandler onConnectionStateChanged,
-                                        //ChannelOnLocalPublishFallbackToAudioOnlyHandler onLocalPublishFallbackToAudioOnly,
-                                        //ChannelOnRtmpStreamingEventHandler onRtmpStreamingEvent,
+                                        /*ChannelOnVideoSizeChangedHandler onVideoSizeChanged,
+                                        ChannelOnRemoteVideoStateChangedHandler onRemoteVideoStateChanged,*/
+                                        ChannelOnStreamMessageHandler onStreamMessage,
+                                        ChannelOnStreamMessageErrorHandler onStreamMessageError,
+                                        ChannelOnMediaRelayStateChangedHandler onMediaRelayStateChanged,
+                                        ChannelOnMediaRelayEventHandler onMediaRelayEvent,
+                                        ChannelOnRtmpStreamingStateChangedHandler onRtmpStreamingStateChanged,
+                                        ChannelOnTranscodingUpdatedHandler onTranscodingUpdated,
+                                        ChannelOnStreamInjectedStatusHandler onStreamInjectedStatus,
+                                        ChannelOnRemoteSubscribeFallbackToAudioOnlyHandler onRemoteSubscribeFallbackToAudioOnly,
+                                        ChannelOnConnectionStateChangedHandler onConnectionStateChanged,
+                                        ChannelOnLocalPublishFallbackToAudioOnlyHandler onLocalPublishFallbackToAudioOnly,
+                                        ChannelOnRtmpStreamingEventHandler onRtmpStreamingEvent,
                                         ChannelOnAudioPublishStateChangedHandler onAudioPublishStateChange,
-                                        //ChannelOnVideoPublishStateChangedHandler onVideoPublishStateChange,
+                                       /* ChannelOnVideoPublishStateChangedHandler onVideoPublishStateChange,*/
                                         ChannelOnAudioSubscribeStateChangedHandler onAudioSubscribeStateChange,
-                                        //ChannelOnVideoSubscribeStateChangedHandler onVideoSubscribeStateChange,
-                                        ChannelOnUserSuperResolutionEnabledHandler onUserSuperResolutionEnabled);
+/*                                        ChannelOnVideoSubscribeStateChangedHandler onVideoSubscribeStateChange,
+*/                                        ChannelOnUserSuperResolutionEnabledHandler onUserSuperResolutionEnabled);
 
         // audio and video raw data
-        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        //protected static extern void initEventOnCaptureVideoFrame(EngineEventOnCaptureVideoFrame onCaptureVideoFrame);
+      /*  [DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        protected static extern void initEventOnCaptureVideoFrame(EngineEventOnCaptureVideoFrame onCaptureVideoFrame);
 
-        //[DllImport(MyLibName, CharSet = CharSet.Ansi)]
-        //protected static extern void initEventOnRenderVideoFrame(EngineEventOnRenderVideoFrame onRenderVideoFrame);
+        [DllImport(MyLibName, CharSet = CharSet.Ansi)]
+        protected static extern void initEventOnRenderVideoFrame(EngineEventOnRenderVideoFrame onRenderVideoFrame);*/
 
         [DllImport(MyLibName, CharSet = CharSet.Ansi)]
         protected static extern void initEventOnRecordAudioFrame(EngineEventOnRecordAudioFrame onRecordAudioFrame);

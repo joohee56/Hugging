@@ -161,9 +161,9 @@ namespace agora_gaming_rtc {
          * 
          * @param channelId The name of the channel that you join.
          * @param remoteVideoStats The statistics of the remote video stream. See RemoteVideoStats.
-         //*/
-        //public delegate void ChannelOnRemoteVideoStatsHandler(string channelId, RemoteVideoStats remoteVideoStats);
-        
+         */
+/*        public delegate void ChannelOnRemoteVideoStatsHandler(string channelId, RemoteVideoStats remoteVideoStats);
+*/        
         /** Reports the statistics of the audio stream from each remote user or host.
          * 
          * This callback replaces the {@link agora_gaming_rtc.OnAudioQualityHandler OnAudioQualityHandler} callback.
@@ -210,8 +210,8 @@ namespace agora_gaming_rtc {
         * @param height The new height (pixels) of the video.
         * @param rotation The new rotation of the video [0 to 360).
         */
-        //public delegate void ChannelOnVideoSizeChangedHandler(string channelId, uint uid, int width, int height, int rotation);         
-        
+/*        public delegate void ChannelOnVideoSizeChangedHandler(string channelId, uint uid, int width, int height, int rotation);         
+*/        
         /** Occurs when the remote video state changes.
          * 
          * @note This callback does not work properly when the number of users (in the `COMMUNICATION` profile) or hosts (in the `LIVE_BROADCASTING` profile) in the channel exceeds 17.
@@ -222,8 +222,8 @@ namespace agora_gaming_rtc {
          * @param reason The reason of the remote video state change. See #REMOTE_VIDEO_STATE_REASON.
          * @param elapsed The time elapsed (ms) from the local user calling the {@link agora_gaming_rtc.AgoraChannel.JoinChannel JoinChannel} method until the SDK triggers this callback.
          */
-        //public delegate void ChannelOnRemoteVideoStateChangedHandler(string channelId, uint uid, REMOTE_VIDEO_STATE state, REMOTE_VIDEO_STATE_REASON reason, int elapsed);
-        
+/*        public delegate void ChannelOnRemoteVideoStateChangedHandler(string channelId, uint uid, REMOTE_VIDEO_STATE state, REMOTE_VIDEO_STATE_REASON reason, int elapsed);
+*/        
         /** Occurs when the local user receives the data stream from the remote user within five seconds.
          * 
          * The SDK triggers this callback when the local user receives the stream message that the remote user sends by calling the {@link agora_gaming_rtc.AgoraChannel.SendStreamMessage SendStreamMessage} method.
@@ -367,8 +367,8 @@ namespace agora_gaming_rtc {
          * @param newState The current publishing state. For details, see #STREAM_PUBLISH_STATE.
          * @param elapseSinceLastState The time elapsed (ms) from the previous state to the current state.
          */
-        //public delegate void ChannelOnVideoPublishStateChangedHandler(string channelId, STREAM_PUBLISH_STATE oldState, STREAM_PUBLISH_STATE newState, int elapseSinceLastState);
-
+/*        public delegate void ChannelOnVideoPublishStateChangedHandler(string channelId, STREAM_PUBLISH_STATE oldState, STREAM_PUBLISH_STATE newState, int elapseSinceLastState);
+*/
         /** Occurs when the audio subscribing state changes.
          *
          * @since v3.2.0
@@ -395,8 +395,8 @@ namespace agora_gaming_rtc {
          * @param newState The current subscribing state. For details, see #STREAM_SUBSCRIBE_STATE.
          * @param elapseSinceLastState The time elapsed (ms) from the previous state to the current state.
          */
-        //public delegate void ChannelOnVideoSubscribeStateChangedHandler(string channelId, uint uid, STREAM_SUBSCRIBE_STATE oldState, STREAM_SUBSCRIBE_STATE newState, int elapseSinceLastState);
-
+/*        public delegate void ChannelOnVideoSubscribeStateChangedHandler(string channelId, uint uid, STREAM_SUBSCRIBE_STATE oldState, STREAM_SUBSCRIBE_STATE newState, int elapseSinceLastState);
+*/
         /// @cond
         /** Reports whether the super-resolution algorithm is enabled.
          *

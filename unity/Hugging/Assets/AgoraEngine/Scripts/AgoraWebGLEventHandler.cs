@@ -118,9 +118,9 @@ namespace agora_gaming_rtc
         List<MediaDeviceInfo> _recordingDevicesList = new List<MediaDeviceInfo>();
 
         // caching camera listing
-        List<MediaDeviceInfo> _cameraDevicesList = new List<MediaDeviceInfo>();
-        string currentVideoDevice = "";
-        string currentAudioDevice = "";
+/*        List<MediaDeviceInfo> _cameraDevicesList = new List<MediaDeviceInfo>();
+*//*        string currentVideoDevice = "";
+*/        string currentAudioDevice = "";
         string currentPlayBackDevice = "";
 
         public void setCurrentAudioDevice(string deviceID)
@@ -171,7 +171,7 @@ namespace agora_gaming_rtc
         }
 
 
-        public void setCurrentVideoDevice(string deviceID)
+      /*  public void setCurrentVideoDevice(string deviceID)
         {
             currentVideoDevice = deviceID;
         }
@@ -180,7 +180,7 @@ namespace agora_gaming_rtc
         {
             return currentVideoDevice;
         }
-
+*/
         public int GetPlayBackDeviceCount()
         {
             return _playbackDevicesList.Count;
@@ -195,7 +195,7 @@ namespace agora_gaming_rtc
             }
         }
 
-        public int GetCameraDeviceCount()
+     /*   public int GetCameraDeviceCount()
         {
             return _cameraDevicesList.Count;
         }
@@ -212,7 +212,7 @@ namespace agora_gaming_rtc
                 deviceName = _cameraDevicesList[index].label;
                 deviceId = _cameraDevicesList[index].deviceId;
             }
-        }
+        }*/
 
         public List<MediaDeviceInfo> GetCachedRecordingDevices()
         {
@@ -278,7 +278,7 @@ namespace agora_gaming_rtc
 
         }
 
-        public void ProcessCameraDevices(string listing)
+        /*public void ProcessCameraDevices(string listing)
         {
             _cameraDevicesList.Clear();
             _cameraDevicesList.TrimExcess();
@@ -299,7 +299,7 @@ namespace agora_gaming_rtc
                 }
             }
 
-        }
+        }*/
 
     }
 
@@ -340,11 +340,11 @@ namespace agora_gaming_rtc
         // encapsulate all video thing in one object
         // and then get this object in code for info
 
-        public static void GetVideoDevice(int index, ref string deviceName, ref string deviceId)
+        /*public static void GetVideoDevice(int index, ref string deviceName, ref string deviceId)
         {
             GetInstance()._cacheManager.GetVideoDevice(index, ref deviceName, ref deviceId);
         }
-
+*/
         public static string GetErrorDescription(string code)
         {
             if (GetInstance().ErrorDescription.ContainsKey(code))
@@ -361,10 +361,10 @@ namespace agora_gaming_rtc
             return GetInstance()._cacheManager;
         }
 
-        public static string GetCurrentVideoDevice()
+       /* public static string GetCurrentVideoDevice()
         {
             return GetInstance()._cacheManager.getCurrentVideoDevice();
-        }
+        }*/
 
         public static AgoraWebGLEventHandler GetInstance()
         {
@@ -376,20 +376,20 @@ namespace agora_gaming_rtc
             return GetInstance()._cacheManager.GetPlayBackDeviceCount();
         }
 
-        public static int GetCameraDeviceCount()
+     /*   public static int GetCameraDeviceCount()
         {
             return GetInstance()._cacheManager.GetCameraDeviceCount();
-        }
+        }*/
 
         public static int GetAudioRecordingDeviceCount()
         {
             return 0;
         }
 
-        public static List<MediaDeviceInfo> GetCachedCameras()
+      /*  public static List<MediaDeviceInfo> GetCachedCameras()
         {
             return GetInstance()._cacheManager.GetCachedCameras();
-        }
+        }*/
 
 
         public void onJoinChannelSuccess_MC(string eventData)
@@ -562,45 +562,45 @@ namespace agora_gaming_rtc
             }
         }
 
-        //public void onChannelOnUserPublished_MC(string eventData)
-        //{
-        //    string[] events = eventData.Split('|');
+        public void onChannelOnUserPublished_MC(string eventData)
+        {
+            string[] events = eventData.Split('|');
 
-        //    string channel = events[0];
-        //    string userId = events[1];
+            string channel = events[0];
+            string userId = events[1];
 
-        //    if (GetInstance()._clientsList.ContainsKey(channel))
-        //    {
-        //        AgoraChannel ch = GetInstance()._clientsList[channel];
-        //        RemoteVideoStats remoteStats = new RemoteVideoStats();
-        //        remoteStats.receivedBitrate = 1024; // to make it visible, put more than 0
-        //        remoteStats.uid = uint.Parse(userId);
-        //        if (ch.ChannelOnRemoteVideoStats != null)
-        //        {
-        //            ch.ChannelOnRemoteVideoStats(channel, remoteStats);
-        //        }
-        //    }
-        //}
+            if (GetInstance()._clientsList.ContainsKey(channel))
+            {
+                AgoraChannel ch = GetInstance()._clientsList[channel];
+                /*RemoteVideoStats remoteStats = new RemoteVideoStats();
+                remoteStats.receivedBitrate = 1024; // to make it visible, put more than 0
+                remoteStats.uid = uint.Parse(userId);
+                if (ch.ChannelOnRemoteVideoStats != null)
+                {
+                    ch.ChannelOnRemoteVideoStats(channel, remoteStats);
+                }*/
+            }
+        }
 
 
-        //public void onChannelOnUserUnPublished_MC(string eventData)
-        //{
-        //    string[] events = eventData.Split('|');
+        public void onChannelOnUserUnPublished_MC(string eventData)
+        {
+            string[] events = eventData.Split('|');
 
-        //    string channel = events[0];
-        //    string userId = events[1];
+            string channel = events[0];
+            string userId = events[1];
 
-        //    if (GetInstance()._clientsList.ContainsKey(channel))
-        //    {
-        //        AgoraChannel ch = GetInstance()._clientsList[channel];
-        //        RemoteVideoStats remoteStats = new RemoteVideoStats();
-        //        remoteStats.receivedBitrate = 0; // to make it visible, put more than 0
-        //        remoteStats.uid = uint.Parse(userId);
-        //        if (ch.ChannelOnRemoteVideoStats != null) {
-        //            ch.ChannelOnRemoteVideoStats(channel, remoteStats);
-        //        }
-        //    }
-        //}
+            if (GetInstance()._clientsList.ContainsKey(channel))
+            {
+                AgoraChannel ch = GetInstance()._clientsList[channel];
+               /* RemoteVideoStats remoteStats = new RemoteVideoStats();
+                remoteStats.receivedBitrate = 0; // to make it visible, put more than 0
+                remoteStats.uid = uint.Parse(userId);
+                if (ch.ChannelOnRemoteVideoStats != null) {
+                    ch.ChannelOnRemoteVideoStats(channel, remoteStats);
+                }*/
+            }
+        }
 
         public void OnLeaveChannel_MC(string channel)
         {
@@ -681,7 +681,7 @@ namespace agora_gaming_rtc
             }
         }
 
-        #region Testing functions, remove later
+    #region Testing functions, remove later
 
         public void CustomMsg(string msg)
         {
@@ -691,13 +691,13 @@ namespace agora_gaming_rtc
         }
 
         // used for fetching raw data
-        //private RawDataFetcher _rawDataFetcher = new RawDataFetcher();
+        /*private RawDataFetcher _rawDataFetcher = new RawDataFetcher();*/
         //private Texture2D nativeTexture = null; // for raw data
 
     
 
 
-        #endregion
+    #endregion
 
         // server expires token after some time
         // you need to call setToken again otherwise server will disconnect
@@ -732,7 +732,7 @@ namespace agora_gaming_rtc
             _cacheManager.ProcessPlayBackDevices(listing);
         }
 
-        public void onCamerasListing(string listing)
+      /*  public void onCamerasListing(string listing)
         {
             _cacheManager.ProcessCameraDevices(listing);
         }
@@ -752,7 +752,7 @@ namespace agora_gaming_rtc
             {
                 _cacheManager.setCurrentPlaybackDevice(st[1]);
             }
-        }
+        }*/
 
         void BuildData(string inStr)
         {
@@ -1116,8 +1116,8 @@ namespace agora_gaming_rtc
 
     // same as InSurfaceRenderer for videosurface
     // used for observing video renderers in webgl
-    //public sealed class RawDataFetcher : IRtcEngineNative
-    //{
+    /*public sealed class RawDataFetcher : IRtcEngineNative
+    {
 
     //    public RawDataFetcher()
     //    {
@@ -1141,6 +1141,6 @@ namespace agora_gaming_rtc
     //        updateRemoteTexture("" + uid, tex.GetNativeTexturePtr());
     //    }
 
-    //}
+    }*/
 #endif
 }

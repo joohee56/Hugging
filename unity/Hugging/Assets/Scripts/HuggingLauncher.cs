@@ -7,15 +7,18 @@ using Photon.Realtime;
 
 public class HuggingLauncher : MonoBehaviourPunCallbacks
 {
-    public Text connectionStatus;
-    public InputField roomName;
+    public GameObject canvas;
+    public Text roomNameText;
+    public Text playerCountText;
+    public Text playerListText;
+    public InputField roomNameField;
+    public InputField nicknameField;
     public int selectedCharacterNum;
     public static string subject = "우울";
 
     private string gameVersion = "1";
     public VoiceManager voiceManager;
 
-    [SerializeField]
     public GameObject isFullRoomAlert;
 
     public GameObject StartPanel;
@@ -25,18 +28,18 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
     private void Awake()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
+        roomNameField.text = "1";
         Connect();
     }
 
-    private void Connect() { 
-        //PhotonNetwork.NickName = nicknameField.text;
+    private void Connect() {
+        
         PhotonNetwork.GameVersion = gameVersion;
         PhotonNetwork.ConnectUsingSettings();
     }
 
     public override void OnConnectedToMaster() {
         Debug.Log("connect to master");
-
         PhotonNetwork.JoinLobby();
     }
 
@@ -50,13 +53,8 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
     public void Enter(int characterNum)
     {
         selectedCharacterNum = characterNum;
-        if (roomName.text.Length == 0) return;
-        PhotonNetwork.JoinOrCreateRoom(roomName.text, new RoomOptions { MaxPlayers = 2 }, TypedLobby.Default);
-
-    }
-
-    public void JoinRoom()
-    {
+        if (roomNameField.text.Length == 0) return;
+        PhotonNetwork.JoinOrCreateRoom(roomNameField.text, new RoomOptions { MaxPlayers = 2 }, TypedLobby.Default);
     }
 
     public override void OnJoinedRoom()
@@ -64,14 +62,47 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
         Debug.Log("on joined room");
         SelectCharacter.SetActive(false);
         CounselingRoom.SetActive(true);
+        SetRoomInfos();
+        SpawnPlayer();
+        SetVoiceChat();
+        photonView.RPC("SetPlayerList", RpcTarget.All);
+    }
 
+    private void SetRoomInfos() {
+        PhotonNetwork.NickName = nicknameField.text;
+        PhotonNetwork.LocalPlayer.NickName = nicknameField.text;
+        roomNameText.text = roomNameField.text;
+    }
+
+    [PunRPC]
+    public void SetPlayerList() {
+        Debug.Log("set player list");
+        playerCountText.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString();
+        string playerListStr = "";
+        foreach (Player item in PhotonNetwork.PlayerList)
+        {
+            Debug.Log("player : " + item.ToString());
+            playerListStr += item.NickName + "\n";
+        }
+        playerListText.text = playerListStr;
+    }
+
+    private void SpawnPlayer() {
         string characterName = "Ch_" + selectedCharacterNum.ToString();
         GameObject player = PhotonNetwork.Instantiate(characterName, Camera.main.transform.position, Quaternion.identity);
-        
+
         Camera.main.gameObject.SetActive(false);
         GameObject characterCamera = PhotonNetwork.Instantiate("characterCamera", player.transform.position, Quaternion.identity);
         characterCamera.GetComponent<CharacterCamera>().player = player;
-        
+
+
+        // GameObject nickName = PhotonNetwork.Instantiate("Nickname", player.transform.position, Quaternion.identity);
+        // nickName.transform.SetParent(canvas.transform);
+        // nickName.GetComponent<Text>().text = PhotonNetwork.NickName;
+        // nickName.GetComponent<Nickname>().player = player;
+    }
+
+    private void SetVoiceChat() {
         voiceManager.channelName = PhotonNetwork.CurrentRoom.Name;
         voiceManager.JoinChannel();
     }
@@ -91,6 +122,11 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
         Application.Quit();
     }
 
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        photonView.RPC("SetPlayerList", RpcTarget.All);
+    }
+
     private void OnDestroy()
     {
         if (PhotonNetwork.InRoom)
@@ -98,5 +134,4 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
             PhotonNetwork.LeaveRoom();
         }
     }
-
 }

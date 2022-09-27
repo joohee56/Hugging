@@ -4,12 +4,10 @@ using UnityEngine;
 using agora_gaming_rtc;
 using agora_utilities;
 
-public class VoiceManager : MonoBehaviour
-{
+public class VoiceManager : MonoBehaviour {
     [SerializeField]
     private string appId;
     public string channelName = "";
-
     public static VoiceManager instance;
 
     internal IRtcEngine RtcEngine = null;
@@ -17,22 +15,48 @@ public class VoiceManager : MonoBehaviour
     public GameObject micOn, micOff;
     public bool micMute = true;
 
-    private void Awake()
-    {
-        if (instance)
-        {
+    private void Awake() {
+        if(instance) {
             Destroy(gameObject);
         }
-        else
-        {
+        else {
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
     }
 
+
     // Start is called before the first frame update
-    void Start()
-    {
+    private void Start() {
+        InitVoiceChat();
+    }
+
+    private void Update() {
+        PermissionHelper.RequestMicrophontPermission();
+    }
+
+    public void JoinChannel() {
+        TokenClient.Instance.GetTokens(channelName, 0,
+            (rtcToken, rtmToken) => {
+            // join channel with token
+            ChannelMediaOptions options = new() {
+                    publishLocalAudio = false,
+                    autoSubscribeAudio = true,
+                    publishLocalVideo = false,
+                    autoSubscribeVideo = false
+                };
+                RtcEngine.JoinChannelByKey(rtcToken, channelName, null, 0);
+            }
+        );
+        RtcEngine.EnableAudio();
+
+        //RtcEngine.SetChannelProfile(CHANNEL_PROFILE.CHANNEL_PROFILE_LIVE_BROADCASTING);
+        RtcEngine.SetClientRole(CLIENT_ROLE_TYPE.CLIENT_ROLE_BROADCASTER);
+        RtcEngine.AdjustRecordingSignalVolume(0);
+    }
+
+    private void InitVoiceChat() {
         RtcEngine = IRtcEngine.getEngine(appId);
         RtcEngine.SetLogFilter(LOG_FILTER.DEBUG | LOG_FILTER.INFO | LOG_FILTER.WARNING | LOG_FILTER.ERROR | LOG_FILTER.CRITICAL);
 
@@ -41,62 +65,28 @@ public class VoiceManager : MonoBehaviour
         //RtcEngine.OnUserOffline = onUserOffline;
         RtcEngine.OnLeaveChannel += OnLeaveChannelHandler;
 
-        RtcEngine.OnWarning = (int warn, string msg) => {
+        RtcEngine.OnWarning = (int warn, string msg) =>
+        {
             Debug.LogWarningFormat("Warning code:{0} msg:{1}", warn, IRtcEngine.GetErrorDescription(warn));
         };
         RtcEngine.OnError = HandleError;
 
-        TokenClient.Instance.RtcEngine = RtcEngine;        
+        TokenClient.Instance.RtcEngine = RtcEngine;
     }
 
-    private void Update()
-    {
-        PermissionHelper.RequestMicrophontPermission();
-    }
-
-    public void JoinChannel()
-    {
-
-        //RtcEngine.SetDefaultMuteAllRemoteAudioStreams(true);
-      
-
-        TokenClient.Instance.GetTokens(channelName, 0,
-            (rtcToken, rtmToken) =>
-            {
-                // join channel with token
-                ChannelMediaOptions options = new()
-                {
-                    publishLocalAudio = false,
-                    autoSubscribeAudio = true,
-                    publishLocalVideo = false,
-                    autoSubscribeVideo = false
-                };               
-                RtcEngine.JoinChannelByKey(rtcToken, channelName, null, 0);
-            }
-        );
-        RtcEngine.EnableAudio();
-
-        //RtcEngine.SetChannelProfile(CHANNEL_PROFILE.CHANNEL_PROFILE_LIVE_BROADCASTING);
-        RtcEngine.SetClientRole(CLIENT_ROLE_TYPE.CLIENT_ROLE_BROADCASTER);
-
-    }
-
-    public void ToggleMicState()
-    {
+    public void ToggleMicState() {
         micMute = !micMute;
         micOn.SetActive(!micMute);
         micOff.SetActive(micMute);
 
-        if(micMute)
-        {
-            RtcEngine.MuteLocalAudioStream(true);
+        if(micMute) {
+            RtcEngine.AdjustRecordingSignalVolume(0);
 
             //RtcEngine.AdjustAudioMixingPublishVolume(0);
         }
-        else
-        {
+        else {
             //Configurat
-            RtcEngine.MuteLocalAudioStream(false);
+            RtcEngine.AdjustRecordingSignalVolume(100);
 
             //RtcEngine.AdjustAudioMixingPublishVolume(100);
         }
@@ -118,22 +108,20 @@ public class VoiceManager : MonoBehaviour
     //}
 
 
-    void OnLeaveChannelHandler(RtcStats stats)
-    {
+    void OnLeaveChannelHandler(RtcStats stats) {
         if(RtcEngine == null)
             return;
         RtcEngine.LeaveChannel();
     }
 
-    private void HandleError(int error, string msg)
-    {
+    private void HandleError(int error, string msg) {
         Debug.Log(string.Format("OnError err: {0}, msg: {1}", error, msg));
     }
 
-    private void OnDestroy()
-    {
+    private void OnDestroy() {
         Debug.Log("OnDestroy");
-        if (RtcEngine == null) return;
+        if(RtcEngine == null)
+            return;
         RtcEngine.LeaveChannel();
     }
 }

@@ -117,12 +117,12 @@ namespace agora_gaming_rtc
 
         public OnAudioDeviceStateChangedHandler OnAudioDeviceStateChanged;
 
-        public OnCameraReadyHandler OnCameraReady;
+      /*  public OnCameraReadyHandler OnCameraReady;
 
         public OnCameraFocusAreaChangedHandler OnCameraFocusAreaChanged;
 
         public OnCameraExposureAreaChangedHandler OnCameraExposureAreaChanged;
-       
+       */
         public OnRemoteAudioMixingBeginHandler OnRemoteAudioMixingBegin;
 
         public OnRemoteAudioMixingEndHandler OnRemoteAudioMixingEnd;
@@ -147,7 +147,8 @@ namespace agora_gaming_rtc
 
         public OnFirstRemoteAudioDecodedHandler OnFirstRemoteAudioDecoded;
 
-        //public OnLocalVideoStateChangedHandler OnLocalVideoStateChanged;
+/*        public OnLocalVideoStateChangedHandler OnLocalVideoStateChanged;
+*/
 
         public OnRtmpStreamingStateChangedHandler OnRtmpStreamingStateChanged;
 
@@ -4590,41 +4591,42 @@ namespace agora_gaming_rtc
             }
         }
 
-        //[MonoPInvokeCallback(typeof(OnFirstRemoteVideoDecodedHandler))]
-        //private static void OnFirstRemoteVideoDecodedCallback(uint uid, int width, int height, int elapsed)
-        //{
-        //    if (instance != null && instance.OnFirstRemoteVideoDecoded != null && instance._AgoraCallbackObject != null)
-        //    {
-        //        AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
-        //        if (!ReferenceEquals(queue, null))
-        //        {
-        //            queue.EnQueue(()=> {
-        //                if (instance != null && instance.OnFirstRemoteVideoDecoded != null)
-        //                { 
-        //                    instance.OnFirstRemoteVideoDecoded(uid, width, height, elapsed);
-        //                }
-        //            });
-        //        }
-        //    }
-        //}
+        /*[MonoPInvokeCallback(typeof(OnFirstRemoteVideoDecodedHandler))]
+        private static void OnFirstRemoteVideoDecodedCallback(uint uid, int width, int height, int elapsed)
+        {
+            if (instance != null && instance.OnFirstRemoteVideoDecoded != null && instance._AgoraCallbackObject != null)
+            {
+                AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
+                if (!ReferenceEquals(queue, null))
+                {
+                    queue.EnQueue(()=> {
+                        if (instance != null && instance.OnFirstRemoteVideoDecoded != null)
+                        { 
+                            instance.OnFirstRemoteVideoDecoded(uid, width, height, elapsed);
+                        }
+                    });
+                }
+            }
+        }
+*/
+        /*[MonoPInvokeCallback(typeof(OnVideoSizeChangedHandler))]
+        private static void OnVideoSizeChangedCallback(uint uid, int width, int height, int rotation)
+        {
+            if (instance != null && instance.OnVideoSizeChanged != null && instance._AgoraCallbackObject != null)
+            {
+                AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
+                if (!ReferenceEquals(queue, null))
+                {
+                    queue.EnQueue(()=> {
+                        if (instance != null && instance.OnVideoSizeChanged != null)
+                        { 
+                            instance.OnVideoSizeChanged(uid, width, height, rotation);
+                        }
+                    });
+                }
+            }
+        }*/
 
-        //[MonoPInvokeCallback(typeof(OnVideoSizeChangedHandler))]
-        //private static void OnVideoSizeChangedCallback(uint uid, int width, int height, int rotation)
-        //{
-        //    if (instance != null && instance.OnVideoSizeChanged != null && instance._AgoraCallbackObject != null)
-        //    {
-        //        AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
-        //        if (!ReferenceEquals(queue, null))
-        //        {
-        //            queue.EnQueue(()=> {
-        //                if (instance != null && instance.OnVideoSizeChanged != null)
-        //                { 
-        //                    instance.OnVideoSizeChanged(uid, width, height, rotation);
-        //                }
-        //            });
-        //        }
-        //    }
-        //}
 
         [MonoPInvokeCallback(typeof(EngineEventOnClientRoleChanged))]
         private static void OnClientRoleChangedCallback(int oldRole, int newRole)
@@ -4644,23 +4646,24 @@ namespace agora_gaming_rtc
             }
         }
 
-        //[MonoPInvokeCallback(typeof(OnUserMuteVideoHandler))]
-        //private static void OnUserMuteVideoCallback(uint uid, bool muted)
-        //{
-        //    if (instance != null && instance.OnUserMuteVideo != null && instance._AgoraCallbackObject != null)
-        //    {
-        //        AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
-        //        if (!ReferenceEquals(queue, null))
-        //        {
-        //            queue.EnQueue(()=> {
-        //                if (instance != null && instance.OnUserMuteVideo != null)
-        //                { 
-        //                    instance.OnUserMuteVideo(uid, muted);
-        //                }
-        //            });
-        //        }
-        //    }
-        //}
+        /*[MonoPInvokeCallback(typeof(OnUserMuteVideoHandler))]
+        private static void OnUserMuteVideoCallback(uint uid, bool muted)
+        {
+            if (instance != null && instance.OnUserMuteVideo != null && instance._AgoraCallbackObject != null)
+            {
+                AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
+                if (!ReferenceEquals(queue, null))
+                {
+                    queue.EnQueue(()=> {
+                        if (instance != null && instance.OnUserMuteVideo != null)
+                        { 
+                            instance.OnUserMuteVideo(uid, muted);
+                        }
+                    });
+                }
+            }
+        }*/
+
 
         [MonoPInvokeCallback(typeof(OnMicrophoneEnabledHandler))]
         private static void OnMicrophoneEnabledCallback(bool isEnabled)
@@ -4937,23 +4940,23 @@ namespace agora_gaming_rtc
             }
         }
 
-        //[MonoPInvokeCallback(typeof(OnVideoStoppedHandler))]
-        //private static void OnVideoStoppedCallback()
-        //{
-        //    if (instance != null && instance.OnVideoStopped != null && instance._AgoraCallbackObject != null)
-        //    {
-        //        AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
-        //        if (!ReferenceEquals(queue, null))
-        //        {
-        //            queue.EnQueue(()=> {
-        //                if (instance != null && instance.OnVideoStopped != null)
-        //                { 
-        //                    instance.OnVideoStopped();
-        //                }
-        //            });
-        //        }
-        //    }
-        //}
+       /* [MonoPInvokeCallback(typeof(OnVideoStoppedHandler))]
+        private static void OnVideoStoppedCallback()
+        {
+            if (instance != null && instance.OnVideoStopped != null && instance._AgoraCallbackObject != null)
+            {
+                AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
+                if (!ReferenceEquals(queue, null))
+                {
+                    queue.EnQueue(()=> {
+                        if (instance != null && instance.OnVideoStopped != null)
+                        { 
+                            instance.OnVideoStopped();
+                        }
+                    });
+                }
+            }
+        }
 
         //[MonoPInvokeCallback(typeof(OnFirstLocalVideoFrameHandler))]
         //private static void OnFirstLocalVideoFrameCallback(int width, int height, int elapsed)
@@ -5010,41 +5013,41 @@ namespace agora_gaming_rtc
         //}
 
 
-        //[MonoPInvokeCallback(typeof(OnUserEnableLocalVideoHandler))]
-        //private static void OnUserEnableLocalVideoCallback(uint uid, bool enabled)
-        //{
-        //    if (instance != null && instance.OnUserEnableLocalVideo != null && instance._AgoraCallbackObject != null)
-        //    {
-        //        AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
-        //        if (!ReferenceEquals(queue, null))
-        //        {
-        //            queue.EnQueue(()=> {
-        //                if (instance != null && instance.OnUserEnableLocalVideo != null)
-        //                { 
-        //                    instance.OnUserEnableLocalVideo(uid, enabled);
-        //                }
-        //            });
-        //        }
-        //    }
-        //}
+        [MonoPInvokeCallback(typeof(OnUserEnableLocalVideoHandler))]
+        private static void OnUserEnableLocalVideoCallback(uint uid, bool enabled)
+        {
+            if (instance != null && instance.OnUserEnableLocalVideo != null && instance._AgoraCallbackObject != null)
+            {
+                AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
+                if (!ReferenceEquals(queue, null))
+                {
+                    queue.EnQueue(()=> {
+                        if (instance != null && instance.OnUserEnableLocalVideo != null)
+                        { 
+                            instance.OnUserEnableLocalVideo(uid, enabled);
+                        }
+                    });
+                }
+            }
+        }*/
 
-        //[MonoPInvokeCallback(typeof(EngineEventOnRemoteVideoStateChanged))]
-        //private static void OnRemoteVideoStateChangedCallback(uint uid, int state, int reason, int elapsed)
-        //{
-        //    if (instance != null && instance.OnRemoteVideoStateChanged != null && instance._AgoraCallbackObject != null)
-        //    {
-        //        AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
-        //        if (!ReferenceEquals(queue, null))
-        //        {
-        //            queue.EnQueue(()=> {
-        //                if (instance != null && instance.OnRemoteVideoStateChanged != null)
-        //                { 
-        //                    instance.OnRemoteVideoStateChanged(uid, (REMOTE_VIDEO_STATE)state, (REMOTE_VIDEO_STATE_REASON)reason, elapsed);
-        //                }
-        //            });
-        //        }
-        //    }
-        //}
+       /* [MonoPInvokeCallback(typeof(EngineEventOnRemoteVideoStateChanged))]
+        private static void OnRemoteVideoStateChangedCallback(uint uid, int state, int reason, int elapsed)
+        {
+            if (instance != null && instance.OnRemoteVideoStateChanged != null && instance._AgoraCallbackObject != null)
+            {
+                AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
+                if (!ReferenceEquals(queue, null))
+                {
+                    queue.EnQueue(()=> {
+                        if (instance != null && instance.OnRemoteVideoStateChanged != null)
+                        { 
+                            instance.OnRemoteVideoStateChanged(uid, (REMOTE_VIDEO_STATE)state, (REMOTE_VIDEO_STATE_REASON)reason, elapsed);
+                        }
+                    });
+                }
+            }
+        }*/
 
 
         [MonoPInvokeCallback(typeof(OnLocalPublishFallbackToAudioOnlyHandler))]
@@ -5102,71 +5105,71 @@ namespace agora_gaming_rtc
             }
         }  
 
-        //[MonoPInvokeCallback(typeof(EngineEventOnLocalVideoStatsHandler))]
-        //private static void OnLocalVideoStatsCallback(int sentBitrate, int sentFrameRate, int encoderOutputFrameRate, int rendererOutputFrameRate, int targetBitrate, int targetFrameRate, int qualityAdaptIndication, int encodedBitrate, int encodedFrameWidth, int encodedFrameHeight, int encodedFrameCount, int codecType, ushort txPacketLossRate, int captureFrameRate, int captureBrightnessLevel)
-        //{
-        //    if (instance != null && instance.OnLocalVideoStats != null && instance._AgoraCallbackObject != null)
-        //    {
-        //        AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
-        //        if (!ReferenceEquals(queue, null))
-        //        {
-        //            queue.EnQueue(()=> {
-        //                if (instance != null && instance.OnLocalVideoStats != null)
-        //                { 
-        //                    LocalVideoStats localVideoStats = new LocalVideoStats();
-        //                    localVideoStats.sentBitrate = sentBitrate;
-        //                    localVideoStats.sentFrameRate = sentFrameRate;
-        //                    localVideoStats.encoderOutputFrameRate = encoderOutputFrameRate;
-        //                    localVideoStats.rendererOutputFrameRate = rendererOutputFrameRate;
-        //                    localVideoStats.targetBitrate = targetBitrate;
-        //                    localVideoStats.targetFrameRate = targetFrameRate;
-        //                    localVideoStats.qualityAdaptIndication = (QUALITY_ADAPT_INDICATION)qualityAdaptIndication;
-        //                    localVideoStats.encodedBitrate = encodedBitrate;
-        //                    localVideoStats.encodedFrameWidth = encodedFrameWidth;
-        //                    localVideoStats.encodedFrameHeight = encodedFrameHeight;
-        //                    localVideoStats.encodedFrameCount = encodedFrameCount;
-        //                    localVideoStats.codecType = (VIDEO_CODEC_TYPE)codecType;
-        //                    localVideoStats.txPacketLossRate = txPacketLossRate;
-        //                    localVideoStats.captureFrameRate = captureFrameRate;
-        //                    localVideoStats.captureBrightnessLevel  = (CAPTURE_BRIGHTNESS_LEVEL_TYPE)captureBrightnessLevel;
-        //                    instance.OnLocalVideoStats(localVideoStats);
-        //                }
-        //            });
-        //        }
-        //    }
-        //}  
+       /* [MonoPInvokeCallback(typeof(EngineEventOnLocalVideoStatsHandler))]
+        private static void OnLocalVideoStatsCallback(int sentBitrate, int sentFrameRate, int encoderOutputFrameRate, int rendererOutputFrameRate, int targetBitrate, int targetFrameRate, int qualityAdaptIndication, int encodedBitrate, int encodedFrameWidth, int encodedFrameHeight, int encodedFrameCount, int codecType, ushort txPacketLossRate, int captureFrameRate, int captureBrightnessLevel)
+        {
+            if (instance != null && instance.OnLocalVideoStats != null && instance._AgoraCallbackObject != null)
+            {
+                AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
+                if (!ReferenceEquals(queue, null))
+                {
+                    queue.EnQueue(()=> {
+                        if (instance != null && instance.OnLocalVideoStats != null)
+                        { 
+                            LocalVideoStats localVideoStats = new LocalVideoStats();
+                            localVideoStats.sentBitrate = sentBitrate;
+                            localVideoStats.sentFrameRate = sentFrameRate;
+                            localVideoStats.encoderOutputFrameRate = encoderOutputFrameRate;
+                            localVideoStats.rendererOutputFrameRate = rendererOutputFrameRate;
+                            localVideoStats.targetBitrate = targetBitrate;
+                            localVideoStats.targetFrameRate = targetFrameRate;
+                            localVideoStats.qualityAdaptIndication = (QUALITY_ADAPT_INDICATION)qualityAdaptIndication;
+                            localVideoStats.encodedBitrate = encodedBitrate;
+                            localVideoStats.encodedFrameWidth = encodedFrameWidth;
+                            localVideoStats.encodedFrameHeight = encodedFrameHeight;
+                            localVideoStats.encodedFrameCount = encodedFrameCount;
+                            localVideoStats.codecType = (VIDEO_CODEC_TYPE)codecType;
+                            localVideoStats.txPacketLossRate = txPacketLossRate;
+                            localVideoStats.captureFrameRate = captureFrameRate;
+                            localVideoStats.captureBrightnessLevel  = (CAPTURE_BRIGHTNESS_LEVEL_TYPE)captureBrightnessLevel;
+                            instance.OnLocalVideoStats(localVideoStats);
+                        }
+                    });
+                }
+            }
+        }  
 
-        //[MonoPInvokeCallback(typeof(EngineEventOnRemoteVideoStatsHandler))]
-        //private static void OnRemoteVideoStatsCallback(uint uid, int delay, int width, int height, int receivedBitrate, int decoderOutputFrameRate, int rendererOutputFrameRate, int packetLossRate, int rxStreamType, int totalFrozenTime, int frozenRate, int totalActiveTime, int publishDuration)
-        //{
-        //    if (instance != null && instance.OnRemoteVideoStats != null && instance._AgoraCallbackObject != null)
-        //    {
-        //        AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
-        //        if (!ReferenceEquals(queue, null))
-        //        {
-        //            queue.EnQueue(()=> {
-        //                if (instance != null && instance.OnRemoteVideoStats != null)
-        //                { 
-        //                    RemoteVideoStats remoteVideoStats = new RemoteVideoStats();
-        //                    remoteVideoStats.uid = uid;
-        //                    remoteVideoStats.delay = delay;
-        //                    remoteVideoStats.width = width;
-        //                    remoteVideoStats.height = height;
-        //                    remoteVideoStats.receivedBitrate = receivedBitrate;
-        //                    remoteVideoStats.decoderOutputFrameRate = decoderOutputFrameRate;
-        //                    remoteVideoStats.rendererOutputFrameRate = rendererOutputFrameRate;
-        //                    remoteVideoStats.packetLossRate = packetLossRate;
-        //                    remoteVideoStats.rxStreamType = (REMOTE_VIDEO_STREAM_TYPE)rxStreamType;
-        //                    remoteVideoStats.totalFrozenTime = totalFrozenTime;
-        //                    remoteVideoStats.frozenRate = frozenRate;
-        //                    remoteVideoStats.totalActiveTime = totalActiveTime;
-        //                    remoteVideoStats.publishDuration = publishDuration;
-        //                    instance.OnRemoteVideoStats(remoteVideoStats);
-        //                }
-        //            });
-        //        }
-        //    }
-        //} 
+        [MonoPInvokeCallback(typeof(EngineEventOnRemoteVideoStatsHandler))]
+        private static void OnRemoteVideoStatsCallback(uint uid, int delay, int width, int height, int receivedBitrate, int decoderOutputFrameRate, int rendererOutputFrameRate, int packetLossRate, int rxStreamType, int totalFrozenTime, int frozenRate, int totalActiveTime, int publishDuration)
+        {
+            if (instance != null && instance.OnRemoteVideoStats != null && instance._AgoraCallbackObject != null)
+            {
+                AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
+                if (!ReferenceEquals(queue, null))
+                {
+                    queue.EnQueue(()=> {
+                        if (instance != null && instance.OnRemoteVideoStats != null)
+                        { 
+                            RemoteVideoStats remoteVideoStats = new RemoteVideoStats();
+                            remoteVideoStats.uid = uid;
+                            remoteVideoStats.delay = delay;
+                            remoteVideoStats.width = width;
+                            remoteVideoStats.height = height;
+                            remoteVideoStats.receivedBitrate = receivedBitrate;
+                            remoteVideoStats.decoderOutputFrameRate = decoderOutputFrameRate;
+                            remoteVideoStats.rendererOutputFrameRate = rendererOutputFrameRate;
+                            remoteVideoStats.packetLossRate = packetLossRate;
+                            remoteVideoStats.rxStreamType = (REMOTE_VIDEO_STREAM_TYPE)rxStreamType;
+                            remoteVideoStats.totalFrozenTime = totalFrozenTime;
+                            remoteVideoStats.frozenRate = frozenRate;
+                            remoteVideoStats.totalActiveTime = totalActiveTime;
+                            remoteVideoStats.publishDuration = publishDuration;
+                            instance.OnRemoteVideoStats(remoteVideoStats);
+                        }
+                    });
+                }
+            }
+        } */
 
         [MonoPInvokeCallback(typeof(EngineEventOnRemoteAudioStatsHandler))]
         private static void OnRemoteAudioStatsCallback(uint uid, int quality, int networkTransportDelay, int jitterBufferDelay, int audioLossRate, int numChannels, int receivedSampleRate, int receivedBitrate, int totalFrozenTime, int frozenRate, int totalActiveTime, int publishDuration, int qoeQuality, int qualityChangedReason, int mosValue)
@@ -5220,7 +5223,7 @@ namespace agora_gaming_rtc
             }
         } 
 
-        [MonoPInvokeCallback(typeof(OnCameraReadyHandler))]
+      /*  [MonoPInvokeCallback(typeof(OnCameraReadyHandler))]
         private static void OnCameraReadyCallback()
         {
             if (instance != null && instance.OnCameraReady != null && instance._AgoraCallbackObject != null)
@@ -5272,7 +5275,7 @@ namespace agora_gaming_rtc
                     });
                 }
             }
-        } 
+        } */
 
         [MonoPInvokeCallback(typeof(OnRemoteAudioMixingBeginHandler))]
         private static void OnRemoteAudioMixingBeginCallback()
@@ -5327,42 +5330,42 @@ namespace agora_gaming_rtc
                 }
             }
         } 
+/*
+       [MonoPInvokeCallback(typeof(OnVideoDeviceStateChangedHandler))]
+        private static void OnVideoDeviceStateChangedCallback(string deviceId, int deviceType, int deviceState)
+        {
+            if (instance != null && instance.OnVideoDeviceStateChanged != null && instance._AgoraCallbackObject != null)
+            {
+                AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
+                if (!ReferenceEquals(queue, null))
+                {
+                    queue.EnQueue(()=> {
+                        if (instance != null && instance.OnVideoDeviceStateChanged != null)
+                        { 
+                            instance.OnVideoDeviceStateChanged(deviceId, deviceType, deviceState);
+                        }
+                    });
+                }
+            }
+        } 
 
-       //[MonoPInvokeCallback(typeof(OnVideoDeviceStateChangedHandler))]
-       // private static void OnVideoDeviceStateChangedCallback(string deviceId, int deviceType, int deviceState)
-       // {
-       //     if (instance != null && instance.OnVideoDeviceStateChanged != null && instance._AgoraCallbackObject != null)
-       //     {
-       //         AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
-       //         if (!ReferenceEquals(queue, null))
-       //         {
-       //             queue.EnQueue(()=> {
-       //                 if (instance != null && instance.OnVideoDeviceStateChanged != null)
-       //                 { 
-       //                     instance.OnVideoDeviceStateChanged(deviceId, deviceType, deviceState);
-       //                 }
-       //             });
-       //         }
-       //     }
-       // } 
-
-       //[MonoPInvokeCallback(typeof(OnRemoteVideoTransportStatsHandler))]
-       // private static void OnRemoteVideoTransportStatsCallback(uint uid, ushort delay, ushort lost, ushort rxKBitRate)
-       // {
-       //     if (instance != null && instance.OnRemoteVideoTransportStats != null && instance._AgoraCallbackObject != null)
-       //     {
-       //         AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
-       //         if (!ReferenceEquals(queue, null))
-       //         {
-       //             queue.EnQueue(()=> {
-       //                 if (instance != null && instance.OnRemoteVideoTransportStats != null)
-       //                 { 
-       //                     instance.OnRemoteVideoTransportStats(uid, delay, lost, rxKBitRate);
-       //                 }
-       //             });
-       //         }
-       //     }
-       // } 
+       [MonoPInvokeCallback(typeof(OnRemoteVideoTransportStatsHandler))]
+        private static void OnRemoteVideoTransportStatsCallback(uint uid, ushort delay, ushort lost, ushort rxKBitRate)
+        {
+            if (instance != null && instance.OnRemoteVideoTransportStats != null && instance._AgoraCallbackObject != null)
+            {
+                AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
+                if (!ReferenceEquals(queue, null))
+                {
+                    queue.EnQueue(()=> {
+                        if (instance != null && instance.OnRemoteVideoTransportStats != null)
+                        { 
+                            instance.OnRemoteVideoTransportStats(uid, delay, lost, rxKBitRate);
+                        }
+                    });
+                }
+            }
+        } */
 
         [MonoPInvokeCallback(typeof(OnRemoteAudioTransportStatsHandler))]
         private static void OnRemoteAudioTransportStatsCallback(uint uid, ushort delay, ushort lost, ushort rxKBitRate)
@@ -5480,33 +5483,34 @@ namespace agora_gaming_rtc
                 AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
                 if (!ReferenceEquals(queue, null))
                 {
-                    queue.EnQueue(()=> {
+                    queue.EnQueue(() =>
+                    {
                         if (instance != null && instance.OnFirstRemoteAudioDecoded != null)
-                        { 
+                        {
                             instance.OnFirstRemoteAudioDecoded(uid, elapsed);
                         }
                     });
                 }
             }
         }
-
-        //[MonoPInvokeCallback(typeof(EngineEventOnLocalVideoStateChanged))]
-        //private static void OnLocalVideoStateChangedCallback(int localVideoState, int error)
-        //{
-        //    if (instance != null && instance.OnLocalVideoStateChanged != null && instance._AgoraCallbackObject != null)
-        //    {
-        //        AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
-        //        if (!ReferenceEquals(queue, null))
-        //        {
-        //            queue.EnQueue(()=> {
-        //                if (instance != null && instance.OnLocalVideoStateChanged != null)
-        //                { 
-        //                    instance.OnLocalVideoStateChanged((LOCAL_VIDEO_STREAM_STATE)localVideoState, (LOCAL_VIDEO_STREAM_ERROR)error);
-        //                }
-        //            });
-        //        }
-        //    }
-        //}
+/*
+        [MonoPInvokeCallback(typeof(EngineEventOnLocalVideoStateChanged))]
+        private static void OnLocalVideoStateChangedCallback(int localVideoState, int error)
+        {
+            if (instance != null && instance.OnLocalVideoStateChanged != null && instance._AgoraCallbackObject != null)
+            {
+                AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
+                if (!ReferenceEquals(queue, null))
+                {
+                    queue.EnQueue(()=> {
+                        if (instance != null && instance.OnLocalVideoStateChanged != null)
+                        { 
+                            instance.OnLocalVideoStateChanged((LOCAL_VIDEO_STREAM_STATE)localVideoState, (LOCAL_VIDEO_STREAM_ERROR)error);
+                        }
+                    });
+                }
+            }
+        }*/
 
         [MonoPInvokeCallback(typeof(EngineEventOnRtmpStreamingStateChangedHandler))]
         private static void OnRtmpStreamingStateChangedCallback(string url, int state, int errCode)
@@ -5704,29 +5708,29 @@ namespace agora_gaming_rtc
                 }
             }
         }
-
-        //[MonoPInvokeCallback(typeof(EngineEventOnFacePositionChanged))]
-        //private static void OnFacePositionChangedCallback(int imageWidth, int imageHeight, int x, int y, int width, int height, int vecDistance, int numFaces)
-        //{
-        //    if (instance != null && instance.OnFacePositionChanged != null && instance._AgoraCallbackObject != null)
-        //    {
-        //        AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
-        //        if (!ReferenceEquals(queue, null))
-        //        {
-        //            queue.EnQueue(()=> {
-        //                if (instance != null && instance.OnFacePositionChanged != null)
-        //                {
-        //                    Rectangle vecRectangle = new Rectangle();
-        //                    vecRectangle.x = x;
-        //                    vecRectangle.y = y;
-        //                    vecRectangle.width = width;
-        //                    vecRectangle.height = height;
-        //                    instance.OnFacePositionChanged(imageWidth, imageHeight, vecRectangle, vecDistance, numFaces);
-        //                }
-        //            });
-        //        }
-        //    }
-        //}
+/*
+        [MonoPInvokeCallback(typeof(EngineEventOnFacePositionChanged))]
+        private static void OnFacePositionChangedCallback(int imageWidth, int imageHeight, int x, int y, int width, int height, int vecDistance, int numFaces)
+        {
+            if (instance != null && instance.OnFacePositionChanged != null && instance._AgoraCallbackObject != null)
+            {
+                AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
+                if (!ReferenceEquals(queue, null))
+                {
+                    queue.EnQueue(()=> {
+                        if (instance != null && instance.OnFacePositionChanged != null)
+                        {
+                            Rectangle vecRectangle = new Rectangle();
+                            vecRectangle.x = x;
+                            vecRectangle.y = y;
+                            vecRectangle.width = width;
+                            vecRectangle.height = height;
+                            instance.OnFacePositionChanged(imageWidth, imageHeight, vecRectangle, vecDistance, numFaces);
+                        }
+                    });
+                }
+            }
+        }*/
 
         [MonoPInvokeCallback(typeof(OnRtmpStreamingEventHandler))]
         private static void OnRtmpStreamingEventCallback(string url, RTMP_STREAMING_EVENT eventCode)
@@ -5764,23 +5768,23 @@ namespace agora_gaming_rtc
             }
         }
 
-        //[MonoPInvokeCallback(typeof(OnVideoPublishStateChangedHandler))]
-        //private static void OnVideoPublishStateChangeCallback(string channel, STREAM_PUBLISH_STATE oldState, STREAM_PUBLISH_STATE newState, int elapseSinceLastState)
-        //{
-        //    if (instance != null && instance.OnVideoPublishStateChanged != null && instance._AgoraCallbackObject != null)
-        //    {
-        //        AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
-        //        if (!ReferenceEquals(queue, null))
-        //        {
-        //            queue.EnQueue(()=> {
-        //                if (instance != null && instance.OnVideoPublishStateChanged != null)
-        //                {
-        //                    instance.OnVideoPublishStateChanged(channel, oldState, newState, elapseSinceLastState);
-        //                }
-        //            });
-        //        }
-        //    }
-        //}
+        /*[MonoPInvokeCallback(typeof(OnVideoPublishStateChangedHandler))]
+        private static void OnVideoPublishStateChangeCallback(string channel, STREAM_PUBLISH_STATE oldState, STREAM_PUBLISH_STATE newState, int elapseSinceLastState)
+        {
+            if (instance != null && instance.OnVideoPublishStateChanged != null && instance._AgoraCallbackObject != null)
+            {
+                AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
+                if (!ReferenceEquals(queue, null))
+                {
+                    queue.EnQueue(()=> {
+                        if (instance != null && instance.OnVideoPublishStateChanged != null)
+                        {
+                            instance.OnVideoPublishStateChanged(channel, oldState, newState, elapseSinceLastState);
+                        }
+                    });
+                }
+            }
+        }*/
 
        [MonoPInvokeCallback(typeof(OnAudioSubscribeStateChangedHandler))]
         private static void OnAudioSubscribeStateChangeCallback(string channel, uint uid, STREAM_SUBSCRIBE_STATE oldState, STREAM_SUBSCRIBE_STATE newState, int elapseSinceLastState)
@@ -5800,25 +5804,44 @@ namespace agora_gaming_rtc
             }
         }
 
-       //[MonoPInvokeCallback(typeof(OnVideoSubscribeStateChangedHandler))]
-       // private static void OnVideoSubscribeStateChangeCallback(string channel, uint uid, STREAM_SUBSCRIBE_STATE oldState, STREAM_SUBSCRIBE_STATE newState, int elapseSinceLastState)
-       // {
-       //     if (instance != null && instance.OnVideoSubscribeStateChanged != null && instance._AgoraCallbackObject != null)
-       //     {
-       //         AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
-       //         if (!ReferenceEquals(queue, null))
-       //         {
-       //             queue.EnQueue(()=> {
-       //                 if (instance != null && instance.OnVideoSubscribeStateChanged != null)
-       //                 {
-       //                     instance.OnVideoSubscribeStateChanged(channel, uid, oldState, newState, elapseSinceLastState);
-       //                 }
-       //             });
-       //         }
-       //     }
-       // }
+        /* [MonoPInvokeCallback(typeof(OnVideoSubscribeStateChangedHandler))]
+          private static void OnVideoSubscribeStateChangeCallback(string channel, uint uid, STREAM_SUBSCRIBE_STATE oldState, STREAM_SUBSCRIBE_STATE newState, int elapseSinceLastState)
+          {
+              if (instance != null && instance.OnVideoSubscribeStateChanged != null && instance._AgoraCallbackObject != null)
+              {
+                  AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
+                  if (!ReferenceEquals(queue, null))
+                  {
+                      queue.EnQueue(()=> {
+                          if (instance != null && instance.OnVideoSubscribeStateChanged != null)
+                          {
+                              instance.OnVideoSubscribeStateChanged(channel, uid, oldState, newState, elapseSinceLastState);
+                          }
+                      });
+                  }
+              }
+          }*/
 
-       [MonoPInvokeCallback(typeof(OnFirstLocalAudioFramePublishedHandler))]
+        /*
+               [MonoPInvokeCallback(typeof(OnFirstLocalVideoFramePublishedHandler))]
+                private static void OnFirstLocalVideoFramePublishedCallback(int elapsed)
+                {
+                    if (instance != null && instance.OnFirstLocalVideoFramePublished != null && instance._AgoraCallbackObject != null)
+                    {
+                        AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
+                        if (!ReferenceEquals(queue, null))
+                        {
+                            queue.EnQueue(()=> {
+                                if (instance != null && instance.OnFirstLocalVideoFramePublished != null)
+                                {
+                                    instance.OnFirstLocalVideoFramePublished(elapsed);
+                                }
+                            });
+                        }
+                    }
+                }*/
+
+        [MonoPInvokeCallback(typeof(OnFirstLocalAudioFramePublishedHandler))]
         private static void OnFirstLocalAudioFramePublishedCallback(int elapsed)
         {
             if (instance != null && instance.OnFirstLocalAudioFramePublished != null && instance._AgoraCallbackObject != null)
@@ -5826,7 +5849,7 @@ namespace agora_gaming_rtc
                 AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
                 if (!ReferenceEquals(queue, null))
                 {
-                    queue.EnQueue(()=> {
+                    queue.EnQueue(() => {
                         if (instance != null && instance.OnFirstLocalAudioFramePublished != null)
                         {
                             instance.OnFirstLocalAudioFramePublished(elapsed);
@@ -5836,25 +5859,7 @@ namespace agora_gaming_rtc
             }
         }
 
-       //[MonoPInvokeCallback(typeof(OnFirstLocalVideoFramePublishedHandler))]
-       // private static void OnFirstLocalVideoFramePublishedCallback(int elapsed)
-       // {
-       //     if (instance != null && instance.OnFirstLocalVideoFramePublished != null && instance._AgoraCallbackObject != null)
-       //     {
-       //         AgoraCallbackQueue queue = instance._AgoraCallbackObject._CallbackQueue;
-       //         if (!ReferenceEquals(queue, null))
-       //         {
-       //             queue.EnQueue(()=> {
-       //                 if (instance != null && instance.OnFirstLocalVideoFramePublished != null)
-       //                 {
-       //                     instance.OnFirstLocalVideoFramePublished(elapsed);
-       //                 }
-       //             });
-       //         }
-       //     }
-       // }
-
-       [MonoPInvokeCallback(typeof(OnUserSuperResolutionEnabledHandler))]
+        [MonoPInvokeCallback(typeof(OnUserSuperResolutionEnabledHandler))]
         private static void OnUserSuperResolutionEnabledCallback(uint uid, bool enabled, SUPER_RESOLUTION_STATE_REASON reason)
         {
             if (instance != null && instance.OnUserSuperResolutionEnabled != null && instance._AgoraCallbackObject != null)
@@ -5925,11 +5930,12 @@ namespace agora_gaming_rtc
                                       OnRtcStatsCallback,
                                       OnAudioMixingFinishedCallback,
                                       OnAudioRouteChangedCallback,
-                                      //OnFirstRemoteVideoDecodedCallback,
-                                      //OnVideoSizeChangedCallback,
+                                     /* OnFirstRemoteVideoDecodedCallback,
+                                      OnVideoSizeChangedCallback,*/
                                       OnClientRoleChangedCallback,
-                                      //OnUserMuteVideoCallback,
-                                      OnMicrophoneEnabledCallback,
+/*                                      OnUserMuteVideoCallback,
+*/                                      OnMicrophoneEnabledCallback,
+                                      
                                       OnApiExecutedCallback,
                                       OnFirstLocalAudioFrameCallback,
                                       OnFirstRemoteAudioFrameCallback,
@@ -5941,30 +5947,30 @@ namespace agora_gaming_rtc
                                       OnStreamMessageErrorCallback,
                                       OnStreamMessageCallback,
                                       OnConnectionBannedCallback,
-                                      //OnVideoStoppedCallback,
-                                      OnTokenPrivilegeWillExpireCallback,
+/*                                      OnVideoStoppedCallback,
+*/                                      OnTokenPrivilegeWillExpireCallback,
                                       OnNetworkQualityCallback,
-                                      //OnLocalVideoStatsCallback,
-                                      //OnRemoteVideoStatsCallback,
+                                     /* OnLocalVideoStatsCallback,
+                                      OnRemoteVideoStatsCallback,*/
                                       OnRemoteAudioStatsCallback,
-                                      //OnFirstLocalVideoFrameCallback,
-                                      //OnFirstRemoteVideoFrameCallback,
-                                      //OnUserEnableVideoCallback,
+                                     /* OnFirstLocalVideoFrameCallback,
+                                      OnFirstRemoteVideoFrameCallback,
+                                      OnUserEnableVideoCallback,*/
                                       OnAudioDeviceStateChangedCallback,
-                                      OnCameraReadyCallback,
+                                     /* OnCameraReadyCallback,
                                       OnCameraFocusAreaChangedCallback,
-                                      OnCameraExposureAreaChangedCallback,
+                                      OnCameraExposureAreaChangedCallback,*/
                                       OnRemoteAudioMixingBeginCallback,
                                       OnRemoteAudioMixingEndCallback,
                                       OnAudioEffectFinishedCallback,
-                                      //OnVideoDeviceStateChangedCallback,
-                                      //OnRemoteVideoStateChangedCallback,
-                                      //OnUserEnableLocalVideoCallback,
-                                      OnLocalPublishFallbackToAudioOnlyCallback,
+/*                                      OnVideoDeviceStateChangedCallback,
+*/                                      /*OnRemoteVideoStateChangedCallback,*/
+/*                                      OnUserEnableLocalVideoCallback,
+*/                                      OnLocalPublishFallbackToAudioOnlyCallback,
                                       OnRemoteSubscribeFallbackToAudioOnlyCallback,
                                       OnConnectionStateChangedCallback,
-                                      //OnRemoteVideoTransportStatsCallback,
-                                      OnRemoteAudioTransportStatsCallback,
+/*                                      OnRemoteVideoTransportStatsCallback,
+*/                                      OnRemoteAudioTransportStatsCallback,
                                       OnTranscodingUpdatedCallback,
                                       OnAudioDeviceVolumeChangedCallback,
                                       OnActiveSpeakerCallback,
@@ -5972,8 +5978,8 @@ namespace agora_gaming_rtc
                                       OnMediaEngineLoadSuccessCallback,
                                       OnAudioMixingStateChangedCallback,
                                       OnFirstRemoteAudioDecodedCallback,
-                                      //OnLocalVideoStateChangedCallback,
-                                      OnRtmpStreamingStateChangedCallback,
+/*                                      OnLocalVideoStateChangedCallback,
+*/                                      OnRtmpStreamingStateChangedCallback,
                                       OnNetworkTypeChangedCallback,
                                       OnLastmileProbeResultCallback,
                                       OnLocalUserRegisteredCallback,
@@ -5983,15 +5989,15 @@ namespace agora_gaming_rtc
                                       OnLocalAudioStatsCallback,
                                       OnChannelMediaRelayStateChangedCallback,
                                       OnChannelMediaRelayEventCallback,
-                                      //OnFacePositionChangedCallback,
-                                      OnRtmpStreamingEventCallback,
+/*                                      OnFacePositionChangedCallback,
+*/                                      OnRtmpStreamingEventCallback,
                                       OnAudioPublishStateChangeCallback,
-                                      //OnVideoPublishStateChangeCallback,
-                                      OnAudioSubscribeStateChangeCallback,
-                                      //OnVideoSubscribeStateChangeCallback,
-                                      OnFirstLocalAudioFramePublishedCallback,
-                                      //OnFirstLocalVideoFramePublishedCallback,
-                                      OnUserSuperResolutionEnabledCallback,
+/*                                      OnVideoPublishStateChangeCallback,
+*/                                      OnAudioSubscribeStateChangeCallback,
+/*                                      OnVideoSubscribeStateChangeCallback,
+*/                                      OnFirstLocalAudioFramePublishedCallback,
+/*                                      OnFirstLocalVideoFramePublishedCallback,
+*/                                      OnUserSuperResolutionEnabledCallback,           
                                       OnUploadLogResultCallback,
                                       OnVirtualBackgroundSourceEnabledCallback);
         }
