@@ -22,10 +22,10 @@ public class BearerAuthInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
 		System.out.println(">>> interceptor.preHande 호출");
 		String token = authorizationExtractor.extract(request, "Bearer");
-		if (StringUtils.isEmpty(token)){
+		if (StringUtils.isEmpty(token)) {
 			return true;
 		}
-		if(!jwtTokenProvider.validateToken(token)) {
+		if (!jwtTokenProvider.validateToken(token)) {
 			throw new IllegalArgumentException("토큰이 유효하지 않습니다.");
 		}
 

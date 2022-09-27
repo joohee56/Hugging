@@ -31,7 +31,7 @@ public class MemberController {
 
 	@GetMapping("/{id}")
 	@ApiOperation(value = "Id로 회원정보 조회", notes = "회원 ID 값으로 회원 상세 정보 모두 조회")
-	public ResponseEntity<MemberResponse> getMemberInfo(@PathVariable Integer id){
+	public ResponseEntity<MemberResponse> getMemberInfo(@PathVariable Integer id) {
 		return new ResponseEntity<>(memberService.getMemberById(id), HttpStatus.OK);
 	}
 
@@ -56,12 +56,11 @@ public class MemberController {
 		}
 	}
 
-
 	@PostMapping("/join")
 	@ApiOperation(value = "카카오 회원가입 및 로그인", notes = "카카오 새로운 유저 회원가입/로그인")
 	public ResponseEntity<String> kakaoJoinAndLogin(@RequestBody MemberJoinRequest memberJoinRequest) {
 		memberService.join(memberJoinRequest);
-		Integer memberId = memberService.login(memberJoinRequest.getEmail()).getId();	//PK 반환
+		Integer memberId = memberService.login(memberJoinRequest.getEmail()).getId();    //PK 반환
 		return new ResponseEntity<>(jwtTokenProvider.createToken(String.valueOf(memberId)), HttpStatus.OK);
 	}
 
