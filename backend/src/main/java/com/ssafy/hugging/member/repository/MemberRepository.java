@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.ssafy.hugging.member.domain.Member;
 
 @Repository
-public interface MemberRepository extends JpaRepository<Member, Long> {
+public interface MemberRepository extends JpaRepository<Member, Integer> {
 	Optional<Member> findByEmail(String email);
 }

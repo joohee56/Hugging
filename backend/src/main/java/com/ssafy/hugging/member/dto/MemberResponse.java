@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ssafy.hugging.counsel.domain.Counsel;
-import com.ssafy.hugging.review.domain.CounselorReview;
 import com.ssafy.hugging.favorite.domain.FavoriteCounselor;
 import com.ssafy.hugging.member.domain.Member;
 import com.ssafy.hugging.model.Gender;
+import com.ssafy.hugging.review.domain.CounselorReview;
 
 import lombok.Getter;
 
@@ -30,6 +30,6 @@ public class MemberResponse {
 		age = member.getAge();
 		nickname = member.getNickname();
 		gender = member.getGender();
-		profileImage = member.getProfileImage();
+		profileImage = member.getProfile_image();
 	}
 }
