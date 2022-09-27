@@ -5,6 +5,7 @@ import CounselorRecommList from "../../components/counsel/CounselorRecommList";
 import classes from "./ReserveCounsel.module.css";
 import Header from "../../Layout/Header";
 import CounselCalendar from "../../components/counsel/CounselCalendar";
+import CounselTime from "../../components/counsel/CounselTime";
 
 const DUMMY_RESERVE = [
   {
@@ -34,7 +35,7 @@ const DUMMY_COUNSELOR = [
   {
     id: "c2",
     name: "김호진",
-    field: "우울",
+    field: "가족관계",
     score: 3.5,
   },
   {
@@ -53,7 +54,7 @@ const ReserveCounsel = () => {
       <CounselSubjectList />
       <CounselorRecommList counselors={DUMMY_COUNSELOR} />
       <CounselCalendar />
-      <div> Time </div>
+      <CounselTime />
       <div className={classes.btn}>
         <button>예약</button>
       </div>

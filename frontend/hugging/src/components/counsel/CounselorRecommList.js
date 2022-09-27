@@ -1,14 +1,16 @@
 import classes from "./CounselorRecommList.module.css";
-import { Fragment} from "react";
+import { Fragment } from "react";
 import CounselorRecommItem from "./CounselorRecommItem";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const CounselRecommList = (props) => {
   return (
     <Fragment>
       <div>
         <span className={classes.title}>추천 상담사</span>
-        <Link to="/" className={classes.more}>더보기</Link>
+        <Link to="/" className={classes.more}>
+          더보기
+        </Link>
       </div>
       <div>
         <div className={classes.counselor}>
