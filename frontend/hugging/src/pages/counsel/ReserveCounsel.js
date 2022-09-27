@@ -3,8 +3,9 @@ import MyReservationList from "../../components/counsel/MyReservationList";
 import CounselSubjectList from "../../components/counsel/CounselSubjectList";
 import CounselorRecommList from "../../components/counsel/CounselorRecommList";
 import classes from "./ReserveCounsel.module.css";
-import FooterNavigation from "../../Layout/FooterNavigation";
 import Header from "../../Layout/Header";
+import CounselCalendar from "../../components/counsel/CounselCalendar";
+
 const DUMMY_RESERVE = [
   {
     id: "r1",
@@ -51,7 +52,7 @@ const ReserveCounsel = () => {
       <MyReservationList reservations={DUMMY_RESERVE} />
       <CounselSubjectList />
       <CounselorRecommList counselors={DUMMY_COUNSELOR} />
-      <div> Calendar</div>
+      <CounselCalendar />
       <div> Time </div>
       <div className={classes.btn}>
         <button>예약</button>
