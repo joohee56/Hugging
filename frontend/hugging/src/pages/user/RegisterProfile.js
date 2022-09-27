@@ -50,7 +50,7 @@ function RegisterProfile() {
           sessionStorage.setItem('token', res.data)
           sessionStorage.setItem('isSocialLogin', true)
           let userId = jwt_decode(res.data)
-          console.log(userId.sub)})
+          console.log(userId)})
         // .catch((res) => {
         //         console.log(body);
         //         console.log("error");
