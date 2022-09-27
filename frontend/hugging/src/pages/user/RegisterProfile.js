@@ -34,28 +34,26 @@ function RegisterProfile() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    const email = localStorage.getItem('email')
     let body = {
       nickname,
       age,
       gender,
+      emotion: user.emotion,
+      email,
     };
 
-    dispatch(changeUser(body)).then((res) => {
-      if (res.payload.status === 200) {
-        axios
-          .post(API_HOST_URL + "members/join", user)
-          .then((res) => {
+    axios.post(API_HOST_URL + "members/join", body)
+      .then((res) => {
             console.log(res);
-            console.log(user);
+            console.log(body);
           })
-          .catch((res) => {
-            console.log(user);
+      .catch((res) => {
+            console.log(body);
             console.log("error");
           });
       }
-    });
-  };
+
 
   return (
     <>
