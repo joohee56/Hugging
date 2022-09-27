@@ -4,7 +4,7 @@ import styles from "./RegisterProfile.module.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
-import { changeUser } from "../../store";
+import { changeUser, loginUser } from "../../store";
 import promiseMiddleware from "redux-promise";
 import { API_HOST_URL } from "../../config";
 import jwt_decode from 'jwt-decode';
@@ -49,7 +49,20 @@ function RegisterProfile() {
           sessionStorage.setItem('token', res.data)
           sessionStorage.setItem('isSocialLogin', true)
           let userId = jwt_decode(res.data)
-          console.log(userId)
+
+          axios({
+            url: 'https://i7b204.p.ssafy.io/api/members/'+userId,
+            method: "GET",
+            params: {
+                id: userId,
+              },
+          })
+          })
+          .then((res)=> {
+            dispatch(loginUser(res))
+          })
+          .catch((err) =>{
+            console.log(err)
           })
       .catch((res) => {
             console.log(body);

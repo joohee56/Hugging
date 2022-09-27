@@ -50,9 +50,12 @@ let user = createSlice({
         state.emotion.push(action.payload)},
       
       loginUser(state, action) {       
-          state.name = action.payload.name;
+          state.nickname = action.payload.nickname;
           state.email = action.payload.email;
-          state.isLoggined = true;
+          state.emotion = action.payload.emotion;
+          state.age = action.payload.age;
+          state.profileImage = action.payload.profileImage;
+          state.gender = action.payload.gender;
 
       },
       clearUser: (state) => {
