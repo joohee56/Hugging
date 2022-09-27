@@ -49,24 +49,26 @@ function RegisterProfile() {
           sessionStorage.setItem('token', res.data)
           sessionStorage.setItem('isSocialLogin', true)
           let userId = jwt_decode(res.data)
-          console.log(userId.sub)})
-          // axios({
-          //   url: 'https://i7b204.p.ssafy.io/api/members/'+userId.sub,
-          //   method: "GET",
-          //   params: {
-          //       id: userId,
-          //     },
-          // })
-      //     .then((res)=> {
-      //       console.log('성공')
-      //       dispatch(loginUser(res))
-      //     })
-      //     .catch((err) =>{
-      //       console.log('실패')
-      //       console.log(err)
-      // });
-      }
-
+          axios({
+            url: 'https://i7b204.p.ssafy.io/api/members/'+userId.sub,
+            method: "GET",
+            params: {
+                id: userId.sub,
+              },
+          })
+          .then((res)=> {
+            console.log('성공')
+            dispatch(loginUser(res))
+          })
+          .catch((err) =>{
+            console.log('실패')
+            console.log(err)
+      });
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
+    }
   return (
     <>
       <div className={styles.category_title}>
