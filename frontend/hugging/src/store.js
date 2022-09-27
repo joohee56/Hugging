@@ -56,7 +56,6 @@ let user = createSlice({
           state.age = action.payload.age;
           state.profileImage = action.payload.profileImage;
           state.gender = action.payload.gender;
-
       },
       clearUser: (state) => {
         state.name = "";

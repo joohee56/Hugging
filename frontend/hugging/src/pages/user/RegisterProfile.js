@@ -51,10 +51,10 @@ function RegisterProfile() {
           sessionStorage.setItem('isSocialLogin', true)
           let userId = jwt_decode(res.data)
           console.log(userId.sub)})
-        .catch((res) => {
-                console.log(body);
-                console.log("error");
-              });
+        // .catch((res) => {
+        //         console.log(body);
+        //         console.log("error");
+        //       });
           // axios({
           //   url: 'https://i7b204.p.ssafy.io/api/members/'+userId,
           //   method: "GET",
