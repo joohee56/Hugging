@@ -27,14 +27,14 @@ const RedirectUri = (props) => {
     })
       .then((res) => {
         console.log(res.data)
-      //   console.log(res.data)
-      //   if (!res.data.newMember) {
-      //   const ACCESS_TOKEN = res.data.token;
-      //   const email = res.data.email;
-      //   localStorage.setItem("token", ACCESS_TOKEN);
-      //   localStorage.setItem("email", email);
-      //   sessionStorage.setItem('isSocialLogin', true)
-      //   let userId = jwt_decode(res.data)
+        if (!res.data.newMember) {
+        const ACCESS_TOKEN = res.data.token;
+        const email = res.data.email;
+        localStorage.setItem("token", ACCESS_TOKEN);
+        localStorage.setItem("email", email);
+        sessionStorage.setItem('isSocialLogin', true)
+        let userId = jwt_decode(res.data)
+        console.log(userId)}
       //   axios({
       //     url: 'https://j7b204.p.ssafy.io/api/members/'+userId.sub,
       //      method: "GET"
