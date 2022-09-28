@@ -16,7 +16,7 @@ import MediaView from "./pages/media/MediaView";
 import MusicPlayingPage from "./pages/media/MusicPlayingPage";
 import ReserveCounsel from "./pages/counsel/ReserveCounsel";
 import SelectCounsel from "./pages/counsel/SelectCounsel";
-
+import CounselCommunity from "./pages/counsel/CounselCommunity";
 // import scrollbar from 'smooth-scrollbar';
 
 // // smooth scroll 설정
@@ -40,9 +40,13 @@ function App() {
         <Route path="/profile_img" element={<></>}></Route>
         <Route path="/recommend_media" element={<MediaView />} />
         <Route path="/playing_music" element={<MusicPlayingPage />} />
-        <Route path="/counsel/reserve" element={<ReserveCounsel />} />
+        <Route path="/counselreserve" element={<ReserveCounsel />} />
         <Route path="/" element={<SelectCounsel />} />
-        <Route path="/counsel/select" element={<SelectCounsel />}></Route>
+        <Route path="/counselselect" element={<SelectCounsel />}></Route>
+        <Route
+          path="/counselcommunity"
+          element={<CounselCommunity></CounselCommunity>}
+        ></Route>
       </Routes>
     </div>
   );
