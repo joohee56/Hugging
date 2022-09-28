@@ -47,6 +47,10 @@ function UserLogin() {
           <p className={styles.kakaoBtn_title}> 카카오 로그인 / 회원가입</p>
           <div className={styles.kakao_logo}></div>
         </button>
+        <button className={styles.KakaoBtn}>
+          <p className={styles.kakaoBtn_title}> 로그아웃</p>
+          <div className={styles.kakao_logo}></div>
+        </button>
       </a>
       {/* <Route path="/oauth/kakao/callback">
             <Auth />

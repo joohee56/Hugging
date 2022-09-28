@@ -46,12 +46,14 @@ function RegisterProfile() {
 
     axios.post(API_HOST_URL + "members/join", body)
       .then((res) => {
+        if (res.data.email) {
+          if (!res.data.newMember) {
           sessionStorage.setItem('token', res.data)
           sessionStorage.setItem('isSocialLogin', true)
           let userId = jwt_decode(res.data)
           axios({
             url: 'https://j7b204.p.ssafy.io/api/members/'+userId.sub,
-            method: "GET"
+             method: "GET"
           })
           .then((res)=> {
             console.log('성공')
@@ -64,8 +66,8 @@ function RegisterProfile() {
           .catch((err) =>{
             console.log('실패')
             console.log(err)
-      });
-      })
+        });}
+      }})
       .catch((err)=>{
         console.log(err)
       })
