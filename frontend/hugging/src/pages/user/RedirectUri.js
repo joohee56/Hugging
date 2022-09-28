@@ -27,40 +27,41 @@ const RedirectUri = (props) => {
     })
       .then((res) => {
         console.log(res.data)
-        if (!res.data.newMember) {
-        const ACCESS_TOKEN = res.data.token;
-        const email = res.data.email;
-        localStorage.setItem("token", ACCESS_TOKEN);
-        localStorage.setItem("email", email);
-        sessionStorage.setItem('isSocialLogin', true)
-        let userId = jwt_decode(res.data)
-        axios({
-          url: 'https://j7b204.p.ssafy.io/api/members/'+userId.sub,
-           method: "GET"
-        })
-        .then((res)=> {
-          console.log('성공')
-          console.log(res.data)
-          localStorage.setItem('userprofile', JSON.stringify(res.data))
-        })
-        .then((res)=>{
-          console.log(user)
-        })
-        .catch((err) =>{
-          console.log('실패')
-          console.log(err)
-        navigate("/")})}
-        else {
-          const email = res.data.email;
-          localStorage.setItem("email", email);
-          navigate("/category");
-        }
-      })
-      .catch((err) => {
-        console.log("소셜로그인 에러", err);
-        window.alert("로그인에 실패하였습니다.");
-        navigate("/login");
-      });
+      //   console.log(res.data)
+      //   if (!res.data.newMember) {
+      //   const ACCESS_TOKEN = res.data.token;
+      //   const email = res.data.email;
+      //   localStorage.setItem("token", ACCESS_TOKEN);
+      //   localStorage.setItem("email", email);
+      //   sessionStorage.setItem('isSocialLogin', true)
+      //   let userId = jwt_decode(res.data)
+      //   axios({
+      //     url: 'https://j7b204.p.ssafy.io/api/members/'+userId.sub,
+      //      method: "GET"
+      //   })
+      //   .then((res)=> {
+      //     console.log('성공')
+      //     console.log(res.data)
+      //     localStorage.setItem('userprofile', JSON.stringify(res.data))
+      //   })
+      //   .then((res)=>{
+      //     console.log(user)
+      //   })
+      //   .catch((err) =>{
+      //     console.log('실패')
+      //     console.log(err)
+      //   navigate("/")})}
+      //   else {
+      //     const email = res.data.email;
+      //     localStorage.setItem("email", email);
+      //     navigate("/category");
+      //   }
+      // })
+      // .catch((err) => {
+      //   console.log("소셜로그인 에러", err);
+      //   window.alert("로그인에 실패하였습니다.");
+      //   navigate("/login");
+      // });
   }, []);
 
   return (
