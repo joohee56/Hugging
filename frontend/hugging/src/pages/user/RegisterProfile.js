@@ -55,7 +55,10 @@ function RegisterProfile() {
           })
           .then((res)=> {
             console.log('성공')
-            dispatch(loginUser(res))
+            console.log(res.data)
+            localStorage.SetItem(res.data)
+          })
+          .then((res)=>{
             console.log(user)
           })
           .catch((err) =>{
