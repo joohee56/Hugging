@@ -5,8 +5,8 @@ import UserLogin from "./pages/user/UserLogin.js";
 import CounselorLogin from "./pages/counselor/CounselorLogin";
 import RegisterCategory from "./pages/user/RegisterCategory";
 import RegisterProfile from "./pages/user/RegisterProfile";
-import Navbar from "./components/UI/NavBar";
-import Nav from "./components/UI/Nav";
+import Navbar from "./components/ui/NavBar";
+import Nav from "./components/ui/Nav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import MyCalendar from "./components/counselor/MyCalendar";
@@ -15,6 +15,7 @@ import RedirectUri from "./pages/user/RedirectUri";
 import MediaView from "./pages/media/MediaView";
 import MusicPlayingPage from "./pages/media/MusicPlayingPage";
 import ReserveCounsel from "./pages/counsel/ReserveCounsel";
+import MainPage from "./pages/main/MainPage";
 
 // import scrollbar from 'smooth-scrollbar';
 
@@ -40,6 +41,7 @@ function App() {
         <Route path="/recommend_media" element={<MediaView />} />
         <Route path="/playing_music" element={<MusicPlayingPage />} />
         <Route path="/counselReserve" element={<ReserveCounsel />} />
+        <Route path="/main" element={<MainPage/>}/>
       </Routes>
     </div>
   );
