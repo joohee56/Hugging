@@ -50,7 +50,9 @@ function UserLogin() {
           <div className={styles.kakao_logo}></div>
         </button>
       </a>
-        <button className={styles.KakaoBtn} onClick={()=>{
+
+      {/* 로그 아웃 기능 (지우지 마시오) */}
+        {/* <button className={styles.KakaoBtn} onClick={()=>{
           sessionStorage.removeItem('token')
           localStorage.removeItem('userprofile')
           localStorage.removeItem('emotion')
@@ -60,7 +62,8 @@ function UserLogin() {
         }}>
           <p className={styles.kakaoBtn_title}> 로그아웃</p>
           <div className={styles.kakao_logo}></div>
-        </button>
+        </button> */}
+        
       {/* <Route path="/oauth/kakao/callback">
             <Auth />
         </Route> */}
