@@ -9,8 +9,9 @@ function PlayingPageIcon () {
   return (
     <>
     <div className={styles.Icon}>
-      <img src='./Heart.png' alt='image' className={styles.image}></img>
-      <img src='./X.png' alt='image' className={styles.image}></img>
+      <a href='/recommend_media'>
+        <img src='./X.png' alt='image' className={styles.image}></img>
+      </a>
     </div>
     </>
   );
