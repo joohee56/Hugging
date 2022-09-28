@@ -56,7 +56,7 @@ function RegisterProfile() {
           .then((res)=> {
             console.log('성공')
             console.log(res.data)
-            localStorage.setItem(res.data)
+            localStorage.setItem('userprofile', res.data)
           })
           .then((res)=>{
             console.log(user)
