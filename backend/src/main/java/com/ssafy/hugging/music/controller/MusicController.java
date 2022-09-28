@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/music")
+@RequestMapping("/musics")
 @RequiredArgsConstructor
 public class MusicController {
 
