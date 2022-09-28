@@ -67,6 +67,9 @@ function RegisterProfile() {
             console.log('실패')
             console.log(err)
         });}
+        else {
+          navigate('/')
+        }
       }})
       .catch((err)=>{
         console.log(err)
