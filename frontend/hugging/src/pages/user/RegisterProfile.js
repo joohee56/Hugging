@@ -51,12 +51,12 @@ function RegisterProfile() {
           let userId = jwt_decode(res.data)
           axios({
             url: 'https://j7b204.p.ssafy.io/api/members/'+userId.sub,
-            method: "GET",
+            method: "GET"
           })
           .then((res)=> {
             console.log('성공')
             console.log(res.data)
-            localStorage.setItem('userprofile', res.data)
+            localStorage.setItem('userprofile', JSON.stringify(res.data))
           })
           .then((res)=>{
             console.log(user)
