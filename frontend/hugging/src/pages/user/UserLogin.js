@@ -53,6 +53,9 @@ function UserLogin() {
         <button className={styles.KakaoBtn} onClick={()=>{
           sessionStorage.removeItem('token')
           localStorage.removeItem('userprofile')
+          localStorage.removeItem('emotion')
+          localStorage.removeItem('code')
+          sessionStorage.removeItem('isSocialLogin')
           navigate('/login')
         }}>
           <p className={styles.kakaoBtn_title}> 로그아웃</p>

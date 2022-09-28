@@ -46,6 +46,7 @@ function RegisterProfile() {
 
     axios.post(API_HOST_URL + "members/join", body)
       .then((res) => {
+        if (res.data.newMember){
           sessionStorage.setItem('token', res.data)
           sessionStorage.setItem('isSocialLogin', true)
           let userId = jwt_decode(res.data)
@@ -64,8 +65,12 @@ function RegisterProfile() {
           .catch((err) =>{
             console.log('실패')
             console.log(err)
-        });
-      })
+            });}
+           else{
+
+              } 
+            })
+      
       .catch((err)=>{
         console.log(err)
       })
