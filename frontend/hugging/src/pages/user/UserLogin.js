@@ -31,12 +31,6 @@ function UserLogin() {
   const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URL;
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
  
-  const logoutWithKakao = () => {
-        sessionStorage.removeItem('token')
-        localStorage.removeItem('userprofile')
-        console.log('아니다')
-
-  };
 
   useEffect(()=>{
     localStorage.setItem("emotion", JSON.stringify([]))
@@ -56,7 +50,11 @@ function UserLogin() {
           <div className={styles.kakao_logo}></div>
         </button>
       </a>
-        <button className={styles.KakaoBtn} onClick={logoutWithKakao()}>
+        <button className={styles.KakaoBtn} onClick={()=>{
+          sessionStorage.removeItem('token')
+          localStorage.removeItem('userprofile')
+          navigate('/login')
+        }}>
           <p className={styles.kakaoBtn_title}> 로그아웃</p>
           <div className={styles.kakao_logo}></div>
         </button>
