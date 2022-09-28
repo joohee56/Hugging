@@ -21,12 +21,17 @@ const RedirectUri = (props) => {
       },
     })
       .then((res) => {
-        console.log(res);
+        if (!res.data.newMember) {
         const ACCESS_TOKEN = res.data.token;
         const email = res.data.email;
         localStorage.setItem("token", ACCESS_TOKEN);
         localStorage.setItem("email", email);
-        navigate("/category");
+        navigate("/");}
+        else {
+          const email = res.data.email;
+          localStorage.setItem("email", email);
+          navigate("/category");
+        }
       })
       .catch((err) => {
         console.log("소셜로그인 에러", err);
