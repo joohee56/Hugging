@@ -6,6 +6,7 @@ import KaKaoLogin from "react-kakao-login";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useParams } from "react-router";
+import { clear } from "@testing-library/user-event/dist/clear";
 // import { KAKAO_AUTH_URL } from "./OAuth";
 
 // let KakaoBtn = styled.button`
@@ -30,19 +31,13 @@ function UserLogin() {
   const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URL;
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
  
-  const KakaoLogout = () => {
-    if (window.Kakao.Auth.getAccessToken()) {
-      window.Kakao.API.request({
-        url: '/v1/user/unlink',
-        success: function (response) {
-          console.log(response);
-        },
-        fail: function (error) {
-          console.log(error);
-        },
-      });
-      alert('로그아웃이 완료되었습니다.');
-      window.Kakao.Auth.setAccessToken(undefined);
+  const logoutWithKakao = () => {
+    if (localStorage.token != null ) {
+        sessionStorage.removeItem('token')
+        localStorage.removeItem('userprofile')
+      }
+    else {
+      console.log('아니다')
     }
   };
 
@@ -64,7 +59,7 @@ function UserLogin() {
           <div className={styles.kakao_logo}></div>
         </button>
       </a>
-        <button className={styles.KakaoBtn} onClick={()=>KakaoLogout()}>
+        <button className={styles.KakaoBtn} onClick={logoutWithKakao()}>
           <p className={styles.kakaoBtn_title}> 로그아웃</p>
           <div className={styles.kakao_logo}></div>
         </button>
