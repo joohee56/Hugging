@@ -36,13 +36,15 @@ public class MusicController {
 	@GetMapping("/category")
 	@ApiOperation(value = "카테고리 전제 조회", notes = "카테고리 전제 목록 조회")
 	public ResponseEntity<?> getAllCategories() {
-		return response.success(musicService.getAllMusicCategories(), GET_ALL_CATEGORIES_SUCCESS_MESSAGE, HttpStatus.OK);
+		return response.success(musicService.getAllMusicCategories(), GET_ALL_CATEGORIES_SUCCESS_MESSAGE,
+			HttpStatus.OK);
 	}
 
 	@GetMapping("/category/{id}")
 	@ApiOperation(value = "카테고리 단건 조회", notes = "카테고리 id값으로 단건 조회")
 	public ResponseEntity<?> getMusicCategoryById(@PathVariable Integer id) {
-		return response.success(musicService.getMusicCategoryById(id), GET_MUSIC_CATEGORY_BY_ID_SUCCESS_MESSAGE, HttpStatus.OK);
+		return response.success(musicService.getMusicCategoryById(id), GET_MUSIC_CATEGORY_BY_ID_SUCCESS_MESSAGE,
+			HttpStatus.OK);
 	}
 
 	@GetMapping("/getTophits")
