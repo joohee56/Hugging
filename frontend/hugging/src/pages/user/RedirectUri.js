@@ -62,7 +62,8 @@ const RedirectUri = (props) => {
       //   window.alert("로그인에 실패하였습니다.");
       //   navigate("/login");
       // });
-  }, []);
+  })}, [])
+
 
   return (
     <div class="contentWrap">
