@@ -30,6 +30,22 @@ function UserLogin() {
   const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URL;
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
  
+  const KakaoLogout = () => {
+    if (window.Kakao.Auth.getAccessToken()) {
+      window.Kakao.API.request({
+        url: '/v1/user/unlink',
+        success: function (response) {
+          console.log(response);
+        },
+        fail: function (error) {
+          console.log(error);
+        },
+      });
+      alert('로그아웃이 완료되었습니다.');
+      window.Kakao.Auth.setAccessToken(undefined);
+    }
+  };
+
   useEffect(()=>{
     localStorage.setItem("emotion", JSON.stringify([]))
   },[])
@@ -47,11 +63,11 @@ function UserLogin() {
           <p className={styles.kakaoBtn_title}> 카카오 로그인 / 회원가입</p>
           <div className={styles.kakao_logo}></div>
         </button>
-        <button className={styles.KakaoBtn}>
+      </a>
+        <button className={styles.KakaoBtn} onClick={()=>KakaoLogout()}>
           <p className={styles.kakaoBtn_title}> 로그아웃</p>
           <div className={styles.kakao_logo}></div>
         </button>
-      </a>
       {/* <Route path="/oauth/kakao/callback">
             <Auth />
         </Route> */}
