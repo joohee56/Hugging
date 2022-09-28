@@ -26,6 +26,7 @@ const RedirectUri = (props) => {
       },
     })
       .then((res) => {
+        console.log(res.data)
         if (!res.data.newMember) {
         const ACCESS_TOKEN = res.data.token;
         const email = res.data.email;
