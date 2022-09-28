@@ -52,13 +52,11 @@ function RegisterProfile() {
           axios({
             url: 'https://j7b204.p.ssafy.io/api/members/'+userId.sub,
             method: "GET",
-            // params: {
-            //     id: userId.sub,
-            //   },
           })
           .then((res)=> {
             console.log('성공')
             dispatch(loginUser(res))
+            console.log(user)
           })
           .catch((err) =>{
             console.log('실패')
