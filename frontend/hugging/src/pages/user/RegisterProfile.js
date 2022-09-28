@@ -52,9 +52,9 @@ function RegisterProfile() {
           axios({
             url: 'https://i7b204.p.ssafy.io/api/members/'+userId.sub,
             method: "GET",
-            params: {
-                id: userId.sub,
-              },
+            // params: {
+            //     id: userId.sub,
+            //   },
           })
           .then((res)=> {
             console.log('성공')
