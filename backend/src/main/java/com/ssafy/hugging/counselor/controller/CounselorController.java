@@ -61,4 +61,11 @@ public class CounselorController {
 		return response.success(counselorService.login(counselorLoginRequest), COUNSELOR_LOGIN_SUCCESS_MESSAGE,
 			HttpStatus.OK);
 	}
+
+	@GetMapping("/login/{id}")
+	@ApiOperation(value = "상담사 로그인 정보", notes = "상담사 로그인시 상담사 관련 모든 정보")
+	public ResponseEntity<?> counselorLoginData(@PathVariable Integer id) {
+		return response.success(counselorService.loginResponses(id), COUNSELOR_LOGIN_RESPONSE_SUCCESS_MESSAGE,
+			HttpStatus.OK);
+	}
 }
