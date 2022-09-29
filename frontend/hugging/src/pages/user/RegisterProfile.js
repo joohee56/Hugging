@@ -4,9 +4,10 @@ import styles from "./RegisterProfile.module.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
-import { changeUser } from "../../store";
+import { changeUser, loginUser } from "../../store";
 import promiseMiddleware from "redux-promise";
 import { API_HOST_URL } from "../../config";
+import jwt_decode from 'jwt-decode';
 
 function RegisterProfile() {
   const navigate = useNavigate();
@@ -34,29 +35,40 @@ function RegisterProfile() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    const email = localStorage.getItem('email')
     let body = {
       nickname,
       age,
       gender,
+      emotion: user.emotion,
+      email,
     };
 
-    dispatch(changeUser(body)).then((res) => {
-      if (res.payload.status === 200) {
-        axios
-          .post(API_HOST_URL + "members/join", user)
-          .then((res) => {
-            console.log(res);
-            console.log(user);
+    axios.post(API_HOST_URL + "members/join", body)
+      .then((res) => {
+          sessionStorage.setItem('token', res.data)
+          sessionStorage.setItem('isSocialLogin', true)
+          let userId = jwt_decode(res.data)
+          axios({
+            url: 'https://i7b204.p.ssafy.io/api/members/'+userId.sub,
+            method: "GET",
+            params: {
+                id: userId.sub,
+              },
           })
-          .catch((res) => {
-            console.log(user);
-            console.log("error");
-          });
-      }
-    });
-  };
-
+          .then((res)=> {
+            console.log('성공')
+            dispatch(loginUser(res))
+          })
+          .catch((err) =>{
+            console.log('실패')
+            console.log(err)
+      });
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
+    }
   return (
     <>
       <div className={styles.category_title}>

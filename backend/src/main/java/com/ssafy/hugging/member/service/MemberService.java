@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,6 +23,7 @@ import com.google.gson.JsonParser;
 import com.ssafy.hugging.member.MemberConstant;
 import com.ssafy.hugging.member.domain.Member;
 import com.ssafy.hugging.member.dto.MemberJoinRequest;
+import com.ssafy.hugging.member.dto.MemberResponse;
 import com.ssafy.hugging.member.repository.MemberRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -38,6 +40,11 @@ public class MemberService implements UserDetailsService {
 	private String kakao_redirectUri;
 
 	private final MemberRepository memberRepository;
+
+	public Member getMemberById(Integer id) {
+		return memberRepository.findMemberById(id)
+			.orElseThrow(() -> new IllegalArgumentException(NOT_FOUND_MEMBER_ERROR_MESSAGE));
+	}
 
 	public String getKakaoAccessToken(String code) {
 		String access_Token = "";
@@ -149,7 +156,8 @@ public class MemberService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
-		return memberRepository.findById(Long.parseLong(id))
+		return memberRepository.findById(Integer.parseInt(id))
 			.orElseThrow(() -> new UsernameNotFoundException(NOT_FOUND_MEMBER_ERROR_MESSAGE));
 	}
+
 }
