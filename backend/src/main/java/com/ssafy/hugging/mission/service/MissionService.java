@@ -65,6 +65,8 @@ public class MissionService {
 		ProceedingMission proceedingMission = proceedingMissionRepository.findProceedingMissionByMission_IdAndMember_Id(
 				missionId, memberId)
 			.orElseThrow(() -> new IllegalArgumentException(NOT_FOUND_PROCEEDING_MISSION_ERROR_MESSAGE));
+		if(proceedingMission.getStatus() == Status.COMPLETE)
+			throw new IllegalArgumentException(DELETE_COMPLETE_MISSION_ERROR_MESSAGE);
 		proceedingMissionRepository.delete(proceedingMission);
 	}
 
