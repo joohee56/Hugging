@@ -14,6 +14,7 @@ import Location from "./components/main/Location";
 import RedirectUri from "./pages/user/RedirectUri";
 import MediaView from "./pages/media/MediaView";
 import MusicPlayingPage from "./pages/media/MusicPlayingPage";
+import TopicMediaPage from "./pages/media/TopicMediaPage";
 import ReserveCounsel from "./pages/counsel/ReserveCounsel";
 
 // import scrollbar from 'smooth-scrollbar';
@@ -39,6 +40,7 @@ function App() {
         <Route path="/profile_img" element={<></>}></Route>
         <Route path="/recommend_media" element={<MediaView />} />
         <Route path="/playing_music" element={<MusicPlayingPage />} />
+        <Route path="/TopicMediaPage" element={<TopicMediaPage />}/>
         <Route path="/counselReserve" element={<ReserveCounsel />} />
       </Routes>
     </div>
