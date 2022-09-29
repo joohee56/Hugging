@@ -1,8 +1,10 @@
 import { Fragment } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import classes from "./CounselProfile.module.css";
-import { counselorActions } from "../../store/counselor";
-import { useSelector, useDispatch } from "react-redux";
+// import { counselorActions } from "../../store/counselor";
+import { counselActions } from "../../store";
+
+import { useDispatch } from "react-redux";
 import CounselDetail from "../../components/counsel/CounselDetail";
 import CounselReview from "../../components/counsel/CounselReview";
 
@@ -41,11 +43,10 @@ const CounselProfile = () => {
   // console.log(params.counselorId); // 상담사 Id
 
   //redux 에 counselor 에 counselor id 저장
-  const counselor = useSelector((state) => state.counselor.counselor);
-  const counter = useSelector((state) => state.counselor.counter);
+  // const counselor = useSelector((state) => state.counsel.counselor);
 
   const selectCounselorHandler = () => {
-    dispatch(counselorActions.selectCounselor(params.counselorId));
+    dispatch(counselActions.selectCounselor(params.counselorId));
     navigate(-1);
   };
 

@@ -53,7 +53,7 @@ const ReserveCounsel = () => {
   // 상담사, 날짜, 시간
   const [error, setError] = useState();
 
-  const counselor = useSelector((state) => state.counselor.counselor);
+  const counselor = useSelector((state) => state.counsel.counselor);
   console.log({ counselor });
 
   const reservationClickHandler = () => {
