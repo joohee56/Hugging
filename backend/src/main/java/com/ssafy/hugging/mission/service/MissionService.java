@@ -18,6 +18,8 @@ import com.ssafy.hugging.mission.domain.Mission;
 import com.ssafy.hugging.mission.domain.ProceedingMission;
 import com.ssafy.hugging.mission.dto.MissionResponse;
 import com.ssafy.hugging.mission.dto.ProceedingMissionRequest;
+import com.ssafy.hugging.mission.dto.Stamp;
+import com.ssafy.hugging.mission.dto.StampResponse;
 import com.ssafy.hugging.mission.repository.MissionRepository;
 import com.ssafy.hugging.mission.repository.ProceedingMissionRepository;
 import com.ssafy.hugging.model.Status;
@@ -71,5 +73,12 @@ public class MissionService {
 				proceedingMissionRequest.getMissionId(), proceedingMissionRequest.getMemberId())
 			.orElseThrow(() -> new IllegalArgumentException(NOT_FOUND_PROCEEDING_MISSION_ERROR_MESSAGE));
 		proceedingMission.setComplete();
+	}
+
+	public List<StampResponse> getMemberStamp(Integer memberId) {
+		return proceedingMissionRepository.findGroupByCreateDateWithJPQL(memberId)
+			.stream()
+			.map(StampResponse::new)
+			.collect(Collectors.toList());
 	}
 }

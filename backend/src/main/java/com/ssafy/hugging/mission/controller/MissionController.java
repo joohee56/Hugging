@@ -66,6 +66,7 @@ public class MissionController {
 	@GetMapping("/stamp/{memberId}")
 	@ApiOperation(value = "회원 스탬프 조회", notes = "특정 회원 스탬프 갯수 조회")
 	public ResponseEntity<?> getMemberStampList(@PathVariable Integer memberId) {
-		return response.success(GET_MEMBER_STAMP_LIST_SUCCESS_MESSAGE);
+		return response.success(
+			missionService.getMemberStamp(memberId), GET_MEMBER_STAMP_LIST_SUCCESS_MESSAGE, HttpStatus.OK);
 	}
 }
