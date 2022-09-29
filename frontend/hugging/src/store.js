@@ -79,7 +79,8 @@ let counselSlice = createSlice({
   },
 });
 
-export let { loginUser, changeEmotion, changeUser } = user.actions;
+export let { loginUser, changeEmotion, changeUser, deleteEmotion, clearUser } =
+  user.actions;
 export let { loginCounselor } = counselor.actions;
 export const counselActions = counselSlice.actions;
 
