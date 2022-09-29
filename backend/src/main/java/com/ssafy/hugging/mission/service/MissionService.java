@@ -70,7 +70,6 @@ public class MissionService {
 		ProceedingMission proceedingMission = proceedingMissionRepository.findProceedingMissionByMission_IdAndMember_Id(
 				proceedingMissionRequest.getMissionId(), proceedingMissionRequest.getMemberId())
 			.orElseThrow(() -> new IllegalArgumentException(NOT_FOUND_PROCEEDING_MISSION_ERROR_MESSAGE));
-		System.out.println("____________" + proceedingMission.getId() + "_____________");
 		proceedingMission.setComplete();
 	}
 }

@@ -1,6 +1,5 @@
 package com.ssafy.hugging.mission.domain;
 
-import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -14,9 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
-import org.apache.tomcat.jni.Proc;
-import org.hibernate.annotations.ColumnDefault;
 
 import com.ssafy.hugging.member.domain.Member;
 import com.ssafy.hugging.model.Status;
@@ -57,6 +53,7 @@ public class ProceedingMission {
 
 	public void setComplete() {
 		this.status = Status.COMPLETE;
+
 	}
 
 	public void setInComplete() {
