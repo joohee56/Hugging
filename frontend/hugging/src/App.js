@@ -1,14 +1,14 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { Routes, Route, Link, Switch } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import UserLogin from "./pages/user/UserLogin.js";
 import CounselorLogin from "./pages/counselor/CounselorLogin";
 import RegisterCategory from "./pages/user/RegisterCategory";
 import RegisterProfile from "./pages/user/RegisterProfile";
-import Navbar from "./components/ui/NavBar";
-import Nav from "./components/ui/Nav";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+// import Navbar from "./components/ui/NavBar";
+// import Nav from "./components/ui/Nav";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faBars } from "@fortawesome/free-solid-svg-icons";
 import MyCalendar from "./components/counselor/MyCalendar";
 import Location from "./components/main/Location";
 import RedirectUri from "./pages/user/RedirectUri";
@@ -16,7 +16,9 @@ import MediaView from "./pages/media/MediaView";
 import MusicPlayingPage from "./pages/media/MusicPlayingPage";
 import TopicMediaPage from "./pages/media/TopicMediaPage";
 import ReserveCounsel from "./pages/counsel/ReserveCounsel";
-
+import SelectCounsel from "./pages/counsel/SelectCounsel";
+import CounselCommunity from "./pages/counsel/CounselCommunity";
+import CounselProfile from "./pages/counsel/CounselProfile";
 // import scrollbar from 'smooth-scrollbar';
 
 // // smooth scroll 설정
@@ -42,6 +44,14 @@ function App() {
         <Route path="/playing_music" element={<MusicPlayingPage />} />
         <Route path="/TopicMediaPage" element={<TopicMediaPage />}/>
         <Route path="/counselReserve" element={<ReserveCounsel />} />
+        <Route path="/counselreserve" element={<ReserveCounsel />} />
+        <Route path="/" element={<ReserveCounsel />} />
+        <Route path="/counselselect" element={<SelectCounsel />}></Route>
+        <Route path="/counselcommunity" element={<CounselCommunity />}></Route>
+        <Route
+          path="/counselprofile/:counselorId"
+          element={<CounselProfile />}
+        ></Route>
       </Routes>
     </div>
   );
