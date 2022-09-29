@@ -42,7 +42,7 @@ function App() {
         <Route path="/recommend_media" element={<MediaView />} />
         <Route path="/playing_music" element={<MusicPlayingPage />} />
         <Route path="/counselreserve" element={<ReserveCounsel />} />
-        <Route path="/" element={<CounselProfile />} />
+        <Route path="/" element={<ReserveCounsel />} />
         <Route path="/counselselect" element={<SelectCounsel />}></Route>
         <Route path="/counselcommunity" element={<CounselCommunity />}></Route>
         <Route

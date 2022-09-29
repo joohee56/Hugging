@@ -6,6 +6,8 @@ import classes from "./ReserveCounsel.module.css";
 import Header from "../../Layout/Header";
 import CounselCalendar from "../../components/counsel/CounselCalendar";
 import CounselTime from "../../components/counsel/CounselTime";
+import { useSelector, useDispatch } from "react-redux";
+import { counselorActions } from "../../store/counselor";
 
 const DUMMY_RESERVE = [
   {
@@ -47,6 +49,13 @@ const DUMMY_COUNSELOR = [
 ];
 
 const ReserveCounsel = () => {
+  // 예약 선택 체크
+  // 상담사, 날짜, 시간
+  // const [error, setError] = useState();
+
+  const counselor = useSelector((state) => state.counselor.counselor);
+  console.log({ counselor });
+
   return (
     <Fragment>
       <Header />

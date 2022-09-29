@@ -1,9 +1,9 @@
 import classes from "./CounselTime.module.css";
 import { Fragment } from "react";
-import TextField from "@mui/material/TextField";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { StaticTimePicker } from "@mui/x-date-pickers/StaticTimePicker";
+// import TextField from "@mui/material/TextField";
+// import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+// import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+// import { StaticTimePicker } from "@mui/x-date-pickers/StaticTimePicker";
 import React from "react";
 
 const CounselTime = () => {
@@ -14,7 +14,7 @@ const CounselTime = () => {
         <span className={classes.title}>시간 선택</span>
         <img src="./clock.png" alt="clock"></img>
         <div className={classes.time}>
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
+          {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
             <StaticTimePicker
               displayStaticWrapperAs="mobile"
               value={value}
@@ -23,7 +23,7 @@ const CounselTime = () => {
               }}
               renderInput={(params) => <TextField {...params} />}
             />
-          </LocalizationProvider>
+          </LocalizationProvider> */}
         </div>
         <div className={classes.explain}>상담은 최대 한시간 진행됩니다.</div>
       </div>

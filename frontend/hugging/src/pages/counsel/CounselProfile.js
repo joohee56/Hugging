@@ -1,8 +1,10 @@
+import { Fragment } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import classes from "./CounselProfile.module.css";
+import { counselorActions } from "../../store/counselor";
+import { useSelector, useDispatch } from "react-redux";
 import CounselDetail from "../../components/counsel/CounselDetail";
 import CounselReview from "../../components/counsel/CounselReview";
-import { Fragment } from "react";
-import { useParams } from "react-router-dom";
-import classes from "./CounselProfile.module.css";
 
 const DUMMY_PROFILE = {
   name: "조성규",
@@ -32,15 +34,27 @@ const DUMMY_PROFILE = {
 };
 
 const CounselProfile = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const params = useParams();
-  console.log(params.counselorId); // 상담사 Id
+  // console.log(params.counselorId); // 상담사 Id
+
+  //redux 에 counselor 에 counselor id 저장
+  const counselor = useSelector((state) => state.counselor.counselor);
+  const counter = useSelector((state) => state.counselor.counter);
+
+  const selectCounselorHandler = () => {
+    dispatch(counselorActions.selectCounselor(params.counselorId));
+    navigate(-1);
+  };
 
   return (
     <Fragment>
       <CounselDetail profile={DUMMY_PROFILE} />
       <CounselReview reviews={DUMMY_PROFILE.reviews} />
       <div className={classes.btn}>
-        <button>상담사 선택</button>
+        <button onClick={selectCounselorHandler}>상담사 선택</button>
       </div>
     </Fragment>
   );
