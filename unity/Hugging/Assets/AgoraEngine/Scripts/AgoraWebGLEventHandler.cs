@@ -118,9 +118,9 @@ namespace agora_gaming_rtc
         List<MediaDeviceInfo> _recordingDevicesList = new List<MediaDeviceInfo>();
 
         // caching camera listing
-/*        List<MediaDeviceInfo> _cameraDevicesList = new List<MediaDeviceInfo>();
-*//*        string currentVideoDevice = "";
-*/        string currentAudioDevice = "";
+        List<MediaDeviceInfo> _cameraDevicesList = new List<MediaDeviceInfo>();
+        string currentVideoDevice = "";
+        string currentAudioDevice = "";
         string currentPlayBackDevice = "";
 
         public void setCurrentAudioDevice(string deviceID)
@@ -171,7 +171,7 @@ namespace agora_gaming_rtc
         }
 
 
-      /*  public void setCurrentVideoDevice(string deviceID)
+        public void setCurrentVideoDevice(string deviceID)
         {
             currentVideoDevice = deviceID;
         }
@@ -180,7 +180,7 @@ namespace agora_gaming_rtc
         {
             return currentVideoDevice;
         }
-*/
+
         public int GetPlayBackDeviceCount()
         {
             return _playbackDevicesList.Count;
@@ -195,7 +195,7 @@ namespace agora_gaming_rtc
             }
         }
 
-     /*   public int GetCameraDeviceCount()
+        public int GetCameraDeviceCount()
         {
             return _cameraDevicesList.Count;
         }
@@ -212,7 +212,7 @@ namespace agora_gaming_rtc
                 deviceName = _cameraDevicesList[index].label;
                 deviceId = _cameraDevicesList[index].deviceId;
             }
-        }*/
+        }
 
         public List<MediaDeviceInfo> GetCachedRecordingDevices()
         {
@@ -278,7 +278,7 @@ namespace agora_gaming_rtc
 
         }
 
-        /*public void ProcessCameraDevices(string listing)
+        public void ProcessCameraDevices(string listing)
         {
             _cameraDevicesList.Clear();
             _cameraDevicesList.TrimExcess();
@@ -299,7 +299,7 @@ namespace agora_gaming_rtc
                 }
             }
 
-        }*/
+        }
 
     }
 
@@ -331,6 +331,52 @@ namespace agora_gaming_rtc
 
         }
 
+        private VideoRawDataManager _rawD;
+
+        public static void SetOnRenderVideoFrameCallback(VideoRawDataManager rawD)
+        {
+            if (rawD == null)
+            {
+                GetInstance()._rawD = null;
+            }
+            else
+            {
+                if (GetInstance().nativeTexture == null)
+                {
+                    GetInstance().nativeTexture = new Texture2D(200, 200, TextureFormat.ARGB32, false);
+                    GetInstance().nativeTexture.wrapMode = TextureWrapMode.Clamp;
+                    GetInstance().nativeTexture.Apply(false, false);
+                }
+
+                GetInstance()._rawD = rawD;
+
+            }
+        }
+
+        private VideoRawDataManager _rawDOnCapture;
+
+        public static void SetOnCaptureVideoFrameCallback(VideoRawDataManager rawD)
+        {
+            if (rawD == null)
+            {
+                GetInstance()._rawDOnCapture = null;
+            }
+            else
+            {
+                if (GetInstance().nativeTexture == null)
+                {
+                    GetInstance().nativeTexture = new Texture2D(200, 200, TextureFormat.ARGB32, false);
+                    GetInstance().nativeTexture.wrapMode = TextureWrapMode.Clamp;
+                    GetInstance().nativeTexture.Apply(false, false);
+                }
+
+                GetInstance()._rawDOnCapture = rawD;
+
+            }
+        }
+
+
+
         // MULTI CLIENT MANAGEMENT
         public static void AddClient(string channelId, AgoraChannel channel)
         {
@@ -340,11 +386,11 @@ namespace agora_gaming_rtc
         // encapsulate all video thing in one object
         // and then get this object in code for info
 
-        /*public static void GetVideoDevice(int index, ref string deviceName, ref string deviceId)
+        public static void GetVideoDevice(int index, ref string deviceName, ref string deviceId)
         {
             GetInstance()._cacheManager.GetVideoDevice(index, ref deviceName, ref deviceId);
         }
-*/
+
         public static string GetErrorDescription(string code)
         {
             if (GetInstance().ErrorDescription.ContainsKey(code))
@@ -361,10 +407,10 @@ namespace agora_gaming_rtc
             return GetInstance()._cacheManager;
         }
 
-       /* public static string GetCurrentVideoDevice()
+        public static string GetCurrentVideoDevice()
         {
             return GetInstance()._cacheManager.getCurrentVideoDevice();
-        }*/
+        }
 
         public static AgoraWebGLEventHandler GetInstance()
         {
@@ -376,20 +422,20 @@ namespace agora_gaming_rtc
             return GetInstance()._cacheManager.GetPlayBackDeviceCount();
         }
 
-     /*   public static int GetCameraDeviceCount()
+        public static int GetCameraDeviceCount()
         {
             return GetInstance()._cacheManager.GetCameraDeviceCount();
-        }*/
+        }
 
         public static int GetAudioRecordingDeviceCount()
         {
             return 0;
         }
 
-      /*  public static List<MediaDeviceInfo> GetCachedCameras()
+        public static List<MediaDeviceInfo> GetCachedCameras()
         {
             return GetInstance()._cacheManager.GetCachedCameras();
-        }*/
+        }
 
 
         public void onJoinChannelSuccess_MC(string eventData)
@@ -572,13 +618,13 @@ namespace agora_gaming_rtc
             if (GetInstance()._clientsList.ContainsKey(channel))
             {
                 AgoraChannel ch = GetInstance()._clientsList[channel];
-                /*RemoteVideoStats remoteStats = new RemoteVideoStats();
+                RemoteVideoStats remoteStats = new RemoteVideoStats();
                 remoteStats.receivedBitrate = 1024; // to make it visible, put more than 0
                 remoteStats.uid = uint.Parse(userId);
                 if (ch.ChannelOnRemoteVideoStats != null)
                 {
                     ch.ChannelOnRemoteVideoStats(channel, remoteStats);
-                }*/
+                }
             }
         }
 
@@ -593,12 +639,12 @@ namespace agora_gaming_rtc
             if (GetInstance()._clientsList.ContainsKey(channel))
             {
                 AgoraChannel ch = GetInstance()._clientsList[channel];
-               /* RemoteVideoStats remoteStats = new RemoteVideoStats();
+                RemoteVideoStats remoteStats = new RemoteVideoStats();
                 remoteStats.receivedBitrate = 0; // to make it visible, put more than 0
                 remoteStats.uid = uint.Parse(userId);
                 if (ch.ChannelOnRemoteVideoStats != null) {
                     ch.ChannelOnRemoteVideoStats(channel, remoteStats);
-                }*/
+                }
             }
         }
 
@@ -681,7 +727,7 @@ namespace agora_gaming_rtc
             }
         }
 
-    #region Testing functions, remove later
+        #region Testing functions, remove later
 
         public void CustomMsg(string msg)
         {
@@ -691,13 +737,40 @@ namespace agora_gaming_rtc
         }
 
         // used for fetching raw data
-        /*private RawDataFetcher _rawDataFetcher = new RawDataFetcher();*/
-        //private Texture2D nativeTexture = null; // for raw data
+        private RawDataFetcher _rawDataFetcher = new RawDataFetcher();
+        private Texture2D nativeTexture = null; // for raw data
 
-    
+        void Update()
+        {
+            /*foreach (PopupGUI gi in _msgs)
+            {
+                if (gi.isExpired == false)
+                {
+                    gi.Update();
+                }
+            }*/
+            // if video raw data manager is assigned
+            if (_rawD != null)
+            {
+                foreach (var key in _remoteUserListing.Keys)
+                {
+                    _rawDataFetcher.UpdateRemoteTexture(key, nativeTexture);
+                    var data = nativeTexture.GetRawTextureData();
+                    _rawD.RaiseEvent_OnRender(key, data);
+                }
+            }
+
+            if (_rawDOnCapture != null)
+            {
+                _rawDataFetcher.UpdateTexture(nativeTexture);
+                var data = nativeTexture.GetRawTextureData();
+                _rawDOnCapture.RaiseEvent_OnCapture(data);
+            }
+
+        }
 
 
-    #endregion
+        #endregion
 
         // server expires token after some time
         // you need to call setToken again otherwise server will disconnect
@@ -732,7 +805,7 @@ namespace agora_gaming_rtc
             _cacheManager.ProcessPlayBackDevices(listing);
         }
 
-      /*  public void onCamerasListing(string listing)
+        public void onCamerasListing(string listing)
         {
             _cacheManager.ProcessCameraDevices(listing);
         }
@@ -752,7 +825,7 @@ namespace agora_gaming_rtc
             {
                 _cacheManager.setCurrentPlaybackDevice(st[1]);
             }
-        }*/
+        }
 
         void BuildData(string inStr)
         {
@@ -1116,31 +1189,31 @@ namespace agora_gaming_rtc
 
     // same as InSurfaceRenderer for videosurface
     // used for observing video renderers in webgl
-    /*public sealed class RawDataFetcher : IRtcEngineNative
+    public sealed class RawDataFetcher : IRtcEngineNative
     {
 
-    //    public RawDataFetcher()
-    //    {
+        public RawDataFetcher()
+        {
 
-    //    }
+        }
 
-    //    public void UpdateTexture(Texture tex)
-    //    {
-    //        if (!isLocalVideoReady())
-    //            return;
-    //        if (tex != null)
-    //        {
-    //            updateLocalTexture(tex.GetNativeTexturePtr());
-    //        }
-    //    }
+        public void UpdateTexture(Texture tex)
+        {
+            if (!isLocalVideoReady())
+                return;
+            if (tex != null)
+            {
+                updateLocalTexture(tex.GetNativeTexturePtr());
+            }
+        }
 
-    //    public void UpdateRemoteTexture(uint uid, Texture tex)
-    //    {
-    //        if (!isRemoteVideoReady("" + uid))
-    //            return;
-    //        updateRemoteTexture("" + uid, tex.GetNativeTexturePtr());
-    //    }
+        public void UpdateRemoteTexture(uint uid, Texture tex)
+        {
+            if (!isRemoteVideoReady("" + uid))
+                return;
+            updateRemoteTexture("" + uid, tex.GetNativeTexturePtr());
+        }
 
-    }*/
+    }
 #endif
 }

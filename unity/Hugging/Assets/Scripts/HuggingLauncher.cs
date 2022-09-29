@@ -31,15 +31,15 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
         Connect();
     }
 
-    public void SetCounselInfos(string nickname, string roomName, string subject)
+    public void SetCounselInfos(string infos)
     {
-        Debug.Log("nickname : " + nickname);
-        Debug.Log("roomName : " + roomName);
-        Debug.Log("subject : " + subject);
-        this.nickname = nickname;
-        this.roomName = roomName;
-        HuggingLauncher.subject = subject;
-
+        string[] infoArr = infos.Split("|");
+        Debug.Log("nickname : " + infoArr[0]);
+        Debug.Log("roomName : " + infoArr[1]);
+        Debug.Log("subject : " + infoArr[2]);
+        this.nickname = infoArr[0];
+        this.roomName = infoArr[1];
+        HuggingLauncher.subject = infoArr[2];
     }
 
     private void Connect()

@@ -160,12 +160,12 @@ namespace agora_gaming_rtc
 
         //public override int PlayEffect(int soundId, string filePath, int loopCount, double pitch, double pan, int gain, bool publish, int startPos)
         //{
-        //    if (_mEngine == null)
+        //    if (_mEngine  == null)
         //        return (int)ERROR_CODE.ERROR_NOT_INIT_ENGINE;
 
         //    return IRtcEngineNative.playEffect2(soundId, filePath, loopCount, pitch, pan, gain, publish, startPos);
         //}
-
+        
         //public override int GetEffectDuration(string filePath)
         //{
         //    if (_mEngine == null)

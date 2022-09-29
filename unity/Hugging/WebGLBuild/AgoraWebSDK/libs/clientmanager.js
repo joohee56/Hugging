@@ -261,14 +261,16 @@ class ClientManager {
       [this.options.uid, localTracks.audioTrack, localTracks.videoTrack] = await Promise.all([
         this.client.join(this.options.appid, this.options.channel, this.options.token || null, userAccount_str.toString() || null),
         AgoraRTC.createMicrophoneAudioTrack(),
-        AgoraRTC.createCameraVideoTrack(),
+        // AgoraRTC.createCameraVideoTrack(),
       ]);
 
-      currentVideoDevice = wrapper.getCameraDeviceIdFromDeviceName(localTracks.videoTrack._deviceName);
+      // currentVideoDevice = wrapper.getCameraDeviceIdFromDeviceName(
+      //   localTracks.videoTrack._deviceName
+      // );
 
       currentAudioDevice = wrapper.getMicrophoneDeviceIdFromDeviceName(localTracks.audioTrack._deviceName);
 
-      event_manager.raiseGetCurrentVideoDevice();
+      // event_manager.raiseGetCurrentVideoDevice();
       event_manager.raiseGetCurrentAudioDevice();
       event_manager.raiseGetCurrentPlayBackDevice();
 
@@ -312,14 +314,16 @@ class ClientManager {
       [this.options.uid, localTracks.audioTrack, localTracks.videoTrack] = await Promise.all([
         this.client.join(this.options.appid, this.options.channel, this.options.token || null, this.options.uid || null),
         AgoraRTC.createMicrophoneAudioTrack(),
-        AgoraRTC.createCameraVideoTrack(),
+        // AgoraRTC.createCameraVideoTrack(),
       ]);
 
-      currentVideoDevice = wrapper.getCameraDeviceIdFromDeviceName(localTracks.videoTrack._deviceName);
+      // currentVideoDevice = wrapper.getCameraDeviceIdFromDeviceName(
+      //   localTracks.videoTrack._deviceName
+      // );
 
       currentAudioDevice = wrapper.getMicrophoneDeviceIdFromDeviceName(localTracks.audioTrack._deviceName);
 
-      event_manager.raiseGetCurrentVideoDevice();
+      // event_manager.raiseGetCurrentVideoDevice();
       event_manager.raiseGetCurrentAudioDevice();
       event_manager.raiseGetCurrentPlayBackDevice();
 
@@ -378,7 +382,9 @@ class ClientManager {
         localTracks.videoTrack.close();
         await this.client.unpublish(localTracks.videoTrack);
       } else {
-        [localTracks.videoTrack] = await Promise.all([AgoraRTC.createCameraVideoTrack()]);
+        [localTracks.videoTrack] = await Promise.all([
+          // AgoraRTC.createCameraVideoTrack(),
+        ]);
 
         localTracks.videoTrack.play("local-player");
 
@@ -388,7 +394,9 @@ class ClientManager {
   }
 
   async startPreview() {
-    [localTracks.videoTrack] = await Promise.all([AgoraRTC.createCameraVideoTrack()]);
+    [localTracks.videoTrack] = await Promise.all([
+      // AgoraRTC.createCameraVideoTrack(),
+    ]);
     localTracks.videoTrack.play("local-player");
   }
 
@@ -484,7 +492,9 @@ class ClientManager {
         optimizationMode: "detail",
       };
 
-      [localTracks.videoTrack] = await Promise.all([AgoraRTC.createCustomVideoTrack(CustomVideoTrackInitConfig)]);
+      [localTracks.videoTrack] = await Promise.all([
+        // AgoraRTC.createCustomVideoTrack(CustomVideoTrackInitConfig),
+      ]);
       // localTracks.videoTrack.play("local-player");
       // await this.client.publish(localTracks.videoTrack);
     } else if (enable == 0) {

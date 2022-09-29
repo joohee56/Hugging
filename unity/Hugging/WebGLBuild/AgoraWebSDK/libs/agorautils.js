@@ -5,10 +5,10 @@ function cacheDevices() {
       wrapper.savePlayBackDevices(cameras);
       var fstr = "";
       var delim = "";
-      cameras.forEach((cam) => {
-        fstr += delim + cam.deviceId + "," + cam.kind + "," + cam.label + "," + cam.groupId;
-        delim = "|";
-      });
+      // cameras.forEach((cam) => {
+      //   fstr += delim + cam.deviceId + "," + cam.kind + "," + cam.label + "," + cam.groupId;
+      //   delim = "|";
+      // });
 
       event_manager.raiseonPlaybackDevicesListing(fstr);
     })
@@ -32,20 +32,28 @@ function cacheDevices() {
       //console.log("get playback devices error!", e);
     });
 
-  AgoraRTC.getCameras()
-    .then((cameras) => {
-      wrapper.saveCameras(cameras);
+  // AgoraRTC.getCameras()
+  //   .then((cameras) => {
+  //     wrapper.saveCameras(cameras);
 
-      var fstr = "";
-      var delim = "";
-      cameras.forEach((cam) => {
-        fstr += delim + cam.deviceId + "," + cam.kind + "," + cam.label + "," + cam.groupId;
-        delim = "|";
-      });
+  //     var fstr = "";
+  //     var delim = "";
+  //     cameras.forEach((cam) => {
+  //       fstr +=
+  //         delim +
+  //         cam.deviceId +
+  //         "," +
+  //         cam.kind +
+  //         "," +
+  //         cam.label +
+  //         "," +
+  //         cam.groupId;
+  //       delim = "|";
+  //     });
 
-      event_manager.raiseonCamerasListing(fstr);
-    })
-    .catch((e) => {
-      //console.log("get cameras error!", e);
-    });
+  //     event_manager.raiseonCamerasListing(fstr);
+  //   })
+  //   .catch((e) => {
+  //     //console.log("get cameras error!", e);
+  //   });
 }

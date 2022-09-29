@@ -42,7 +42,7 @@ namespace agora_utilities
 
             if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ConnectionError)
             {
-                Debug.Log(request.error);
+                    Debug.Log(request.error);
                 callback(null);
                 yield break;
             }
@@ -59,8 +59,10 @@ namespace agora_utilities
             UnityWebRequest request = UnityWebRequest.Get(string.Format(ServerPingRequest, url));
             yield return request.SendWebRequest();
 
-            if(request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ConnectionError) {
-                Debug.Log(request.error);
+            if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ConnectionError)
+            {
+            
+                    Debug.Log(request.error);
                 callback(null);
                 yield break;
             }

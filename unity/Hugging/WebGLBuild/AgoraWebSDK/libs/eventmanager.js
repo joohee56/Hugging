@@ -9,7 +9,7 @@ class EventManager {
   }
 
   raiseonCamerasListing(fstr) {
-    unityInstance.SendMessage("AgoraEventHandler", "onCamerasListing", fstr);
+    // unityInstance.SendMessage("AgoraEventHandler", "onCamerasListing", fstr);
   }
 
   raiseonRecordingDevicesListing(fstr) {
@@ -25,7 +25,7 @@ class EventManager {
   }
 
   raiseGetCurrentVideoDevice(currentVideoDevice) {
-    unityInstance.SendMessage("AgoraEventHandler", "OnCurrentChanges", "GetCurrentVideoDevice=" + currentVideoDevice);
+    // unityInstance.SendMessage("AgoraEventHandler", "OnCurrentChanges", "GetCurrentVideoDevice=" + currentVideoDevice);
   }
 
   raiseGetCurrentPlayBackDevice(currentPlayBackDevice) {
@@ -61,7 +61,7 @@ class EventManager {
   }
 
   raiseGetCurrentVideoDevice() {
-    unityInstance.SendMessage("AgoraEventHandler", "OnCurrentChanges", "GetCurrentVideoDevice=" + currentVideoDevice);
+    // unityInstance.SendMessage("AgoraEventHandler", "OnCurrentChanges", "GetCurrentVideoDevice=" + currentVideoDevice);
   }
 
   raiseGetCurrentAudioDevice() {

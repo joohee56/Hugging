@@ -138,8 +138,10 @@ namespace agora_gaming_rtc
         }
 
         [MonoPInvokeCallback(typeof(EngineEventOnReceiveVideoPacketHandler))]
-        private static bool OnReceiveVideoPacketCallback(IntPtr buffer, IntPtr size) {
-            if(_irtcEngine != null && _packetObserver != null && _packetObserver._OnReceiveVideoPacket != null) {
+        private static bool OnReceiveVideoPacketCallback(IntPtr buffer, IntPtr size)
+        {
+            if (_irtcEngine != null && _packetObserver != null && _packetObserver._OnReceiveVideoPacket != null)
+            {
                 Packet packet = new Packet();
                 packet.buffer = buffer;
                 packet.size = size;
@@ -162,8 +164,10 @@ namespace agora_gaming_rtc
         }
 
         [MonoPInvokeCallback(typeof(EngineEventOnSendVideoPacketHandler))]
-        private static bool OnSendVideoPacketCallback(IntPtr buffer, IntPtr size) {
-            if(_irtcEngine != null && _packetObserver != null && _packetObserver._OnSendVideoPacket != null) {
+        private static bool OnSendVideoPacketCallback(IntPtr buffer, IntPtr size)
+        {
+            if (_irtcEngine != null && _packetObserver != null && _packetObserver._OnSendVideoPacket != null)
+            {
                 Packet packet = new Packet();
                 packet.buffer = buffer;
                 packet.size = size;

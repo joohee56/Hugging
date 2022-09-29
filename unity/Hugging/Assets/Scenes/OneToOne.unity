@@ -13452,7 +13452,6 @@ Transform:
   - {fileID: 705507995}
   - {fileID: 2097724817}
   - {fileID: 727039729}
-  - {fileID: 1933900404}
   - {fileID: 1918363590763033204}
   - {fileID: 8618699900455778131}
   m_Father: {fileID: 0}
@@ -15761,8 +15760,8 @@ MonoBehaviour:
   roomNameText: {fileID: 1588484673}
   playerCountText: {fileID: 539651483}
   playerListText: {fileID: 770867803}
-  roomNameField: {fileID: 1135771674}
-  nicknameField: {fileID: 1480244532}
+  roomName: 
+  nickname: 
   selectedCharacterNum: 0
   voiceManager: {fileID: 1933900405}
   isFullRoomAlert: {fileID: 1055821133}
@@ -19211,12 +19210,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933900401}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 254.83612, y: 491.3752, z: -127.30028}
+  m_LocalPosition: {x: 1239.0049, y: 502.5691, z: -7.4324265}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1390553357}
-  m_RootOrder: 10
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1933900405
 MonoBehaviour:
@@ -21599,7 +21598,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1390553357}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1918363590763033205
 MonoBehaviour:
@@ -21610,7 +21609,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1915461491347719758}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05f7c32ad4216f64988270689f00fca4, type: 3}
+  m_Script: {fileID: 11500000, guid: acf6806603dac4540b342bc5626f300d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   clientType: 0
@@ -21646,7 +21645,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1390553357}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8618699900455778132
 MonoBehaviour:
@@ -21657,7 +21656,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8615481402909878765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc71d4f04384ab14fb3ffd862934663f, type: 3}
+  m_Script: {fileID: 11500000, guid: 6dc8fdf97aae89347a6eb72d7f8f5e90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8660686144713632208
