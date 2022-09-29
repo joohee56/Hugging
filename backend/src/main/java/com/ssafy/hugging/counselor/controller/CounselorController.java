@@ -57,7 +57,7 @@ public class CounselorController {
 
 	@PostMapping("/login")
 	@ApiOperation(value = "상담사 로그인", notes = "상담사 이메일 비밀번호로 로그인")
-	public ResponseEntity<?> writeCounselorReview(@RequestBody CounselorLoginRequest counselorLoginRequest) {
+	public ResponseEntity<?> counselorLogin(@RequestBody CounselorLoginRequest counselorLoginRequest) {
 		return response.success(counselorService.login(counselorLoginRequest), COUNSELOR_LOGIN_SUCCESS_MESSAGE,
 			HttpStatus.OK);
 	}
