@@ -1,10 +1,10 @@
 import React from "react";
-import classes from "./Card.module.css";
+import classes from "./ErrorCard.module.css";
 
-const Card = (props) => {
+const ErrorCard = (props) => {
   return (
     <div className={`${classes.card} ${props.className}`}>{props.children}</div>
   );
 };
 
-export default Card;
+export default ErrorCard;
