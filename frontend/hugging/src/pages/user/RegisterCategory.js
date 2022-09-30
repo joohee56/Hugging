@@ -73,6 +73,7 @@ function RegisterCategory({history}) {
             <button>불안할 때</button>
             <button>불안할 때</button>
             <button>불안할 때</button>
+            <div></div>
         </div>
         <button className={styles.counselor_login_btn} onClick={()=>{navigate("/profile")}}>다음</button>
        </>
