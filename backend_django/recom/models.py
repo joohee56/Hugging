@@ -35,6 +35,11 @@ class Counselor(models.Model):
         managed = False
         db_table = 'counselor'
 
+    
+    def __str__(self):
+        return str(self.id)
+
+
 
 class CounselorReview(models.Model):
     content = models.CharField(max_length=255, blank=True, null=True)
@@ -77,6 +82,10 @@ class Member(models.Model):
         managed = False
         db_table = 'member'
 
+    def __str__(self):
+        return str(self.id)
+
+
 
 class Mission(models.Model):
     explanation = models.CharField(max_length=255, blank=True, null=True)
@@ -100,6 +109,9 @@ class Music(models.Model):
     class Meta:
         managed = False
         db_table = 'music'
+
+    def __str__(self):
+        return str(self.id)
 
 
 class MusicCategory(models.Model):
