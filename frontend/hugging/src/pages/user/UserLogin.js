@@ -6,6 +6,7 @@ import KaKaoLogin from "react-kakao-login";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useParams } from "react-router";
+import { clear } from "@testing-library/user-event/dist/clear";
 // import { KAKAO_AUTH_URL } from "./OAuth";
 
 // let KakaoBtn = styled.button`
@@ -30,6 +31,7 @@ function UserLogin() {
   const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URL;
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
  
+
   useEffect(()=>{
     localStorage.setItem("emotion", JSON.stringify([]))
   },[])
@@ -48,6 +50,20 @@ function UserLogin() {
           <div className={styles.kakao_logo}></div>
         </button>
       </a>
+
+      {/* 로그 아웃 기능 (지우지 마시오) */}
+        {/* <button className={styles.KakaoBtn} onClick={()=>{
+          sessionStorage.removeItem('token')
+          localStorage.removeItem('userprofile')
+          localStorage.removeItem('emotion')
+          localStorage.removeItem('code')
+          sessionStorage.removeItem('isSocialLogin')
+          navigate('/login')
+        }}>
+          <p className={styles.kakaoBtn_title}> 로그아웃</p>
+          <div className={styles.kakao_logo}></div>
+        </button> */}
+        
       {/* <Route path="/oauth/kakao/callback">
             <Auth />
         </Route> */}
