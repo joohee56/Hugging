@@ -21,18 +21,24 @@ let counselor = createSlice({
 });
 
 let user = createSlice({
-    name: 'user',
-    initialState: {
-      "email": "",
-      "nickname": "",
-      "age": "",
-      "gender": "",
-      "emotion" : [
-        "불안", "우울", "상실"
-      ],
-      "profileImage": 0
-   },
-    reducers: {
+  name: "user",
+  initialState: {
+    email: "",
+    nickname: "",
+    age: "",
+    gender: "",
+    emotion: ["불안", "우울", "상실"],
+    profileImage: 0,
+  },
+  reducers: {
+    deleteEmotion(state, action) {
+      state.emotion.map((a, i) => {
+        console.log(state.emotion);
+        if (state.emotion[i] === action.payload) {
+          state.emotion.splice(i, 1);
+        }
+      });
+    },
 
     loginUser(state, action) {
       state.nickname = action.payload.nickname;
@@ -46,6 +52,14 @@ let user = createSlice({
       state.name = "";
       state.id = "";
       state.isLogin = false;
+    },
+    changeUser(state, action) {
+      state.nickname = action.payload.nickname;
+      state.age = action.payload.age;
+      state.gender = action.payload.gender;
+    },
+    changeEmotion(state, action) {
+      state.emotion.push(action.payload);
     },
   },
 });
