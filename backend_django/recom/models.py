@@ -35,12 +35,10 @@ class Counselor(models.Model):
         managed = False
         db_table = 'counselor'
 
-    def __str__(self):
-        return str(self.id)
 
 class CounselorReview(models.Model):
-    content = models.CharField(max_length=255)
-    reg_date = models.DateTimeField()
+    content = models.CharField(max_length=255, blank=True, null=True)
+    reg_date = models.DateTimeField(blank=True, null=True)
     score = models.IntegerField()
     counselor = models.ForeignKey(Counselor, models.DO_NOTHING, blank=True, null=True)
     member = models.ForeignKey('Member', models.DO_NOTHING, blank=True, null=True)
@@ -72,7 +70,6 @@ class Member(models.Model):
     age = models.IntegerField(blank=True, null=True)
     email = models.CharField(unique=True, max_length=255)
     gender = models.CharField(max_length=255, blank=True, null=True)
-    name = models.CharField(max_length=255)
     nickname = models.CharField(unique=True, max_length=255)
     profile_image = models.IntegerField(blank=True, null=True)
 
@@ -80,15 +77,24 @@ class Member(models.Model):
         managed = False
         db_table = 'member'
 
-    def __str__(self):
-        return str(self.id)
+
+class Mission(models.Model):
+    explanation = models.CharField(max_length=255, blank=True, null=True)
+    mission_subject = models.CharField(max_length=255, blank=True, null=True)
+    name = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'mission'
+
 
 class Music(models.Model):
+    hits = models.IntegerField(blank=True, null=True)
     music_url = models.CharField(max_length=255, blank=True, null=True)
     name = models.CharField(max_length=255, blank=True, null=True)
     tag = models.CharField(max_length=255, blank=True, null=True)
     thumbnail_url = models.CharField(max_length=255, blank=True, null=True)
-    type = models.IntegerField(blank=True, null=True)
+    type = models.CharField(max_length=255, blank=True, null=True)
     category = models.ForeignKey('MusicCategory', models.DO_NOTHING, blank=True, null=True)
 
     class Meta:
@@ -97,19 +103,11 @@ class Music(models.Model):
 
 
 class MusicCategory(models.Model):
-    name = models.IntegerField(blank=True, null=True)
+    name = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'music_category'
-
-
-class MusicHits(models.Model):
-    musid = models.ForeignKey(Music, models.DO_NOTHING, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'music_hits'
 
 
 class MusicReview(models.Model):
@@ -120,3 +118,14 @@ class MusicReview(models.Model):
     class Meta:
         managed = False
         db_table = 'music_review'
+
+
+class ProceedingMission(models.Model):
+    create_date = models.DateField(blank=True, null=True)
+    status = models.CharField(max_length=255, blank=True, null=True)
+    member = models.ForeignKey(Member, models.DO_NOTHING, blank=True, null=True)
+    misson = models.ForeignKey(Mission, models.DO_NOTHING, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'proceeding_mission'
