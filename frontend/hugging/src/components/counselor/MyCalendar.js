@@ -13,7 +13,10 @@ function MyCalendar() {
   // const now = new Date();
   // const month = now.getMonth();
 
-  const [mark, setMark] = useState([]);
+  const [mark, setMark] = useState([
+
+    
+  ]);
 
   // const { data } = useQuery(
   //   ["logDate", month],

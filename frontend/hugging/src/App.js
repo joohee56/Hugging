@@ -20,6 +20,7 @@ import SelectCounsel from "./pages/counsel/SelectCounsel";
 import CounselCommunity from "./pages/counsel/CounselCommunity";
 import CounselProfile from "./pages/counsel/CounselProfile";
 import MainPage from "./pages/main/MainPage";
+import CounselorMypage from './pages/counselor/CounselorMypage'
 
 
 // import scrollbar from 'smooth-scrollbar';
@@ -40,6 +41,7 @@ function App() {
         <Route path="/calendar" element={<MyCalendar />} />
         <Route path="/login" element={<UserLogin />} />
         <Route path="/counselor/login" element={<CounselorLogin />} />
+        <Route path="/counselor/mypage" element={<CounselorMypage />}/>
         <Route path="/category" element={<RegisterCategory />} />
         <Route path="/profile" element={<RegisterProfile />} />
         <Route path="/profile_img" element={<></>}></Route>
