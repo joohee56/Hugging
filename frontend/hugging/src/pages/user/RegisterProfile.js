@@ -59,9 +59,6 @@ function RegisterProfile() {
             console.log(res.data)
             localStorage.setItem('userprofile', JSON.stringify(res.data))
           })
-          .then((res)=>{
-            console.log(user)
-          })
           .catch((err) =>{
             console.log('실패')
             console.log(err)

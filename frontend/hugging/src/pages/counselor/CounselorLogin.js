@@ -4,44 +4,59 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { loginCounselor } from '../../store';
+import jwt_decode from 'jwt-decode';
 
 function CounselorLogin() {
 
     let dispatch = useDispatch()
-    const [inputId, setInputId] = useState('')
-    const [inputPw, setInputPw] = useState('')
+    const [email, setInputEmail] = useState('')
+    const [password, setInputPassword] = useState('')
 
     const handleInputId = (e) => {
-        setInputId(e.target.value)
+      setInputEmail(e.target.value)
     }
  
     const handleInputPw = (e) => {
-        setInputPw(e.target.value)
+      setInputPassword(e.target.value)
     }
     
     let LoginFunc = (e) => {
         e.preventDefault();
-        if (!inputId) {
+        if (!email) {
           return alert("ID를 입력하세요.");
         }
-        else if (!inputPw) {
+        else if (!password) {
           return alert("Password를 입력하세요.");
         }
         else {
             let body = {
-              inputId,
-              inputPw,
+              email,
+              password,
             };
-        
-            axios.post("Endpoint", body)
+            axios.post("https://j7b204.p.ssafy.io/api/counselors/login", body)
             .then((res) => {
               console.log(res.data);
-              if(res.data.code === 200) {
-                console.log("로그인");
-                dispatch(loginCounselor(res.data.userInfo));
-            }});
+              localStorage.setItem("token", res.data.data)
+              console.log(res.data.data)
+              let counselorId = jwt_decode(res.data.data)
+              
+              axios({
+                url: 'https://j7b204.p.ssafy.io/api/counselors/'+counselorId.sub,
+                 method: "GET"
+              })
+              .then((res)=> {
+                console.log('성공')
+                console.log(res.data)
+                localStorage.setItem('counselorprofile', JSON.stringify(res.data.data))
+              })
+              .catch((err) =>{
+                console.log('실패')
+                console.log(err)
+                });
+              }
+            )};
 
-    }}
+    }
     return (
         <div className={styles.counselor}>
 
@@ -49,6 +64,7 @@ function CounselorLogin() {
         <h1 className={styles.header__title2}>Hug</h1><h1 className={styles.header__title3}>ging</h1>
         </div> 
         <p className={styles.counselor_text}>상담사 로그인</p>
+
         <form id={ styles.login_form} onSubmit={ LoginFunc }>
             <input type="text" placeholder='Email' onChange={ handleInputId }></input>
             <input type="text" placeholder='Password' onChange={ handleInputPw } />
