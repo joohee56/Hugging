@@ -101,7 +101,8 @@
         })
           .then((unityInstance2) => {
             unityInstance = unityInstance2;
-            unityInstance.SendMessage("HuggingLauncher", "SetCounselInfos", "주희|001|슬픔");
+            // unityInstance.SendMessage("HuggingLauncher", "SetCounselInfos", "OneToOne|주희|001|Company");
+            unityInstance.SendMessage("HuggingLauncher", "SetCounselInfos", "Community|주희");
             loadingBar.style.display = "none";
             fullscreenButton.onclick = () => {
               unityInstance2.SetFullscreen(1);
