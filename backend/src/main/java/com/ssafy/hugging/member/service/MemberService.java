@@ -13,6 +13,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.ssafy.hugging.member.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -35,7 +36,6 @@ import com.ssafy.hugging.favorite.repository.FavoriteMusicRepository;
 import com.ssafy.hugging.member.MemberConstant;
 import com.ssafy.hugging.member.domain.Member;
 import com.ssafy.hugging.member.dto.MemberJoinRequest;
-import com.ssafy.hugging.member.repository.MemberRepository;
 import com.ssafy.hugging.music.domain.Music;
 import com.ssafy.hugging.music.dto.MusicResponse;
 import com.ssafy.hugging.music.repository.MusicRepository;
