@@ -58,7 +58,7 @@ public class VoiceManager : MonoBehaviour
 
         //RtcEngine.SetChannelProfile(CHANNEL_PROFILE.CHANNEL_PROFILE_LIVE_BROADCASTING);
         //RtcEngine.SetClientRole(CLIENT_ROLE_TYPE.CLIENT_ROLE_BROADCASTER);
-        RtcEngine.AdjustRecordingSignalVolume(100);
+        //RtcEngine.AdjustRecordingSignalVolume(0);
     }
 
     private void InitVoiceChat()
