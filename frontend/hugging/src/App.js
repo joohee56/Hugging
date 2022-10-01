@@ -55,7 +55,7 @@ function App() {
           element={<CounselProfile />}
         ></Route>
         <Route path="/counselreserve" element={<ReserveCounsel />} />
-        <Route path="/main" element={<MainPage />} />
+        {/* <Route path="/main" element={<MainPage />} /> */}
         <Route path="/counselorlist" element={<ListCounselor />}></Route>
       </Routes>
     </div>
