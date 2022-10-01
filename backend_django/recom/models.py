@@ -35,10 +35,8 @@ class Counselor(models.Model):
         managed = False
         db_table = 'counselor'
 
-    
     def __str__(self):
         return str(self.id)
-
 
 
 class CounselorReview(models.Model):
@@ -86,7 +84,6 @@ class Member(models.Model):
         return str(self.id)
 
 
-
 class Mission(models.Model):
     explanation = models.CharField(max_length=255, blank=True, null=True)
     mission_subject = models.CharField(max_length=255, blank=True, null=True)
@@ -101,7 +98,6 @@ class Music(models.Model):
     hits = models.IntegerField(blank=True, null=True)
     music_url = models.CharField(max_length=255, blank=True, null=True)
     name = models.CharField(max_length=255, blank=True, null=True)
-    tag = models.CharField(max_length=255, blank=True, null=True)
     thumbnail_url = models.CharField(max_length=255, blank=True, null=True)
     type = models.CharField(max_length=255, blank=True, null=True)
     category = models.ForeignKey('MusicCategory', models.DO_NOTHING, blank=True, null=True)
@@ -116,6 +112,7 @@ class Music(models.Model):
 
 class MusicCategory(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
+    title = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -141,3 +138,31 @@ class ProceedingMission(models.Model):
     class Meta:
         managed = False
         db_table = 'proceeding_mission'
+
+
+class PsychologicalTestCategory(models.Model):
+    category = models.CharField(max_length=255, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'psychological_test_category'
+
+
+class PsychologicalTestQuestion(models.Model):
+    question = models.CharField(max_length=255)
+    score = models.IntegerField()
+    psychological_test_category = models.ForeignKey(PsychologicalTestCategory, models.DO_NOTHING, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'psychological_test_question'
+
+
+class PsychologicalTestResult(models.Model):
+    score = models.IntegerField()
+    member = models.ForeignKey(Member, models.DO_NOTHING, blank=True, null=True)
+    psychological_test_category = models.ForeignKey(PsychologicalTestCategory, models.DO_NOTHING, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'psychological_test_result'
