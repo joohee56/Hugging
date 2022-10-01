@@ -27,7 +27,7 @@ let user = createSlice({
     nickname: "",
     age: "",
     gender: "",
-    emotion: [],
+    emotion: ["불안", "우울", "상실"],
     profileImage: 0,
   },
   reducers: {
@@ -38,15 +38,6 @@ let user = createSlice({
           state.emotion.splice(i, 1);
         }
       });
-    },
-
-    changeUser(state, action) {
-      state.nickname = action.payload.nickname;
-      state.age = action.payload.age;
-      state.gender = action.payload.gender;
-    },
-    changeEmotion(state, action) {
-      state.emotion.push(action.payload);
     },
 
     loginUser(state, action) {
@@ -61,6 +52,14 @@ let user = createSlice({
       state.name = "";
       state.id = "";
       state.isLogin = false;
+    },
+    changeUser(state, action) {
+      state.nickname = action.payload.nickname;
+      state.age = action.payload.age;
+      state.gender = action.payload.gender;
+    },
+    changeEmotion(state, action) {
+      state.emotion.push(action.payload);
     },
   },
 });
