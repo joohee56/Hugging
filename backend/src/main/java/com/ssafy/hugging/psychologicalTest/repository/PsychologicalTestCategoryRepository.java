@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface PsychologicalTestCategoryRepository extends JpaRepository<PsychologicalTestCategoryRepository, Integer> {
+public interface PsychologicalTestCategoryRepository extends JpaRepository<PsychologicalTestCategory, Integer> {
     Optional<PsychologicalTestCategory> findPsychologicalTestCategoryById(Integer id);
 }
