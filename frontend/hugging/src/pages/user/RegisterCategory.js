@@ -12,17 +12,40 @@ function RegisterCategory({history}) {
     const navigate = useNavigate();
     let dispatch = useDispatch()
     let user = useSelector((state)=> { return state.user})
-    let [btn, setBtn] = useState(false)
-    let [emotion, setEmotion] = useState([])
-    
-    useEffect(()=>{
-                // let emotion = localStorage.getItem('emotion')               
-                // emotion = JSON.parse(emotion)                
-                // emotion.push('rage')
-                // console.log(emotion)
-                // localStorage.setItem('emotion', JSON.stringify('rage'))
+    let [btn, setBtn] = useState([false, false, false, false, false, false, false, false,false, false, false, false])
+    let [emotion, setEmotion] = useState([
+        '행복함',
+        '편안함', 
+        '설렘', 
+        '슬픔', 
+        '우울함', 
+        '상실감', 
+        '지루함', 
+        '외로움', 
+        '무기력', 
+        '분노', 
+        '짜증남', 
+        '불편함' 
+    ])
+    let [ emotionre, setEmotionre] = useState([
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
 
-    },[])
+    ]) 
+    // useEffect(()=>{
+    //             sessionStorage.setItem('emotion', JSON.stringify(emotionre))
+    // },[setEmotionre])
+
     return (
         <>
         <div className={styles.category_title}><h2 className={styles.hug}>Hug</h2><h2>ging</h2></div>
@@ -32,43 +55,112 @@ function RegisterCategory({history}) {
             <p className={styles.gomin}>고민</p><p className={styles.category}>category</p> 
         </div>
         <div id={styles.category_card}>
-            <button onClick={()=>{ 
-                if ( btn === false ) {
-                    emotion.push("슬픔")
+            {/* <button onClick={()=>{ 
+                if ( btn[0] === false ) {
+                    emotion.행복함 = "true"
                     setEmotion(emotion)
-                    // dispatch(changeEmotion("슬픔"))
+
                 }
                 else{
-                emotion.map(function(a, i){
-                    if (emotion[i] === "슬픔") {
-                        emotion.splice(i, 1)
-                    }
+                    emotion.행복함 = 'false'}
 
-                })
-                          }
-                setBtn(!btn)
-                console.log(user)
+                setBtn(!btn[0])
                 console.log(emotion)
-                console.log(btn)
-                // let emotion = localStorage.getItem('emotion')
-                // emotion = JSON.parse(emotion)
-                // emotion.concat('rage')
-                // localStorage.setItem('emotion', JSON.stringify('rage'))
-                // console.log(emotion)
-            }}>불안할 때</button>
+            }}>행복함</button>
             <button onClick={()=>{  
                 if ( btn === false ) {
-                    emotion.push("우울함")
+                    emotion.편안함 = "true"
                     setEmotion(emotion)
                 }
                 else{
-                    emotion.map(function(a, i){
-                        if (emotion[i] === "우울함") {
-                            emotion.splice(i, 1)}
-                         })
+                    emotion.편안함 = 'false'
+                    }
                 console.log(emotion) 
-                setBtn(!btn)}}}
+                setBtn(!btn)}}
+                          >편안함</button>
+
+            <button onClick={()=>{  
+                if ( btn === false ) {
+                    emotion.설렘 = "true"
+                    setEmotion(emotion)
+                }
+                else{
+                    emotion.설렘 = 'false'
+                    }
+                console.log(emotion) 
+                setBtn(!btn)}}
+                          >설렘</button>
+            <button onClick={()=>{  
+                if ( btn === false ) {
+                    emotion.슬픔 = "true"
+                    setEmotion(emotion)
+                }
+                else{
+                    emotion.슬픔 = 'false'
+                    }
+                console.log(emotion) 
+                setBtn(!btn)}}
+                          >슬픔</button>
+            <button onClick={()=>{  
+                if ( btn === false ) {
+                    emotion.우울함 = "true"
+                    setEmotion(emotion)
+                }
+                else{
+                    emotion.우울함 = 'false'
+                    }
+                console.log(emotion) 
+                setBtn(!btn)}}
                           >우울함</button>
+            <button onClick={()=>{  
+                if ( btn === false ) {
+                    emotion.상실감 = "true"
+                    setEmotion(emotion)
+                }
+                else{
+                    emotion.상실감 = 'false'
+                    }
+                console.log(emotion) 
+                setBtn(!btn)}}
+                          >상실감</button>
+            <button onClick={()=>{  
+                if ( btn === false ) {
+                    emotion.지루함 = "true"
+                    setEmotion(emotion)
+                }
+                else{
+                    emotion.지루함 = 'false'
+                    }
+                console.log(emotion) 
+                setBtn(!btn)}}
+                          >지루함</button> */}
+
+                    { emotionre.map(function(a, i){
+                        return (
+                            <button onClick={()=>{
+                                                                      
+                                let copy = [...btn]
+                                copy[i] = !btn[i]
+                                setBtn(copy)
+                                console.log(copy)      
+                                        if ( copy[i] === true ){
+                                                emotionre[i] =  emotion[i] 
+                                                setEmotionre(emotionre)
+                                                sessionStorage.setItem('emotion', JSON.stringify(emotionre))
+                                            }
+                                         else{
+                                                emotionre[i] = ''
+                                                setEmotionre(emotionre)
+                                                localStorage.setItem("emotion",emotionre)
+                                                sessionStorage.setItem('emotion', JSON.stringify(emotionre))
+                                                }
+                                            
+                                            
+                                            console.log(emotionre)
+                                            }}
+                                                >{emotion[i]}</button>
+                        )
+                                        })}
             <button>불안할 때</button>
             <button>불안할 때</button>
             <button>불안할 때</button>

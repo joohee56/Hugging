@@ -26,11 +26,14 @@ let user = createSlice({
     email: "",
     nickname: "",
     age: "",
+    emotion: "",
     gender: "",
-    emotion: ["불안", "우울", "상실"],
     profileImage: 0,
   },
   reducers: {
+    changeEmotion(state, action) {
+      state.emotion = action.payload
+    },
     deleteEmotion(state, action) {
       state.emotion.map((a, i) => {
         console.log(state.emotion);
@@ -58,9 +61,9 @@ let user = createSlice({
       state.age = action.payload.age;
       state.gender = action.payload.gender;
     },
-    changeEmotion(state, action) {
-      state.emotion.push(action.payload);
-    },
+    // changeEmotion(state, action) {
+    //   state.emotion.push(action.payload);
+    // },
   },
 });
 

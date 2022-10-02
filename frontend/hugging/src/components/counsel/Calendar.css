@@ -114,12 +114,13 @@
     background: #a9d4ff;
   }
   .react-calendar__tile--active {
-    background: #006edc;
+    background: linear-gradient(to left, #C58BF2, #EEA4CE);
+    border-radius: 15px ;
     color: white;
   }
   .react-calendar__tile--active:enabled:hover,
   .react-calendar__tile--active:enabled:focus {
-    background: #1087ff;
+    background: linear-gradient(to left, #C58BF2, #EEA4CE);
   }
   .react-calendar--selectRange .react-calendar__tile--hover {
     background-color: #e6e6e6;

@@ -9,7 +9,7 @@ import promiseMiddleware from "redux-promise";
 import { API_HOST_URL } from "../../config";
 import jwt_decode from 'jwt-decode';
 
-function RegisterProfile() {
+function RegisterProfile(props) {
   const navigate = useNavigate();
   let user = useSelector((state) => {
     return state.user;
@@ -36,14 +36,15 @@ function RegisterProfile() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const email = localStorage.getItem('email')
+    let emotion  = sessionStorage.getItem('emotion')
     let body = {
       nickname,
       age,
       gender,
-      emotion: user.emotion,
+      emotion : JSON.parse(emotion),
       email,
     };
-
+    console.log(body)
     axios.post(API_HOST_URL + "members/join", body)
       .then((res) => {
         if (res.data.newMember){
@@ -58,6 +59,7 @@ function RegisterProfile() {
             console.log('성공')
             console.log(res.data)
             localStorage.setItem('userprofile', JSON.stringify(res.data))
+            sessionStorage.removeItem('emotion')
           })
           .catch((err) =>{
             console.log('실패')
