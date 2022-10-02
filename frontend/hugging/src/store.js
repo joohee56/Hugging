@@ -31,8 +31,11 @@ let user = createSlice({
     profileImage: 0,
   },
   reducers: {
+    changeImg(state, action) {
+      state.profileImage = action.payload;
+    },
     changeEmotion(state, action) {
-      state.emotion = action.payload
+      state.emotion = action.payload;
     },
     deleteEmotion(state, action) {
       state.emotion.map((a, i) => {
@@ -81,8 +84,15 @@ let counselSlice = createSlice({
   },
 });
 
-export let { loginUser, changeEmotion, changeUser, deleteEmotion, clearUser } =
-  user.actions;
+export let {
+  loginUser,
+  changeEmotion,
+  changeUser,
+  deleteEmotion,
+  clearUser,
+  changeImg,
+} = user.actions;
+
 export let { loginCounselor } = counselor.actions;
 export const counselActions = counselSlice.actions;
 
