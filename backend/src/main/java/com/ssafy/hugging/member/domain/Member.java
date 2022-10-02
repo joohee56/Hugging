@@ -14,7 +14,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.ssafy.hugging.psychologicalTest.domain.PsychologicalTestResult;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -27,6 +26,7 @@ import com.ssafy.hugging.member.dto.MemberJoinRequest;
 import com.ssafy.hugging.mission.domain.ProceedingMission;
 import com.ssafy.hugging.model.Gender;
 import com.ssafy.hugging.music.domain.MusicReview;
+import com.ssafy.hugging.psychologicalTest.domain.PsychologicalTestResult;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

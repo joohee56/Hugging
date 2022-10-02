@@ -13,9 +13,6 @@ import java.net.URL;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.ssafy.hugging.member.domain.MemberMentalCategory;
-import com.ssafy.hugging.member.repository.MemberRepository;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -37,6 +34,7 @@ import com.ssafy.hugging.favorite.repository.FavoriteCounselorRepository;
 import com.ssafy.hugging.favorite.repository.FavoriteMusicRepository;
 import com.ssafy.hugging.member.MemberConstant;
 import com.ssafy.hugging.member.domain.Member;
+import com.ssafy.hugging.member.domain.MemberMentalCategory;
 import com.ssafy.hugging.member.dto.MemberJoinRequest;
 import com.ssafy.hugging.member.dto.MemberResponse;
 import com.ssafy.hugging.member.repository.MemberRepository;
@@ -182,7 +180,7 @@ public class MemberService implements UserDetailsService {
 
 	public void join(MemberJoinRequest memberJoinRequest) {
 		Member member = Member.from(memberJoinRequest);
-		if(!memberJoinRequest.getEmotion().isEmpty()) {
+		if (!memberJoinRequest.getEmotion().isEmpty()) {
 			member.setMemberMentalCategoryList(memberJoinRequest.getEmotion()
 				.stream()
 				.map(emotion -> MemberMentalCategory.from(member, emotion))

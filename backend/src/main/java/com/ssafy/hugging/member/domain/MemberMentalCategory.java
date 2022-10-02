@@ -21,7 +21,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class MemberMentalCategory {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	@Enumerated(EnumType.STRING)
@@ -31,10 +32,7 @@ public class MemberMentalCategory {
 	@JoinColumn(name = "memberId")
 	private Member member;
 
-	public static MemberMentalCategory from(Member member, MentalCategory category){
-		return MemberMentalCategory.builder()
-			.member(member)
-			.category(category)
-			.build();
+	public static MemberMentalCategory from(Member member, MentalCategory category) {
+		return MemberMentalCategory.builder().member(member).category(category).build();
 	}
 }

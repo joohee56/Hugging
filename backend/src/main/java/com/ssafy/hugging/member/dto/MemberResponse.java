@@ -51,11 +51,9 @@ public class MemberResponse {
 			.map(favoriteMusic -> new MusicResponse(favoriteMusic.getMusic()))
 			.collect(Collectors.toList()));
 		// musicReviewList = getMusicReviewList();
-		memberMentalCategoryList.addAll(
-			member.getMemberMentalCategoryList()
-				.stream()
-				.map(MemberMentalCategory::getCategory)
-				.collect(Collectors.toList())
-		);
+		memberMentalCategoryList.addAll(member.getMemberMentalCategoryList()
+			.stream()
+			.map(MemberMentalCategory::getCategory)
+			.collect(Collectors.toList()));
 	}
 }
