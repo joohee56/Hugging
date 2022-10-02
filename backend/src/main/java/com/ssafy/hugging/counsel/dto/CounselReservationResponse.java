@@ -21,13 +21,15 @@ import lombok.Setter;
 public class CounselReservationResponse {
 	private Integer counselId;
 	private String reservationDate;
+	private String reservationTime;
 	private Subject subject;
 	private Status status;
 
 	public static CounselReservationResponse of(Counsel counsel) {
 		return new CounselReservationResponseBuilder()
 			.counselId(counsel.getCounselor().getId())
-			.reservationDate(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm").format(counsel.getReservationDate()))
+			.reservationDate(counsel.getReservationDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")))
+			.reservationTime(counsel.getReservationDate().format(DateTimeFormatter.ofPattern("HH:mm")))
 			.subject(counsel.getSubject())
 			.status(counsel.getStatus())
 			.build();
