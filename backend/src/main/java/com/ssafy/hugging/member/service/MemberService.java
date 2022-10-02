@@ -13,7 +13,9 @@ import java.net.URL;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.ssafy.hugging.member.domain.MemberMentalCategory;
 import com.ssafy.hugging.member.repository.MemberRepository;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -180,6 +182,12 @@ public class MemberService implements UserDetailsService {
 
 	public void join(MemberJoinRequest memberJoinRequest) {
 		Member member = Member.from(memberJoinRequest);
+		if(!memberJoinRequest.getEmotion().isEmpty()) {
+			member.setMemberMentalCategoryList(memberJoinRequest.getEmotion()
+				.stream()
+				.map(emotion -> MemberMentalCategory.from(member, emotion))
+				.collect(Collectors.toList()));
+		}
 		memberRepository.save(member);
 	}
 
