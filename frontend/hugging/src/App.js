@@ -21,7 +21,7 @@ import CounselCommunity from "./pages/counsel/CounselCommunity";
 import CounselProfile from "./pages/counsel/CounselProfile";
 import ListCounselor from "./pages/counsel/ListCounselor";
 import MainPage from "./pages/main/MainPage";
-
+import CounselDone from "./pages/counsel/CounselDone";
 // import scrollbar from 'smooth-scrollbar';
 
 // // smooth scroll 설정
@@ -55,8 +55,9 @@ function App() {
           element={<CounselProfile />}
         ></Route>
         <Route path="/counselreserve" element={<ReserveCounsel />} />
-        {/* <Route path="/main" element={<MainPage />} /> */}
+        <Route path="/main" element={<MainPage />} />
         <Route path="/counselorlist" element={<ListCounselor />}></Route>
+        <Route path="/counseldone" element={<CounselDone />}></Route>
       </Routes>
     </div>
   );
