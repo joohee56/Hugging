@@ -17,55 +17,43 @@
   overflow: hidden;
 }
 
-.header {
-  /* background: linear-gradient(135deg, #9dceff 0%, #92a3fd 100%); */
-  background: linear-gradient(135deg, #9dceff 0%, #92a3fd 100%);
-  /* background: linear-gradient(135deg, #faa7b7 0%, #fb7a8e 100%); */
-  padding: 1rem;
-  text-align: center;
+.grayBar {
+  background-color: #d9d9d9;
+  height: 4px;
+  width: 38px;
+  left: 162px;
+  top: 370px;
+  border-radius: [object Object]px;
 }
-
-.header h2 {
-  margin: 0;
-  color: white;
-  font-size: 0.8rem;
-}
-
-.content {
-  padding: 1rem;
-  text-align: center;
-}
-
-.actions {
-  padding: 1rem;
+.column {
   display: flex;
-  justify-content: flex-end;
+  overflow-x: scroll;
 }
 
-.btn {
-  font: inherit;
-  /* background: linear-gradient(135deg, #9dceff 0%, #92a3fd 100%); */
-  /* color: white; */
-  background: #ffe6e6;
-  color: #ff0000;
-  padding: 0.3rem 1rem;
-  cursor: pointer;
-  height: 35px;
-  width: 110px;
-  border-radius: 50px;
-  border: 0px solid;
-  font-size: 0.8rem;
+.title {
+  color: #5b71e7;
   font-weight: bold;
+}
+
+.cancel {
+  height: 37px;
+  width: 110px;
+  border-radius: 0px;
   box-shadow: 0 2px 8px rgba(192, 192, 192, 0.79);
+  cursor: pointer;
+  border-radius: 50px;
+  background: #d9d9d9;
 }
 
-.btn:hover,
-.btn:active {
+.reservation {
+  height: 37px;
+  width: 110px;
+  border-radius: 0px;
+  box-shadow: 0 2px 8px rgba(192, 192, 192, 0.79);
+  cursor: pointer;
+  border-radius: 50px;
   background: linear-gradient(135deg, #9dceff 0%, #92a3fd 100%);
-}
-
-.btn:focus {
-  outline: none;
+  color: white;
 }
 
 @media (min-width: 768px) {

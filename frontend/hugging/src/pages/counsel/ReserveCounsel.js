@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import MyReservationList from "../../components/counsel/MyReservationList";
 import CounselSubjectList from "../../components/counsel/CounselSubjectList";
 import CounselorRecommList from "../../components/counsel/CounselorRecommList";
@@ -96,6 +96,28 @@ const ReserveCounsel = () => {
   const confirmHandler = () => {
     setConfirm(null);
   };
+
+  useEffect(() => {
+    fetchMyreservationHandler(); // 처음 랜더링 됐을 때 호출되도록
+  }, []); // 의존성을 추가하지 않으면 무한루프에 빠질 수 있음
+
+  async function fetchMyreservationHandler() {
+    // setIsLoading(true);
+    const response = await fetch("https://j7b204.p.ssafy.io/api/counsels/1"); // 프로미스 객체 반환
+    const data = await response.json(); // 프로미스 객체 반환
+    console.log(data);
+    // const transformedMovies = data.results.map((movieData) => {
+    //   return {
+    //     id: movieData.episode_id,
+    //     title: movieData.title,
+    //     openingText: movieData.opening_crawl,
+    //     releaseDate: movieData.release_date,
+    //   };
+    // });
+
+    // setMovies(transformedMovies);
+    // setIsLoading(false);
+  }
 
   return (
     <Fragment>
