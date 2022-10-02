@@ -25,7 +25,7 @@ function MainPage() {
       </div>
       <div className={styles.counseling}>
         <button className={styles.counseling_btn}>
-          <h6 className={styles.counseling_title}>심리 상담 ></h6>{" "}
+          <h6 className={styles.counseling_title}>심리 상담 </h6>{" "}
         </button>
         <p className={styles.emotion_div_text}>
           메타버스에서 편안히 상담받아요
@@ -40,7 +40,7 @@ function MainPage() {
         </div>
         <button className={styles.test_btn}>
           <div className={styles.test_btn_logo}></div>
-          심리 검사 하러 가기 >
+          심리 검사 하러 가기
         </button>
       </div>
       <Nav></Nav>
