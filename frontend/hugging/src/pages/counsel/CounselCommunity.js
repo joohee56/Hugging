@@ -15,6 +15,8 @@ const CounselCommunity = () => {
     isLoaded,
     requestFullscreen,
     loadingProgression,
+    UNSAFE__detachAndUnloadImmediate: detachAndUnloadImmediate,
+    unload,
     // unload
   } = useUnityContext({
     loaderUrl: "Build/WebGLBuild.loader.js",
@@ -25,9 +27,10 @@ const CounselCommunity = () => {
 
   const loadingPercentage = Math.round(loadingProgression * 100);
   const navigate = useNavigate();
-  const exit = useCallback(() => {
+  const exit = useCallback(async () => {
+    window.unityInstance.Quit(() => {});
     navigate("/counseldone");
-  }, []);
+  }, [navigate]);
 
   function setLandscape() {
     window.screen.orientation.lock("landscape");
@@ -43,9 +46,10 @@ const CounselCommunity = () => {
   useEffect(() => {
     addEventListener("Exit", exit);
     return () => {
+      detachAndUnloadImmediate();
       removeEventListener("Exit", exit);
     };
-  }, [addEventListener, removeEventListener, exit]);
+  }, [addEventListener, removeEventListener, exit, detachAndUnloadImmediate]);
 
   function handleClickEnterFullscreen() {
     requestFullscreen(true);

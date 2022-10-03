@@ -212,7 +212,7 @@ public class HuggingLauncher : MonoBehaviourPunCallbacks
         }
         voiceChatManager.LeaveVoiceChat();
         PhotonNetwork.Disconnect();
-        Application.Quit();
+        //Application.Quit();
         Exit();
     }
 
