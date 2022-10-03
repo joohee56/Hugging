@@ -22,14 +22,15 @@ class Counsel(models.Model):
 
 class Counselor(models.Model):
     available_time = models.CharField(max_length=255, blank=True, null=True)
-    career = models.CharField(max_length=255, blank=True, null=True)
-    certificate = models.CharField(max_length=255, blank=True, null=True)
+    career = models.CharField(max_length=1000, blank=True, null=True)
+    certificate = models.CharField(max_length=1000, blank=True, null=True)
     email = models.CharField(unique=True, max_length=255)
-    explanation = models.CharField(max_length=255, blank=True, null=True)
+    explanation = models.CharField(max_length=1000, blank=True, null=True)
     gender = models.CharField(max_length=255, blank=True, null=True)
     name = models.CharField(max_length=255)
     password = models.CharField(max_length=255)
     subject = models.CharField(max_length=255, blank=True, null=True)
+    profile_image = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -84,6 +85,15 @@ class Member(models.Model):
         return str(self.id)
 
 
+class MemberMentalCategory(models.Model):
+    category = models.CharField(max_length=255, blank=True, null=True)
+    member = models.ForeignKey(Member, models.DO_NOTHING, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'member_mental_category'
+
+
 class Mission(models.Model):
     explanation = models.CharField(max_length=255, blank=True, null=True)
     mission_subject = models.CharField(max_length=255, blank=True, null=True)
@@ -95,12 +105,13 @@ class Mission(models.Model):
 
 
 class Music(models.Model):
-    hits = models.IntegerField(blank=True, null=True)
-    music_url = models.CharField(max_length=255, blank=True, null=True)
     name = models.CharField(max_length=255, blank=True, null=True)
-    thumbnail_url = models.CharField(max_length=255, blank=True, null=True)
     type = models.CharField(max_length=255, blank=True, null=True)
+    hits = models.IntegerField(blank=True, null=True)
+    thumbnail_url = models.CharField(max_length=255, blank=True, null=True)
     category = models.ForeignKey('MusicCategory', models.DO_NOTHING, blank=True, null=True)
+    music_url = models.CharField(max_length=255, blank=True, null=True)
+    tag = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         managed = False
