@@ -35,7 +35,11 @@ const CounselMetaverse = () => {
   const loadingPercentage = Math.round(loadingProgression * 100);
   const navigate = useNavigate();
   const exit = useCallback(() => {
-    navigate("/counseldone");
+    if (from === "Community") {
+      navigate("/counselselect");
+    } else {
+      navigate("/counseldone");
+    }
   }, []);
 
   function setLandscape() {
