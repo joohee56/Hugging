@@ -23,7 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.ssafy.hugging.counselor.domain.Counselor;
-import com.ssafy.hugging.counselor.dto.CounselorResponse;
+import com.ssafy.hugging.counselor.dto.CounselorListResponse;
 import com.ssafy.hugging.counselor.repository.CounselorRepository;
 import com.ssafy.hugging.counselor.repository.CounselorReviewRepository;
 import com.ssafy.hugging.favorite.domain.FavoriteCounselor;
@@ -68,9 +68,9 @@ public class MemberService implements UserDetailsService {
 	public MemberResponse getMemberById(Integer id) {
 		Member member = memberRepository.findMemberById(id)
 			.orElseThrow(() -> new IllegalArgumentException(NOT_FOUND_MEMBER_ERROR_MESSAGE));
-		List<CounselorResponse> counselorList = member.getFavoriteCounselorList()
+		List<CounselorListResponse> counselorList = member.getFavoriteCounselorList()
 			.stream()
-			.map(favoriteCounselor -> CounselorResponse.of(favoriteCounselor.getCounselor(),
+			.map(favoriteCounselor -> CounselorListResponse.of(favoriteCounselor.getCounselor(),
 				counselorReviewRepository.findAvgByCounselorId(favoriteCounselor.getCounselor().getId())))
 			.collect(Collectors.toList());
 		return new MemberResponse(member, counselorList);
@@ -217,12 +217,12 @@ public class MemberService implements UserDetailsService {
 		favoriteMusicRepository.deleteFavoriteMusicByMemberIdAndMusicId(memberId, musicId);
 	}
 
-	public List<CounselorResponse> getFavoriteCounselorList(Integer id) {
+	public List<CounselorListResponse> getFavoriteCounselorList(Integer id) {
 		Member member = memberRepository.findMemberById(id)
 			.orElseThrow(() -> new IllegalArgumentException(NOT_FOUND_MEMBER_ERROR_MESSAGE));
 		return member.getFavoriteCounselorList()
 			.stream()
-			.map(favoriteCounselor -> CounselorResponse.of(favoriteCounselor.getCounselor(),
+			.map(favoriteCounselor -> CounselorListResponse.of(favoriteCounselor.getCounselor(),
 				counselorReviewRepository.findAvgByCounselorId(favoriteCounselor.getCounselor().getId())))
 			.collect(Collectors.toList());
 	}

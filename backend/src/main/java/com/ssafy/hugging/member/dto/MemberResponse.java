@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.ssafy.hugging.counsel.dto.CounselReservationResponse;
-import com.ssafy.hugging.counselor.dto.CounselorResponse;
+import com.ssafy.hugging.counselor.dto.CounselorListResponse;
 import com.ssafy.hugging.member.domain.Member;
 import com.ssafy.hugging.member.domain.MemberMentalCategory;
 import com.ssafy.hugging.member.domain.MentalCategory;
@@ -24,13 +24,13 @@ public class MemberResponse {
 	private final Integer profileImage;
 
 	private final List<CounselReservationResponse> counselList = new ArrayList<>();
-	private final List<CounselorResponse> favoriteCounselorList = new ArrayList<>();
+	private final List<CounselorListResponse> favoriteCounselorList = new ArrayList<>();
 	// private final List<CounselorReviewResponse> counselorReviewList = new ArrayList<>();
 	private final List<MusicResponse> favoriteMusicList = new ArrayList<>();
 	// private final List<MusicReview> musicReviewList = new ArrayList<>();
 	private final List<MentalCategory> memberMentalCategoryList = new ArrayList<>();
 
-	public MemberResponse(Member member, List<CounselorResponse> favoriteCounselorList) {
+	public MemberResponse(Member member, List<CounselorListResponse> favoriteCounselorList) {
 		id = member.getId();
 		email = member.getEmail();
 		age = member.getAge();
