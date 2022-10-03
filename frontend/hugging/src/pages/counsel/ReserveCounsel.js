@@ -8,7 +8,7 @@ import CounselCalendar from "../../components/counsel/CounselCalendar";
 import CounselTime from "../../components/counsel/CounselTime";
 import { useSelector } from "react-redux";
 import ErrorModal from "../../components/ui/ErrorModal";
-
+import ConfirmModal from "../../components/ui/ConfirmModal";
 const DUMMY_RESERVE = [
   {
     id: "r1",
@@ -52,8 +52,11 @@ const ReserveCounsel = () => {
   // 예약 체크
   // 상담사, 날짜, 시간
   const [error, setError] = useState();
+  const [confirm, setConfirm] = useState();
 
   const counselor = useSelector((state) => state.counsel.counselor);
+  const date = useSelector((state) => state.counsel.date);
+  const time = useSelector((state) => state.counsel.time);
   console.log({ counselor });
 
   const reservationClickHandler = () => {
@@ -62,11 +65,36 @@ const ReserveCounsel = () => {
         title: "상담 예약 불가",
         message: "상담사를 선택해 주세요.",
       });
+
+      return;
     }
+
+    if (date === undefined) {
+      setError({
+        title: "상담 예약 불가",
+        message: "상담 예약 날짜를 선택해 주세요.",
+      });
+
+      return;
+    }
+
+    if (time === undefined) {
+      setError({
+        title: "상담 예약 불가",
+        message: "상담 예약 시간을 선택해 주세요.",
+      });
+
+      return;
+    }
+
+    setConfirm(true);
   };
 
   const errorHandler = () => {
     setError(null);
+  };
+  const confirmHandler = () => {
+    setConfirm(null);
   };
 
   return (
@@ -78,6 +106,7 @@ const ReserveCounsel = () => {
           message={error.message}
         />
       )}
+      {confirm && <ConfirmModal onConfirm={confirmHandler} />}
       <Header />
       <MyReservationList reservations={DUMMY_RESERVE} />
       <CounselSubjectList title="상담 주제" />
