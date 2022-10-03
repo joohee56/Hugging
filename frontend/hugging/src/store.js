@@ -71,7 +71,8 @@ let user = createSlice({
 });
 
 const initialCounselorState = {
-  counselor: undefined,
+  counselorName: undefined,
+  counselorId: undefined,
   subject: undefined,
   date: undefined,
   time: undefined,
@@ -82,10 +83,15 @@ let counselSlice = createSlice({
   name: "counsel",
   initialState: initialCounselorState,
   reducers: {
-    selectCounselor(state, action) {
-      console.log("in store");
+    selectCounselorName(state, action) {
+      console.log("in counselorName store");
       console.log(action.payload);
-      state.counselor = action.payload;
+      state.counselorName = action.payload;
+    },
+    selectCounselorId(state, action) {
+      console.log("in counselorId store");
+      console.log(action.payload);
+      state.counselorId = action.payload;
     },
     selectSubject(state, action) {
       console.log("in subject store");

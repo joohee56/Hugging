@@ -1,7 +1,6 @@
 import classes from "./CounselSubjectListItem.module.css";
 import { counselActions } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
 
 const CounselSubjectListItem = (props) => {
   const dispatch = useDispatch();
@@ -10,16 +9,12 @@ const CounselSubjectListItem = (props) => {
 
   // 클릭되면 store 에 subject 저장하기, API 호출
   const subjectSelectHandler = () => {
-    console.log(props.title);
     console.log("clicked!!");
     dispatch(counselActions.setSubjectKor(props.title));
 
     // 우울, 불면, 가족, 학교, 직장/진로, 대인관계, 연애/결혼, 자기이해
     let value = "Depressed";
-    if (props.title === "우울") {
-      console.log("이거 됨");
-      value = "Depressed";
-    }
+    if (props.title === "우울") value = "Depressed";
     if (props.title === "불면") value = "Insomnia";
     if (props.title === "가족") value = "Family";
     if (props.title === "학교") value = "School";

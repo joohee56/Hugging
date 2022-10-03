@@ -19,9 +19,10 @@ const CounselRecommList = (props) => {
       <div>
         {props.counselors.length != 0 && (
           <div className={classes.counselor}>
-            {props.counselors.map((counselor, index) => (
+            {props.counselors.map((counselor) => (
               <CounselorRecommItem
-                key={index}
+                key={counselor.counselorId}
+                counselorId={counselor.counselorId}
                 name={counselor.name}
                 subject={counselor.subject}
                 average={counselor.average}

@@ -2,14 +2,6 @@ import classes from "./MyReservationItem.module.css";
 import { useCallback } from "react";
 
 const MyReservationItem = (props) => {
-  console.log(props.counselId);
-  console.log(props.counselorName);
-  console.log(props.memberNickname);
-  console.log(props.reservationDate);
-  console.log(props.reservationTime);
-  console.log(props.subject);
-  console.log(props.counselorName);
-
   const cancelClickHandler = useCallback(async () => {
     try {
       const response = await fetch(

@@ -42,19 +42,19 @@ const DUMMY_RESERVE = [
 
 const DUMMY_COUNSELOR = [
   {
-    // id: "c1",
+    counselorId: "1",
     name: "이주희",
     subject: "우울",
     average: 3.5,
   },
   {
-    // id: "c2",
+    counselorId: "2",
     name: "김호진",
     subject: "가족",
     average: 3.5,
   },
   {
-    // id: "c3",
+    counselorId: "3",
     name: "김성규",
     subject: "학교",
     average: 3.5,
@@ -69,14 +69,14 @@ const ReserveCounsel = () => {
   const [error, setError] = useState();
   const [confirm, setConfirm] = useState();
 
-  const counselor = useSelector((state) => state.counsel.counselor);
+  const counselorName = useSelector((state) => state.counsel.counselorName);
+  const counselorId = useSelector((state) => state.counsel.counselorId);
   const subject = useSelector((state) => state.counsel.subject);
   const date = useSelector((state) => state.counsel.date);
   const time = useSelector((state) => state.counsel.time);
-  console.log({ counselor });
 
   const reservationClickHandler = () => {
-    if (counselor === undefined) {
+    if (counselorId === undefined) {
       setError({
         title: "상담 예약 불가",
         message: "상담사를 선택해 주세요.",
@@ -113,18 +113,44 @@ const ReserveCounsel = () => {
     setConfirm(null);
   };
 
+  const reservationDoneHandler = () => {
+    fetchMyreservationHandler();
+  };
+
   const fetchMyreservationHandler = useCallback(async () => {
     console.log("fetchMyreservationHandler 실행됨");
-    try {
-      const response = await fetch("https://j7b204.p.ssafy.io/api/counsels/1"); // 프로미스 객체 반환
-      if (!response.ok) {
-        throw new Error("Something went wront!");
+
+    localStorage.setItem(
+      "userProfile",
+      JSON.stringify({
+        id: 10,
+        age: 20,
+        counselList: [],
+        email: "doohui96@naver.com",
+        favoriteCounselorList: [],
+        favoriteMusicList: [],
+        gender: "FEMALE",
+        nickname: "주히",
+        profileImage: 1,
+      })
+    );
+
+    const loadedUserProfile = localStorage.getItem("userProfile");
+    if (loadedUserProfile !== null) {
+      const parsedUser = JSON.parse(loadedUserProfile);
+      try {
+        const response = await fetch(
+          "https://j7b204.p.ssafy.io/api/counsels/" + parsedUser.id
+        ); // 프로미스 객체 반환
+        if (!response.ok) {
+          throw new Error("Something went wront!");
+        }
+        const data = await response.json(); // 프로미스 객체 반환
+        console.log(data.data);
+        setReservation(data.data);
+      } catch (error) {
+        setError(error.message);
       }
-      const data = await response.json(); // 프로미스 객체 반환
-      console.log(data.data);
-      setReservation(data.data);
-    } catch (error) {
-      setError(error.message);
     }
   }, [setReservation]);
 
@@ -145,7 +171,6 @@ const ReserveCounsel = () => {
   useEffect(() => {
     if (subject != undefined) {
       console.log("상담주제변경됨!");
-
       const fetchData = async () => {
         try {
           const response = await fetch(
@@ -161,7 +186,6 @@ const ReserveCounsel = () => {
             throw new Error("Something went wront!");
           }
           const data = await response.json(); // 프로미스 객체 반환
-          console.log(data.data);
           setCounselors(data.data);
           // setReservation(data.data);
         } catch (error) {
@@ -183,7 +207,12 @@ const ReserveCounsel = () => {
           message={error.message}
         />
       )}
-      {confirm && <ConfirmModal onConfirm={confirmHandler} />}
+      {confirm && (
+        <ConfirmModal
+          onConfirm={confirmHandler}
+          onReservation={reservationDoneHandler}
+        />
+      )}
       <Header />
       <MyReservationList
         reservations={reservations}

@@ -9,7 +9,7 @@ const CounselorRecommItem = (props) => {
   return (
     <Card>
       <Link
-        to={`/counselprofile/${props.id}`}
+        to={`/counselprofile/${props.counselorId}`}
         style={{ textDecoration: "none" }}
       >
         <img
