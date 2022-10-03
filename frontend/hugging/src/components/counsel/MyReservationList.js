@@ -8,9 +8,12 @@ const MyReservationList = (props) => {
       <div className={classes.list}>
         {props.reservations.map((reservation) => (
           <MyReservationItem
-            key={reservation.id}
-            id={reservation.id}
-            time={reservation.time}
+            key={reservation.counselId}
+            counselId={reservation.counselId}
+            memberNickname={reservation.memberNickname}
+            reservationDate={reservation.reservationDate}
+            reservationTime={reservation.reservationTime}
+            subject={reservation.subject}
             counselorName={reservation.counselorName}
           ></MyReservationItem>
         ))}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect, useCallback, Fragment } from "react";
 import MyReservationList from "../../components/counsel/MyReservationList";
 import CounselSubjectList from "../../components/counsel/CounselSubjectList";
 import CounselorRecommList from "../../components/counsel/CounselorRecommList";
@@ -9,20 +9,33 @@ import CounselTime from "../../components/counsel/CounselTime";
 import { useSelector } from "react-redux";
 import ErrorModal from "../../components/ui/ErrorModal";
 import ConfirmModal from "../../components/ui/ConfirmModal";
+
 const DUMMY_RESERVE = [
   {
     id: "r1",
-    time: "22/10/01 11:00~12:00",
+    counselId: "1",
+    memberNickname: "주희",
+    reservationDate: "22/10/01",
+    reservationTime: "18:00",
+    subject: "Depressed",
     counselorName: "조성규",
   },
   {
     id: "r2",
-    time: "22/10/03 11:00~12:00",
+    counselId: "2",
+    memberNickname: "주희",
+    reservationDate: "22/10/03",
+    reservationTime: "11:00",
+    subject: "Depressed",
     counselorName: "이주희",
   },
   {
     id: "r3",
-    time: "22/10/05 11:00~12:00",
+    counselId: "3",
+    memberNickname: "주희",
+    reservationDate: "22/10/05",
+    reservationTime: "11:00",
+    subject: "Depressed",
     counselorName: "김호진",
   },
 ];
@@ -51,6 +64,7 @@ const DUMMY_COUNSELOR = [
 const ReserveCounsel = () => {
   // 예약 체크
   // 상담사, 날짜, 시간
+  const [reservations, setReservation] = useState(DUMMY_RESERVE);
   const [error, setError] = useState();
   const [confirm, setConfirm] = useState();
 
@@ -97,27 +111,23 @@ const ReserveCounsel = () => {
     setConfirm(null);
   };
 
+  const fetchMyreservationHandler = useCallback(async () => {
+    console.log("이거 왜 안돼!");
+
+    try {
+      const response = await fetch("https://j7b204.p.ssafy.io/api/counsels/1"); // 프로미스 객체 반환
+      if (!response.ok) {
+        throw new Error("Something went wront!");
+      }
+      const data = await response.json(); // 프로미스 객체 반환
+      console.log(data.data);
+      setReservation(data.data);
+    } catch (error) {}
+  }, []);
+
   useEffect(() => {
     fetchMyreservationHandler(); // 처음 랜더링 됐을 때 호출되도록
-  }, []); // 의존성을 추가하지 않으면 무한루프에 빠질 수 있음
-
-  async function fetchMyreservationHandler() {
-    // setIsLoading(true);
-    const response = await fetch("https://j7b204.p.ssafy.io/api/counsels/1"); // 프로미스 객체 반환
-    const data = await response.json(); // 프로미스 객체 반환
-    console.log(data);
-    // const transformedMovies = data.results.map((movieData) => {
-    //   return {
-    //     id: movieData.episode_id,
-    //     title: movieData.title,
-    //     openingText: movieData.opening_crawl,
-    //     releaseDate: movieData.release_date,
-    //   };
-    // });
-
-    // setMovies(transformedMovies);
-    // setIsLoading(false);
-  }
+  }, [fetchMyreservationHandler]); // 의존성을 추가하지 않으면 무한루프에 빠질 수 있음
 
   return (
     <Fragment>
@@ -130,7 +140,7 @@ const ReserveCounsel = () => {
       )}
       {confirm && <ConfirmModal onConfirm={confirmHandler} />}
       <Header />
-      <MyReservationList reservations={DUMMY_RESERVE} />
+      <MyReservationList reservations={reservations} />
       <CounselSubjectList title="상담 주제" />
       <CounselorRecommList counselors={DUMMY_COUNSELOR} />
       <CounselCalendar />
