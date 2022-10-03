@@ -66,9 +66,8 @@ public class MusicService {
 	@Transactional
 	public void addMusicReview(MusicReviewRequest musicReviewRequest) {
 		Optional<MusicReview> existMusicReview = musicReviewRepository.findMusicReviewByMemberIdAndMusicId(
-			musicReviewRequest.getMemberId(), musicReviewRequest.getMusicId()
-		);
-		if(existMusicReview.isPresent()){
+			musicReviewRequest.getMemberId(), musicReviewRequest.getMusicId());
+		if (existMusicReview.isPresent()) {
 			MusicReview musicReview = existMusicReview.get();
 			musicReview.setScore(musicReviewRequest.getScore());
 		} else {
