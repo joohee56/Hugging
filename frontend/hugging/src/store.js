@@ -75,7 +75,7 @@ const initialCounselorState = {
   subject: undefined,
   date: undefined,
   time: undefined,
-  cancleCounselId: undefined,
+  subjectKor: undefined,
 };
 
 let counselSlice = createSlice({
@@ -102,10 +102,10 @@ let counselSlice = createSlice({
       state.time = action.payload;
       console.log(state.time);
     },
-    setCancelCounselId(state, action) {
-      console.log("in cancle Counsel Id");
-      state.cancleCounselId = action.payload;
-      console.log(state.cancleCounselId);
+    setSubjectKor(state, action) {
+      console.log("in setSubjectKor store");
+      state.subjectKor = action.payload;
+      console.log(state.subjectKor);
     },
   },
 });
