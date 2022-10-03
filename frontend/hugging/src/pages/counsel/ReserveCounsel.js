@@ -112,8 +112,6 @@ const ReserveCounsel = () => {
   };
 
   const fetchMyreservationHandler = useCallback(async () => {
-    console.log("이거 왜 안돼!");
-
     try {
       const response = await fetch("https://j7b204.p.ssafy.io/api/counsels/1"); // 프로미스 객체 반환
       if (!response.ok) {
@@ -122,8 +120,20 @@ const ReserveCounsel = () => {
       const data = await response.json(); // 프로미스 객체 반환
       console.log(data.data);
       setReservation(data.data);
-    } catch (error) {}
+    } catch (error) {
+      setError(error.message);
+    }
   }, []);
+
+  const counselCancelHandler = () => {
+    console.log("상담 취소");
+
+    // 1. db 에서 삭제
+    // MyReservationItem.js 에서 삭제
+
+    // 2. reservation 다시 setting
+    fetchMyreservationHandler();
+  };
 
   useEffect(() => {
     fetchMyreservationHandler(); // 처음 랜더링 됐을 때 호출되도록
@@ -140,7 +150,10 @@ const ReserveCounsel = () => {
       )}
       {confirm && <ConfirmModal onConfirm={confirmHandler} />}
       <Header />
-      <MyReservationList reservations={reservations} />
+      <MyReservationList
+        reservations={reservations}
+        onCancle={counselCancelHandler}
+      />
       <CounselSubjectList title="상담 주제" />
       <CounselorRecommList counselors={DUMMY_COUNSELOR} />
       <CounselCalendar />

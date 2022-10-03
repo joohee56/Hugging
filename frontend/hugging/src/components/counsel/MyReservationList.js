@@ -15,6 +15,7 @@ const MyReservationList = (props) => {
             reservationTime={reservation.reservationTime}
             subject={reservation.subject}
             counselorName={reservation.counselorName}
+            onCancle={props.onCancle}
           ></MyReservationItem>
         ))}
       </div>
