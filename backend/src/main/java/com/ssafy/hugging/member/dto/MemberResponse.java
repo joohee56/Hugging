@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 
 import com.ssafy.hugging.counsel.dto.CounselReservationResponse;
 import com.ssafy.hugging.counselor.dto.CounselorListResponse;
-import com.ssafy.hugging.counselor.dto.CounselorResponse;
 import com.ssafy.hugging.member.domain.Member;
 import com.ssafy.hugging.model.Gender;
 import com.ssafy.hugging.music.dto.MusicResponse;

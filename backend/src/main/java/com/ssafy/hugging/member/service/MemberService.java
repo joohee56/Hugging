@@ -13,8 +13,6 @@ import java.net.URL;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.ssafy.hugging.counselor.dto.CounselorListResponse;
-import com.ssafy.hugging.member.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -25,7 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.ssafy.hugging.counselor.domain.Counselor;
-import com.ssafy.hugging.counselor.dto.CounselorResponse;
+import com.ssafy.hugging.counselor.dto.CounselorListResponse;
 import com.ssafy.hugging.counselor.repository.CounselorRepository;
 import com.ssafy.hugging.counselor.repository.CounselorReviewRepository;
 import com.ssafy.hugging.favorite.domain.FavoriteCounselor;

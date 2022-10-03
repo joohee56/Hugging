@@ -1,7 +1,7 @@
 package com.ssafy.hugging.music.service;
 
-import static com.ssafy.hugging.music.MusicConstant.*;
 import static com.ssafy.hugging.member.MemberConstant.*;
+import static com.ssafy.hugging.music.MusicConstant.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
