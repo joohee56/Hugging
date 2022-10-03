@@ -1,7 +1,7 @@
 import classes from "./CounselCommunity.module.css";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import React, { useEffect, useCallback } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CounselCommunity = () => {
   const {
