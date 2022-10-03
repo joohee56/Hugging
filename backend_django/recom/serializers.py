@@ -26,4 +26,4 @@ class MemberSerializer(serializers.ModelSerializer):
 class MusicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Music
-        field = '__all__'
+        fields = '__all__'

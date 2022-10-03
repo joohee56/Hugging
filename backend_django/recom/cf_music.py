@@ -7,7 +7,7 @@ def cf_music(member_id, music_review):
     # music_info = preceed_music_info(music_info)
 
     # 리뷰 데이터 2차원 DataFrame으로 변경
-    user_music_rating = music_review.pivot(values = 'score', index = 'member_id', columns = 'music_id').fillna(0)
+    user_music_rating = music_review.pivot(values = 'score', index = 'member', columns = 'music').fillna(0)
 
     # DataFrame -> Array
     matrix = user_music_rating.values
@@ -30,10 +30,10 @@ def cf_music(member_id, music_review):
     # DataFrame으로 변환
     df_svd_preds = pd.DataFrame(svd_user_music_predicted_ratings, columns = user_music_rating.columns)
 
-    return recommend_music(df_svd_preds, member_id, music_info, music_review)
+    return recommend_music(df_svd_preds, member_id, music_review)
 
 
-def recommend_music(df_svd_preds, user_id, df_music_reviews, num_recommendations = 2):
+def recommend_music(df_svd_preds, user_id, df_music_reviews, num_recommendations = 5):
     
     # 인덱스이므로 id-1
     user_rows = user_id - 1
@@ -42,18 +42,18 @@ def recommend_music(df_svd_preds, user_id, df_music_reviews, num_recommendations
     sorted_user_predictions = df_svd_preds.iloc[user_rows].sort_values(ascending = False)
     
     # 원본 평점 데이터에서 user_id 에 해당하는 데이터를 뽑아냄
-    user_data = df_music_reviews[df_music_reviews.member_id == user_id]
+    user_data = df_music_reviews[df_music_reviews.member == user_id]
     
     # 위에서 뽑은 user_data와 원본 음악 데이터를 합친다
     user_history = user_data.sort_values(['score'], ascending = False)
     
     # 이미 들었던 음악은 제거
     predictions = pd.DataFrame(sorted_user_predictions).reset_index()
-    predictions = predictions[~predictions['music_id'].isin(user_history['music_id'])]
+    predictions = predictions[~predictions['music'].isin(user_history['music'])]
 
     # num_recommendations개의 music_id로 배열 생성
     recom = []
     for i in range(num_recommendations):
-        recom.append(predictions.values[i][0].astype(np.int64))
+        recom.append(predictions.values[i][0])
     
     return recom
