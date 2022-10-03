@@ -1,9 +1,20 @@
 import classes from "./CounselCommunity.module.css";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import React, { useEffect, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const CounselCommunity = () => {
+const CounselMetaverse = () => {
+  const location = useLocation();
+  const from = location.state?.from;
+  const nickName = location.state?.nickName;
+  let counselId = 1;
+  let subject = "Depressed";
+
+  if (from === "OneToOne") {
+    counselId = location.state?.counselId;
+    subject = location.state?.subject;
+  }
+
   const {
     sendMessage,
     UNSAFE__unityInstance,
@@ -35,7 +46,16 @@ const CounselCommunity = () => {
     // AgoraRTC.createStream({ video: false, audio: true });
     // AgoraRTC.getDevices();
     window.unityInstance = UNSAFE__unityInstance;
-    sendMessage("HuggingLauncher", "SetCounselInfos", "Community|주희");
+
+    let msg = "Community|주희";
+    if (from === "Community") {
+      msg = "Community|" + nickName;
+    } else {
+      msg = "OneToOne|" + nickName + "|" + counselId + "|" + subject;
+    }
+
+    console.log(msg);
+    sendMessage("HuggingLauncher", "SetCounselInfos", msg);
   }
 
   useEffect(() => {
@@ -78,4 +98,4 @@ const CounselCommunity = () => {
   );
 };
 
-export default CounselCommunity;
+export default CounselMetaverse;
