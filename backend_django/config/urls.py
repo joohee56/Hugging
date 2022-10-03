@@ -17,7 +17,7 @@ Including another URLconf
 from django.urls import path, include
 
 from rest_framework.permissions import AllowAny
-from recom.views import CounselorRecomAPI
+from recom.views import CounselorRecomAPI, MusicRecomAPI
 from drf_yasg.views import get_schema_view 
 from drf_yasg import openapi
 
@@ -41,4 +41,5 @@ urlpatterns = [
     path(r'recom/redoc', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc-v1'),
 
 	path('recom/counselor/<int:member_id>/', CounselorRecomAPI.get),
+    path('recom/music/<int:member_id>/', MusicRecomAPI.get),
 ]
