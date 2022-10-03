@@ -1,7 +1,7 @@
 import classes from "./CounselCommunity.module.css";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import React, { useEffect, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CounselCommunity = () => {
   const {
@@ -60,6 +60,7 @@ const CounselCommunity = () => {
           alignContent: "center",
         }}
         unityProvider={unityProvider}
+        devicePixelRatio={window.devicePixelRatio}
       />
       {isLoaded === false && (
         // We'll conditionally render the loading overlay if the Unity
