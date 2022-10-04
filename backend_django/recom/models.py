@@ -111,7 +111,6 @@ class Music(models.Model):
     thumbnail_url = models.CharField(max_length=255, blank=True, null=True)
     category = models.ForeignKey('MusicCategory', models.DO_NOTHING, blank=True, null=True)
     music_url = models.CharField(max_length=255, blank=True, null=True)
-    tag = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         managed = False
