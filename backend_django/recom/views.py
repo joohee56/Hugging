@@ -4,10 +4,11 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 
-from .models import Counselor, CounselorReview, MusicReview, Music
+from .models import Counselor, CounselorReview, Member, MemberMentalCategory, MusicReview, Music
 from .serializers import CounselorSerializer, MusicSerializer
 
 from .cf_counselor import cf_item_based_counselor as cf
+from .coldstart_counselor import recom_coldstart_counselor as cs
 from.cf_music import cf_music
 
 import numpy as np
@@ -25,21 +26,25 @@ class CounselorRecomAPI(APIView):
         print(list(queryset))
         counselorDf = read_frame(queryset)
 
-        member = Member.objects.filter(pk=member_id)
-        print(member)
-        # if CounselorReview.objects.filter(member__id = member_id)
+        # member = CounselorReview.objects.filter(member__id=member_id)
+        # print(list(member))
+        if CounselorReview.objects.filter(member__id = member_id) == 0:
+            reviewDf = read_frame(CounselorReview.objects.all())
+            cf_list = cf(member_id, counselorDf, reviewDf)
+            # cf_list = list(map(int, cf_list))
+            print(cf_list)
 
-        reviewDf = read_frame(CounselorReview.objects.all())
-        cf_list = cf(member_id, counselorDf, reviewDf)
-        # cf_list = list(map(int, cf_list))
-        print(cf_list)
+            resultset = Counselor.objects.filter(id__in=cf_list.index)
 
-        resultset = Counselor.objects.filter(id__in=cf_list.index)
+            print(resultset)
 
-        print(resultset)
+            serializer = CounselorSerializer(resultset, many=True)
+            return Response(serializer.data)
 
-        serializer = CounselorSerializer(resultset, many=True)
-        return Response(serializer.data)
+        else:
+            member_category = list(MemberMentalCategory.objects.filter(member__id = member_id))
+            # print(member_category)
+            result = cs(member_category)
 
 class MusicRecomAPI(APIView):
 
