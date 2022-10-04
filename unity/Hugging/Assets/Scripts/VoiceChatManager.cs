@@ -4,12 +4,12 @@ using UnityEngine;
 using agora_gaming_rtc;
 using agora_utilities;
 
-public class VoiceManager : MonoBehaviour
+public class VoiceChatManager : MonoBehaviour
 {
     [SerializeField]
     private string appId;
     public string channelName = "";
-    public static VoiceManager instance;
+    public static VoiceChatManager instance;
 
     internal IRtcEngine RtcEngine = null;
 
@@ -18,16 +18,7 @@ public class VoiceManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-
+        instance = this;
     }
 
 
