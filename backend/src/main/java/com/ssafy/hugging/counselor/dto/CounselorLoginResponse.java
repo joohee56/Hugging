@@ -40,9 +40,10 @@ public class CounselorLoginResponse {
 		gender = counselor.getGender();
 		this.average = average;
 
-		counselList.addAll(
-			counselor.getCounselList().stream()
-				.sorted(Comparator.comparing(Counsel::getReservationDate))
-				.map(CounselReservationResponse::of).collect(Collectors.toList()));
+		counselList.addAll(counselor.getCounselList()
+			.stream()
+			.sorted(Comparator.comparing(Counsel::getReservationDate))
+			.map(CounselReservationResponse::of)
+			.collect(Collectors.toList()));
 	}
 }
