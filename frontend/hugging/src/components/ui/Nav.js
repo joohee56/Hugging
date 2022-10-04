@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 function Nav() {
   const navigate = useNavigate();
   return (
-    <div>
+    <div class={styles.App}>
       <div className={styles.nav}>
         <button
           className={styles.home_btn}

@@ -12,7 +12,10 @@ function CounselorLogin() {
   const [email, setInputEmail] = useState("");
   const [password, setInputPassword] = useState("");
   const navigate = useNavigate();
-
+  // const alertClassName = () => {
+  //   var alert = this.state.alert;
+  //   return alert === false ? "login-alert" : "login-alert-view";
+  // };
   const handleInputId = (e) => {
     setInputEmail(e.target.value);
   };
@@ -72,12 +75,19 @@ function CounselorLogin() {
 
       <form id={styles.login_form} onSubmit={LoginFunc}>
         <input type="text" placeholder="Email" onChange={handleInputId}></input>
-        <input type="text" placeholder="Password" onChange={handleInputPw} />
+        <input
+          type="password"
+          placeholder="Password"
+          onChange={handleInputPw}
+        />
         <p className={styles.forgot_text}>Forgot your password?</p>
         <button type="submit" className={styles.counselor_login_btn}>
           로그인
         </button>
       </form>
+      {/* <div className={this.alertClassName()}>
+        <h5>회원정보를 확인해주세요</h5>
+      </div> */}
     </div>
   );
 }

@@ -50,7 +50,7 @@ function MissionList() {
   let missionList = localStorage.getItem("missionList");
   missionList = JSON.parse(missionList);
   const [toggle, setToggle] = useState([false, false, false, false, false]);
-
+  localStorage.getItem("userProfile");
   let memberId = 1;
   let missionId = 1;
   let body = {
@@ -63,7 +63,10 @@ function MissionList() {
       missionList.map(function (a, i) {
         if (toggle[i] === false) {
           axios
-            .post("https://j7b204.p.ssafy.io/api/missions/", body)
+            .post("https://j7b204.p.ssafy.io/api/missions/", {
+              memberId,
+              missionId: missionList[i].id,
+            })
             .then((res) => {
               console.log(res);
             });

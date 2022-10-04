@@ -7,8 +7,62 @@ import NavBar from "../../components/ui/NavBar";
 import Topic from "../../components/media/Topic";
 import styles from "./MainPage.module.css";
 import Nav from "../../components/ui/Nav";
+import CounselListRecommItem from "../../components/counsel/CounselListRecommList";
+import CounselorRecommList from "../../components/counsel/CounselorRecommList";
+
+const DUMMY_RESERVE = [
+  {
+    id: "r1",
+    counselId: "1",
+    memberNickname: "주희",
+    reservationDate: "22/10/01",
+    reservationTime: "18:00",
+    subject: "Depressed",
+    counselorName: "조성규",
+  },
+  {
+    id: "r2",
+    counselId: "2",
+    memberNickname: "주희",
+    reservationDate: "22/10/03",
+    reservationTime: "11:00",
+    subject: "Depressed",
+    counselorName: "이주희",
+  },
+  {
+    id: "r3",
+    counselId: "3",
+    memberNickname: "주희",
+    reservationDate: "22/10/05",
+    reservationTime: "11:00",
+    subject: "Depressed",
+    counselorName: "김호진",
+  },
+];
+
+const DUMMY_COUNSELOR = [
+  {
+    counselorId: "1",
+    name: "이주희",
+    subject: "우울",
+    average: 3.5,
+  },
+  {
+    counselorId: "2",
+    name: "김호진",
+    subject: "가족",
+    average: 3.5,
+  },
+  {
+    counselorId: "3",
+    name: "김성규",
+    subject: "학교",
+    average: 3.5,
+  },
+];
 
 function MainPage() {
+  const [counselors, setCounselors] = useState(DUMMY_COUNSELOR);
   return (
     <div className={styles.App}>
       <NavBar />
@@ -19,9 +73,7 @@ function MainPage() {
         </p>
       </div>
       <div className={styles.music_recommend}>
-        <div>
-          <Topic />
-        </div>
+        <div>{/* <Topic /> */}</div>
       </div>
       <div className={styles.counseling}>
         <button className={styles.counseling_btn}>
@@ -43,6 +95,7 @@ function MainPage() {
           심리 검사 하러 가기
         </button>
       </div>
+      <CounselorRecommList counselors={counselors} />
       <Nav></Nav>
     </div>
   );
