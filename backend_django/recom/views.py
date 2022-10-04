@@ -4,8 +4,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 
-from .models import Counsel, Counselor, CounselorReview
-from .serializers import CounselorSerializer
+from .models import Counsel, Counselor, CounselorReview, Member
+from .serializers import CounselorSerializer, MemberSerializer
 
 from .cf_counselor import cf_item_based_counselor as cf
 
@@ -23,6 +23,11 @@ class CounselorRecomAPI(APIView):
         queryset = Counselor.objects.all()
         print(list(queryset))
         counselorDf = read_frame(queryset)
+
+        member = Member.objects.filter(pk=member_id)
+        print(member)
+        # if CounselorReview.objects.filter(member__id = member_id)
+
         reviewDf = read_frame(CounselorReview.objects.all())
         cf_list = cf(member_id, counselorDf, reviewDf)
         # cf_list = list(map(int, cf_list))
