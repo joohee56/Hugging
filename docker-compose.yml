@@ -28,7 +28,7 @@ services:
     recom:
         depends_on:
             - nginx
-        image: recom/test
+        image: hugging_recom/prod:latest
         ports:
             - "8000:8000"
         restart: always
