@@ -36,6 +36,8 @@ def recom_coldstart_counselor(member_category):
     print(counselor)
 
     # 각 상담사 평점
-    reviewAvg = CounselorReview.objects.values('counselor__id')\
-        .annotate(Avg('score'))
+    reviewAvg = CounselorReview.objects.values('counselor__id', 'counselor__subject', 'counselor__name')\
+        .annotate(Avg('score')).order_by('-score__avg')[:3]
     print(reviewAvg.values())
+
+    return reviewAvg

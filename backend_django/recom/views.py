@@ -25,10 +25,10 @@ class CounselorRecomAPI(APIView):
         queryset = Counselor.objects.all()
         # print(list(queryset))
         counselorDf = read_frame(queryset)
-        reviewDf = read_frame(CounselorReview.objects.all())
         # member = CounselorReview.objects.filter(member__id=member_id)
-        # print(list(member))
-        if CounselorReview.objects.filter(member__id = member_id) != 0:
+        # print(member)
+        if CounselorReview.objects.filter(member__id = member_id):
+            reviewDf = read_frame(CounselorReview.objects.all())
             cf_list = cf(member_id, counselorDf, reviewDf)
             # cf_list = list(map(int, cf_list))
             print(cf_list)
@@ -39,12 +39,11 @@ class CounselorRecomAPI(APIView):
 
             serializer = CounselorSerializer(resultset, many=True)
             return Response(serializer.data)
-
         else:
             member_category = MemberMentalCategory.objects.filter(member__id = member_id).values()
             # print(member_category)
             result = cs(member_category)
-            return Response(1)
+            return Response(result)
 
 class MusicRecomAPI(APIView):
 
