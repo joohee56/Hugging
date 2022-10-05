@@ -23,13 +23,12 @@ class CounselorRecomAPI(APIView):
     def get(self, member_id):
         # 상담사 데이터는 변하지 않을것이므로 CSV 등으로 가지고 있는것이 좋아보임 수정 예정
         queryset = Counselor.objects.all()
-        print(list(queryset))
+        # print(list(queryset))
         counselorDf = read_frame(queryset)
-
+        reviewDf = read_frame(CounselorReview.objects.all())
         # member = CounselorReview.objects.filter(member__id=member_id)
         # print(list(member))
-        if CounselorReview.objects.filter(member__id = member_id) == 0:
-            reviewDf = read_frame(CounselorReview.objects.all())
+        if CounselorReview.objects.filter(member__id = member_id) != 0:
             cf_list = cf(member_id, counselorDf, reviewDf)
             # cf_list = list(map(int, cf_list))
             print(cf_list)
@@ -42,7 +41,7 @@ class CounselorRecomAPI(APIView):
             return Response(serializer.data)
 
         else:
-            member_category = list(MemberMentalCategory.objects.filter(member__id = member_id))
+            member_category = MemberMentalCategory.objects.filter(member__id = member_id).values()
             # print(member_category)
             result = cs(member_category)
             return Response(1)
