@@ -12,10 +12,21 @@ def recom_coldstart_counselor(member_category):
     angry = list(set(counsel_category) - {'SelfUnderstanding'})
     annoy = list(set(counsel_category) - {'School', 'Company', 'Relationship', 'Love'})
     inconvenience = list(set(counsel_category) - {'Depressed', 'Love', 'SelfUnderstanding'})
-    
+
     # 고민 카테고리, 상담사 카테고리 연결
     recom_category = {'행복함':counsel_category, '편안함':counsel_category, '설렘':counsel_category, '슬픔':counsel_category, '우울함':counsel_category,
     '상실감':loss, '지루함':bored, '외로움':alone, '무기력':lethargy, '분노':angry, '짜증남':annoy, '불편함':inconvenience}
     # print(recom_category)
 
-    
+    # print(member_category)
+    my_recom_category = []
+    for cate in member_category:
+        for key, val in recom_category.items():
+            # print(cate, key)
+            print(cate.decode('cp949'))
+            print(key.decode('cp949'))
+            # if cate.encode('utf-8') == key.encode('utf-8'):
+                # print()
+                # my_recom_category.extend(val)
+                # print(key)
+    # print(my_recom_category)
