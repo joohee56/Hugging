@@ -42,19 +42,22 @@
       }
       console.log("msg : " + msg);
     </script>
+
+    <p style="text-align: center; margin-top: 40px; font-size: 30px;">메타버스 상담 😎</p>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas"></canvas>
       <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
+        <image id="unity-logo" src="TemplateData/logo.png"></image>
         <div id="unity-progress-bar-empty">
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
       <!-- <div id="unity-mobile-warning">WebGL builds are not supported on mobile devices.</div> -->
       <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
-        <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">Hugging</div>
+        <!-- <button style="float:right">나가기</button> -->
+        <img id="unity-fullscreen-button" src="TemplateData/full-screen.png">
+        <!-- <div id="unity-fullscreen-button"></div> -->
       </div>
     </div>
 
@@ -70,11 +73,7 @@
       width="450"
       style="display: none"
     ></canvas>
-
-    <div>
-      <button onclick="history.back()">나가기</button>
-    </div>
-
+    
     <script>
       var unityInstance;
       var mainCanvas = document.getElementById("myCanvas");
@@ -92,7 +91,7 @@
         frameworkUrl: buildUrl + "/WebGLBuild.framework.js",
         codeUrl: buildUrl + "/WebGLBuild.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
+        companyName: "Hugging",
         productName: "Hugging",
         productVersion: "0.1",
       };
@@ -102,11 +101,13 @@
       var loadingBar = document.querySelector("#unity-loading-bar");
       var progressBarFull = document.querySelector("#unity-progress-bar-full");
       var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var isMobile = false;
       // var mobileWarning = document.querySelector("#unity-mobile-warning");
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         container.className = "unity-mobile";
         config.devicePixelRatio = 1;
+        isMobile = true;
         // mobileWarning.style.display = "block";
         // setTimeout(() => {
         //   mobileWarning.style.display = "none";
@@ -134,6 +135,15 @@
             fullscreenButton.onclick = () => {
               instance.SetFullscreen(1);
             };
+            if(isMobile) {
+              var lockFunction =  window.screen.orientation.lock;
+              if (lockFunction.call(window.screen.orientation, 'landscape')) {
+                console.log('Orientation locked')
+              } else {
+                console.error('There was a problem in locking the orientation')
+              }
+              instance.SetFullscreen(1);
+            }
           })
           .catch((message) => {
             alert(message);
