@@ -39,7 +39,7 @@ class MusicRecomAPI(APIView):
         if(is_new_member):
             mental = MemberMentalCategory.objects.filter(id=member_id)
             member_mentality = music_tag(mental.values())
-            queryset = Music.objects.filter(category__in=member_mentality)
+            queryset = Music.objects.filter(category__in=member_mentality).order_by('hits')[:5]
             # print(queryset)
             serializer = MusicSerializer(queryset, many=True)
         else:
