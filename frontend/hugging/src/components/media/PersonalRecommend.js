@@ -6,7 +6,7 @@ import axios from "axios";
 function PersonalRecommend() {
   const navigate = useNavigate();
   const [musics, setMusics] = useState([]);
-  const member = JSON.parse(localStorage.getItem("userProfile"));
+  const member = JSON.parse(localStorage.getItem("userprofile"));
   const member_id = member.id;
   useEffect(() => {
     axios({
@@ -44,7 +44,7 @@ function PersonalRecommend() {
             onClick={() => navigate(`/playing_music/${musicdata.id}`)}
           >
             <img
-              src={`https://placeimg.com/200/100/${musicdata.category}/${musicdata.id}`}
+              src={musicdata.thumbnailUrl}
               alt="music"
               className={styles.MusicImage}
             ></img>

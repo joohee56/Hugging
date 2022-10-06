@@ -3,6 +3,7 @@ package com.ssafy.hugging.counsel.dto;
 import java.time.format.DateTimeFormatter;
 
 import com.ssafy.hugging.counsel.domain.Counsel;
+import com.ssafy.hugging.model.Gender;
 import com.ssafy.hugging.model.Status;
 import com.ssafy.hugging.model.Subject;
 
@@ -26,6 +27,8 @@ public class CounselReservationResponse {
 	private String reservationTime;
 	private Subject subject;
 	private Status status;
+	private String profileImage;
+	private Gender gender;
 
 	public static CounselReservationResponse of(Counsel counsel) {
 		return new CounselReservationResponseBuilder().counselId(counsel.getId())
@@ -36,6 +39,8 @@ public class CounselReservationResponse {
 			.reservationTime(counsel.getReservationDate().format(DateTimeFormatter.ofPattern("HH:mm")))
 			.subject(counsel.getSubject())
 			.status(counsel.getStatus())
+			.profileImage(counsel.getCounselor().getProfileImage())
+			.gender(counsel.getCounselor().getGender())
 			.build();
 	}
 }

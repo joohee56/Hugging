@@ -24,11 +24,11 @@ function Recommend(props) {
             onClick={() => navigate(`/playing_music/${musicdata.id}`)}
           >
             <img
-              src={`https://placeimg.com/200/100/${musicdata.category}/${musicdata.id}`}
+              src={musicdata.thumbnailUrl}
               alt="music"
               className={styles.MusicImage}
             ></img>
-            <p className="contentText">{musicdata.name}</p>
+            <p className={styles.contentText}>{musicdata.name}</p>
             <img
               src="../whiteplaybutton.png"
               alt="play"
