@@ -105,14 +105,7 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route
-          path="/profile_img"
-          element={
-            <PrivateRoute>
-              <></>
-            </PrivateRoute>
-          }
-        />
+
         <Route
           path="/recommend_media"
           element={
