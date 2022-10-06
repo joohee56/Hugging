@@ -93,10 +93,14 @@ body {
   justify-content: center;
 }
 
-.login-alert {
+.login_alert {
   visibility: hidden;
 }
 
-.log-alert-view {
+.log_alert_view {
   display: flex;
+}
+.login_alert_text {
+  color: red;
+  font-size: 13px;
 }

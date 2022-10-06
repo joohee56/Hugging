@@ -60,7 +60,7 @@ const MyReservationItem = (props) => {
         </div>
         <div className={classes.Button}>
           <button className={classes.btnCancel} onClick={cancelClickHandler}>
-            예약 취소
+            <span className={classes.fontCancel}>예약 취소</span>
           </button>
           <button className={classes.btnEnter} onClick={metaverseHandler}>
             입장

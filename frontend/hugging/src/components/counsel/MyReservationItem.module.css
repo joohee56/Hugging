@@ -1,15 +1,16 @@
 .item {
   /* align-items: center; */
   /* margin: 8px 8px; */
-  padding: 0px 20px;
-  display: flex; 
+  padding-left: 20px;
+  padding-right: 10px;
+  display: flex;
   flex-direction: column;
   /* justify-content: space-between; */
   /* align-items: flex-end; */
   border-radius: 30px;
   background-color: hsl(0, 0%, 95%);
   border: 1.5px solid #ccc4c4;
-
+  height: 150px;
   margin: 10px;
   box-shadow: 0 2px 8px rgba(217, 217, 217, 0.94);
 }
@@ -20,43 +21,50 @@
   margin: 20px 0px 5px 0px;
 }
 
-.counselorName{
-  color: #5B71E7;
+.counselorName {
+  color: #5b71e7;
   font-weight: bold;
 }
 
 .btnCancel {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: auto;
-  background: #FFE6E6;
-  color: #FF0909;
+  background: #ffe6e6;
+  color: #ff0909;
   border-radius: 50px;
   border: 0px solid;
-
-  font-size: 1px;
-  font-weight: bold;
+  text-align: center;
   cursor: pointer;
-  margin:10px;
+  margin-left: 120px;
   width: 80px;
   height: 30px;
   box-shadow: 0 2px 8px rgba(192, 192, 192, 0.79);
+}
+.fontCancel {
+  color: #ff0909;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .btnEnter {
   display: block;
   margin: auto;
-  background: linear-gradient(135deg, #9dceff 0% ,#92a3fd 100%);;
+  background: linear-gradient(135deg, #9dceff 0%, #92a3fd 100%);
   color: white;
   border-radius: 50px;
   border: 0px solid;
   font-size: 1px;
   font-weight: bold;
   cursor: pointer;
-  margin:10px;
+  margin-left: 10px;
   width: 80px;
   height: 30px;
   box-shadow: 0 2px 8px rgba(192, 192, 192, 0.79);
 }
 .Button {
   display: flex;
+  margin-right: 0px;
+  margin-top: 10px;
 }

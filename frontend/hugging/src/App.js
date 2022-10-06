@@ -27,7 +27,6 @@ import MissionStart from "./pages/mission/MissionStart";
 import Timer from "./components/mission/Timer";
 import MissionList from "./pages/mission/MissionList";
 import MissionManagement from "./pages/mission/MissionManagement";
-
 // import scrollbar from 'smooth-scrollbar';
 
 // // smooth scroll 설정
@@ -57,7 +56,7 @@ function App() {
           element={<TopicMediaPage />}
         />
         <Route path="/counselreserve" element={<ReserveCounsel />} />
-        <Route path="/" element={<ReserveCounsel />} />
+        <Route path="/" element={<UserLogin />} />
         <Route path="/counselselect" element={<SelectCounsel />}></Route>
         <Route path="/counselmetaverse" element={<CounselMetaverse />}></Route>
         <Route
