@@ -33,9 +33,6 @@ import PrivateRoute from "./lib/PrivateRoute";
 // scrollbar.init(document.querySelector('#smooth-scroll'));
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(
-    () => localStorage.getItem("token") || false
-  );
   return (
     <div className="App">
       {/* <Navbar/>
