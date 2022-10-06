@@ -2,13 +2,13 @@ import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import classes from "./CounselDone.module.css";
-import Card from "../../components/ui/Card";
+import Star from "../../components/counselor/Star";
 
 import { Editor } from "@toast-ui/react-editor";
 import "@toast-ui/editor/dist/toastui-editor.css";
 // import { CKEditor } from "@ckeditor/ckeditor5-react";
 // import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-
+import Header from "../../Layout/Header";
 const CounselDone = () => {
   // Editor DOM 선택용
   const editorRef = useRef();
@@ -19,6 +19,7 @@ const CounselDone = () => {
   let subject = useSelector((state) => state.nowCounsel.subject);
   let date = useSelector((state) => state.nowCounsel.date);
   let time = useSelector((state) => state.nowCounsel.time);
+  let score = undefined;
 
   const [nickname, setNickname] = useState();
 
@@ -36,7 +37,7 @@ const CounselDone = () => {
     // 필요 내용
     // content, counselorId, memberId, score
     // 일단 더미 데이터 넣어서 실험해보기
-    counselorId = 10;
+    counselorId = 1;
     const content = editorRef.current?.getInstance().getMarkdown();
     if (content.trim() === "") {
       alert("댓글을 입력해 주세요.");
@@ -66,8 +67,6 @@ const CounselDone = () => {
       memberId = parsedUser.id;
     }
 
-    const score = 4;
-
     const review = {
       content,
       counselorId,
@@ -76,6 +75,10 @@ const CounselDone = () => {
     };
 
     fetchReview(review);
+  };
+
+  const starClickHandler = (starScore) => {
+    score = starScore;
   };
 
   // 댓글 작성
@@ -102,7 +105,7 @@ const CounselDone = () => {
         alert("작성 중 오류가 발생했습니다.");
       }
 
-      navigate("/counselreserve");
+      navigate("/counselprofile/" + review.counselorId);
     } catch (error) {
       console.log(error.message);
     }
@@ -131,74 +134,89 @@ const CounselDone = () => {
 
   return (
     <div>
+      <Header />
       <div className={classes.pink}>
         <div className={classes.title}>상담완료!</div>
-        <div>좋은 상담 시간이었나요?</div>
-        <div>상담에 대한 리뷰를 남겨주세요.</div>
+        <div className={classes.extra}>
+          <div className={classes.text}>좋은 상담 시간이었나요?</div>
+          <div className={classes.text}>상담에 대한 리뷰를 남겨주세요.</div>
+        </div>
       </div>
-      <Card className={classes.back}>
-        <img src="./sampleCounselorSquare.png"></img>
-        <div>
+      <div className={classes.card}>
+        <img
+          src="./sampleCounselorSquare.png"
+          alt="counselorImg"
+          className={classes.profileImage}
+        ></img>
+        <div className={classes.profileDetail}>
           <div>
-            {/* <span>{counselorName} 상담사</span> */}
-            <span>{counselorName} 이미소 상담사</span>
-            <img src="./genderM.png"></img>
+            {/* <span className={classes.counselorName}>{counselorName} 상담사</span> */}
+            <span className={classes.counselorName}>
+              {counselorName} 이미소 상담사
+            </span>
+            {/* {props.profile.gender === "MALE" && ( */}
+            <img
+              src="../genderM.png"
+              alt="male"
+              className={classes.genderImg}
+            ></img>
+            {/* )} */}
+            {/* {props.profile.gender === "FEMALE" && (
+              <img
+                src="../female.png"
+                alt="female"
+                className={classes.genderImg}
+              ></img>
+            )} */}
           </div>
-          <div>일시</div>
+          <div className={classes.dateTitle}>일시</div>
           <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+              width="17px"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
             {/* {date} {time} */}
-            2022/10/05 11:00 ~ 12:00
+            <span className={classes.date}>2022/10/05 11:00 ~ 12:00</span>
           </div>
         </div>
-      </Card>
-      <div className={classes.title2}>리뷰 작성</div>
-      <div>
-        <span>{nickname}님(익명)</span>
-        <span>{getFormatDate()}</span>
       </div>
-      <div>
-        <img src="./Star.png"></img>
-        <img src="./Star.png"></img>
-        <img src="./Star.png"></img>
-        <img src="./Star.png"></img>
-        <img src="./Star.png"></img>
-      </div>
-      <div>
-        {/* <CKEditor
-          editor={ClassicEditor}
-          config={{
-            placeholder: "리뷰를 입력해주세요",
-          }}
-          onReady={(editor) => {
-            // You can store the "editor" and use when it is needed.
-            console.log("Editor is ready to use!", editor);
-          }}
-          onChange={(event, editor) => {
-            const data = editor.getData();
-            console.log({ event, editor, data });
-          }}
-          onBlur={(event, editor) => {
-            console.log("Blur.", editor);
-          }}
-          onFocus={(event, editor) => {
-            console.log("Focus.", editor);
-          }}
-        /> */}
-        <Editor
-          // placeholder="내용을 입력해주세요."
-          ref={editorRef} // DOM 선택용 useRef
-          previewStyle="vertical" // 미리보기 스타일 지정
-          height="300px" // 에디터 창 높이
-          initialEditType="wysiwyg" // 초기 입력모드 설정(디폴트 markdown)
-          toolbarItems={[
-            // 툴바 옵션 설정
-            ["heading", "bold", "italic", "strike"],
-            ["hr", "quote"],
-            ["ul", "ol", "task", "indent", "outdent"],
-            ["table", "image", "link"],
-            ["code", "codeblock"],
-          ]}
-        ></Editor>
+      <div className={classes.back}>
+        <div className={classes.title2}>리뷰 작성</div>
+        <div>
+          <span className={classes.nickname}>{nickname}님(익명)</span>
+          <span className={classes.regDate}>{getFormatDate()}</span>
+        </div>
+        <div>
+          <Star onClick={starClickHandler} />
+        </div>
+        <div>
+          <Editor
+            // placeholder="내용을 입력해주세요."
+            ref={editorRef} // DOM 선택용 useRef
+            previewStyle="vertical" // 미리보기 스타일 지정
+            height="300px" // 에디터 창 높이
+            initialEditType="wysiwyg" // 초기 입력모드 설정(디폴트 markdown)
+            toolbarItems={[
+              // 툴바 옵션 설정
+              ["heading", "bold", "italic", "strike"],
+              ["hr", "quote"],
+              ["ul", "ol", "task", "indent", "outdent"],
+              ["table", "image", "link"],
+              ["code", "codeblock"],
+            ]}
+          ></Editor>
+        </div>
       </div>
       <div>
         <button className={classes.cancel} onClick={cancleClickHandler}>

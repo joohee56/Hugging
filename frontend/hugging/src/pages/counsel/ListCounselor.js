@@ -105,7 +105,9 @@ const ListCounselor = () => {
               />
             ))}
           {subject != undefined && !weekdayCounselors && (
-            <div>평일에 가능한 상담사가 없습니다. </div>
+            <div className={classes.noCounselors}>
+              평일에 가능한 상담사가 없습니다.{" "}
+            </div>
           )}
           {subject == undefined && <div>전문 분야를 선택해 주세요. </div>}
         </div>
@@ -123,7 +125,9 @@ const ListCounselor = () => {
               />
             ))}
           {subject != undefined && !weekendCounselors && (
-            <div>주말에 가능한 상담사가 없습니다. </div>
+            <div className={classes.noCounselors}>
+              주말에 가능한 상담사가 없습니다.{" "}
+            </div>
           )}
           {subject == undefined && <div>전문 분야를 선택해 주세요. </div>}
         </div>

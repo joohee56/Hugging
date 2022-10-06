@@ -3,6 +3,7 @@ import { counselActions } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 
 const CounselSubjectListItem = (props) => {
+  console.log(props.imgNo);
   const dispatch = useDispatch();
   // 선택된 subject 정보
   const subjectKor = useSelector((state) => state.counsel.subjectKor);
@@ -39,6 +40,7 @@ const CounselSubjectListItem = (props) => {
             : "#e9eefe",
       }}
     >
+      <img src={"./subject " + props.imgNo + ".png"}></img>
       <div className={classes.text}>{props.title}</div>
     </button>
   );

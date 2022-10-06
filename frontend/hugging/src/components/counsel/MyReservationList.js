@@ -6,7 +6,7 @@ const MyReservationList = (props) => {
   return (
     <Fragment>
       <div className={classes.list}>
-        {props.reservation &&
+        {props.reservations &&
           props.reservations.map((reservation) => (
             <MyReservationItem
               key={reservation.counselId}
@@ -20,7 +20,7 @@ const MyReservationList = (props) => {
               onCancle={props.onCancle}
             ></MyReservationItem>
           ))}
-        {!props.reservation && <div>예약 내역이 없습니다.</div>}
+        {!props.reservations && <div>예약 내역이 없습니다.</div>}
       </div>
     </Fragment>
   );

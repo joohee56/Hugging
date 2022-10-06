@@ -10,57 +10,6 @@ import { useSelector } from "react-redux";
 import ErrorModal from "../../components/ui/ErrorModal";
 import ConfirmModal from "../../components/ui/ConfirmModal";
 
-// const DUMMY_RESERVE = [
-//   {
-//     id: "r1",
-//     counselId: "1",
-//     memberNickname: "주희",
-//     reservationDate: "22/10/01",
-//     reservationTime: "18:00",
-//     subject: "Depressed",
-//     counselorName: "조성규",
-//   },
-//   {
-//     id: "r2",
-//     counselId: "2",
-//     memberNickname: "주희",
-//     reservationDate: "22/10/03",
-//     reservationTime: "11:00",
-//     subject: "Depressed",
-//     counselorName: "이주희",
-//   },
-//   {
-//     id: "r3",
-//     counselId: "3",
-//     memberNickname: "주희",
-//     reservationDate: "22/10/05",
-//     reservationTime: "11:00",
-//     subject: "Depressed",
-//     counselorName: "김호진",
-//   },
-// ];
-
-// const DUMMY_COUNSELOR = [
-//   {
-//     counselorId: "1",
-//     name: "이주희",
-//     subject: "우울",
-//     average: 3.5,
-//   },
-//   {
-//     counselorId: "2",
-//     name: "김호진",
-//     subject: "가족",
-//     average: 3.5,
-//   },
-//   {
-//     counselorId: "3",
-//     name: "김성규",
-//     subject: "학교",
-//     average: 3.5,
-//   },
-// ];
-
 const ReserveCounsel = () => {
   const [reservations, setReservation] = useState();
   const [counselors, setCounselors] = useState();
@@ -110,6 +59,21 @@ const ReserveCounsel = () => {
   const fetchMyreservationHandler = useCallback(async () => {
     console.log("fetchMyreservationHandler 실행됨");
 
+    localStorage.setItem(
+      "userProfile",
+      JSON.stringify({
+        id: 10,
+        age: 20,
+        counselList: [],
+        email: "doohui96@naver.com",
+        favoriteCounselorList: [],
+        favoriteMusicList: [],
+        gender: "FEMALE",
+        nickname: "주히",
+        profileImage: 1,
+      })
+    );
+
     const loadedUserProfile = localStorage.getItem("userProfile");
     if (loadedUserProfile !== null) {
       const parsedUser = JSON.parse(loadedUserProfile);
@@ -155,10 +119,8 @@ const ReserveCounsel = () => {
           const data = await response.json(); // 프로미스 객체 반환
           setCounselors(data.data);
           console.log(data.data);
-          // setReservation(data.data);
         } catch (error) {
           console.log(error.message);
-          // setError(error.message);
         }
       };
 
