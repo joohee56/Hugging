@@ -40,14 +40,7 @@ function App() {
       {/* <Location></Location> */}
       <Routes>
         {/* <MyCalendar></MyCalendar> */}
-        <Route
-          path="/redirecturi"
-          element={
-            <PrivateRoute>
-              <RedirectUri />
-            </PrivateRoute>
-          }
-        />
+        <Route path="/redirecturi" element={<RedirectUri />} />
 
         <Route
           path="/location"
@@ -65,22 +58,8 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route
-          path="/login"
-          element={
-            <PrivateRoute>
-              <UserLogin />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/counselor/login"
-          element={
-            <PrivateRoute>
-              <CounselorLogin />
-            </PrivateRoute>
-          }
-        />
+        <Route path="/login" element={<UserLogin />} />
+        <Route path="/counselor/login" element={<CounselorLogin />} />
         <Route
           path="/counselor/mypage"
           element={
@@ -89,22 +68,8 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route
-          path="/category"
-          element={
-            <PrivateRoute>
-              <RegisterCategory />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/profile"
-          element={
-            <PrivateRoute>
-              <RegisterProfile />
-            </PrivateRoute>
-          }
-        />
+        <Route path="/category" element={<RegisterCategory />} />
+        <Route path="/profile" element={<RegisterProfile />} />
 
         <Route
           path="/recommend_media"
