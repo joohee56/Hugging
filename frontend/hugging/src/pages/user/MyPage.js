@@ -112,9 +112,8 @@ function MyPage() {
         </p>
         <p className={styles.mission_go}>미션하러 가기</p>
       </div>
-      <div className={styles.stamp_div}>
-        <Stamp />
-      </div>
+
+      <Stamp />
     </>
   );
 }

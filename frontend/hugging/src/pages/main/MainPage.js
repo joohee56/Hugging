@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { loginCounselor } from "../../store";
@@ -10,6 +10,7 @@ import Nav from "../../components/ui/Nav";
 import CounselListRecommItem from "../../components/counsel/CounselListRecommList";
 import CounselorRecommList from "../../components/counsel/CounselorRecommList";
 import { Navigate, useNavigate } from "react-router-dom";
+import CounselListRecommList from "../../components/counsel/CounselListRecommList";
 import emotion1 from "../../img/emotion1.png";
 import emotion2 from "../../img/emotion2.png";
 import emotion3 from "../../img/emotion3.png";
@@ -23,58 +24,27 @@ import emotion10 from "../../img/emotion10.png";
 import emotion11 from "../../img/emotion11.png";
 import emotion12 from "../../img/emotion12.png";
 
-const DUMMY_RESERVE = [
-  {
-    id: "r1",
-    counselId: "1",
-    memberNickname: "주희",
-    reservationDate: "22/10/01",
-    reservationTime: "18:00",
-    subject: "Depressed",
-    counselorName: "조성규",
-  },
-  {
-    id: "r2",
-    counselId: "2",
-    memberNickname: "주희",
-    reservationDate: "22/10/03",
-    reservationTime: "11:00",
-    subject: "Depressed",
-    counselorName: "이주희",
-  },
-  {
-    id: "r3",
-    counselId: "3",
-    memberNickname: "주희",
-    reservationDate: "22/10/05",
-    reservationTime: "11:00",
-    subject: "Depressed",
-    counselorName: "김호진",
-  },
-];
-
-const DUMMY_COUNSELOR = [
-  {
-    counselorId: "1",
-    name: "이주희",
-    subject: "우울",
-    average: 3.5,
-  },
-  {
-    counselorId: "2",
-    name: "김호진",
-    subject: "가족",
-    average: 3.5,
-  },
-  {
-    counselorId: "3",
-    name: "김성규",
-    subject: "학교",
-    average: 3.5,
-  },
-];
-
 function MainPage() {
+  const [nickName, setNickName] = useState("비회원");
+
+  const getUserProfile = useCallback(() => {
+    const loadedUserProfile = localStorage.getItem("userprofile");
+    if (loadedUserProfile !== null) {
+      const parsedUser = JSON.parse(loadedUserProfile);
+      setNickName(parsedUser.nickname);
+    }
+  });
+
+  useEffect(() => {
+    getUserProfile();
+  }, [getUserProfile]);
+
+  function startMetaverse() {
+    let url =
+      "http://j7b204.p.ssafy.io/unity/index.html?from=Community&nickName=" +
+      nickName;
+    window.open(url);
+  }
   const emotionArr = [
     emotion1,
     emotion2,
@@ -118,7 +88,6 @@ function MainPage() {
     "Discomfort",
   ];
   const navigate = useNavigate();
-  const [counselors, setCounselors] = useState(DUMMY_COUNSELOR);
   let userprofile = localStorage.getItem("userprofile");
   userprofile = JSON.parse(userprofile);
   let memberId = userprofile.id;
@@ -184,7 +153,12 @@ function MainPage() {
         </p>
         <div className={styles.counseling_choice}>
           <div className={styles.counsel_btn}>
-            <button className={styles.counseling_choice_btn1}>
+            <button
+              className={styles.counseling_choice_btn1}
+              onClick={() => {
+                navigate("/counselreserve");
+              }}
+            >
               <img
                 src={require("../../img/one.png")}
                 width="160px"
@@ -195,7 +169,10 @@ function MainPage() {
             <p className={styles.counsel_txt}>1:1 상담</p>
           </div>
           <div className={styles.counsel_btn}>
-            <button className={styles.counseling_choice_btn2}>
+            <button
+              className={styles.counseling_choice_btn2}
+              onClick={startMetaverse}
+            >
               <img
                 src={require("../../img/group.png")}
                 width="160px"
@@ -207,9 +184,8 @@ function MainPage() {
           </div>
         </div>
       </div>
-      <div className={styles.counselor}>
-        <CounselorRecommList counselors={counselors} />
-      </div>
+      <div className={styles.counselor}></div>
+      <CounselListRecommList />
       <Nav></Nav>
     </div>
   );
