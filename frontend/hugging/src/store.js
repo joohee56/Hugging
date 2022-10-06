@@ -190,10 +190,7 @@ export default configureStore({
     counselor: counselor.reducer,
     user: user.reducer,
     counsel: counselSlice.reducer,
-<<<<<<< HEAD
     mission: mission.reducer,
-=======
     nowCounsel: nowCounselSlice.reducer,
->>>>>>> d230fd32 ([FE] feat: 상담사 평일, 주말 상담사 목록 구현)
   },
 });

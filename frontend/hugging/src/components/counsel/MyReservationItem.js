@@ -40,7 +40,6 @@ const MyReservationItem = (props) => {
     // navigate("/edit", { state: e.target.value });
     //1:1 상담방이면 OneToOne|주희|001|Company
 
-<<<<<<< HEAD
     let url =
       "http://j7b204.p.ssafy.io/unity/index.html?from=OneToOne&nickName=" +
       props.memberNickname;
@@ -48,22 +47,6 @@ const MyReservationItem = (props) => {
     window.open(url);
 
     navigate("/counseldone");
-=======
-    dispatch(nowCounselActions.setNowCounselorName(props.counselorName));
-    dispatch(nowCounselActions.setNowCounselorId(props.counselorId));
-    dispatch(nowCounselActions.setNowSubject(props.subject));
-    dispatch(nowCounselActions.setNowDate(props.reservationDate));
-    dispatch(nowCounselActions.setNowTime(props.reservationTime));
-
-    navigate("/counselmetaverse", {
-      state: {
-        from: "OneToOne",
-        nickName: props.memberNickname,
-        counselId: props.counselId,
-        subject: props.subject,
-      },
-    });
->>>>>>> d230fd32 ([FE] feat: 상담사 평일, 주말 상담사 목록 구현)
   };
 
   return (
