@@ -103,7 +103,7 @@ function MainPage() {
       </div>
       <CounselorRecommList counselors={counselors} />
       <Nav></Nav>
-      <PersonalRecommend />
+      {/* <PersonalRecommend /> */}
     </div>
   );
 }
