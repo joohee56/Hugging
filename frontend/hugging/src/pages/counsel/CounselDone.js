@@ -2,8 +2,20 @@ import classes from "./CounselDone.module.css";
 import Card from "../../components/ui/Card";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const CounselDone = () => {
+  const counselorId = useSelector((state) => state.nowCounsel.counselorId);
+  const counselorName = useSelector((state) => state.nowCounsel.counselorName);
+  const subject = useSelector((state) => state.nowCounsel.subject);
+  const date = useSelector((state) => state.nowCounsel.date);
+  const time = useSelector((state) => state.nowCounsel.time);
+
+  const navigate = useNavigate();
+  const cancleClickHandler = () => {
+    navigate("/counselreserve");
+  };
   return (
     <div>
       <div className={classes.pink}>
@@ -15,11 +27,13 @@ const CounselDone = () => {
         <img src="./sampleCounselorSquare.png"></img>
         <div>
           <div>
-            <span>조성규 상담사</span>
+            <span>{counselorName} 상담사</span>
             <img src="./genderM.png"></img>
           </div>
           <div>일시</div>
-          <div>2022/10/05 11:00 ~ 12:00</div>
+          <div>
+            {date} {time}
+          </div>
         </div>
       </Card>
       <div className={classes.title2}>리뷰 작성</div>
@@ -57,7 +71,9 @@ const CounselDone = () => {
         />
       </div>
       <div>
-        <button className={classes.cancel}>취소</button>
+        <button className={classes.cancel} onClick={cancleClickHandler}>
+          취소
+        </button>
         <button className={classes.done}>작성 완료</button>
       </div>
     </div>

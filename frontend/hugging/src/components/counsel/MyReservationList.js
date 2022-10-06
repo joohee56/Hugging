@@ -9,6 +9,7 @@ const MyReservationList = (props) => {
         {props.reservations.map((reservation) => (
           <MyReservationItem
             key={reservation.counselId}
+            counselorId={reservation.counselorId}
             counselId={reservation.counselId}
             memberNickname={reservation.memberNickname}
             reservationDate={reservation.reservationDate}

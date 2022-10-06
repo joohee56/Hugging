@@ -69,7 +69,6 @@ const ReserveCounsel = () => {
   const [error, setError] = useState();
   const [confirm, setConfirm] = useState();
 
-  const counselorName = useSelector((state) => state.counsel.counselorName);
   const counselorId = useSelector((state) => state.counsel.counselorId);
   const subject = useSelector((state) => state.counsel.subject);
   const date = useSelector((state) => state.counsel.date);
@@ -170,7 +169,7 @@ const ReserveCounsel = () => {
 
   useEffect(() => {
     if (subject != undefined) {
-      console.log("상담주제변경됨!");
+      console.log("상담주제변경됨!!!");
       const fetchData = async () => {
         try {
           const response = await fetch(
@@ -187,6 +186,7 @@ const ReserveCounsel = () => {
           }
           const data = await response.json(); // 프로미스 객체 반환
           setCounselors(data.data);
+          console.log(data.data);
           // setReservation(data.data);
         } catch (error) {
           console.log(error.message);
