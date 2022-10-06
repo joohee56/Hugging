@@ -11,7 +11,7 @@ function Nav() {
         <button
           className={styles.home_btn}
           onClick={() => {
-            navigate("/");
+            navigate("/main");
           }}
         >
           <i className="xi-home-o xi-2x" style={{ color: "white" }}></i>
@@ -19,29 +19,28 @@ function Nav() {
         <button
           className={styles.nav_btn}
           onClick={() => {
-            navigate("/");
+            navigate("/mission/management");
           }}
         >
           <svg
-            width="30px"
-            height="30px"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.0"
+            stroke-width="1.5"
             stroke="#ADA4A5"
-            class="w-6 h-6"
+            class="w-5 h-5"
           >
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+              d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"
             />
           </svg>
-          <p className={styles.nav_btn_title}>home</p>
+
+          <p className={styles.nav_btn_title}>mission</p>
         </button>
         <button
-          className={styles.nav_btn}
+          className={styles.nav_btn2}
           onClick={() => {
             navigate("/recommend_media");
           }}
@@ -66,15 +65,20 @@ function Nav() {
         </button>
         {/* <NavBtn><i className="xi-music xi-2x" style={{ color:'#ADA4A5'}}></i><NavBtnTitle>music</NavBtnTitle></NavBtn> */}
         <button
-          className={styles.nav_btn}
+          className={styles.nav_btn3}
           onClick={() => {
             navigate("/recommend_media");
           }}
         >
           <i className="xi-maker xi-2x" style={{ color: "#E19CD9" }}></i>
-          <p className={styles.nav_btn_title}>location</p>
+          <p className={styles.nav_btn_title}>counsel</p>
         </button>
-        <button className={styles.nav_btn}>
+        <button
+          className={styles.nav_btn4}
+          onClick={() => {
+            navigate("/mypage");
+          }}
+        >
           <i className="xi-profile-o xi-2x" style={{ color: "#ADA4A5" }}></i>
           <p className={styles.nav_btn_title}>my</p>
         </button>

@@ -1,7 +1,8 @@
 import { Fragment, useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import classes from "./SelectCounsel.module.css";
-
+import Nav from "../../components/ui/Nav";
+import NavBar from "../../components/ui/NavBar";
 const SelectCounsel = () => {
   const [nickName, setNickName] = useState("비회원");
 
@@ -26,12 +27,18 @@ const SelectCounsel = () => {
 
   return (
     <Fragment>
+      <Nav></Nav>
+      <NavBar></NavBar>
+      <div className={classes.margin_div}></div>
       <div className={classes.banner}>
         <div>
           <img src="./hat.png" alt="hat" className={classes.titleImage}></img>
           <span>메타버스로 즐기는 심리상담</span>
         </div>
       </div>
+      <p className={classes.warn}>
+        ※ 갤럭시 및 크롬 브라우저 환경을 권장합니다.
+      </p>
       <div className={classes.buttons}>
         <Link to="/counselreserve" style={{ textDecoration: "none" }}>
           <div className={classes.blue}>

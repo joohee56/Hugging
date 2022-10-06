@@ -30,6 +30,25 @@
   position: relative;
   padding: 5px;
 }
+.nav_btn2 {
+  border: none;
+  background-color: white;
+  position: relative;
+  padding-top: 8px;
+  padding-right: 30px;
+}
+.nav_btn3 {
+  border: none;
+  background-color: white;
+  position: relative;
+  padding: 5px;
+}
+.nav_btn4 {
+  border: none;
+  background-color: white;
+  position: relative;
+  padding: 5px;
+}
 
 .home_btn {
   height: 60px;
