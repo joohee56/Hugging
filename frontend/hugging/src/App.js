@@ -26,6 +26,7 @@ import MissionStart from "./pages/mission/MissionStart";
 import Timer from "./components/mission/Timer";
 import MissionList from "./pages/mission/MissionList";
 import MissionManagement from "./pages/mission/MissionManagement";
+import PrivateRoute from "./lib/PrivateRoute";
 // import scrollbar from 'smooth-scrollbar';
 
 // // smooth scroll 설정
@@ -39,39 +40,201 @@ function App() {
       {/* <Location></Location> */}
       <Routes>
         {/* <MyCalendar></MyCalendar> */}
-        <Route path="/redirecturi" element={<RedirectUri />} />
-        <Route path="/location" element={<Location />} />
-        <Route path="/calendar" element={<MyCalendar />} />
-        <Route path="/login" element={<UserLogin />} />
-        <Route path="/counselor/login" element={<CounselorLogin />} />
-        <Route path="/counselor/mypage" element={<CounselorMypage />} />
-        <Route path="/category" element={<RegisterCategory />} />
-        <Route path="/profile" element={<RegisterProfile />} />
-        <Route path="/profile_img" element={<></>}></Route>
-        <Route path="/recommend_media" element={<MediaView />} />
-        <Route path="/playing_music/:musicId" element={<MusicPlayingPage />} />
+        <Route
+          path="/redirecturi"
+          element={
+            <PrivateRoute>
+              <RedirectUri />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/location"
+          element={
+            <PrivateRoute>
+              <Location />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/calendar"
+          element={
+            <PrivateRoute>
+              <MyCalendar />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PrivateRoute>
+              <UserLogin />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/counselor/login"
+          element={
+            <PrivateRoute>
+              <CounselorLogin />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/counselor/mypage"
+          element={
+            <PrivateRoute>
+              <CounselorMypage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/category"
+          element={
+            <PrivateRoute>
+              <RegisterCategory />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <RegisterProfile />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/profile_img"
+          element={
+            <PrivateRoute>
+              <></>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/recommend_media"
+          element={
+            <PrivateRoute>
+              <MediaView />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/playing_music/:musicId"
+          element={
+            <PrivateRoute>
+              <MusicPlayingPage />
+            </PrivateRoute>
+          }
+        />
+
         <Route
           path="/TopicMediaPage/:categoryId"
-          element={<TopicMediaPage />}
+          element={
+            <PrivateRoute>
+              <TopicMediaPage />
+            </PrivateRoute>
+          }
         />
-        <Route path="/counselreserve" element={<ReserveCounsel />} />
-        <Route path="/" element={<UserLogin />} />
-        <Route path="/counselselect" element={<SelectCounsel />}></Route>
+        <Route
+          path="/counselreserve"
+          element={
+            <PrivateRoute>
+              <ReserveCounsel />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <UserLogin />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/counselselect"
+          element={
+            <PrivateRoute>
+              <SelectCounsel />
+            </PrivateRoute>
+          }
+        />
+
         <Route
           path="/counselprofile/:counselorId"
-          element={<CounselProfile />}
-        ></Route>
-        <Route path="/counselreserve" element={<ReserveCounsel />} />
-        <Route path="/main" element={<MainPage />} />
-        <Route path="/counselorlist" element={<ListCounselor />}></Route>
-        <Route path="/counseldone" element={<CounselDone />}></Route>
-        <Route path="/missionstart" element={<MissionStart />}></Route>
-        <Route path="/timer" element={<Timer />}></Route>
-        <Route path="/missionlist" element={<MissionList />}></Route>
+          element={
+            <PrivateRoute>
+              <CounselProfile />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/counselreserve"
+          element={
+            <PrivateRoute>
+              <ReserveCounsel />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/main"
+          element={
+            <PrivateRoute>
+              <MainPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/counselorlist"
+          element={
+            <PrivateRoute>
+              <ListCounselor />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/counseldone"
+          element={
+            <PrivateRoute>
+              <CounselDone />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/missionstart"
+          element={
+            <PrivateRoute>
+              <MissionStart />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/timer"
+          element={
+            <PrivateRoute>
+              <Timer />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/missionlist"
+          element={
+            <PrivateRoute>
+              <MissionList />
+            </PrivateRoute>
+          }
+        />
         <Route
           path="/mission/management"
-          element={<MissionManagement />}
-        ></Route>
+          element={
+            <PrivateRoute>
+              <MissionManagement />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </div>
   );
