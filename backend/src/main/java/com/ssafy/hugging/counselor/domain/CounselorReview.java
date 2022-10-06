@@ -8,7 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import com.ssafy.hugging.member.domain.Member;
 import com.ssafy.hugging.model.BaseEntity;
@@ -26,8 +26,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 public class CounselorReview extends BaseEntity {
 	private String content;
-	@CreatedDate
-	@Column(updatable = false)
+	@LastModifiedDate
+	@Column(nullable = false)
 	private LocalDateTime regDate;
 	@Column(nullable = false)
 	private Integer score;
@@ -48,5 +48,13 @@ public class CounselorReview extends BaseEntity {
 	public void setCounselor(Counselor counselor) {
 		this.counselor = counselor;
 		counselor.getCounselorReviewList().add(this);
+	}
+
+	public void setScore(Integer score) {
+		this.score = score;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
 	}
 }

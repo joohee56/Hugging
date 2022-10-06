@@ -6,21 +6,6 @@ const SelectCounsel = () => {
   const [nickName, setNickName] = useState("비회원");
 
   const getUserProfile = useCallback(() => {
-    localStorage.setItem(
-      "userProfile",
-      JSON.stringify({
-        id: 10,
-        age: 20,
-        counselList: [],
-        email: "doohui96@naver.com",
-        favoriteCounselorList: [],
-        favoriteMusicList: [],
-        gender: "FEMALE",
-        nickname: "주히",
-        profileImage: 1,
-      })
-    );
-
     const loadedUserProfile = localStorage.getItem("userProfile");
     if (loadedUserProfile !== null) {
       const parsedUser = JSON.parse(loadedUserProfile);
@@ -31,6 +16,13 @@ const SelectCounsel = () => {
   useEffect(() => {
     getUserProfile();
   }, [getUserProfile]);
+
+  function startMetaverse() {
+    let url =
+      "http://j7b204.p.ssafy.io/unity/index.html?from=Community&nickName=" +
+      nickName;
+    window.open(url);
+  }
 
   return (
     <Fragment>
@@ -56,11 +48,7 @@ const SelectCounsel = () => {
           </div>
         </Link>
 
-        <Link
-          to="/counselmetaverse"
-          style={{ textDecoration: "none" }}
-          state={{ from: "Community", nickName: nickName }}
-        >
+        <div onClick={startMetaverse}>
           <div className={classes.purple}>
             <div className={classes.title}>커뮤니티</div>
             <div className={classes.explain}>
@@ -73,7 +61,8 @@ const SelectCounsel = () => {
               className={classes.purpleImage}
             ></img>
           </div>
-        </Link>
+        </div>
+        {/* </Link> */}
       </div>
     </Fragment>
   );

@@ -1,7 +1,6 @@
-import classes from "./CounselCommunity.module.css";
+import classes from "./CounselMetaverse.module.css";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import React, { useEffect, useCallback } from "react";
-import { ColorRing } from "react-loader-spinner";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const CounselMetaverse = () => {
@@ -25,8 +24,6 @@ const CounselMetaverse = () => {
     isLoaded,
     requestFullscreen,
     loadingProgression,
-    UNSAFE__detachAndUnloadImmediate: detachAndUnloadImmediate,
-    unload,
     // unload
   } = useUnityContext({
     loaderUrl: "Build/WebGLBuild.loader.js",
@@ -43,7 +40,7 @@ const CounselMetaverse = () => {
     } else {
       navigate("/counseldone");
     }
-  }, [navigate]);
+  }, []);
 
   function setLandscape() {
     window.screen.orientation.lock("landscape");
@@ -68,10 +65,9 @@ const CounselMetaverse = () => {
   useEffect(() => {
     addEventListener("Exit", exit);
     return () => {
-      detachAndUnloadImmediate();
       removeEventListener("Exit", exit);
     };
-  }, [addEventListener, removeEventListener, exit, detachAndUnloadImmediate]);
+  }, [addEventListener, removeEventListener, exit]);
 
   function handleClickEnterFullscreen() {
     requestFullscreen(true);
@@ -94,19 +90,7 @@ const CounselMetaverse = () => {
         // We'll conditionally render the loading overlay if the Unity
         // Application is not loaded.
         <div className={classes.loadingOverlay}>
-          <ColorRing
-            visible={true}
-            height="100"
-            width="100"
-            ariaLabel="blocks-loading"
-            wrapperStyle={{}}
-            wrapperClass="blocks-wrapper"
-            colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
-          />
-          <p>
-            <b>로딩중입니다!</b>
-            <br></br> 조금만 기다려주세요 ☺️<br></br> ({loadingPercentage}%)
-          </p>
+          <p>로딩중... ({loadingPercentage}%)</p>
         </div>
       )}
       {isLoaded === true && requestFullscreen(true)}
