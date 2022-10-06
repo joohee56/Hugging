@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import UserLogin from "./pages/user/UserLogin.js";
 import CounselorLogin from "./pages/counselor/CounselorLogin";
 import RegisterCategory from "./pages/user/RegisterCategory";
@@ -33,6 +33,9 @@ import PrivateRoute from "./lib/PrivateRoute";
 // scrollbar.init(document.querySelector('#smooth-scroll'));
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    () => localStorage.getItem("token") || false
+  );
   return (
     <div className="App">
       {/* <Navbar/>
