@@ -33,7 +33,7 @@ function MainPage() {
   const fetchRecommCounselorHandler = useCallback(async () => {
     console.log("fetchfetchRecommCounselorHandlerHandler 실행됨");
 
-    const loadedUserProfile = localStorage.getItem("userProfile");
+    const loadedUserProfile = localStorage.getItem("userprofile");
     if (loadedUserProfile !== null) {
       const parsedUser = JSON.parse(loadedUserProfile);
       try {
