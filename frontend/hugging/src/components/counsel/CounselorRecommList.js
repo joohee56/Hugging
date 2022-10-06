@@ -17,7 +17,7 @@ const CounselRecommList = (props) => {
         </Link>
       </div>
       <div>
-        {props.counselors.length != 0 && (
+        {props.counselors && (
           <div className={classes.counselor}>
             {props.counselors.map((counselor) => (
               <CounselorRecommItem
@@ -30,7 +30,7 @@ const CounselRecommList = (props) => {
             ))}
           </div>
         )}
-        {props.counselors.length == 0 && <div> 상담사가 없습니다. </div>}
+        {!props.counselors && <div> 상담사가 없습니다. </div>}
       </div>
     </Fragment>
   );

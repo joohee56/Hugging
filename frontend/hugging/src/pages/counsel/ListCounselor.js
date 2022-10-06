@@ -33,18 +33,6 @@ const DUMMY_COUNSELOR = [
   },
 ];
 
-// const weekdayCounselors = DUMMY_COUNSELOR.filter((counselor) => {
-//   return counselor.availableTime === "평일";
-// });
-// console.log("평일");
-// console.log(weekdayCounselors);
-
-// const weekendCounselors = DUMMY_COUNSELOR.filter((counselor) => {
-//   return counselor.availableTime === "주말";
-// });
-// console.log("주말");
-// console.log(weekendCounselors);
-
 const ListCounselor = () => {
   const location = useLocation();
   const state = location.state;
