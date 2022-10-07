@@ -98,7 +98,7 @@ function RegisterProfile(props) {
     <div className={styles.APP}>
       <div className={styles.category_title}>
         <h2 className={styles.hug}>Hug</h2>
-        <h2>ging</h2>
+        <h2 className={styles.ging}>ging</h2>
       </div>
       <div className={styles.order2}></div>
       <p className={styles.profile_title}>프로필 이미지</p>
