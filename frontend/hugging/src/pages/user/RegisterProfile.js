@@ -80,7 +80,7 @@ function RegisterProfile(props) {
               console.log(res.data);
               localStorage.setItem("userprofile", JSON.stringify(res.data));
               sessionStorage.removeItem("emotion");
-              navigate("/");
+              navigate("/main");
             })
             .catch((err) => {
               console.log("실패");
