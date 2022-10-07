@@ -67,7 +67,7 @@ function Nav() {
         <button
           className={styles.nav_btn3}
           onClick={() => {
-            navigate("/recommend_media");
+            navigate("/counselreserve");
           }}
         >
           <i className="xi-maker xi-2x" style={{ color: "#E19CD9" }}></i>
