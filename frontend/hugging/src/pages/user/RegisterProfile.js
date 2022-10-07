@@ -128,7 +128,7 @@ function RegisterProfile(props) {
       {/* <div className={styles.profile_circle}> */}
 
       {/* </div> */}
-      <form onSubmit={(handleSubmit, navigate("/main"))}>
+      <form onSubmit={handleSubmit}>
         <div className={styles.nickname_icon}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
