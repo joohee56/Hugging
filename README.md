@@ -63,30 +63,25 @@ IDE
 - IntelliJ
 
 ## 서비스 구조도 🔍
+![서비스구조도.png](./서비스구조도.png)
 
 ## 주요 기능 📚
 
-- 로그인 및 회원가입
-  <img src="/uploads/c7a6083e1b4aa0edf2de027edb4aafe8/KakaoTalk_Photo_2022-10-07-10-13-56.jpeg" width="20%">
+- 로그인 및 회원가입<br>
+  <img src="/uploads/c7a6083e1b4aa0edf2de027edb4aafe8/KakaoTalk_Photo_2022-10-07-10-13-56.jpeg" width="25%">
 
-- ASMR 음악 빅데이터 추천 서비스
-  <img src="/uploads/7f3080bad696e7435e89db594ca99121/image.png" width="20%">
+- ASMR 음악 빅데이터 추천 서비스<br>
+  <img src="/uploads/7f3080bad696e7435e89db594ca99121/image.png" width="25%"><img src="/uploads/9a69e12a0fb2f273c6239b5779da3b61/image.png" width="25%">
 
-<img src="/uploads/9a69e12a0fb2f273c6239b5779da3b61/image.png" width="20%">
+- 메타버스 상담 서비스<br>
+  - 1:1 상담 및 커뮤니티 상담<br>
+    <img src="/uploads/92115b6a6820afc0a55d80b8bc727643/KakaoTalk_Photo_2022-10-07-10-08-23_001.jpeg" width="45%">
 
-- 메타버스 상담 서비스
-  - 1:1 상담 및 커뮤니티 상담
-    <img src="/uploads/92115b6a6820afc0a55d80b8bc727643/KakaoTalk_Photo_2022-10-07-10-08-23_001.jpeg" width="40%">
+  - 상담사 빅데이터 추천 서비스<br>
+    <img src="/uploads/bdeb6c638f505afbb6c3e27eb9076a78/image.png" width="25%"><img src="/uploads/c7090e4dc392b32508bc3c3f79525874/image.png" width="25%">
 
-  - 상담사 빅데이터 추천 서비스
-    <img src="/uploads/bdeb6c638f505afbb6c3e27eb9076a78/image.png" width="20%">
-
-<img src="/uploads/c7090e4dc392b32508bc3c3f79525874/image.png" width="20%">
-
-- 데일리 미션
-  <img src="/uploads/5936309b227c93a11ae4a900f4281c70/image.png" width="20%">
-
-<img src="/uploads/1e6e7b8bb4e14680f6ad597c57118f1f/image.png" width="20%">
+- 데일리 미션<br>
+  <img src="/uploads/5936309b227c93a11ae4a900f4281c70/image.png" width="25%"><img src="/uploads/1e6e7b8bb4e14680f6ad597c57118f1f/image.png" width="25%">
 
 ## 팀원 소개 👪
 
