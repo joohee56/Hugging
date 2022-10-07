@@ -19,7 +19,10 @@ function MyPage() {
   // userprofile = JSON.parse(userprofile);
   // let profileImage = userprofile.profileImage;
   // console.log(profileImage);
-
+  let userprofile = localStorage.getItem("userprofile");
+  userprofile = JSON.parse(userprofile);
+  let nickname = userprofile.nickname;
+  let profileImage = userprofile.profileImage;
   let [modal, setModal] = useState(false);
 
   let navigate = useNavigate();
@@ -60,8 +63,14 @@ function MyPage() {
           </svg>
         </button>
       </NavBar>
-      <img src={backgroundArr[1]} className={styles.profile_circ}></img>
-      <button
+      <img
+        src={backgroundArr[profileImage]}
+        className={styles.profile_circ}
+      ></img>
+      <div className={styles.my_nickname}>
+        <p className={styles.my_nickname_txt}>{nickname}님의 프로필</p>
+      </div>
+      {/* <button
         className={styles.profile_edit}
         onClick={() => {
           setModal(!modal);
@@ -83,8 +92,7 @@ function MyPage() {
             d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
           />
         </svg>
-      </button>
-      {/* 로그 아웃 기능 (지우지 마시오) */}
+      </button> */}
 
       {modal === true ? (
         <div className={styles.App}>
@@ -109,10 +117,17 @@ function MyPage() {
           />
           미션 스탬프
         </p>
-        <p className={styles.mission_go}>미션하러 가기</p>
+        <button
+          className={styles.mission_go}
+          onClick={() => {
+            navigate("/mission/management");
+          }}
+        >
+          미션하러 가기
+        </button>
       </div>
 
-      {/* <Stamp /> */}
+      <Stamp />
     </>
   );
 }

@@ -333,3 +333,9 @@
 .ging {
   font-weight: 700;
 }
+
+.age_div {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

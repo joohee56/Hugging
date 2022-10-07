@@ -176,6 +176,7 @@ function MainPage() {
         <button className={styles.counseling_btn}>
           <h6 className={styles.counseling_title}>심리 상담 </h6>
         </button>
+        <img src={require("../../img/hat.png")} width="50x" height="50px" />
         <p className={styles.emotion_div_text}>
           메타버스에서 편안히 상담받아요
         </p>
@@ -213,7 +214,7 @@ function MainPage() {
         </div>
       </div>
       <div className={styles.counselor}></div>
-      <CounselListRecommList recommCounselors={counselors} />
+      <div className={styles.margin_div}></div>
       <Nav></Nav>
     </div>
   );

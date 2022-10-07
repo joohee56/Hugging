@@ -60,15 +60,9 @@ export default function Timer(props) {
               "missioncomplete",
               JSON.stringify(missioncomplete)
             ),
-            // missioncomplete.push(props.missionId),
-            // sessionStorage.setItem(
-            //   "missioncomplete",
-            //   JSON.stringify(missioncomplete)
-            // ),
-            // sessionStorage.setItem("completeid", props.missionId),
             navigate("/mission/management"),
             axios
-              .put("https://j7b204.p.ssafy.io/api/missions/", {
+              .post("https://j7b204.p.ssafy.io/api/missions/", {
                 memberId,
                 missionId: props.missionId,
               })

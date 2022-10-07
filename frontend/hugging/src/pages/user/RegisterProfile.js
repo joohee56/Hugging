@@ -74,24 +74,20 @@ function RegisterProfile(props) {
           axios({
             url: "https://j7b204.p.ssafy.io/api/members/" + userId.sub,
             method: "GET",
-          })
-            .then((res) => {
-              console.log("성공");
-              console.log(res.data);
-              localStorage.setItem("userprofile", JSON.stringify(res.data));
-              sessionStorage.removeItem("emotion");
-              navigate("/main");
-            })
-            .catch((err) => {
-              console.log("실패");
-              console.log(err);
-            });
+          }).then((res) => {
+            navigate("/main");
+            console.log("성공");
+            console.log(res.data);
+            localStorage.setItem("userprofile", JSON.stringify(res.data));
+            sessionStorage.removeItem("emotion");
+          });
         } else {
         }
       })
 
       .catch((err) => {
         console.log(err);
+        navigate("/main");
       });
   };
   return (
@@ -179,6 +175,7 @@ function RegisterProfile(props) {
           </div>
 
           <input
+            className={styles.age_div}
             type="number"
             min={10}
             max={100}
