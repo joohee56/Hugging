@@ -55,7 +55,7 @@ export default function Timer(props) {
           duration={minuteSeconds}
           // initialRemainingTime={remainingTime % minuteSeconds}
           onComplete={(totalElapsedTime) => (
-            (missioncomplete[props.missionId] = true),
+            (missioncomplete[props.missionId - 1] = true),
             sessionStorage.setItem(
               "missioncomplete",
               JSON.stringify(missioncomplete)

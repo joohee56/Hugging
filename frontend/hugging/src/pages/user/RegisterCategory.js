@@ -73,7 +73,7 @@ function RegisterCategory({ history }) {
     <>
       <div className={styles.category_title}>
         <h2 className={styles.hug}>Hug</h2>
-        <h2>ging</h2>
+        <h2 className={styles.ging}>ging</h2>
       </div>
       <div className={styles.order}></div>
       <div className={styles.writing}>
