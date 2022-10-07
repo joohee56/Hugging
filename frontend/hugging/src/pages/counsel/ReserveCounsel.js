@@ -62,7 +62,7 @@ const ReserveCounsel = () => {
     console.log("fetchMyreservationHandler 실행됨");
 
     const loadedUserProfile = localStorage.getItem("userprofile");
-    const memberId = 10;
+    let memberId = 10;
     if (loadedUserProfile !== null) {
       const parsedUser = JSON.parse(loadedUserProfile);
       memberId = parsedUser.id;
@@ -188,6 +188,7 @@ const ReserveCounsel = () => {
       {/* <Header /> */}
       <Nav></Nav>
       <NavBar></NavBar>
+      <div className={classes.marginDivH} />
       <MyReservationList
         reservations={reservations}
         onCancle={counselCancelHandler}
@@ -200,6 +201,7 @@ const ReserveCounsel = () => {
         <button>예약</button>
       </div>
       {/* <FooterNavigation /> */}
+      <div className={classes.marginDiv} />
     </Fragment>
   );
 };
