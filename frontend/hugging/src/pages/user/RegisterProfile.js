@@ -75,11 +75,11 @@ function RegisterProfile(props) {
             url: "https://j7b204.p.ssafy.io/api/members/" + userId.sub,
             method: "GET",
           }).then((res) => {
-            navigate("/main");
             console.log("성공");
             console.log(res.data);
             localStorage.setItem("userprofile", JSON.stringify(res.data));
             sessionStorage.removeItem("emotion");
+            navigate("/main");
           });
         } else {
         }
@@ -128,7 +128,7 @@ function RegisterProfile(props) {
       {/* <div className={styles.profile_circle}> */}
 
       {/* </div> */}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(handleSubmit, navigate("/main"))}>
         <div className={styles.nickname_icon}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
