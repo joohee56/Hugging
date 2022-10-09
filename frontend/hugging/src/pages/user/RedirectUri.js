@@ -36,8 +36,8 @@ const RedirectUri = (props) => {
             .then((res) => {
               console.log("성공");
               console.log(res.data);
-
               localStorage.setItem("userprofile", JSON.stringify(res.data));
+              navigate("/main");
             })
             .catch((err) => {
               console.log("실패");

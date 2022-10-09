@@ -24,6 +24,13 @@ function MissionManagement() {
       <Nav></Nav>
       <NavBar></NavBar>
       <div className={styles.stamp}>
+        <p className={styles.mission_stamp}>
+          <img
+            src={require("../../img/stamp.png")}
+            className={styles.stamp_img}
+          />
+          미션 스탬프
+        </p>
         <Stamp></Stamp>
       </div>
       <div className={styles.margin_div}>
