@@ -64,31 +64,25 @@ function RegisterProfile(props) {
       profileimg,
     };
     console.log(body);
-    axios
-      .post(API_HOST_URL + "members/join", body)
-      .then((res) => {
-        if (res.data.newMember) {
-          sessionStorage.setItem("token", res.data);
-          sessionStorage.setItem("isSocialLogin", true);
-          let userId = jwt_decode(res.data);
-          axios({
-            url: "https://j7b204.p.ssafy.io/api/members/" + userId.sub,
-            method: "GET",
-          }).then((res) => {
-            console.log("성공");
-            console.log(res.data);
-            localStorage.setItem("userprofile", JSON.stringify(res.data));
-            sessionStorage.removeItem("emotion");
-            navigate("/main");
-          });
-        } else {
-        }
-      })
+    axios.post(API_HOST_URL + "members/join", body).then((res) => {
+      sessionStorage.setItem("token", res.data);
+      sessionStorage.setItem("isSocialLogin", true);
+      let userId = jwt_decode(res.data);
 
-      .catch((err) => {
-        console.log(err);
-        navigate("/main");
-      });
+      axios({
+        url: "https://j7b204.p.ssafy.io/api/members/" + userId.sub,
+        method: "GET",
+      })
+        .then((res) => {
+          console.log("성공");
+          localStorage.setItem("userprofile", JSON.stringify(res.data));
+          navigate("/main");
+          sessionStorage.removeItem("emotion");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
   };
   return (
     <div className={styles.APP}>

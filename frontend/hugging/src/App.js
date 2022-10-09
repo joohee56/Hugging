@@ -28,6 +28,7 @@ import MissionList from "./pages/mission/MissionList";
 import MissionManagement from "./pages/mission/MissionManagement";
 import PrivateRoute from "./lib/PrivateRoute";
 import MyPage from "./pages/user/MyPage";
+import EmotionCategory from "./components/main/EmotionCategory";
 // import scrollbar from 'smooth-scrollbar';
 
 // // smooth scroll 설정
@@ -192,6 +193,14 @@ function App() {
           element={
             <PrivateRoute>
               <MyPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/emotioncategory"
+          element={
+            <PrivateRoute>
+              <EmotionCategory />
             </PrivateRoute>
           }
         />

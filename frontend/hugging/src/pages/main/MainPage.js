@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { loginCounselor } from "../../store";
+import { changeEmotion, loginCounselor } from "../../store";
 import NavBar from "../../components/ui/NavBar";
 import PersonalRecommend from "../../components/media/PersonalRecommend";
 import styles from "./MainPage.module.css";
@@ -26,33 +26,9 @@ import emotion12 from "../../img/emotion12.png";
 import classes from "../../components/counsel/CounselListRecommList.module.css";
 
 function MainPage() {
+  const dispatch = useDispatch();
   const [nickName, setNickName] = useState("비회원");
   const [counselors, setCounselors] = useState();
-
-  // 나의 추천 상담사 가져옴
-  // const fetchRecommCounselorHandler = useCallback(async () => {
-  //   console.log("fetchfetchRecommCounselorHandlerHandler 실행됨");
-
-  //   const loadedUserProfile = localStorage.getItem("userprofile");
-  //   if (loadedUserProfile !== null) {
-  //     const parsedUser = JSON.parse(loadedUserProfile);
-  //     try {
-  //       const response = await fetch(
-  //         "https://j7b204.p.ssafy.io/recom/counselor/" + parsedUser.id
-  //       ); // 프로미스 객체 반환
-  //       if (!response.ok) {
-  //         throw new Error("Something went wront!");
-  //       }
-  //       const data = await response.json(); // 프로미스 객체 반환
-  //       console.log("추천 상담사 출력");
-  //       console.log(data);
-  //       setCounselors(data);
-  //       // setReservation(data.data);
-  //     } catch (error) {
-  //       console.log(error.message);
-  //     }
-  //   }
-  // }, [setCounselors]);
 
   const getUserProfile = useCallback(() => {
     const loadedUserProfile = localStorage.getItem("userprofile");
@@ -61,11 +37,6 @@ function MainPage() {
       setNickName(parsedUser.nickname);
     }
   });
-
-  // useEffect(() => {
-  //   getUserProfile();
-  //   fetchRecommCounselorHandler();
-  // }, [getUserProfile, fetchRecommCounselorHandler]);
 
   useEffect(() => {
     getUserProfile();
@@ -77,6 +48,7 @@ function MainPage() {
       nickName;
     window.open(url);
   }
+  let [music, setMusic] = useState("");
   const emotionArr = [
     emotion1,
     emotion2,
@@ -127,15 +99,16 @@ function MainPage() {
     "missioncomplete",
     JSON.stringify([false, false, false, false, false])
   );
-
-  axios.get("https://j7b204.p.ssafy.io/api/missions/").then((res) => {
-    localStorage.setItem("missionList", JSON.stringify(res.data.data));
-  });
-  axios
-    .get("https://j7b204.p.ssafy.io/api/missions/" + memberId)
-    .then((res) => {
-      localStorage.setItem("mymission", JSON.stringify(res.data.data));
+  useEffect(() => {
+    axios.get("https://j7b204.p.ssafy.io/api/missions/").then((res) => {
+      localStorage.setItem("missionList", JSON.stringify(res.data.data));
     });
+    axios
+      .get("https://j7b204.p.ssafy.io/api/missions/" + memberId)
+      .then((res) => {
+        localStorage.setItem("mymission", JSON.stringify(res.data.data));
+      });
+  }, []);
   let token = localStorage.getItem("token");
   return (
     <div className={styles.div}>
@@ -158,6 +131,9 @@ function MainPage() {
                     )
                     .then((res) => {
                       console.log(res);
+                      setMusic(res);
+                      dispatch(changeEmotion(res.data));
+                      navigate("/emotioncategory");
                     });
                 }}
               >

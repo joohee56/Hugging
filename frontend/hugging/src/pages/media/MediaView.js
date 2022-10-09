@@ -7,7 +7,7 @@ import Topic from "../../components/media/Topic";
 
 import Navbar from "../../components/ui/NavBar";
 import Nav from "../../components/ui/Nav";
-
+import styles from "../../components/media/Recommend.module.css";
 import { API_HOST_URL } from "../../config/index";
 
 function MediaView() {
@@ -48,6 +48,7 @@ function MediaView() {
   return (
     <div>
       <Navbar />
+      <div className={styles.margin_div}></div>
       <Recommend musicdatas={musics} />
       <TopMusic topmusicdatas={topmusics} />
       <Topic topicdatas={topicmusics} />
