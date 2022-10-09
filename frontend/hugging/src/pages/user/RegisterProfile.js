@@ -34,7 +34,7 @@ function RegisterProfile(props) {
   const [nickname, setNickname] = useState("");
   const [age, setAge] = useState("");
   let [modal, setModal] = useState(false);
-  let [profileimg, setProfileimg] = useState(0);
+  let [profileImage, setProfileImage] = useState(0);
   const modalClose = () => {
     setModal(!modal);
   };
@@ -61,7 +61,7 @@ function RegisterProfile(props) {
       gender,
       emotion: JSON.parse(emotion),
       email,
-      profileimg,
+      profileImage,
     };
     console.log(body);
     axios.post(API_HOST_URL + "members/join", body).then((res) => {
@@ -93,7 +93,7 @@ function RegisterProfile(props) {
       <div className={styles.order2}></div>
       <p className={styles.profile_title}>프로필 이미지</p>
       <img
-        src={backgroundArr[profileimg]}
+        src={backgroundArr[profileImage]}
         className={styles.profile_circ}
       ></img>
       <button
@@ -133,6 +133,7 @@ function RegisterProfile(props) {
             className="w-6 h-6"
             width="20px"
             height="20px"
+            color="grey"
           >
             <path
               strokeLinecap="round"
@@ -235,19 +236,19 @@ function RegisterProfile(props) {
               <button
                 className={styles.modal_select}
                 onClick={() => {
-                  setProfileimg(0);
+                  setProfileImage(0);
                 }}
               ></button>
               <button
                 className={styles.modal_select2}
                 onClick={() => {
-                  setProfileimg(1);
+                  setProfileImage(1);
                 }}
               ></button>
               <button
                 className={styles.modal_select3}
                 onClick={() => {
-                  setProfileimg(2);
+                  setProfileImage(2);
                 }}
               ></button>
             </div>

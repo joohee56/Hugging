@@ -33,22 +33,22 @@ function UserLogin() {
   useEffect(() => {
     localStorage.setItem("emotion", JSON.stringify([]));
   }, []);
-  localStorage.setItem(
-    "userprofile",
-    JSON.stringify({
-      id: 243,
-      email: "hjay1029@gmail.com",
-      age: 11,
-      nickname: "da",
-      gender: "FEMALE",
-      profileImage: 1,
-      counselList: [],
-      favoriteCounselorList: [],
-      favoriteMusicList: [],
-      memberMentalCategoryList: ["Loss"],
-    })
-  );
-  localStorage.setItem("token", 1);
+  // localStorage.setItem(
+  //   "userprofile",
+  //   JSON.stringify({
+  //     id: 250,
+  //     email: "hjay1029@gmail.com",
+  //     age: 11,
+  //     nickname: "da",
+  //     gender: "FEMALE",
+  //     profileImage: 1,
+  //     counselList: [],
+  //     favoriteCounselorList: [],
+  //     favoriteMusicList: [],
+  //     memberMentalCategoryList: ["Loss"],
+  //   })
+  // );
+  // localStorage.setItem("token", 1);
   return (
     <>
       <div className={styles.main_bg}></div>

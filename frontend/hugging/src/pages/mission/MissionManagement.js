@@ -19,6 +19,7 @@ function MissionManagement() {
   let missioncomplete = sessionStorage.getItem("missioncomplete");
   missioncomplete = JSON.parse(missioncomplete);
   let missionid = sessionStorage.getItem("missionid");
+
   return (
     <div>
       <Nav></Nav>
@@ -31,6 +32,7 @@ function MissionManagement() {
           />
           미션 스탬프
         </p>
+
         <Stamp></Stamp>
       </div>
       <div className={styles.margin_div}>

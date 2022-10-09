@@ -11,6 +11,8 @@ import CounselListRecommItem from "../../components/counsel/CounselListRecommLis
 import CounselorRecommList from "../../components/counsel/CounselorRecommList";
 import { Navigate, useNavigate } from "react-router-dom";
 import CounselListRecommList from "../../components/counsel/CounselListRecommList";
+import style from "../../components/media/Recommend.module.css";
+import Recommend from "../../components/media/Recommend";
 import emotion1 from "../../img/emotion1.png";
 import emotion2 from "../../img/emotion2.png";
 import emotion3 from "../../img/emotion3.png";
@@ -99,6 +101,7 @@ function MainPage() {
     "missioncomplete",
     JSON.stringify([false, false, false, false, false])
   );
+  const [musics, setMusics] = useState([]);
   useEffect(() => {
     axios.get("https://j7b204.p.ssafy.io/api/missions/").then((res) => {
       localStorage.setItem("missionList", JSON.stringify(res.data.data));
@@ -108,7 +111,17 @@ function MainPage() {
       .then((res) => {
         localStorage.setItem("mymission", JSON.stringify(res.data.data));
       });
+
+    axios({
+      method: "GET",
+      url: `https://j7b204.p.ssafy.io/recom/music/${memberId}`,
+    })
+      .then((res) => res.data)
+      .then((result) => {
+        setMusics(result);
+      });
   }, []);
+
   let token = localStorage.getItem("token");
   return (
     <div className={styles.div}>
@@ -150,7 +163,31 @@ function MainPage() {
         </div>
       </div>
       <div className={styles.music_recommend}>
-        <div>{<PersonalRecommend />}</div>
+        <Recommend musicdatas={musics}></Recommend>{" "}
+        <button
+          className={styles.recommend_music}
+          onClick={() => {
+            navigate("/recommend_media");
+          }}
+        >
+          추천 음악 보러 가기
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="3.0"
+            stroke="currentColor"
+            class="w-6 h-6"
+            width="12px"
+            height="12px"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            />
+          </svg>
+        </button>
       </div>
       <div className={styles.counseling}>
         <button className={styles.counseling_btn}>
