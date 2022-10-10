@@ -172,6 +172,16 @@ IDE
   <br>
 
   ![mission](/uploads/6bd9ed3433967026b532f6a12cfd4de6/mission.gif)<br>
+  
+  
+
+### 상담사 로그인 / 마이페이지<br>
+
+- 상담사는 마이페이지에서 예약 일정을 확인하고 메타버스 입장이 가능합니다.
+
+  ![counselor](/uploads/5821cf6927dbb8cda05180816c230e08/counselor.gif)
+
+
 
 ## 프로젝트 산출물✏
 
