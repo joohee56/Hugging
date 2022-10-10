@@ -137,7 +137,9 @@ IDE
 
 ### ASMR / 음악 빅데이터 추천 서비스<br>
 
-![music](/uploads/a2274ebdd7ae71fa96c5adc3f30165b1/music.gif)
+- 
+
+​	![music](/uploads/a2274ebdd7ae71fa96c5adc3f30165b1/music.gif)
 
 <br>
 
@@ -153,7 +155,9 @@ IDE
 
 ### 상담사 빅데이터 추천 서비스<br>
 
-![counselre](/uploads/bfd6aa4da4177f531a4bb515de35bb31/counselre.gif)
+- 
+
+  ![counselre](/uploads/bfd6aa4da4177f531a4bb515de35bb31/counselre.gif)
 
 <br>
 
