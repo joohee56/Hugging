@@ -51,7 +51,7 @@
   display: flex;
   margin: auto;
   position: relative;
-  object-fit: contain;
+  object-fit: none;
   object-position: center;
 }
 /* .profile_circle {
@@ -300,13 +300,13 @@
 .nickname_icon {
   position: absolute;
   left: 65px;
-  top: 460px;
+  top: 456px;
 }
 
 .age_icon {
   position: absolute;
   left: 65px;
-  top: 518px;
+  top: 515px;
 }
 
 .arrow_icon {
