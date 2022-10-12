@@ -153,15 +153,33 @@ IDE
 
   
 
-### 상담사 빅데이터 추천 서비스<br>
-
-- 
-
-  ![counselre](/uploads/bfd6aa4da4177f531a4bb515de35bb31/counselre.gif)
-
+### 상담 예약 서비스
+* 상단에서 나의 예약 정보를 확인할 수 있습니다. 
+* 예약 취소가 가능하며, 입장 버튼을 통해 해당 상담사가 상주한 메타버스 방으로 이동하여 상담을 진행합니다.
+* 상담 예약 시엔 상담을 받고 싶은 주제를 선택하여 원하는 상담사를 선택하고 날짜, 시간을 선택하여 예약을 완료합니다.
 <br>
 
+  ![reserveCounsel](/uploads/d15dec04c001e6d92767453e0c58088d/reserveCounsel.gif)
+<br>
+<br>
 
+### 상담사 빅데이터 추천 서비스
+* 각각의 사용자의 성향에 맞는 상담사 추천 서비스를 제공합니다. 원하는 상담사를 손쉽게 찾을 수 있습니다.
+* 상담사의 전문 분야에 따른 전체 상담사 목록도 확인할 수 있습니다.
+<br>
+
+![counselList](/uploads/60608b5a0b56b4d256a6c3e6162ebb40/counselList.gif)
+<br>
+<br>
+
+### 상담사 리뷰
+* 상담사와의 상담 종료 후 해당 상담사에 대한 별점과 리뷰를 남길 수 있습니다.
+* 해당 내용은 추후 상담사 맞춤 추천 서비스의 데이터로 사용됩니다.
+<br>
+
+![counselreview](/uploads/756ec68e62d6c0ede875fbd1fe2cdbed/counselreview.gif)
+<br>
+<br>
 
 ### 1분 데일리 미션<br>
 
