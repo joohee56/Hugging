@@ -16,7 +16,9 @@
 
 .mission_text {
   font-weight: 700;
+  margin-top: 10px;
   margin-left: 10px;
+  font-family: "AppleSDGothicNeoM";
 }
 
 .timer_div {
@@ -29,21 +31,24 @@
   display: flex;
   margin: auto;
   margin-top: 100px;
+  font-family: "AppleSDGothicNeoL";
 }
 
 .end_btn {
   display: flex;
   margin: auto;
   margin-top: 100px;
+  font-family: "AppleSDGothicNeoL";
 }
 
 .minutes {
   margin-left: 10px;
   color: grey;
+  font-family: "AppleSDGothicNeoL";
 }
 .bell {
   width: 50px;
   position: absolute;
-  left: 260px;
+  left: 270px;
   top: 120px;
 }

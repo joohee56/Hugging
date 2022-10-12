@@ -40,13 +40,14 @@ body {
   color: #7b6f72;
   font-weight: 500;
   text-align: center;
+  font-family: "AppleSDGothicNeoM";
 }
 .KakaoBtn {
   display: flex;
   margin: auto;
   background: #ffe812;
   color: #6f6f6f;
-  padding: 3px 20px 3px 45px;
+  padding: 3px 20px 0px 45px;
   border-radius: 30px;
   border: none;
   font-size: 13px;
@@ -60,6 +61,7 @@ body {
 
 .kakaoBtn_title {
   padding: 10px 0px 0px 0px;
+  font-family: "AppleSDGothicNeoM";
 }
 
 .counselorBtn {
@@ -70,9 +72,10 @@ body {
   border: none;
   font-size: 13px;
   font-weight: 900;
-  padding: 12px 65px;
+  padding: 12px 58px;
   margin-top: 10px;
   color: white;
+  font-family: "AppleSDGothicNeoM";
 }
 
 .kakao_logo {
@@ -80,7 +83,7 @@ body {
   width: 30px;
   position: absolute;
   left: 10px;
-  top: 10px;
+  top: 7px;
   background-image: url("../../img/logo.png");
   background-size: cover;
   margin-right: 10px;

@@ -26,6 +26,7 @@ function RegisterCategory({ history }) {
   let user = useSelector((state) => {
     return state.user;
   });
+  let [next, setNext] = useState(false);
   let [btn, setBtn] = useState([
     false,
     false,
@@ -84,10 +85,14 @@ function RegisterCategory({ history }) {
         {btn.map(function (a, i) {
           return (
             <button
+              style={{
+                background: btn[i] === true ? "#e9eefe" : "#F7F8F8",
+              }}
               onClick={() => {
                 let emotion = [...btn];
                 emotion[i] = !btn[i];
                 setBtn(emotion);
+                setNext(true);
                 if (emotion[i] === true) {
                   sessionStorage.setItem("emotion", JSON.stringify(emotion));
                 } else {
@@ -107,14 +112,29 @@ function RegisterCategory({ history }) {
         })}
         <div></div>
       </div>
-      <button
-        className={styles.counselor_login_btn}
-        onClick={() => {
-          navigate("/profile");
-        }}
-      >
-        다음
-      </button>
+      {next === true ? (
+        <button
+          className={styles.counselor_login_btn}
+          style={{
+            background: "linear-gradient(to left, #92a3fd, #9dceff)",
+          }}
+          onClick={() => {
+            navigate("/profile");
+          }}
+        >
+          다음
+        </button>
+      ) : (
+        <button
+          className={styles.counselor_login_btn}
+          style={{
+            background: "#C7C7C7",
+          }}
+        >
+          다음
+        </button>
+      )}
+
       <div className={styles.team}>
         <p className={styles.info2}>TEAM B204 | Hugging</p>
         <p className={styles.info3}>

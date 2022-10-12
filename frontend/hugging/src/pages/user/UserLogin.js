@@ -36,7 +36,7 @@ function UserLogin() {
   // localStorage.setItem(
   //   "userprofile",
   //   JSON.stringify({
-  //     id: 189,
+  //     id: 284,
   //     email: "hjay1029@gmail.com",
   //     age: 11,
   //     nickname: "da",
@@ -48,6 +48,7 @@ function UserLogin() {
   //     memberMentalCategoryList: ["Loss"],
   //   })
   // );
+  // localStorage.setItem("token", 1);
   return (
     <>
       <div className={styles.main_bg}></div>

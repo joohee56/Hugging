@@ -39,3 +39,9 @@
 
 .List {
 }
+.category_title {
+  font-weight: 700;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-left: 10px;
+}

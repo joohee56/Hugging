@@ -1,12 +1,18 @@
 .back {
-  margin-left: 10px;
   padding-top: 10px;
+  background-color: white;
 }
 
-.Title {
+.margin_div {
   display: flex;
   align-items: center;
   margin-top: 65px;
+}
+.Title {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  font-family: "AppleSDGothicNeoL";
 }
 .TitleText {
   margin-left: 10px;
@@ -63,6 +69,7 @@
 
 .Text {
   margin: 0px;
+  font-family: "AppleSDGothicNeoL";
 }
 
 .Header {

@@ -32,7 +32,8 @@
   margin: auto;
   align-content: center;
   justify-content: center;
-  margin-bottom: 12px;
+  margin-top: 5px;
+  font-family: "AppleSDGothicNeoM";
 }
 
 .mission_title {
@@ -43,11 +44,13 @@
   color: gray;
   font-size: 13px;
   margin-bottom: 10px;
+  font-family: "AppleSDGothicNeoM";
 }
 
 .minutes {
   margin-left: 10px;
   color: grey;
+  font-family: "AppleSDGothicNeoL";
 }
 
 .stamp {
@@ -69,6 +72,8 @@
 .complete {
   color: white;
   font-weight: 500;
+  margin-top: 2px;
+  font-family: "AppleSDGothicNeoM";
 }
 
 .minutes {
@@ -82,4 +87,14 @@
   font-weight: 600;
   margin-bottom: 30px;
   margin-left: 5px;
+}
+
+.mission_stamp {
+  font-weight: 600;
+  font-size: 17px;
+  margin-left: 5px;
+  font-family: "AppleSDGothicNeoM";
+}
+.stamp_img {
+  margin-right: 5px;
 }

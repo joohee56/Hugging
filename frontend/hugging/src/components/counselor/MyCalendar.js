@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Calendar, { MonthView } from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import "./MyCalendar.css";
 
 // import '.;
 import axios from "axios";
@@ -26,22 +27,18 @@ function MyCalendar() {
       return counselList[i].reservationDate;
     })
   );
-
-  // const { data } = useQuery(
-  //   ["logDate", month],
-  //   async () => {
-  //     const result = await axios.get(
-  //       `/api/healthLogs?health_log_type=DIET`
-  //     );
-  //     return result.data;
-  //   },
-  //   {
-  //     onSuccess: (data: any) => {
-  //       setMark(data);
-
-  //     },
-  //   }
-  // );
+  const metaverseHandler = (e) => {
+    console.log("입장 클릭 ");
+    let url =
+      "http://j7b204.p.ssafy.io/unity/index.html?from=OneToOne&nickName=" +
+      counselorprofile.name;
+    url +=
+      "&counselId=" +
+      counselorprofile.id +
+      "&subject=" +
+      counselorprofile.subject;
+    window.open(url);
+  };
 
   return (
     <div>
@@ -84,6 +81,9 @@ function MyCalendar() {
                 <div className="reservation_counselid">
                   {counselList[i].memberNickname}
                 </div>
+                <button className="meta_btn" onClick={metaverseHandler}>
+                  <p className="enter_txt">입장하기</p>
+                </button>
               </div>
               <div className="reservation_tag">#{counselList[i].subject}</div>
             </>

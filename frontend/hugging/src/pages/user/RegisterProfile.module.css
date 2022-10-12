@@ -51,7 +51,7 @@
   display: flex;
   margin: auto;
   position: relative;
-  object-fit: contain;
+  object-fit: none;
   object-position: center;
 }
 /* .profile_circle {
@@ -118,7 +118,7 @@
   margin-top: 50px;
   border-radius: 10px;
   margin-left: 30px;
-  color: rgba(0, 0, 0, 0.7);
+  color: grey;
   display: flex;
   margin-left: auto;
   margin-right: auto;
@@ -130,6 +130,7 @@
 
 .nickname::placeholder {
   color: rgba(0, 0, 0, 0.3);
+  font-family: "AppleSDGothicNeoM";
 }
 
 #gender_age {
@@ -137,6 +138,7 @@
   display: flex;
   flex-direction: row;
   margin-left: 20px;
+  color: grey;
 }
 
 #gender_age input {
@@ -148,7 +150,7 @@
   margin-top: 5px;
   margin-left: 30px;
   border-radius: 10px;
-  color: rgba(0, 0, 0, 0.7);
+  color: grey;
 }
 
 #gender_age select {
@@ -160,12 +162,14 @@
   margin-top: 5px;
   margin-left: 5px;
   border-radius: 10px;
-  color: rgba(0, 0, 0, 0.7);
+  color: grey;
+  font-family: "AppleSDGothicNeoM";
 }
 
 #gender_age input::placeholder {
   color: rgba(0, 0, 0, 0.3);
-  text-indent: 20px;
+  text-indent: 5px;
+  font-family: "AppleSDGothicNeoM";
 }
 
 #gender_age input:focus {
@@ -296,13 +300,13 @@
 .nickname_icon {
   position: absolute;
   left: 65px;
-  top: 460px;
+  top: 456px;
 }
 
 .age_icon {
   position: absolute;
   left: 65px;
-  top: 518px;
+  top: 515px;
 }
 
 .arrow_icon {

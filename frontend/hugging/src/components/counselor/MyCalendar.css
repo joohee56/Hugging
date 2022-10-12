@@ -112,3 +112,28 @@ abbr[title] {
   display: flex;
   margin-left: 1px;
 }
+
+.meta_btn {
+  margin-top: 18px;
+  position: absolute;
+  left: 250px;
+  width: 70px;
+  height: 40px;
+  border-radius: 20px;
+  background: linear-gradient(to left, #92a3fd, #9dceff);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.enter_txt {
+  color: white;
+  font-size: 12px;
+  font-family: "AppleSDGothicNeoM";
+  margin-top: 2px;
+}
+
+.reservation_counselid {
+  font-family: "AppleSDGothicNeoM";
+}

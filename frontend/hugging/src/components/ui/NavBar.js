@@ -29,10 +29,10 @@ function Navbar() {
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.0"
-            stroke="#ADA4A5"
+            stroke="grey"
             class="w-6 h-6"
-            width="30px"
-            heigth="20px"
+            width="25px"
+            heigth="10px"
           >
             <path
               stroke-linecap="round"
