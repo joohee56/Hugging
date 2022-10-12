@@ -17,7 +17,7 @@ body {
   position: relative;
   border: none;
   overflow: auto;
-  border: solid 1px;
+  /* border: solid 1px; */
 }
 
 .App-logo {

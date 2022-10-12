@@ -12,7 +12,7 @@
   z-index: 100;
   overflow: hidden;
   background: white;
-  height: 400px;
+  height: 450px;
   width: 360px;
   margin-top: 300px;
   padding: 20px;
@@ -117,7 +117,7 @@
 }
 
 .marginDiv {
-  margin-bottom: 50px;
+  margin-bottom: 90px;
   height: 65px;
   width: 360px;
 }

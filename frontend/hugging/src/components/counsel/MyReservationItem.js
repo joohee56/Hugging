@@ -59,7 +59,14 @@ const MyReservationItem = (props) => {
   return (
     <>
       <div className={classes.item}>
-        <div className={classes.title}>나의 예약 정보</div>
+        <div className={classes.top}>
+          <span className={classes.title}>나의 예약 정보</span>
+          <img
+            src="./AIRPLANE.png"
+            alt="airplane"
+            className={classes.planeImg}
+          ></img>
+        </div>
         <div className={classes.time}>
           <span>
             <svg

@@ -90,11 +90,20 @@
   display: flex;
   margin-right: 0px;
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .date {
   margin: 0px 0px 0px 4px;
   font-size: 13px;
   font-family: "AppleSDGothicNeoM";
+}
+
+.top {
+  padding-top: 15px;
+}
+
+.planeImg {
+  width: 40px;
+  margin-left: 13px;
 }

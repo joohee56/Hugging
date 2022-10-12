@@ -44,7 +44,7 @@ const CounselRecommList = (props) => {
               <CounselorRecommItem
                 key={counselor.id}
                 profileImage={counselor.profileImage}
-                counselorId={counselor.id}
+                counselorId={counselor.counselorId}
                 name={counselor.name}
                 subject={counselor.subject}
                 average={counselor.average}

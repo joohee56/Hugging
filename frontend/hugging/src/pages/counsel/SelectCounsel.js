@@ -29,7 +29,6 @@ const SelectCounsel = () => {
     <Fragment>
       <Nav></Nav>
       <NavBar></NavBar>
-      <div className={classes.marginDivH} />
       <div className={classes.margin_div}></div>
       <div className={classes.banner}>
         <div>

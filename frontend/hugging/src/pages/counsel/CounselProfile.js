@@ -15,6 +15,7 @@ const CounselProfile = () => {
   const dispatch = useDispatch();
 
   const params = useParams();
+  console.log("상담사 ID");
   console.log(params.counselorId); // 상담사 Id
 
   const [profile, setProfile] = useState();
