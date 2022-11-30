@@ -220,9 +220,16 @@
 
 - [와이어 프레임](https://www.figma.com/file/UMwRVfUeCFs2bUAPA4dwPO/Hugging?node-id=0%3A1)
 
-- [ERD](https://www.google.com/url?q=https://www.erdcloud.com/d/Lu4txFFatKsjZjNSy&amp;sa=D&amp;source=editors&amp;ust=1665409049197761&amp;usg=AOvVaw0-BP6mWdj5M5lmPCAex3d9)
+- [ERD](https://www.erdcloud.com/d/Lu4txFFatKsjZjNSy)
 
-- 포팅 메뉴얼
+- [포팅 메뉴얼](https://github.com/SSAFY-Hugging/Hugging/blob/main/exec/B204_%ED%8F%AC%ED%8C%85%EB%AC%B8%EC%84%9C.pdf)
+
+- [회의록](https://denim-beechnut-408.notion.site/d6fa4efdda094625a50c219cdd4f03d1)
+
+- [데일리 스크럼](https://denim-beechnut-408.notion.site/efc532184c034994a7f5769cea7b006b)
+
+- [외부 API 문서](https://github.com/SSAFY-Hugging/Hugging/blob/main/exec/B204_%EC%99%B8%EB%B6%80_API_%EB%AA%85%EC%84%B8%EC%84%9C.pdf)
+
 
   <br>
 
