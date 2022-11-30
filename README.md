@@ -5,7 +5,7 @@
 </div>
 
 <div align="center">
- <h3><b>Hugging</b></h3>
+ <h3><b>Hugging 🤗</b></h3>
 언택트 마음챙김 웹서비스<br><br>
   삼성 청년 SW 아카데미 특화 프로젝트<br>
   2022.09.29 ~ 2022.10.07
@@ -228,5 +228,21 @@
 
 ## 팀원 소개 👪
 
-- Backend : 유일권, 송예림, 최주희
-- Frontend: 김호진, 이주희, 조성규
+
+<table>
+    <tr>
+        <td height="140px" align="center"> <a href="https://github.com/Qulip">
+            <img src="https://avatars.githubusercontent.com/Qulip" width="140px" /> <br> 👑 유일권 <br>(Back-End) </a> <br></td>
+        <td height="140px" align="center"> <a href="https://github.com/hjay1029">
+            <img src="https://avatars.githubusercontent.com/hjay1029" width="140px" /> <br> 😉 김호진 <br>(Front-End) </a> <br></td>
+        <td height="140px" align="center"> <a href="https://github.com/yerim8373">
+            <img src="https://avatars.githubusercontent.com/yerim8373" width="140px" />  <br> 😎 송예림 <br>(Back-End) </a> <br></td>
+        <td height="140px" align="center"> <a href="https://github.com/sungkyu523">
+            <img src="https://avatars.githubusercontent.com/sungkyu523" width="140px" /> <br> 😮 조성규 <br>(Front-End) </a> <br></td>
+        <td height="140px" align="center"> <a href="https://github.com/J00HUI">
+            <img src="https://avatars.githubusercontent.com/J00HUI" width="140px" /> <br> 😁 이주희 <br>(Front-End) </a> <br></td>
+        <td height="140px" align="center"> <a href="https://github.com/choijoohee213">
+            <img src="https://avatars.githubusercontent.com/choijoohee213" width="140px" /> <br> 😊 최주희 <br>(Back-End) </a> <br></td>
+    </tr>
+</table>
+<br>
