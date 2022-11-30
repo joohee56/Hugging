@@ -11,7 +11,7 @@
   2022.09.29 ~ 2022.10.07
   <br><br>
 
-  [Notion](https://denim-beechnut-408.notion.site/Hugging-6a51d8c22b494978ae2626b962e9266d)  |  [UCC]()
+  [Notion](https://denim-beechnut-408.notion.site/Hugging-6a51d8c22b494978ae2626b962e9266d)  |  [UCC](https://youtu.be/WbSxhAURWtE)
 </div>
 <br/>
 
